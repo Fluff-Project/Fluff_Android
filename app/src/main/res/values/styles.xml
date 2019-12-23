@@ -8,4 +8,88 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="RoundEditText">
+        <item name="android:background">@drawable/et_round_corner</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+    <style name="TextView_For_EditText">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/colorForTextView</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+    <style name="BlackButton" parent="TextAppearance.AppCompat.Button">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@drawable/btn_black</item>
+    </style>
+    <style name = "HomeTitleText">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+    <style name = "HomeSubTitleText">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_marginBottom">26dp</item>
+    </style>
+    <style name ="HomeRcName">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginBottom">2dp</item>
+    </style>
+    <style name ="HomeRcPrice">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_marginBottom">2dp</item>
+    </style>
+    <style name ="HomeRcFollowName">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:layout_marginBottom">2dp</item>
+    </style>
+    <style name ="HomeRcFollowhashtag">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:layout_marginBottom">6dp</item>
+    </style>
+
+    <style name="RoundFollowBtn">
+        <item name="android:background">@drawable/btn_recycler_follow</item>
+        <item name="android:paddingLeft">26dp</item>
+        <item name="android:paddingRight">26dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="myRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:minHeight">2dp</item>
+        <item name="android:scaleX">.5</item>
+        <item name="android:scaleY">.5</item>
+    </style>
+
+    <style name ="HomeRcOctionTitle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginBottom">14dp</item>
+    </style>
+
+    <style name ="HomeRcOctionCloset">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginTop">156dp</item>
+        <item name="android:layout_marginBottom">2dp</item>
+    </style>
+
+
+
+
 </resources>
