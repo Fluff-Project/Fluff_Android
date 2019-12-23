@@ -33,7 +33,7 @@ data class  HomeKeywordData(
 
 )
 
-data class HomeOctionData(
+data class HomeAuctionData(
     var img: String,
     var title: String,
     var closet :String

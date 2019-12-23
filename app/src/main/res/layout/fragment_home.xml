@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragment.HomeFragment">
 
     <ScrollView
@@ -14,6 +15,23 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="256dp">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/vp_home_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="484dp"/>
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tl_home_viewpager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:tabIndicatorHeight="0dp"/>
+
+            </RelativeLayout>
             <RelativeLayout
             android:id="@+id/rl_home_new"
             android:layout_width="match_parent"
@@ -54,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="70dp"
-                android:layout_marginRight="16dp"/>
+                />
 
             <RelativeLayout
                 android:id="@+id/rl_home_recent"
@@ -141,12 +159,12 @@
                 android:layout_marginRight="16dp"/>
 
             <RelativeLayout
-                android:id="@+id/rl_home_oction"
+                android:id="@+id/rl_home_auction"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/tv_home_octiontitle"
+                    android:id="@+id/tv_home_auctiontitle"
                     style="@style/HomeTitleText"
                     android:layout_marginLeft="16dp"
                     android:layout_width="wrap_content"
@@ -155,17 +173,17 @@
                     android:text="현재 진행되는 경매" />
 
                 <TextView
-                    android:id="@+id/tv_home_octionsubtitle"
+                    android:id="@+id/tv_home_auctionsubtitle"
                     style="@style/HomeSubTitleText"
                     android:layout_marginLeft="16dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_home_octiontitle"
+                    android:layout_below="@id/tv_home_auctiontitle"
                     android:text="플러프에만 있는 유니크 빈티지"
                     android:layout_marginBottom="0dp"/>
 
                 <ImageButton
-                    android:id="@+id/imgbtn_home_octionicon"
+                    android:id="@+id/imgbtn_home_auctionicon"
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:layout_marginRight="16dp"
@@ -175,7 +193,7 @@
             </RelativeLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_home_oction"
+                android:id="@+id/rv_home_auction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"

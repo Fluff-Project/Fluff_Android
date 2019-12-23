@@ -21,6 +21,7 @@
         style="@style/HomeRcOctionCloset"
         android:text="TextView"
         android:layout_alignParentLeft="true"
+        android:layout_above="@+id/tv_rv_title"
         android:layout_alignParentTop="true"/>
 
     <TextView
@@ -30,6 +31,6 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:layout_marginBottom="14dp"
-        android:layout_below="@id/tv_rv_closet"
+        android:layout_alignBottom="@+id/img_rv_closet"
         android:layout_alignParentLeft="true"/>
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.fragment.Home.HomeRecycler.RecyclerPlub
+package kr.market.fluff.ui.fragment.Home.home_recycler.recycler_plub
 
 import android.view.View
 import android.widget.Button

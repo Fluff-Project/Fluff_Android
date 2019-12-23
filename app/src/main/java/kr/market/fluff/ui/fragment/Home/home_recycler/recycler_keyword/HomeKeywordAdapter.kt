@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.fragment.Home.HomeRecycler.RecyclerKeyword
+package kr.market.fluff.ui.fragment.Home.home_recycler.recycler_keyword
 
 import android.view.LayoutInflater
 import android.view.View

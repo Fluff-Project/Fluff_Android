@@ -15,15 +15,6 @@
         <item name="android:paddingBottom">12dp</item>
         <item name="android:textSize">16dp</item>
     </style>
-    <style name="TextView_For_EditText">
-        <item name="android:textSize">16dp</item>
-        <item name="android:textColor">@color/colorForTextView</item>
-        <item name="android:layout_marginBottom">8dp</item>
-    </style>
-    <style name="BlackButton" parent="TextAppearance.AppCompat.Button">
-        <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:background">@drawable/btn_black</item>
-    </style>
     <style name = "HomeTitleText">
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">@color/colorBlack</item>
@@ -70,8 +61,6 @@
 
     <style name="myRatingBar" parent="@android:style/Widget.RatingBar">
         <item name="android:minHeight">2dp</item>
-        <item name="android:scaleX">.5</item>
-        <item name="android:scaleY">.5</item>
     </style>
 
     <style name ="HomeRcOctionTitle">
@@ -90,6 +79,13 @@
     </style>
 
 
-
-
+    <style name="TextView_For_EditText">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/colorForTextView</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+    <style name="BlackButton" parent="TextAppearance.AppCompat.Button">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@drawable/btn_black</item>
+    </style>
 </resources>
