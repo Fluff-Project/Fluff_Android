@@ -24,6 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/RoundEditText"
+        android:hint="이메일"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginTop="8dp"
@@ -50,12 +51,14 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
+        android:hint="비밀번호"
         android:layout_marginTop="8dp"
         android:inputType="textPassword"
         android:padding="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_login_pw" />
+
 
     <Button
         android:id="@+id/btn_login_login"
@@ -88,6 +91,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login_login" />
+
+    <CheckBox
+        android:id="@+id/cb_login_auto_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="자동 로그인"
+        app:layout_constraintStart_toStartOf="@+id/et_login_pw"
+        app:layout_constraintTop_toBottomOf="@+id/et_login_pw" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,13 +5,13 @@
     android:icon="@drawable/ic_home"
     android:title="홈"/>
     <item
-    android:id="@+id/nav_auction"
-    android:icon="@drawable/ic_shopping"
-    android:title="경매"/>
-    <item
     android:id="@+id/nav_glance"
     android:icon="@drawable/ic_glance"
     android:title="둘러보기"/>
+    <item
+        android:id="@+id/nav_auction"
+        android:icon="@drawable/ic_shopping"
+        android:title="경매"/>
     <item
         android:id="@+id/nav_magazine"
         android:icon="@drawable/ic_magazine"
