@@ -7,5 +7,13 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
+    <style name="TextView_For_EditText">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/colorForTextView</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+    <style name="BlackButton" parent="TextAppearance.AppCompat.Button">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@drawable/btn_black</item>
+    </style>
 </resources>
