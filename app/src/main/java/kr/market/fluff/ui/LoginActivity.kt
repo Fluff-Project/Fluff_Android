@@ -20,13 +20,10 @@ class LoginActivity : AppCompatActivity() {
         init()
     }
     private fun init(){
-        tv_register.setOnClickListener{
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivityForResult(intent,100)
-        }
-        btn_login.setOnClickListener{
-            id_string = et_id.text.toString()
-            pw_string = et_pw.text.toString()
+        //tv_login_find.setOnClickListener{}
+        btn_login_login.setOnClickListener{
+            id_string = et_login_email.text.toString()
+            pw_string = et_login_pw.text.toString()
             if(id_string.equals("")||pw_string.equals("")){
                 messageToastShow("빈칸 없이 입력해주세요")
                 return@setOnClickListener
@@ -54,6 +51,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     //회원가입 하고 돌아왔을 때 처리
+    /*
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when{
@@ -70,6 +68,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
+    */
     private fun messageToastShow(message : String){
         val toast = Toast.makeText(this,message, Toast.LENGTH_SHORT)
         toast.show()

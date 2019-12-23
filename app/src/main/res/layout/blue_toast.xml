@@ -21,6 +21,8 @@
         android:layout_marginLeft="16dp"
         android:id="@+id/tv_toast_message"
         android:layout_width="wrap_content"
+        android:fontFamily="@font/ko_pub"
+        android:textFontWeight="900"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="토스트에 해당하는 메세지 부분입니다"

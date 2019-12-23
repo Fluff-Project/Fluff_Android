@@ -11,7 +11,7 @@ import kr.market.fluff.R
 import kr.market.fluff.ui.fragment.AuctionFragment
 import kr.market.fluff.ui.fragment.GlanceFragment
 import kr.market.fluff.ui.fragment.HomeFragment
-import kr.market.fluff.ui.fragment.MagazineFragment
+import kr.market.fluff.ui.fragment.magazine.MagazineFragment
 import kr.market.fluff.ui.fragment.MyPageFragment
 
 
