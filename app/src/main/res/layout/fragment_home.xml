@@ -17,22 +17,32 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="58dp">
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/vp_home_viewpager"
                 android:layout_width="match_parent"
                 android:layout_height="484dp"/>
 
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tl_home_viewpager"
+                <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                    android:id="@+id/dots_indicator"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:tabIndicatorHeight="0dp"
+                    app:dotsColor="#adadad"
+                    app:dotsCornerRadius="8dp"
+                    app:dotsSize="5dp"
+                    app:dotsSpacing="4dp"
+                    app:dotsWidthFactor="2.5"
+                    app:selectedDotColor="#3f1a53"
+                    app:progressMode="true"
                     android:layout_marginTop="14dp"
                     android:layout_centerHorizontal="true"
                     android:layout_below="@id/vp_home_viewpager"
-                    android:layout_alignParentBottom="true"/>
+                    android:layout_alignParentBottom="true">
+
+                </com.tbuonomo.viewpagerdotsindicator.DotsIndicator>
+
 
             </RelativeLayout>
 
@@ -356,7 +366,7 @@
                 android:orientation="vertical"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="75dp"
-                android:layout_marginLeft="16dp"/>
+                />
 
 
         </LinearLayout>

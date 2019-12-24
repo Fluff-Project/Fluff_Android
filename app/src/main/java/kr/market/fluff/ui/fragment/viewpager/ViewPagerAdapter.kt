@@ -11,17 +11,24 @@ class ViewPagerAdapter(fm: FragmentManager?, val num_fragment : Int) :FragmentSt
     override fun getItem(p0: Int): Fragment {
 
         var fragment : HomeSliderFragment = HomeSliderFragment()
-        var bundle : Bundle = Bundle(1)
+        var bundle : Bundle = Bundle(3)
 
         when(p0){
-            0->bundle.putInt("background_img", R.drawable.main_viewpager)
-            1->bundle.putInt("background_img", Color.YELLOW)
-            2->bundle.putInt("background_img", Color.GREEN)
-
+            0-> { bundle.putInt("background_img", R.drawable.main_viewpager)
+                bundle.putString("main","벨벳 Velvet")
+                  bundle.putString("subtitle","겨울 빈티지의 정수")
+                  }
+            1-> { bundle.putInt("background_img", R.drawable.main_viewpager)
+                  bundle.putString("subtitle","겨울 빈티지의 정수")
+                  bundle.putString("main","벨벳 Velvet") }
+            2-> { bundle.putInt("background_img", R.drawable.main_viewpager)
+                  bundle.putString("main","벨벳 Velvet")
+                  bundle.putString("subtitle","겨울 빈티지의 정수") }
         }
         fragment.arguments  = bundle
         return fragment
     }
+
 
     override fun getCount(): Int {
         return num_fragment

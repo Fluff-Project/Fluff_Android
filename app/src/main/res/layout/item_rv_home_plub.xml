@@ -15,6 +15,7 @@
         android:src="@color/colorBlack"
         android:layout_marginTop="24dp"
         android:layout_marginLeft="18dp"
+        android:layout_marginBottom="24dp"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         />
@@ -28,22 +29,33 @@
         android:layout_height="wrap_content"/>
 
     <TextView
-        android:id="@+id/tv_rv_hashtag"
+        android:id="@+id/tv_rv_hashtag1"
         android:text="#해쉬테그"
+        android:layout_marginLeft="14dp"
         style="@style/HomeRcFollowhashtag"
         android:layout_below="@id/tv_rv_name"
         android:layout_toRightOf="@id/img_rv_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+    <TextView
+        android:id="@+id/tv_rv_hashtag2"
+        android:text="#해쉬테그"
+        style="@style/HomeRcFollowhashtag"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@id/tv_rv_hashtag1"
+        android:layout_below="@id/tv_rv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <RatingBar
         android:id="@+id/rb_rv_star"
         style="@style/myRatingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_rv_hashtag"
-        android:layout_marginLeft="23dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="137dp"
+        android:layout_height="35dp"
+        android:layout_below="@id/tv_rv_hashtag1"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="4dp"
         android:layout_toRightOf="@id/img_rv_profile"
         android:isIndicator="true"
         android:numStars="5"
@@ -54,13 +66,13 @@
         android:id="@+id/btn_rv_follow"
         style="@style/RoundFollowBtn"
         android:text="팔로우"
-        android:textSize="12dp"
-        android:layout_width="92dp"
+        android:layout_width="88dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="72dp"
-        android:layout_marginRight="15dp"
-        android:layout_height="30dp"/>
+        android:layout_marginTop="68dp"
+        android:layout_marginRight="14dp"
+        android:layout_height="28dp"
+        />
         
 
 

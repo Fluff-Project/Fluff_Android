@@ -48,32 +48,50 @@
         <item name="android:letterSpacing">-0.08</item>
         <item name="android:lineSpacingExtra">4sp</item>
     </style>
-    <style name ="HomeRcFollowName">
-        <item name="android:textSize">17sp</item>
+    <style name ="HomeRcFollowName"> <!-- home follower 이름 style-->
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/ko_pub_dotum_bold</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:lineSpacingExtra">9sp</item>
         <item name="android:textColor">@color/colorBlack</item>
         <item name="android:layout_marginTop">32dp</item>
-        <item name="android:layout_marginLeft">12dp</item>
-        <item name="android:layout_marginBottom">2dp</item>
+        <item name="android:layout_marginLeft">14dp</item>
     </style>
-    <style name ="HomeRcFollowhashtag">
-        <item name="android:textSize">12sp</item>
+
+    <style name ="HomeRcFollowhashtag"> <!-- home folloower 해쉬태그 이름 style -->
+        <item name="android:textSize">11sp</item>
+        <item name="android:fontFamily">@font/ko_pub_dotum_medium</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="android:gravity">center_horizontal</item>
         <item name="android:textColor">@color/colorBlack</item>
-        <item name="android:layout_marginLeft">12dp</item>
-        <item name="android:layout_marginBottom">6dp</item>
     </style>
 
     <style name="RoundFollowBtn">
         <item name="android:background">@drawable/btn_recycler_follow</item>
-        <item name="android:paddingLeft">26dp</item>
-        <item name="android:paddingRight">26dp</item>
-        <item name="android:paddingTop">8dp</item>
-        <item name="android:paddingBottom">8dp</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingRight">24dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:fontFamily">@font/ko_pub_dotum_bold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">-0.04</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_marginLeft">14dp</item>
+        <item name="android:layout_marginBottom">6dp</item>
     </style>
 
+
     <style name="myRatingBar" parent="@android:style/Widget.RatingBar"> <!-- 홈 팔로워 별점 -->
-        <item name="android:minHeight">2dp</item>
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/custom_ratingbar_full</item>
+        <item name="android:minHeight">80dip</item>
+        <item name="android:maxHeight">80dip</item>
+        <item name="android:thumb">@null</item>
     </style>
+
 
     <style name ="HomeRvAuctionTitle">  <!-- home recycler 경매 타이틀 style-->
         <item name="android:textSize">19sp</item>
@@ -117,6 +135,23 @@
         <item name="android:textColorPrimary">@android:color/white</item>       <!-- 탭바 선택된 텍스트 -->
         <item name="android:textColorSecondary">@android:color/black</item>     <!-- 탭바 텍스트 -->
         <item name="colorAccent">@android:color/white</item>                    <!-- 하단 움직이는 바 색-->
+    </style>
+
+
+    <style name ="HomeVpTitle"> <!-- home Viewpager title style-->
+        <item name="android:textSize">27sp</item>
+        <item name="android:fontFamily">@font/scdream5</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:lineSpacingExtra">-4sp</item>
+    </style>
+
+    <style name ="HomeVpSubTitle"> <!-- home Viewpager sub title style-->
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/scdream2</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:lineSpacingExtra">8sp</item>
     </style>
 
 
