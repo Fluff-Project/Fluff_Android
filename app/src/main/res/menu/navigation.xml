@@ -6,11 +6,11 @@
     android:title="홈"/>
     <item
     android:id="@+id/nav_glance"
-    android:icon="@drawable/ic_glance"
+    android:icon="@drawable/ic_search"
     android:title="둘러보기"/>
     <item
         android:id="@+id/nav_auction"
-        android:icon="@drawable/ic_shopping"
+        android:icon="@drawable/ic_auction"
         android:title="경매"/>
     <item
         android:id="@+id/nav_magazine"
