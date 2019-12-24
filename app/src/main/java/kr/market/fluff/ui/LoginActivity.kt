@@ -35,6 +35,33 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this,RegisterActivity::class.java)
             startActivity(intent)
         }
+        btn_login_login.setOnClickListener{
+            id_string = et_login_email.text.toString()
+            pw_string = et_login_pw.text.toString()
+            if(id_string.equals("")||pw_string.equals("")){
+                messageToastShow("빈칸 없이 입력해주세요")
+                return@setOnClickListener
+            }else{
+                val requestLoginToServer = requestToServer.service.requestLogin(id_string,pw_string)
+                requestLoginToServer.enqueue(
+                    onResponse = {
+                            response ->
+                        if(response.isSuccessful){
+                            if(response.body()!!.success){
+                                messageToastShow("로그인 되었습니다.")
+                                val intent = Intent(this@LoginActivity,MainActivity::class.java)
+                                intent.putExtra("userID",id_string)
+                                intent.putExtra("userPassword",pw_string)
+                                startActivity(intent)
+                                finish()
+                            }else{
+                                messageToastShow("로그인 실패")
+                            }
+                        }
+                    }
+                )
+            }
+        }
     }
     private fun logoAnim(){
         val anims = AnimatorSet()
@@ -73,6 +100,13 @@ class LoginActivity : AppCompatActivity() {
         anims.playTogether(fade,fade2,fade3,fade4,blur)
         anims.setDuration(1000)
         anims.start()
+    }
+    private fun backGroundAnim(){
+        val fade = ObjectAnimator.ofFloat(img_intro_splash2, View.ALPHA, 1.0f, 0.0f)
+        fade.setDuration(2000)
+        val fade2 = ObjectAnimator.ofFloat(img_intro_splash, View.ALPHA, 0.0f, 1.0f)
+        fade2.setDuration(2000)
+        fade.start()
     }
     private fun startAnim(){
         logoAnim()
@@ -117,40 +151,9 @@ class LoginActivity : AppCompatActivity() {
         }
     }
     private fun init(){
-        val fade = ObjectAnimator.ofFloat(img_intro_splash2, View.ALPHA, 1.0f, 0.0f)
-        fade.setDuration(2000)
-        val fade2 = ObjectAnimator.ofFloat(img_intro_splash, View.ALPHA, 0.0f, 1.0f)
-        fade2.setDuration(2000)
-        fade.start()
+        backGroundAnim()
         setListener()
-        //tv_login_find.setOnClickListener{}
-        btn_login_login.setOnClickListener{
-            id_string = et_login_email.text.toString()
-            pw_string = et_login_pw.text.toString()
-            if(id_string.equals("")||pw_string.equals("")){
-                messageToastShow("빈칸 없이 입력해주세요")
-                return@setOnClickListener
-            }else{
-                val requestLoginToServer = requestToServer.service.requestLogin(id_string,pw_string)
-                requestLoginToServer.enqueue(
-                    onResponse = {
-                            response ->
-                        if(response.isSuccessful){
-                            if(response.body()!!.success){
-                                messageToastShow("로그인 되었습니다.")
-                                val intent = Intent(this@LoginActivity,MainActivity::class.java)
-                                intent.putExtra("userID",id_string)
-                                intent.putExtra("userPassword",pw_string)
-                                startActivity(intent)
-                                finish()
-                            }else{
-                                messageToastShow("로그인 실패")
-                            }
-                        }
-                    }
-                )
-            }
-        }
+
     }
 
     //회원가입 하고 돌아왔을 때 처리

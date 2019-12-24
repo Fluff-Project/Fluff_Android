@@ -14,9 +14,6 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".ui.PurchaseActivity"></activity>
-        <activity android:name=".ui.IntroActivity">
-
-        </activity>
         <activity android:name=".ui.RegisterActivity" />
         <activity android:name=".ui.LoginActivity" />
         <activity android:name=".ui.cart.CartActivity">
