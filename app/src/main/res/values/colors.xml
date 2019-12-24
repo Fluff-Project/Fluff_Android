@@ -13,6 +13,7 @@
     <color name="colorProgress">#333333</color>
     <color name="colorTransparent">#00000000</color>
     <color name="colorGray">#999999</color>
+    <color name="colorLightGrey">#b7b7b7</color>
 
     
 </resources>

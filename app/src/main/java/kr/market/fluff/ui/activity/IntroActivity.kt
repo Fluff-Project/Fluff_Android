@@ -1,4 +1,4 @@
-package kr.market.fluff.ui
+package kr.market.fluff.ui.activity
 
 import android.animation.ObjectAnimator
 import android.content.Intent
@@ -19,11 +19,11 @@ class IntroActivity : AppCompatActivity() {
     }
     private fun init(){
         tv_intro_register.setOnClickListener{
-            val intent = Intent(this,RegisterActivity::class.java)
+            val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
         btn_intro_login.setOnClickListener{
-            val intent = Intent(this,LoginActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
         val fade = ObjectAnimator.ofFloat(img_intro_splash, View.ALPHA, 1.0f, 0.0f)

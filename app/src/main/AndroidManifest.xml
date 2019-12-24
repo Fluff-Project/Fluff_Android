@@ -12,18 +12,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.PurchaseActivity"></activity>
-        <activity android:name=".ui.DetailItemActivity" />
-        <activity android:name=".ui.IntroActivity">
+        <activity android:name=".ui.activity.MyStyle.RecommendStyleActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.MyStyle.MyStyleActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.PurchaseActivity" />
+        <activity android:name=".ui.activity.IntroActivity"></activity>
+        <activity android:name=".ui.activity.RegisterActivity" />
+        <activity android:name=".ui.activity.LoginActivity" />
+        <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.RegisterActivity" />
-        <activity android:name=".ui.LoginActivity" />
-        <activity android:name=".ui.MainActivity" />
     </application>
 
 </manifest>

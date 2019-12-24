@@ -1,4 +1,4 @@
-package kr.market.fluff.ui
+package kr.market.fluff.ui.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -35,7 +35,8 @@ class LoginActivity : AppCompatActivity() {
                         if(response.isSuccessful){
                             if(response.body()!!.success){
                                 messageToastShow("로그인 되었습니다.")
-                                val intent = Intent(this@LoginActivity,MainActivity::class.java)
+                                val intent = Intent(this@LoginActivity,
+                                    MainActivity::class.java)
                                 intent.putExtra("userID",id_string)
                                 intent.putExtra("userPassword",pw_string)
                                 startActivity(intent)
