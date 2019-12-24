@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TableLayout
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
@@ -85,11 +86,12 @@ class HomeFragment : Fragment() {
             }
 
             override fun onTabUnselected(p0: TabLayout.Tab?) {
-                p0!!.customView?.setBackgroundColor(resources.getColor(R.color.colorWhite))
+                p0!!.customView?.background=ContextCompat.getDrawable(context!!,R.drawable.main_viewpager)
             }
 
             override fun onTabSelected(p0: TabLayout.Tab?) {
-                p0!!.customView?.setBackgroundColor(resources.getColor(R.color.colorBlack))
+                p0!!.customView?.background=ContextCompat.getDrawable(context!!,R.drawable.main_viewpager)
+
             }
         })
 
@@ -174,9 +176,9 @@ class HomeFragment : Fragment() {
     fun makeKeywordRecycler(view : View)
     {
         keyword_datas = listOf(
-            HomeKeywordData("#스카프","http://www.mediasr.co.kr/news/photo/201710/37992_4621_0311.png"),
-            HomeKeywordData("#데님","http://www.mediasr.co.kr/news/photo/201710/37992_4621_0311.png"),
-            HomeKeywordData("#중절모","http://www.mediasr.co.kr/news/photo/201710/37992_4621_0311.png")
+            HomeKeywordData("#스카프",R.drawable.img_keyword),
+            HomeKeywordData("#데님",R.drawable.img_keyword),
+            HomeKeywordData("#중절모",R.drawable.img_keyword)
 
 
         )

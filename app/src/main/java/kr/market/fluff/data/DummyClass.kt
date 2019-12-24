@@ -29,7 +29,7 @@ data class  HomePlubData(
 
 data class  HomeKeywordData(
     var title : String,
-    var img : String
+    var img : Int
 
 )
 

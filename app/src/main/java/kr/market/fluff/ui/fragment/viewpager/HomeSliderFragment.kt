@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.fragment_home_slider.*
 
 import kr.market.fluff.R
@@ -26,8 +27,8 @@ class HomeSliderFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val color:Int = arguments!!.getInt("background_color")
-        img_fragment_slider_home.setBackgroundColor(color)
+        val img:Int = arguments!!.getInt("background_img")
+        img_fragment_slider_home.background = ContextCompat.getDrawable(context!!,R.drawable.main_viewpager)
 
     }
 
