@@ -7,10 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TableLayout
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
 import kotlinx.android.synthetic.main.fragment_home.*
 import kr.market.fluff.R
 import kr.market.fluff.data.*
@@ -69,29 +73,13 @@ class HomeFragment : Fragment() {
     }
     fun makeHomeViewPager(view : View)
     {
-        vp_home_viewpager.adapter = ViewPagerAdapter(childFragmentManager,3)
+        val dotsIndicator= view.findViewById<DotsIndicator>(R.id.dots_indicator)
+        val viewPager = view.findViewById<ViewPager>(R.id.vp_home_viewpager)
+        val adapter = ViewPagerAdapter(childFragmentManager,3)
+        viewPager.adapter = adapter
+        dotsIndicator.setViewPager(viewPager)
+        vp_home_viewpager.adapter = adapter
         vp_home_viewpager.offscreenPageLimit=2
-        tl_home_viewpager.setupWithViewPager(vp_home_viewpager)
-
-        val indicator_main_layout : View = (context!!.getSystemService(android.content.Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater)
-            .inflate(R.layout.item_indicator_main,null,false)
-
-        tl_home_viewpager.getTabAt(0)!!.customView = indicator_main_layout.findViewById(R.id.img_indicator_main_1) as ImageView
-        tl_home_viewpager.getTabAt(1)!!.customView = indicator_main_layout.findViewById(R.id.img_indicator_main_2) as ImageView
-        tl_home_viewpager.getTabAt(2)!!.customView = indicator_main_layout.findViewById(R.id.img_indicator_main_3) as ImageView
-
-        tl_home_viewpager.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
-            override fun onTabReselected(p0: TabLayout.Tab?) {
-            }
-
-            override fun onTabUnselected(p0: TabLayout.Tab?) {
-                p0!!.customView?.setBackgroundColor(resources.getColor(R.color.colorWhite))
-            }
-
-            override fun onTabSelected(p0: TabLayout.Tab?) {
-                p0!!.customView?.setBackgroundColor(resources.getColor(R.color.colorBlack))
-            }
-        })
 
 
     }
@@ -158,11 +146,11 @@ class HomeFragment : Fragment() {
     {
         plub_datas = listOf(
             HomePlubData("https://previews.123rf.com/images/margolana/margolana1511/margolana151100248/48654416-%EA%B0%9C%EC%B2%B4-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9D%98-%EA%B2%A8%EC%9A%B8-%EC%98%B7-%EA%B7%B8%EB%A3%B9%EC%9D%80-%ED%8C%A8%EC%85%98-%EC%9A%94%EC%86%8C-%EB%82%A8%EC%9E%90-%EC%9D%98%EB%A5%98-%EC%84%B8%ED%8A%B8.jpg",
-                "셀러1","해쉬테그1","팔로우"),
+                "셀러1","해쉬테그1","해쉬테그2","팔로우"),
             HomePlubData("https://previews.123rf.com/images/margolana/margolana1511/margolana151100248/48654416-%EA%B0%9C%EC%B2%B4-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9D%98-%EA%B2%A8%EC%9A%B8-%EC%98%B7-%EA%B7%B8%EB%A3%B9%EC%9D%80-%ED%8C%A8%EC%85%98-%EC%9A%94%EC%86%8C-%EB%82%A8%EC%9E%90-%EC%9D%98%EB%A5%98-%EC%84%B8%ED%8A%B8.jpg",
-                "셀러2","해쉬테그2","팔로우"),
+                "셀러2","해쉬테그1","해쉬테그2","팔로우"),
             HomePlubData("https://previews.123rf.com/images/margolana/margolana1511/margolana151100248/48654416-%EA%B0%9C%EC%B2%B4-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9D%98-%EA%B2%A8%EC%9A%B8-%EC%98%B7-%EA%B7%B8%EB%A3%B9%EC%9D%80-%ED%8C%A8%EC%85%98-%EC%9A%94%EC%86%8C-%EB%82%A8%EC%9E%90-%EC%9D%98%EB%A5%98-%EC%84%B8%ED%8A%B8.jpg",
-                "셀러3","해쉬테그3","팔로우")
+                "셀러3","해쉬테그1","해쉬테그2","팔로우")
         )
         rv_home_plub = view.findViewById(R.id.rv_home_plub)
         plubAdapter = HomePlubAdapter(plub_datas)
@@ -174,9 +162,9 @@ class HomeFragment : Fragment() {
     fun makeKeywordRecycler(view : View)
     {
         keyword_datas = listOf(
-            HomeKeywordData("#스카프","http://www.mediasr.co.kr/news/photo/201710/37992_4621_0311.png"),
-            HomeKeywordData("#데님","http://www.mediasr.co.kr/news/photo/201710/37992_4621_0311.png"),
-            HomeKeywordData("#중절모","http://www.mediasr.co.kr/news/photo/201710/37992_4621_0311.png")
+            HomeKeywordData("#스카프",R.drawable.img_keyword),
+            HomeKeywordData("#데님",R.drawable.img_keyword),
+            HomeKeywordData("#중절모",R.drawable.img_keyword)
 
 
         )

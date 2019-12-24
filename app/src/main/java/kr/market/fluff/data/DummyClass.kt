@@ -23,13 +23,14 @@ data class HomeRecommendData(
 data class  HomePlubData(
     var img : String,
     var title: String,
-    var hashtag: String,
+    var hashtag1 : String,
+    var hashtag2 : String,
     var btn : String
 )
 
 data class  HomeKeywordData(
     var title : String,
-    var img : String
+    var img : Int
 
 )
 
