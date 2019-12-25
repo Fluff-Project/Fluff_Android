@@ -20,11 +20,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.PurchaseActivity" />
-        <activity android:name=".ui.RegisterActivity" />
-        <activity android:name=".ui.LoginActivity"></activity>
-        <activity android:name=".ui.cart.CartActivity"></activity>
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.activity.RecommendStyle.RecommendStyleActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.MyStyle.MyStyleActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.PurchaseActivity" />
+        <activity android:name=".ui.activity.IntroActivity"></activity>
+        <activity android:name=".ui.activity.RegisterActivity" />
+        <activity android:name=".ui.activity.LoginActivity" />
+        <activity android:name=".ui.cart.CartActivity">
+        </activity>
+        <activity android:name=".ui.activity.MainActivity">
 
         </activity>
     </application>

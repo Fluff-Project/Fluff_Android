@@ -55,7 +55,7 @@ class FavoriteMarketFragment : Fragment() {
             FavoriteMarketData(
                 img_favorite_market_seller ="https://cdn.pixabay.com/photo/2019/12/15/08/14/body-painting-4696539__340.jpg",
                 txt_seller_name="한나둘셋",
-                num_stars=3.8f,
+                num_stars=5.0f,
                 txt_tag1="#울집액이",
                 txt_tag2="#혀짧음"
             )
@@ -64,7 +64,7 @@ class FavoriteMarketFragment : Fragment() {
             FavoriteMarketData(
                 img_favorite_market_seller ="https://cdn.pixabay.com/photo/2016/12/19/21/36/winters-1919143__340.jpg",
                 txt_seller_name="수연체동물",
-                num_stars=3.9f,
+                num_stars=5.0f,
                 txt_tag1="#빈티지덕후",
                 txt_tag2="#멘탈잘나감"
             )
@@ -73,7 +73,7 @@ class FavoriteMarketFragment : Fragment() {
             FavoriteMarketData(
                 img_favorite_market_seller ="https://cdn.pixabay.com/photo/2015/09/18/11/46/man-945482__340.jpg",
                 txt_seller_name="동미니어처",
-                num_stars=4.1f,
+                num_stars=5.0f,
                 txt_tag1="#프로밤샘러",
                 txt_tag2="#축구할래?"
             )
@@ -82,7 +82,7 @@ class FavoriteMarketFragment : Fragment() {
             FavoriteMarketData(
                 img_favorite_market_seller ="https://cdn.pixabay.com/photo/2018/01/15/07/52/woman-3083390__340.jpg",
                 txt_seller_name="다예술이야",
-                num_stars=3.9f,
+                num_stars=5.0f,
                 txt_tag1="#준 김치찌개 장인",
                 txt_tag2="#1학년으로..?"
             )
@@ -91,7 +91,7 @@ class FavoriteMarketFragment : Fragment() {
             FavoriteMarketData(
                 img_favorite_market_seller ="https://cdn.pixabay.com/photo/2017/07/12/22/52/woman-2498668__340.jpg",
                 txt_seller_name="세림꺽정",
-                num_stars=4.5f,
+                num_stars=5.0f,
                 txt_tag1="#한나2세",
                 txt_tag2="#모든 단어 ㅌ발음 가능"
             )
@@ -109,7 +109,7 @@ class FavoriteMarketFragment : Fragment() {
             FavoriteMarketData(
                 img_favorite_market_seller ="https://cdn.pixabay.com/photo/2015/03/05/19/18/studio-660806__340.jpg",
                 txt_seller_name="채린이체르니 30번",
-                num_stars=4.8f,
+                num_stars=5.0f,
                 txt_tag1="#귤귤귤귤귤",
                 txt_tag2="#침착성 100"
             )
@@ -118,7 +118,7 @@ class FavoriteMarketFragment : Fragment() {
             FavoriteMarketData(
                 img_favorite_market_seller ="https://cdn.pixabay.com/photo/2016/11/18/19/07/happy-1836445__340.jpg",
                 txt_seller_name="최호준비하시고쏘세요",
-                num_stars=4.8f,
+                num_stars=5.0f,
                 txt_tag1="#아침형?",
                 txt_tag2="#nono 그냥 형"
             )
@@ -127,7 +127,7 @@ class FavoriteMarketFragment : Fragment() {
             FavoriteMarketData(
                 img_favorite_market_seller ="https://image.shutterstock.com/image-photo/selfie-mania-excited-young-guy-260nw-666304333.jpg",
                 txt_seller_name="윤자이자이자식",
-                num_stars=4.7f,
+                num_stars=5.0f,
                 txt_tag1="#맥북감성",
                 txt_tag2="#16인치"
             )
@@ -145,7 +145,7 @@ class FavoriteMarketFragment : Fragment() {
             FavoriteMarketData(
                 img_favorite_market_seller ="https://cdn.pixabay.com/photo/2018/03/06/22/57/portrait-3204843__340.jpg",
                 txt_seller_name="유난나나나",
-                num_stars=4.3f,
+                num_stars=5.0f,
                 txt_tag1="#뼈때리기",
                 txt_tag2="#연애3년차"
             )
@@ -154,7 +154,7 @@ class FavoriteMarketFragment : Fragment() {
             FavoriteMarketData(
                 img_favorite_market_seller ="https://cdn.pixabay.com/photo/2019/12/15/08/14/body-painting-4696539__340.jpg",
                 txt_seller_name="오렌지",
-                num_stars=4.7f,
+                num_stars=5.0f,
                 txt_tag1="#사진은",
                 txt_tag2="#준비시작"
             )
@@ -163,7 +163,7 @@ class FavoriteMarketFragment : Fragment() {
             FavoriteMarketData(
                 img_favorite_market_seller ="https://cdn.pixabay.com/photo/2015/05/03/14/40/woman-751236__340.jpg",
                 txt_seller_name="혜선사시대",
-                num_stars=4.2f,
+                num_stars=5.0f,
                 txt_tag1="#인간네비",
                 txt_tag2="#퇴직예정"
             )

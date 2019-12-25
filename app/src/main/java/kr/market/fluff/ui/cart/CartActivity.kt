@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_cart.*
 import kr.market.fluff.R
 import kr.market.fluff.data.CartSellerData
 import kr.market.fluff.data.CartSellersGoods
-import kr.market.fluff.ui.PurchaseActivity
+import kr.market.fluff.ui.activity.PurchaseActivity
 import kr.market.fluff.ui.cart.sellerlist.CartSellerListAdapter
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
@@ -32,7 +32,7 @@ class CartActivity : AppCompatActivity() {
     }
     private fun setListener(){
         btn_cart_buy.setOnClickListener{
-            val intent = Intent(this,PurchaseActivity::class.java)
+            val intent = Intent(this, PurchaseActivity::class.java)
             startActivity(intent)
         }
         img_cart_back.setOnClickListener{
