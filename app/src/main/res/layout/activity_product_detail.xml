@@ -46,7 +46,8 @@
                 app:progressMode="true"
                 android:layout_marginBottom="16dp"
                 android:layout_centerHorizontal="true"
-                android:layout_alignParentBottom="true">
+                android:layout_alignBottom="@id/vp_detail_viewpager"
+               >
             </com.tbuonomo.viewpagerdotsindicator.DotsIndicator>
         </RelativeLayout>
 
@@ -302,7 +303,9 @@
             android:id="@+id/rv_detail_other"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="105dp"/>
+            android:layout_marginBottom="105dp"
+            android:clipToPadding="false"
+            android:paddingLeft="18dp"/>
 
 
     </LinearLayout>

@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_product_detail.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kr.market.fluff.R
 import kr.market.fluff.data.DetailProductData
+import kr.market.fluff.ui.cart.goodslist.HorizontalItemDecorator
 import kr.market.fluff.ui.fragment.viewpager.ViewPagerAdapter
 
 class ProductDetailActivity : AppCompatActivity() {
@@ -36,6 +37,7 @@ class ProductDetailActivity : AppCompatActivity() {
         detailAdapter = DetailRecyclerAdapter(datas)
         rv_detail_other.layoutManager = LinearLayoutManager(this@ProductDetailActivity, LinearLayoutManager.HORIZONTAL,false)
         rv_detail_other.adapter = detailAdapter
+        rv_detail_other.addItemDecoration(HorizontalItemDecorator(24))
         detailAdapter.notifyDataSetChanged()
 
 
