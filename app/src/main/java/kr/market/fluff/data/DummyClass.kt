@@ -39,3 +39,22 @@ data class HomeAuctionData(
     var title: String,
     var closet :String
 )
+
+data class CartSellerData(
+    val img_seller : String,
+    val txt_seller_name : String,
+    val txt_seller_goods_num : Int,
+    val sellers_data : ArrayList<CartSellersGoods>
+)
+data class CartSellersGoods(
+    val img_cart_item : String,
+    val txt_item_name : String,
+    val txt_item_price : String
+)
+
+data class DetailProductData(
+
+    var img : String,
+    var price : String,
+    var product : String
+)

@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.detail.ProductDetailActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="36dp">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/vp_detail_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="428dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_marginTop="62dp"
+                android:src="@drawable/ic_left"/>
+
+            <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                android:id="@+id/detail_dots_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:dotsColor="#808080"
+                app:dotsCornerRadius="8dp"
+                app:dotsSize="6dp"
+                app:dotsSpacing="4dp"
+                app:dotsWidthFactor="2.5"
+                app:selectedDotColor="#ffffff"
+                app:progressMode="true"
+                android:layout_marginBottom="16dp"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true">
+            </com.tbuonomo.viewpagerdotsindicator.DotsIndicator>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_detail_closet_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ko_pub_dotum_medium"
+            android:textSize="19sp"
+            android:textColor="#171717"
+            android:letterSpacing="-0.03"
+            android:lineSpacingExtra="10sp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginBottom="6dp"
+            android:text="누빔안감 울 숏 코트"/>
+
+        <TextView
+            android:id="@+id/tv_detail_closet_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/scdream5"
+            android:textSize="24sp"
+            android:textColor="#171717"
+            android:letterSpacing="-0.01"
+            android:lineSpacingExtra="5sp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginBottom="28dp"
+            android:text = "21,000원"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+            android:id="@+id/tv_detail_closet_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ko_pub_dotum_medium"
+            android:textSize="13sp"
+            android:textColor="#7c7c7c"
+            android:letterSpacing="-0.04"
+            android:lineSpacingExtra="7sp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginBottom="3dp"
+            android:text = "사이즈"/>
+
+        <TextView
+            android:id="@+id/tv_detail_closet_size_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ko_pub_dotum_medium"
+            android:textSize="13sp"
+            android:textColor="#7c7c7c"
+            android:letterSpacing="-0.04"
+            android:lineSpacingExtra="7sp"
+            android:layout_marginLeft="32dp"
+            android:layout_toRightOf="@id/tv_detail_closet_size"
+            android:text = "L"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/tv_detail_closet_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ko_pub_dotum_medium"
+                android:textSize="13sp"
+                android:textColor="#7c7c7c"
+                android:letterSpacing="-0.04"
+                android:lineSpacingExtra="7sp"
+                android:layout_marginLeft="18dp"
+                android:text = "옷 상태"/>
+
+        <TextView
+            android:id="@+id/tv_detail_closet_state_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ko_pub_dotum_medium"
+            android:textSize="13sp"
+            android:textColor="#7c7c7c"
+            android:letterSpacing="-0.04"
+            android:lineSpacingExtra="7sp"
+            android:layout_marginLeft="29dp"
+            android:layout_toRightOf="@id/tv_detail_closet_state"
+            android:text = "9.0"/>
+
+
+            <TextView
+                android:id="@+id/tv_detail_closet_state_fix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:layout_toRightOf="@id/tv_detail_closet_state_content"
+                android:fontFamily="@font/ko_pub_dotum_medium"
+                android:letterSpacing="-0.04"
+                android:lineSpacingExtra="7sp"
+                android:text="/10"
+                android:textColor="#7c7c7c"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_detail_closet_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ko_pub_dotum_bold"
+            android:textSize="13sp"
+            android:textColor="#171717"
+            android:letterSpacing="-0.03"
+            android:lineSpacingExtra="7sp"
+            android:layout_marginLeft="18dp"
+            android:text = "셀러의 한 마디"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tv_detail_closet_sub_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ko_pub_dotum_medium"
+            android:textSize="13sp"
+            android:textColor="#434343"
+            android:letterSpacing="-0.03"
+            android:lineSpacingExtra="9sp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginBottom="16dp"
+            android:text = "기본 진한 브라운 색이며 코듀로이 재질로 되어있어요. 두께감이 얇은데 코듀로이 재질이라서 다른 셔츠들에 비해 따뜻한 편이며 이너로 입기에 좋습니다."/>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#f6f6f6"/>
+
+
+        <RelativeLayout
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/img_detail_profile"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:src="@color/colorBlack"
+                android:layout_marginLeft="18dp"
+                android:layout_alignParentLeft="true"
+                />
+
+            <TextView
+                android:id="@+id/tv_detail_seller_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ko_pub_dotum_medium"
+                android:textSize="17sp"
+                android:textColor="#000000"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="5sp"
+                android:layout_toRightOf="@id/img_detail_profile"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="10dp"
+                android:text="tlc_house"
+                />
+
+            <TextView
+                android:id="@+id/tv_detail_seller_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ko_pub_dotum_medium"
+                android:textFontWeight="800"
+                android:textSize="12sp"
+                android:textColor="#000000"
+                android:letterSpacing="0.05"
+                android:lineSpacingExtra="7sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_below="@+id/tv_detail_seller_name"
+                android:layout_toRightOf="@id/img_detail_profile"
+                android:text="고객후기"
+                />
+
+            <TextView
+                android:id="@+id/tv_detail_seller_custom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ko_pub_dotum_medium"
+                android:textFontWeight="800"
+                android:textSize="12sp"
+                android:textColor="#000000"
+                android:letterSpacing="0.05"
+                android:lineSpacingExtra="7sp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="9dp"
+                android:layout_toRightOf="@id/tv_detail_seller_review_count"
+                android:layout_below="@+id/tv_detail_seller_name"
+                android:text="단골손님"
+                />
+
+            <TextView
+                android:id="@+id/tv_detail_seller_review_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/scdream5"
+                android:textSize="14sp"
+                android:textColor="#000000"
+                android:lineSpacingExtra="5sp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="9dp"
+                android:layout_below="@+id/tv_detail_seller_name"
+                android:layout_toRightOf="@+id/tv_detail_seller_review"
+                android:text="782"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_detail_seller_custom_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/scdream5"
+                android:textSize="14sp"
+                android:textColor="#000000"
+                android:lineSpacingExtra="5sp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tv_detail_seller_name"
+                android:layout_toRightOf="@id/tv_detail_seller_custom"
+                android:text="2364"
+                />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/rv_detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="셀러의 다른 빈티지"
+            android:fontFamily="@font/ko_pub_dotum_medium"
+            android:textSize="13sp"
+            android:textColor="#000000"
+            android:lineSpacingExtra="7sp"
+            android:layout_marginTop="28dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginBottom="8dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_detail_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="105dp"/>
+
+
+    </LinearLayout>
+    </ScrollView>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_detail_bottom"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:padding="16dp"
+        android:background="#dddddd"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="46dp">
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="match_parent"
+
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_empty_heart"/>
+        <Button
+            android:id="@+id/btn_cart_buy"
+            android:layout_width="284dp"
+            android:layout_height="46dp"
+            android:text="구매하기"
+            android:layout_alignParentRight="true"
+            android:textSize="15sp"
+            android:lineSpacingExtra="7sp"
+            android:fontFamily="@font/ko_pub"
+            android:textFontWeight="700"
+            style="@style/BlackButton"/>
+        </RelativeLayout>
+
+    </RelativeLayout><!--하단바-->
+
+</RelativeLayout>
