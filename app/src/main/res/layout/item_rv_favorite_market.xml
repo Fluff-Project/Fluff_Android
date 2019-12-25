@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_favorite_market_seller"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/cart_image_example"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_favorite_market_seller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="빈티지나라"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:letterSpacing="-0.03"
+        android:lineSpacingExtra="8sp"
+        android:fontFamily="@font/ko_pub"
+        android:textFontWeight="500"
+        app:layout_constraintStart_toEndOf="@+id/img_favorite_market_seller"
+        app:layout_constraintTop_toTopOf="@+id/img_favorite_market_seller" />
+
+    <RatingBar
+        android:id="@+id/rb_favorite_market_seller"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:scaleX="0.9"
+        android:rating="4"
+        android:scaleY="0.9"
+        app:layout_constraintStart_toEndOf="@+id/img_favorite_market_seller"
+        app:layout_constraintTop_toBottomOf="@+id/tv_favorite_market_seller" />
+
+    <TextView
+        android:id="@+id/tv_favorite_market_tag1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_recycler_follow"
+        android:paddingLeft="4dp"
+        android:paddingRight="6dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:text="#페미닌"
+        android:textSize="10sp"
+        android:textColor="#000000"
+        android:letterSpacing="0.05"
+        android:lineSpacingExtra="5sp"
+        android:fontFamily="@font/ko_pub"
+        android:textFontWeight="400"
+        app:layout_constraintStart_toEndOf="@+id/img_favorite_market_seller"
+        app:layout_constraintTop_toBottomOf="@+id/rb_favorite_market_seller" />
+
+    <TextView
+        android:id="@+id/tv_favorite_market_tag2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_recycler_follow"
+        android:paddingLeft="4dp"
+        android:paddingRight="6dp"
+        android:text="#페미닌"
+        android:textSize="10sp"
+        android:textColor="#000000"
+        android:letterSpacing="0.05"
+        android:lineSpacingExtra="5sp"
+        android:fontFamily="@font/ko_pub"
+        android:textFontWeight="400"
+        app:layout_constraintStart_toEndOf="@+id/tv_favorite_market_tag1"
+        app:layout_constraintTop_toBottomOf="@+id/rb_favorite_market_seller" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/tv_hash_disable"
+        android:fontFamily="@font/ko_pub"
+        android:textSize="14sp"
+        android:textColor="#b7b7b7"
+        android:letterSpacing="-0.03"
+        android:lineSpacingExtra="8sp"
+        android:paddingLeft="4dp"
+        android:paddingTop="2dp"
+        android:paddingRight="6dp"
+        android:paddingBottom="2dp"
+        android:text="팔로우 취소"
+        android:textFontWeight="400"
+        app:layout_constraintBottom_toBottomOf="@+id/img_favorite_market_seller"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img_favorite_market_seller" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="24dp"
+        android:background="#b7b7b7"
+        app:layout_constraintTop_toBottomOf="@+id/img_favorite_market_seller"
+        tools:layout_editor_absoluteX="0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

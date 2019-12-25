@@ -10,7 +10,7 @@ import kr.market.fluff.R
 import kr.market.fluff.data.CartSellerData
 import kr.market.fluff.data.CartSellersGoods
 import kr.market.fluff.ui.cart.goodslist.CartSellerGoodsAdapter
-import kr.market.fluff.ui.cart.goodslist.HorizontalItemDecorator
+import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 
 class CartSellerListViewHolder(view : View) : RecyclerView.ViewHolder(view){
     val img_cart_rv_seller_checkbox = view.findViewById<ImageView>(R.id.img_cart_rv_seller_checkbox)
