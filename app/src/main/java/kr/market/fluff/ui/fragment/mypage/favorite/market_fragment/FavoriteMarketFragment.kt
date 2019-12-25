@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.favorite.market_fragment
+package kr.market.fluff.ui.fragment.mypage.favorite.market_fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kr.market.fluff.R
 import kr.market.fluff.data.FavoriteGoodsData
 import kr.market.fluff.data.FavoriteMarketData
-import kr.market.fluff.ui.favorite.favorite_fragment.FavoriteGoodsAdapter
+import kr.market.fluff.ui.fragment.mypage.favorite.favorite_fragment.FavoriteGoodsAdapter
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
@@ -43,7 +43,10 @@ class FavoriteMarketFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         datas = ArrayList()
         rv_favorite = view.findViewById(R.id.rv_favorite_market)
-        adapter = FavoriteMarketAdapter(view.context)
+        adapter =
+            FavoriteMarketAdapter(
+                view.context
+            )
         addDatas()
         adapter.data = datas
         rv_favorite.layoutManager = LinearLayoutManager(view.context,LinearLayoutManager.VERTICAL,false)

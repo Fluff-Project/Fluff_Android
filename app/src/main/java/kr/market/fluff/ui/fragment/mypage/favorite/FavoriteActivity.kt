@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.favorite
+package kr.market.fluff.ui.fragment.mypage.favorite
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,7 +16,9 @@ class FavoriteActivity : AppCompatActivity() {
     }
     private fun init() {
         // 뷰페이저 어댑터 연결
-        adapter = FavoriteAdapter(supportFragmentManager)
+        adapter = FavoriteAdapter(
+            supportFragmentManager
+        )
         vp_favorite.adapter = adapter
 
         vp_favorite.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{

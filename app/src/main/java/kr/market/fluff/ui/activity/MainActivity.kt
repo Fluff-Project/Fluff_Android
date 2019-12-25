@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     private fun init(){
 
         bottom_navigation_view.setOnNavigationItemSelectedListener(this)
-        val home_select = bottom_navigation_view.menu.getItem(1)
+        val home_select = bottom_navigation_view.menu.getItem(0)
         onNavigationItemSelected(home_select)
         home_select.setChecked(true)
     }

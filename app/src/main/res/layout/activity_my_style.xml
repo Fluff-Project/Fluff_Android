@@ -13,6 +13,9 @@
         android:layout_marginStart="21dp"
         android:layout_marginTop="29dp"
         android:text="당신의 스타일을 선택해주세요!"
+        android:textFontWeight="900"
+        android:textColor="#000000"
+        android:fontFamily="@font/ko_pub"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,6 +24,8 @@
         android:id="@+id/txt_my_style_content2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/ko_pub"
+        android:textFontWeight="500"
         android:layout_marginStart="21dp"
         android:layout_marginTop="11dp"
         android:text="평소에 좋아하는 옷 스타일을 선택해주세요."
@@ -34,6 +39,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
         android:layout_marginTop="4dp"
+        android:fontFamily="@font/ko_pub"
+        android:textFontWeight="500"
         android:text="플러프가 당신이 좋아할만한 옷을 추천해드립니다!"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,10 +67,11 @@
         android:background="@drawable/my_style_btn_grey_background"
         android:text="3개 이상 선택해주세요"
         android:textSize="15sp"
+        android:fontFamily="@font/ko_pub"
+        android:textFontWeight="900"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

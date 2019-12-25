@@ -5,13 +5,15 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragment.viewpager.HomeSliderFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <ImageView
         android:id="@+id/img_fragment_slider_home"
         android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#73000000"/>
     <TextView
         android:id="@+id/tv_vp_sub_title"
         style="@style/HomeVpSubTitle"

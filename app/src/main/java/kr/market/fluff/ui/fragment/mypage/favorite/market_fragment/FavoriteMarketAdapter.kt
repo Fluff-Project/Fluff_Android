@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.favorite.market_fragment
+package kr.market.fluff.ui.fragment.mypage.favorite.market_fragment
 
 import android.content.Context
 import android.view.LayoutInflater

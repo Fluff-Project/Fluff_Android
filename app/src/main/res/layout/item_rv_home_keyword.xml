@@ -12,6 +12,12 @@
         android:src="@drawable/img_keyword"
         android:scaleType="centerCrop"
         android:layout_height="68dp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_height="68dp"
+        android:background="#73000000"/>
 
     <TextView
         android:id="@+id/tv_rv_keyword"
@@ -20,7 +26,8 @@
         android:lineSpacingExtra="3sp"
         android:gravity="center_horizontal"
         android:text="###"
-        android:fontFamily="@font/ko_pub_dotum_medium"
+        android:fontFamily="@font/ko_pub"
+        android:textFontWeight="400"
         android:layout_marginTop="24dp"
         android:layout_alignParentTop="true"
         android:layout_centerVertical="true"

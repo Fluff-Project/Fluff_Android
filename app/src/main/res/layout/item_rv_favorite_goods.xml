@@ -24,6 +24,8 @@
         android:letterSpacing="-0.04"
         android:lineSpacingExtra="7sp"
         android:text="수연이네"
+        android:fontFamily="@font/ko_pub"
+        android:textFontWeight="400"
         android:textColor="#989898"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"

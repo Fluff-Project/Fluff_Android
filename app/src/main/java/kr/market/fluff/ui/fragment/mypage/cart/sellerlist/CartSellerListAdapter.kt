@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.cart.sellerlist
+package kr.market.fluff.ui.fragment.mypage.cart.sellerlist
 
 import android.content.Context
 import android.view.LayoutInflater

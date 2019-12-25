@@ -18,6 +18,7 @@ import kr.market.fluff.network.enqueue
 
 class LoginActivity : AppCompatActivity() {
 
+    private var isIntro : Boolean = true
     private lateinit var id_string : String
     private lateinit var pw_string : String
     val requestToServer = RequestToServer
@@ -30,6 +31,7 @@ class LoginActivity : AppCompatActivity() {
     private fun setListener(){
         btn_intro_login.setOnClickListener{
             startAnim()
+            isIntro = false
         }
         tv_intro_register.setOnClickListener{
             val intent = Intent(this,RegisterActivity::class.java)
@@ -62,6 +64,9 @@ class LoginActivity : AppCompatActivity() {
                     }
                 )
             }
+        }
+        ll_login_find.setOnClickListener{
+
         }
     }
     private fun logoAnim(){
@@ -117,6 +122,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun backToIntro(){
+        isIntro = true
         val anims = AnimatorSet()
         val ty1 = ObjectAnimator.ofFloat(img_intro_logo, View.TRANSLATION_Y, -300f, 0f)
         val ty2 = ObjectAnimator.ofFloat(et_login_email, View.TRANSLATION_Y, 0f, 500f)
@@ -145,7 +151,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
     override fun onBackPressed() {
-        if (btn_intro_login.visibility==View.VISIBLE){
+        if (!isIntro){
             backToIntro()
         }else{
             super.onBackPressed()
