@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.cart.sellerlist
+package kr.market.fluff.ui.fragment.mypage.cart.sellerlist
 
 import android.view.View
 import android.widget.ImageView
@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import kr.market.fluff.R
 import kr.market.fluff.data.CartSellerData
 import kr.market.fluff.data.CartSellersGoods
-import kr.market.fluff.ui.cart.goodslist.CartSellerGoodsAdapter
+import kr.market.fluff.ui.fragment.mypage.cart.goodslist.CartSellerGoodsAdapter
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 
 class CartSellerListViewHolder(view : View) : RecyclerView.ViewHolder(view){
@@ -52,7 +52,9 @@ class CartSellerListViewHolder(view : View) : RecyclerView.ViewHolder(view){
     }
     fun set_seller_item_recycler(){
         goods_adapter =
-            CartSellerGoodsAdapter(itemView.context)
+            CartSellerGoodsAdapter(
+                itemView.context
+            )
         rv_cart_sellers_item.addItemDecoration(
             HorizontalItemDecorator(
                 24

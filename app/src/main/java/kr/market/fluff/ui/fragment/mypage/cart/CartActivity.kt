@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.cart
+package kr.market.fluff.ui.fragment.mypage.cart
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,7 +10,7 @@ import kr.market.fluff.R
 import kr.market.fluff.data.CartSellerData
 import kr.market.fluff.data.CartSellersGoods
 import kr.market.fluff.ui.activity.PurchaseActivity
-import kr.market.fluff.ui.cart.sellerlist.CartSellerListAdapter
+import kr.market.fluff.ui.fragment.mypage.cart.sellerlist.CartSellerListAdapter
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
 class CartActivity : AppCompatActivity() {
@@ -91,7 +91,9 @@ class CartActivity : AppCompatActivity() {
     }
     private fun setAdapter(){
         cartSellerListAdapter =
-            CartSellerListAdapter(this)
+            CartSellerListAdapter(
+                this
+            )
         rv_cart_seller_list = findViewById<RecyclerView>(R.id.rv_cart_seller_list)
         rv_cart_seller_list.addItemDecoration(
             VerticalItemDecorator(

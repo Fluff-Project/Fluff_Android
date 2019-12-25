@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.favorite.favorite_fragment
+package kr.market.fluff.ui.fragment.mypage.favorite.favorite_fragment
 
 import android.view.View
 import android.widget.ImageView

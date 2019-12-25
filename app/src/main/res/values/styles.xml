@@ -122,16 +122,19 @@
         <item name="android:background">@drawable/et_round_corner</item>
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingTop">12dp</item>
+        <item name="android:fontFamily">@font/ko_pub</item>
         <item name="android:paddingBottom">12dp</item>
         <item name="android:textSize">16dp</item>
     </style>
     <style name="TextView_For_Intro">
         <item name="android:textSize">16dp</item>
+        <item name="android:fontFamily">@font/ko_pub</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:layout_marginBottom">8dp</item>
     </style>
     <style name="TextView_For_EditText">
         <item name="android:textSize">16dp</item>
+        <item name="android:fontFamily">@font/ko_pub</item>
         <item name="android:textColor">@color/colorForTextView</item>
         <item name="android:layout_marginBottom">8dp</item>
     </style>

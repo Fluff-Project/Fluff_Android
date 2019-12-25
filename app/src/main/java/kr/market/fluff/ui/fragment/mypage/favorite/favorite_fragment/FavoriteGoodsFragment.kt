@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.favorite.favorite_fragment
+package kr.market.fluff.ui.fragment.mypage.favorite.favorite_fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -27,7 +27,10 @@ class FavoriteGoodsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         datas = ArrayList()
         rv_favorite = view.findViewById(R.id.rv_favorite)
-        adapter = FavoriteGoodsAdapter(view.context)
+        adapter =
+            FavoriteGoodsAdapter(
+                view.context
+            )
         addDatas()
         adapter.data = datas
         rv_favorite.layoutManager = GridLayoutManager(context,2)

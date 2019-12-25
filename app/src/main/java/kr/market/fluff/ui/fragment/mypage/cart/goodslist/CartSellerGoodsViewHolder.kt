@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.cart.goodslist
+package kr.market.fluff.ui.fragment.mypage.cart.goodslist
 
 import android.content.Context
 import android.util.Log

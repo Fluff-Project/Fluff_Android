@@ -1,12 +1,12 @@
-package kr.market.fluff.ui.favorite
+package kr.market.fluff.ui.fragment.mypage.favorite
 
 
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import kr.market.fluff.ui.favorite.favorite_fragment.FavoriteGoodsFragment
-import kr.market.fluff.ui.favorite.market_fragment.FavoriteMarketFragment
+import kr.market.fluff.ui.fragment.mypage.favorite.favorite_fragment.FavoriteGoodsFragment
+import kr.market.fluff.ui.fragment.mypage.favorite.market_fragment.FavoriteMarketFragment
 
 class FavoriteAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager) {
 
