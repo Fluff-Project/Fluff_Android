@@ -3,19 +3,30 @@
     <color name="colorPrimary">#3e3e3e</color>
     <color name="colorPrimaryDark">#101010</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorForTextView">#414141</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#171717</color>
+
     <color name="colorButtonBlack">#191919</color>
     <color name="colorStar">#f5ca3c</color>
     <color name="colorWhiteGray">#f8f8f8</color>
-    <color name="colorWhite">#ffffff</color>
-    <color name="colorForTextView">#414141</color>
     <color name="colorButtonDisAble">#26191919</color>
     <color name="colorGenderGrayText">#59414141</color>
     <color name="colorProgress">#333333</color>
     <color name="colorTransparent">#00000000</color>
     <color name="colorGray">#999999</color>
     <color name="colorLightGrey">#b7b7b7</color>
+    <color name="colorTextBlack">#343434</color>
+    <color name="colorCharcoal">#2d2d2d</color>
+    <color name="colorMiddleLightGrey">#aaaaaa</color>
+    <color name="colorBeige">#f2e3c4</color>
+    <color name="colorBrown">#a04612</color>
+    <color name="colorChorale">#f0324c</color>
+    <color name="colorOrange">#f3a622</color>
+    <color name="colorDarkGreen">#7a863c</color>
+    <color name="colorLightBlue">#3168f6</color>
+    <color name="colorDarkBlue">#0b3395</color>
+    <color name="colorPurple">#9935e3</color>
+    <color name="colorPink">#ff598b</color>
 
-    
 </resources>
-
-

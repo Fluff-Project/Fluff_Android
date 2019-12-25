@@ -3,6 +3,7 @@
     package="kr.market.fluff">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activity.MyStyle.RecommendStyleActivity">
+        <activity android:name=".ui.activity.RecommendStyle.RecommendStyleActivity">
 
         </activity>
         <activity android:name=".ui.activity.MyStyle.MyStyleActivity">
@@ -22,6 +23,8 @@
         <activity android:name=".ui.activity.IntroActivity"></activity>
         <activity android:name=".ui.activity.RegisterActivity" />
         <activity android:name=".ui.activity.LoginActivity" />
+        <activity android:name=".ui.cart.CartActivity">
+        </activity>
         <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

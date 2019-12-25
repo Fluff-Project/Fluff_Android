@@ -3,11 +3,372 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragment.HomeFragment">
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="홈" />
+        android:layout_height="wrap_content">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="58dp">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/vp_home_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="484dp"/>
+
+                <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                    android:id="@+id/dots_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:dotsColor="#adadad"
+                    app:dotsCornerRadius="8dp"
+                    app:dotsSize="5dp"
+                    app:dotsSpacing="4dp"
+                    app:dotsWidthFactor="2.5"
+                    app:selectedDotColor="#3f1a53"
+                    app:progressMode="true"
+                    android:layout_marginTop="14dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/vp_home_viewpager"
+                    android:layout_alignParentBottom="true">
+
+                </com.tbuonomo.viewpagerdotsindicator.DotsIndicator>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_home_new"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_home_new_keyword"
+                style="@style/HomeKeywordText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="오늘 " />
+
+                <TextView
+                    android:id="@+id/tv_home_newtitle"
+                    style="@style/HomeTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_home_new_keyword"
+                    android:text="입고되었어요!" />
+
+            <TextView
+                android:id="@+id/tv_home_newsubtitle"
+                style="@style/HomeSubTitleText"
+                android:layout_marginLeft="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_home_newtitle"
+                android:text="회원님이 좋아할 만한 셀러에요"
+                android:layout_marginBottom="0dp"/>
+
+            <ImageButton
+                android:id="@+id/imgbtn_home_newicon"
+                android:layout_width="8dp"
+                android:layout_height="16dp"
+                android:layout_marginRight="14dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/home_arrow_ic" />
+        </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_home_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="72dp"
+                />
+
+            <RelativeLayout
+                android:id="@+id/rl_home_recent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_home_recenttitle"
+                    style="@style/HomeTitleText"
+                    android:layout_marginLeft="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="최근에 " />
+
+                <TextView
+                    android:id="@+id/tv_home_recent_keyword"
+                    style="@style/HomeKeywordText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="-3dp"
+                    android:layout_toRightOf="@id/tv_home_recenttitle"
+                    android:text="무스탕" />
+
+                <TextView
+                    android:id="@+id/tv_home_recenttitle2"
+                    style="@style/HomeTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_home_recent_keyword"
+                    android:text="을 많이 보셨군요!" />
+
+                <TextView
+                    android:id="@+id/tv_home_recentsubtitle"
+                    style="@style/HomeSubTitleText"
+                    android:layout_marginLeft="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_home_recenttitle"
+                    android:text="회원님이 좋아할 만한 셀러에요"
+                    android:layout_marginBottom="0dp"/>
+
+                <ImageButton
+                    android:id="@+id/imgbtn_home_recenticon"
+                    android:layout_width="8dp"
+                    android:layout_height="16dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/home_arrow_ic" />
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_home_recent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="72dp"
+                android:layout_marginLeft="8dp"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_home_plub"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_home_plubtitle"
+                    style="@style/HomeTitleText"
+                    android:layout_marginLeft="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="이런 " />
+                <TextView
+                    android:id="@+id/tv_home_plub_keyword"
+                    style="@style/HomeKeywordText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_home_plubtitle"
+                    android:text="플럽" />
+                <TextView
+                    android:id="@+id/tv_home_plubtitle2"
+                    style="@style/HomeTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_home_plub_keyword"
+                    android:text=" 어떠세요?" />
+
+                <TextView
+                    android:id="@+id/tv_home_plubsubtitle"
+                    style="@style/HomeSubTitleText"
+                    android:layout_marginLeft="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_home_plubtitle"
+                    android:text="뽀뿌리님이 좋아할 만한 셀러에요"
+                    android:layout_marginBottom="0dp"/>
+
+                <ImageButton
+                    android:id="@+id/imgbtn_home_plubicon"
+                    android:layout_width="8dp"
+                    android:layout_height="16dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/home_arrow_ic" />
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_home_plub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="72dp"
+                android:layout_marginLeft="8dp"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_home_auction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                android:id="@+id/tv_home_auctiontitle"
+                style="@style/HomeTitleText"
+                android:layout_marginLeft="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="현재 진행되는 " />
+
+                <TextView
+                    android:id="@+id/tv_home_auction_keyword"
+                    style="@style/HomeKeywordText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_home_auctiontitle"
+                    android:text="경매" />
+
+                <TextView
+                    android:id="@+id/tv_home_auctionsubtitle"
+                    style="@style/HomeSubTitleText"
+                    android:layout_marginLeft="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_home_auctiontitle"
+                    android:text="플러프에만 있는 유니크 빈티지"
+                    android:layout_marginBottom="0dp"/>
+
+                <ImageButton
+                    android:id="@+id/imgbtn_home_auctionicon"
+                    android:layout_width="8dp"
+                    android:layout_height="16dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/home_arrow_ic" />
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_home_auction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="72dp"
+                android:layout_marginLeft="8dp"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_home_recommend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_home_recommendtitle"
+                    style="@style/HomeTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_home_recommend_keyword"
+                    android:text="의 추천 빈티지" />
+
+                <TextView
+                    android:id="@+id/tv_home_recommend_keyword"
+                    style="@style/HomeKeywordText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="16dp"
+                    android:text="화요일" />
+
+                <TextView
+                    android:id="@+id/tv_home_recommendsubtitle"
+                    style="@style/HomeSubTitleText"
+                    android:layout_marginLeft="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_home_recommendtitle"
+                    android:text="오늘은 이런 빈티지 어떨까요?"
+                    android:layout_marginBottom="0dp"/>
+
+                <ImageButton
+                    android:id="@+id/imgbtn_home_recommend"
+                    android:layout_width="8dp"
+                    android:layout_height="16dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/home_arrow_ic" />
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_home_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="72dp"
+                android:layout_marginLeft="8dp" />
+
+
+            <RelativeLayout
+                android:id="@+id/rl_home_keyword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_home_keyword_title"
+                    style="@style/HomeTitleText"
+                    android:layout_marginLeft="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="플러프 " />
+
+                <TextView
+                    android:id="@+id/tv_home_keyword_keyword"
+                    style="@style/HomeKeywordText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_home_keyword_title"
+                    android:text="인기" />
+
+                <TextView
+                    android:id="@+id/tv_home_keyword_title2"
+                    style="@style/HomeTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_home_keyword_keyword"
+                    android:text=" 키워드" />
+
+                <TextView
+                    android:id="@+id/tv_home_keywordsubtitle"
+                    style="@style/HomeSubTitleText"
+                    android:layout_marginLeft="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_home_keyword_title"
+                    android:text="회원님이 자주 보시는 빈티지의 키워드에요!"
+                    android:layout_marginBottom="0dp"/>
+
+                <ImageButton
+                    android:id="@+id/imgbtn_home_keyword"
+                    android:layout_width="8dp"
+                    android:layout_height="16dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/home_arrow_ic" />
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_home_keyword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="75dp"
+                />
+
+
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

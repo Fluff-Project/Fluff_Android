@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/img_rv_closet"
+        android:layout_width="174dp"
+        android:layout_height="210dp"
+        android:scaleType="centerCrop"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+       />
+
+    <TextView
+        android:id="@+id/tv_rv_closet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/HomeRvAuctionCloset"
+        android:text="TextView"
+        android:layout_alignParentLeft="true"
+        android:layout_above="@+id/tv_rv_title"
+        android:layout_alignParentTop="true"/>
+
+    <TextView
+        android:id="@+id/tv_rv_title"
+        style="@style/HomeRvAuctionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_alignBottom="@+id/img_rv_closet"
+        android:layout_alignParentLeft="true"/>
+</RelativeLayout>
