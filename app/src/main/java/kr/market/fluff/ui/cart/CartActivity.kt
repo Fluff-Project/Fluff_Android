@@ -11,7 +11,7 @@ import kr.market.fluff.data.CartSellerData
 import kr.market.fluff.data.CartSellersGoods
 import kr.market.fluff.ui.PurchaseActivity
 import kr.market.fluff.ui.cart.sellerlist.CartSellerListAdapter
-import kr.market.fluff.ui.cart.sellerlist.VerticalItemDecorator
+import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
 class CartActivity : AppCompatActivity() {
 

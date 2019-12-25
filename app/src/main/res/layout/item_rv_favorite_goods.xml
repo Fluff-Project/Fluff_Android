@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/img_favorite_item"
+        android:layout_width="142dp"
+        android:layout_height="188dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cart_image_example"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_favorite_seller_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_rv_title"
+        android:layout_marginTop="4dp"
+        android:letterSpacing="-0.04"
+        android:lineSpacingExtra="7sp"
+        android:text="수연이네"
+        android:textColor="#989898"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_favorite_item" />
+
+    <TextView
+        android:id="@+id/tv_favorite_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_rv_title"
+        android:textSize="14sp"
+        android:textColor="#000000"
+        android:letterSpacing="-0.03"
+        android:lineSpacingExtra="8sp"
+        android:text="수연이의 후리스"
+        android:fontFamily="@font/ko_pub"
+        android:textFontWeight="400"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_favorite_seller_name" />
+
+    <TextView
+        android:id="@+id/tv_favorite_item_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/sc_dream"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="4sp"
+        android:text="22,000"
+        android:textColor="#000000"
+        android:textFontWeight="700"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_favorite_item_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sc_dream"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="4sp"
+        android:text="원"
+        android:textColor="#000000"
+        android:textFontWeight="700"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_favorite_item_price"
+        app:layout_constraintTop_toTopOf="@+id/tv_favorite_item_price" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,6 +16,10 @@
         <item name="android:textColor">@color/colorBlack</item>
         <item name="android:layout_marginBottom">2dp</item>
     </style>
+    <style name="TopTabTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorWhiteGray</item>                                <!-- 배경 -->
+        <item name="colorAccent">@color/colorBlack</item>                    <!-- 하단 움직이는 바 색-->
+    </style>
 
     <style name = "HomeTitleText"> <!-- 홈화면 제목 스타일-->
         <item name="android:textSize">23sp</item>
@@ -181,5 +185,11 @@
         <item name="android:textColor">#414141</item>
         <item name="android:lineSpacingExtra">8sp</item>
         <item name="android:fontFamily">@font/ko_pub</item>
+    </style>
+    <style name="TextView_for_Mypage">
+        <item name="android:fontFamily">@font/ko_pub</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:lineSpacingExtra">20sp</item>
     </style>
 </resources>
