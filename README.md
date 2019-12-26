@@ -54,3 +54,27 @@ ui도 나름대로 패키징을 하였으나, 아직 뷰 구현이 진행중이�
 
 
 #3. 핵심 기능 구현 방법 정리
+
+1. 회원가입 및 로그인
+![register](https://user-images.githubusercontent.com/54485132/71463252-19b73b00-27f9-11ea-93a6-1be8127c1af5.gif).
+
+1) 애니매이션
+어플 실행시 배경의 변화, 로그인 / 회원가입 시 EditText변화 등의 애니매이션을 적용하였다.
+ObjectAnimator의 ALPHA, TRANSLATE 속성 등을 이용하였다.
+
+2) kotlin extension이용
+kotlin extension을 이용하여 작성된 enqueue메소드와 sendToast라는 메소드를 적용하였다.
+위 이미지에서는 이메일 중복 체크, 로그인 요청에 enqueue 함수를 이용하였고,
+이메일 중복체크 결과를 띄우는 토스트 또한 Toast의 함수를 확장시켜 sendToast를 이용하였다.
+(기존 코드의 반복되는 요소들을 줄일 수 있었다.)
+
+ex) 토스트를 만들어 사용하는 경우
+val toast = Toast.makeText(this,"멘트",Toast.LENTH_SHORT)
+toast.show()
+
+를 kotlin extension 을 이용하여 생성한 함수 sendToast()를 이용하여
+toast.sendToast(this,"멘트") 를 작성해주기만 하면 된다.
+
+
+
+
