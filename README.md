@@ -78,6 +78,13 @@ toast.sendToast(this,"멘트") 를 작성해주기만 하면 된다.
 
 .![s](https://user-images.githubusercontent.com/54485132/71463993-816e8580-27fb-11ea-8b67-1a6dd3516188.png).
 
+2. lambda 식 이용하기.
+
+.![back](https://user-images.githubusercontent.com/54485132/71465526-3c991d80-2800-11ea-9336-7cb551814fde.png).
+
+가독성을 높이기 위해 위와 같이 람다식을 활용하였다.
+
+
 
 3. 외부 라이브러리 및 소스 이용한 화면 전환하기.
 
