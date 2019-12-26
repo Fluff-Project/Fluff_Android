@@ -90,4 +90,12 @@ implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2' 을 이용해 
 
 4. 리사이클러뷰를 이용한 화면 구성
 
+.![fssfda](https://user-images.githubusercontent.com/54485132/71465343-b11f8c80-27ff-11ea-9be7-98c8b3f9e584.gif).
+
+위에 사용된 리사이클러뷰는 세미나때 배운 내용을 바탕으로 적용되었다.
+
+- 홈화면의 상단 뷰페이져를 제외한 목록들
+
+- 마이페이지의 최근 본 상품, 좋아요/팔로우 리스트
+
 
