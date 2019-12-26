@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/img_detail_rv_profile"
+        android:layout_width="140dp"
+        android:layout_height="160dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+    android:id="@+id/tv_detail_rv_product"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="#171717"
+    android:fontFamily="@font/ko_pub_dotum_medium"
+    android:textSize="11sp"
+    android:text="상품명"
+    android:letterSpacing="-0.03"
+    android:lineSpacingExtra="6sp"
+    android:layout_marginTop="4dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/img_detail_rv_profile"/>
+
+    <TextView
+        android:id="@+id/tv_detail_rv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#171717"
+        android:fontFamily="@font/scdream5"
+        android:textSize="14sp"
+        android:text="상품명"
+        android:letterSpacing="-0.01"
+        android:lineSpacingExtra="5sp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_rv_product"/>
+
+    
+</androidx.constraintlayout.widget.ConstraintLayout>

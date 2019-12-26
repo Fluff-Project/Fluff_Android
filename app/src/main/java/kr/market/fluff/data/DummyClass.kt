@@ -75,3 +75,10 @@ data class TransferData(
     val transfer_status : String,
     val buy_price : Int
 )
+
+data class DetailProductData(
+
+    var img : String,
+    var price : String,
+    var product : String
+)

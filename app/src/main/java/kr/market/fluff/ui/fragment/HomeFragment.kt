@@ -18,6 +18,7 @@ import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
 import kotlinx.android.synthetic.main.fragment_home.*
 import kr.market.fluff.R
 import kr.market.fluff.data.*
+import kr.market.fluff.ui.cart.goodslist.HorizontalItemDecorator
 import kr.market.fluff.ui.fragment.Home.home_recycler.recycler_common.HomeNewAdapter
 import kr.market.fluff.ui.fragment.Home.home_recycler.recycler_common.HomeRecentAdapter
 import kr.market.fluff.ui.fragment.Home.home_recycler.recycler_common.HomeRecommendAdapter
@@ -99,6 +100,7 @@ class HomeFragment : Fragment() {
             HomeNewAdapter(new_datas)
         rv_home_new.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
         rv_home_new.adapter = newAdapter
+        rv_home_new.addItemDecoration(HorizontalItemDecorator(24))
         newAdapter.notifyDataSetChanged()
     }
 
@@ -119,6 +121,7 @@ class HomeFragment : Fragment() {
             )
         rv_home_recent.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
         rv_home_recent.adapter = recentAdapter
+        rv_home_recent.addItemDecoration(HorizontalItemDecorator(24))
         recentAdapter.notifyDataSetChanged()
     }
 
@@ -139,6 +142,7 @@ class HomeFragment : Fragment() {
             )
         rv_home_recommend.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
         rv_home_recommend.adapter = recommendAdapter
+        rv_home_recommend.addItemDecoration(HorizontalItemDecorator(24))
         recommendAdapter.notifyDataSetChanged()
     }
 
@@ -156,6 +160,7 @@ class HomeFragment : Fragment() {
         plubAdapter = HomePlubAdapter(plub_datas)
         rv_home_plub.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
         rv_home_plub.adapter = plubAdapter
+        rv_home_plub.addItemDecoration(HorizontalItemDecorator(24))
         plubAdapter.notifyDataSetChanged()
     }
 
