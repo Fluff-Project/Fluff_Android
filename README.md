@@ -31,5 +31,7 @@
 
 2. 프로그램 구조
 
+![d](https://user-images.githubusercontent.com/54485132/71461583-a4953700-27f3-11ea-9547-2ed74f5e90ff.png)
+
 
 3. 핵심 기능 구현 방법 정리"
