@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f8f8f8"
     tools:context=".ui.activity.PurchaseActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,7 +33,7 @@
             android:text="구매하기"
             android:textColor="@color/colorBlack"
             android:textFontWeight="900"
-            android:textSize="19sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/img_purchase_back"
             app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
@@ -303,6 +304,8 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/ko_pub"
+                    android:textFontWeight="500"
                     android:layout_marginTop="16dp"
                     android:text="기본 배송지로 저장" />
 

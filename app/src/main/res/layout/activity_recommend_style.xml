@@ -12,6 +12,9 @@
         android:layout_marginStart="21dp"
         android:layout_marginTop="25dp"
         android:text="당신이 좋아할만한 플럽이예요!"
+        android:fontFamily="@font/ko_pub"
+        android:textFontWeight="900"
+        android:textColor="@color/colorBlack"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,6 +26,8 @@
         android:layout_marginStart="21dp"
         android:layout_marginTop="10dp"
         android:text="여러분의 단골 플럽을 팔로우를 한 후"
+        android:fontFamily="@font/ko_pub"
+        android:textFontWeight="500"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_recommend_content1" />
@@ -33,6 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
         android:layout_marginTop="3dp"
+        android:fontFamily="@font/ko_pub"
+        android:textFontWeight="500"
         android:text="멋진 상품을 놓치지 말고 바로 확인해보세요!"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_recommend_content2" />
@@ -55,6 +62,8 @@
         android:layout_marginHorizontal="23dp"
         android:background="@drawable/my_style_btn_black_background"
         android:text="가입완료"
+        android:fontFamily="@font/ko_pub"
+        android:textFontWeight="900"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

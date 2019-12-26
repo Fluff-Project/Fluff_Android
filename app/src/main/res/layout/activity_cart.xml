@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#f8f8f8"
     android:layout_height="match_parent"
-    tools:context=".ui.cart.CartActivity">
+    tools:context=".ui.fragment.mypage.cart.CartActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rl_cart_top"
         android:layout_width="match_parent"
@@ -31,7 +32,7 @@
             android:text="장바구니"
             android:textColor="@color/colorBlack"
             android:textFontWeight="900"
-            android:textSize="19sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/img_cart_back"
             app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
@@ -136,6 +137,7 @@
                     android:layout_alignParentEnd="true"
                     android:background="@drawable/btn_cart_disable_delete"
                     android:textSize="13sp"
+                    android:fontFamily="@font/ko_pub"
                     android:textColor="@color/colorForTextView"
                     android:text="삭제"/>
             </RelativeLayout>
@@ -143,6 +145,7 @@
                 android:id="@+id/rv_cart_seller_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="#ffffff"
                 android:paddingTop="12dp"/>
         </LinearLayout>
 

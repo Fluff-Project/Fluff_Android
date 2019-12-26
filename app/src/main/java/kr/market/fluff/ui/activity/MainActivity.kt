@@ -3,7 +3,6 @@ package kr.market.fluff.ui.activity
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -13,7 +12,7 @@ import kr.market.fluff.ui.fragment.AuctionFragment
 import kr.market.fluff.ui.fragment.GlanceFragment
 import kr.market.fluff.ui.fragment.HomeFragment
 import kr.market.fluff.ui.fragment.magazine.MagazineFragment
-import kr.market.fluff.ui.fragment.MyPageFragment
+import kr.market.fluff.ui.fragment.mypage.MyPageFragment
 
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
@@ -47,7 +46,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     private fun init(){
 
         bottom_navigation_view.setOnNavigationItemSelectedListener(this)
-        val home_select = bottom_navigation_view.menu.getItem(1)
+        val home_select = bottom_navigation_view.menu.getItem(0)
         onNavigationItemSelected(home_select)
         home_select.setChecked(true)
     }
