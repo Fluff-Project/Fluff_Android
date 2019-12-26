@@ -1,13 +1,9 @@
-package kr.market.fluff.ui.activity.MyStyle
+package kr.market.fluff.ui.myStyle
 
 import android.graphics.Color
 import android.graphics.PorterDuff
-import android.media.Image
-import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.ImageView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.market.fluff.R

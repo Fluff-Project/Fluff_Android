@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.activity
+package kr.market.fluff.ui
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -34,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
             isIntro = false
         }
         tv_intro_register.setOnClickListener{
-            val intent = Intent(this,RegisterActivity::class.java)
+            val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
         btn_login_login.setOnClickListener{

@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.activity
+package kr.market.fluff.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

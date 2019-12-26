@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.activity.RecommendStyle
+package kr.market.fluff.ui.recommendStyle
 
 import android.view.View
 import android.widget.ImageView

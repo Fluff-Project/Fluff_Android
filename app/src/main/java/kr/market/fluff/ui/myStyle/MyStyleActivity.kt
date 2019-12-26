@@ -1,10 +1,8 @@
-package kr.market.fluff.ui.activity.MyStyle
+package kr.market.fluff.ui.myStyle
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_my_style.*
 import kr.market.fluff.R
 import kr.market.fluff.data.MyStyleData

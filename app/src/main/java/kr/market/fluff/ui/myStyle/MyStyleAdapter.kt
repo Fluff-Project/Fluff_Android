@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.activity.MyStyle
+package kr.market.fluff.ui.myStyle
 
 import android.content.Context
 import android.view.LayoutInflater

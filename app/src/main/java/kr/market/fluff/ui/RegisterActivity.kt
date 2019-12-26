@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.activity
+package kr.market.fluff.ui
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
