@@ -1,7 +1,7 @@
 # Fluff_Android
 
 
-1. 프로젝트 사용 라이브러리!
+#1. 프로젝트 사용 라이브러리!
 
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.android.support:design:29.0.0'
@@ -29,7 +29,7 @@
     implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2'
 
 
-2. 프로그램 구조
+#2. 프로그램 구조
 
 ![d](https://user-images.githubusercontent.com/54485132/71461583-a4953700-27f3-11ea-9547-2ed74f5e90ff.png).
 
@@ -53,4 +53,4 @@ ui도 나름대로 패키징을 하였으나, 아직 뷰 구현이 진행중이�
 
 
 
-3. 핵심 기능 구현 방법 정리"
+#3. 핵심 기능 구현 방법 정리
