@@ -25,7 +25,6 @@ class HomeBannerDetailActivity : AppCompatActivity() {
     lateinit var bannerAdapter: BannerRecyclerAdapter
     lateinit var datas : List<BannerRecyclerData>
 
-    var banner_heart_bool : Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

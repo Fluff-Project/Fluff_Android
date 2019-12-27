@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.fragment
+package kr.market.fluff.ui.fragment.Home
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home_slider.*
 import kr.market.fluff.R
 import kr.market.fluff.data.*
+import kr.market.fluff.data.home.*
 import kr.market.fluff.ui.activity.HomeBannerDetail.HomeBannerDetailActivity
 import kr.market.fluff.ui.fragment.Home.home_recycler.recycler_common.HomeNewAdapter
 import kr.market.fluff.ui.fragment.Home.home_recycler.recycler_common.HomeRecentAdapter
@@ -22,7 +23,7 @@ import kr.market.fluff.ui.fragment.Home.home_recycler.recycler_common.HomeRecomm
 import kr.market.fluff.ui.fragment.Home.home_recycler.recycler_keyword.HomeKeywordAdapter
 import kr.market.fluff.ui.fragment.Home.home_recycler.recycler_auction.HomeAuctionAdapter
 import kr.market.fluff.ui.fragment.Home.home_recycler.recycler_plub.HomePlubAdapter
-import kr.market.fluff.ui.fragment.viewpager.ViewPagerAdapter
+import kr.market.fluff.ui.fragment.home.viewpager.ViewPagerAdapter
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 
 class HomeFragment : Fragment() {
