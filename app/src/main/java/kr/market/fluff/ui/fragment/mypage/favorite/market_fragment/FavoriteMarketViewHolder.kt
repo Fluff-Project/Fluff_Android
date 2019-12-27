@@ -7,8 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.market.fluff.R
-import kr.market.fluff.data.FavoriteGoodsData
-import kr.market.fluff.data.FavoriteMarketData
+import kr.market.fluff.data.mypage.FavoriteMarketData
 
 class FavoriteMarketViewHolder(view : View) : RecyclerView.ViewHolder(view){
     val img_favorite_market_seller = view.findViewById<ImageView>(R.id.img_favorite_market_seller)

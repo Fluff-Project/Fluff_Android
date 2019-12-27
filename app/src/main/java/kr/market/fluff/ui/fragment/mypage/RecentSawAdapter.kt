@@ -5,8 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kr.market.fluff.R
-import kr.market.fluff.data.CartSellerData
-import kr.market.fluff.data.MyPageRecentSawGoods
+import kr.market.fluff.data.mypage.MyPageRecentSawGoods
 
 class RecentSawAdapter(private val context: Context): RecyclerView.Adapter<RecentSawViewHolder>(){
 

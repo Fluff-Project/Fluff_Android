@@ -2,7 +2,7 @@ package kr.market.fluff.network
 
 
 
-import kr.market.fluff.data.ResponseValidateAndRegisterAndLogin
+import kr.market.fluff.data.intro.ResponseValidateAndRegisterAndLogin
 import retrofit2.Call
 import retrofit2.http.*
 

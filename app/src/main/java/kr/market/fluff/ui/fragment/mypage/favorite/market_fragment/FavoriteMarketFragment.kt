@@ -5,15 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import kr.market.fluff.R
-import kr.market.fluff.data.FavoriteGoodsData
-import kr.market.fluff.data.FavoriteMarketData
-import kr.market.fluff.ui.fragment.mypage.favorite.favorite_fragment.FavoriteGoodsAdapter
-import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
+import kr.market.fluff.data.mypage.FavoriteMarketData
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
 
@@ -56,119 +52,119 @@ class FavoriteMarketFragment : Fragment() {
     private fun addDatas(){
         datas.add(
             FavoriteMarketData(
-                img_favorite_market_seller ="https://cdn.pixabay.com/photo/2019/12/15/08/14/body-painting-4696539__340.jpg",
-                txt_seller_name="한나둘셋",
-                num_stars=5.0f,
-                txt_tag1="#울집액이",
-                txt_tag2="#혀짧음"
+                img_favorite_market_seller = "https://cdn.pixabay.com/photo/2019/12/15/08/14/body-painting-4696539__340.jpg",
+                txt_seller_name = "한나둘셋",
+                num_stars = 5.0f,
+                txt_tag1 = "#울집액이",
+                txt_tag2 = "#혀짧음"
             )
         )
         datas.add(
             FavoriteMarketData(
-                img_favorite_market_seller ="https://cdn.pixabay.com/photo/2016/12/19/21/36/winters-1919143__340.jpg",
-                txt_seller_name="수연체동물",
-                num_stars=5.0f,
-                txt_tag1="#빈티지덕후",
-                txt_tag2="#멘탈잘나감"
+                img_favorite_market_seller = "https://cdn.pixabay.com/photo/2016/12/19/21/36/winters-1919143__340.jpg",
+                txt_seller_name = "수연체동물",
+                num_stars = 5.0f,
+                txt_tag1 = "#빈티지덕후",
+                txt_tag2 = "#멘탈잘나감"
             )
         )
         datas.add(
             FavoriteMarketData(
-                img_favorite_market_seller ="https://cdn.pixabay.com/photo/2015/09/18/11/46/man-945482__340.jpg",
-                txt_seller_name="동미니어처",
-                num_stars=5.0f,
-                txt_tag1="#프로밤샘러",
-                txt_tag2="#축구할래?"
+                img_favorite_market_seller = "https://cdn.pixabay.com/photo/2015/09/18/11/46/man-945482__340.jpg",
+                txt_seller_name = "동미니어처",
+                num_stars = 5.0f,
+                txt_tag1 = "#프로밤샘러",
+                txt_tag2 = "#축구할래?"
             )
         )
         datas.add(
             FavoriteMarketData(
-                img_favorite_market_seller ="https://cdn.pixabay.com/photo/2018/01/15/07/52/woman-3083390__340.jpg",
-                txt_seller_name="다예술이야",
-                num_stars=5.0f,
-                txt_tag1="#준 김치찌개 장인",
-                txt_tag2="#1학년으로..?"
+                img_favorite_market_seller = "https://cdn.pixabay.com/photo/2018/01/15/07/52/woman-3083390__340.jpg",
+                txt_seller_name = "다예술이야",
+                num_stars = 5.0f,
+                txt_tag1 = "#준 김치찌개 장인",
+                txt_tag2 = "#1학년으로..?"
             )
         )
         datas.add(
             FavoriteMarketData(
-                img_favorite_market_seller ="https://cdn.pixabay.com/photo/2017/07/12/22/52/woman-2498668__340.jpg",
-                txt_seller_name="세림꺽정",
-                num_stars=5.0f,
-                txt_tag1="#한나2세",
-                txt_tag2="#모든 단어 ㅌ발음 가능"
+                img_favorite_market_seller = "https://cdn.pixabay.com/photo/2017/07/12/22/52/woman-2498668__340.jpg",
+                txt_seller_name = "세림꺽정",
+                num_stars = 5.0f,
+                txt_tag1 = "#한나2세",
+                txt_tag2 = "#모든 단어 ㅌ발음 가능"
             )
         )
         datas.add(
             FavoriteMarketData(
-                img_favorite_market_seller ="https://cdn.pixabay.com/photo/2015/03/03/20/42/man-657869__340.jpg",
-                txt_seller_name="성민간요법",
-                num_stars=5.0f,
-                txt_tag1="#갓자일",
-                txt_tag2="#만인평등사상"
+                img_favorite_market_seller = "https://cdn.pixabay.com/photo/2015/03/03/20/42/man-657869__340.jpg",
+                txt_seller_name = "성민간요법",
+                num_stars = 5.0f,
+                txt_tag1 = "#갓자일",
+                txt_tag2 = "#만인평등사상"
             )
         )
         datas.add(
             FavoriteMarketData(
-                img_favorite_market_seller ="https://cdn.pixabay.com/photo/2015/03/05/19/18/studio-660806__340.jpg",
-                txt_seller_name="채린이체르니 30번",
-                num_stars=5.0f,
-                txt_tag1="#귤귤귤귤귤",
-                txt_tag2="#침착성 100"
+                img_favorite_market_seller = "https://cdn.pixabay.com/photo/2015/03/05/19/18/studio-660806__340.jpg",
+                txt_seller_name = "채린이체르니 30번",
+                num_stars = 5.0f,
+                txt_tag1 = "#귤귤귤귤귤",
+                txt_tag2 = "#침착성 100"
             )
         )
         datas.add(
             FavoriteMarketData(
-                img_favorite_market_seller ="https://cdn.pixabay.com/photo/2016/11/18/19/07/happy-1836445__340.jpg",
-                txt_seller_name="최호준비하시고쏘세요",
-                num_stars=5.0f,
-                txt_tag1="#아침형?",
-                txt_tag2="#nono 그냥 형"
+                img_favorite_market_seller = "https://cdn.pixabay.com/photo/2016/11/18/19/07/happy-1836445__340.jpg",
+                txt_seller_name = "최호준비하시고쏘세요",
+                num_stars = 5.0f,
+                txt_tag1 = "#아침형?",
+                txt_tag2 = "#nono 그냥 형"
             )
         )
         datas.add(
             FavoriteMarketData(
-                img_favorite_market_seller ="https://image.shutterstock.com/image-photo/selfie-mania-excited-young-guy-260nw-666304333.jpg",
-                txt_seller_name="윤자이자이자식",
-                num_stars=5.0f,
-                txt_tag1="#맥북감성",
-                txt_tag2="#16인치"
+                img_favorite_market_seller = "https://image.shutterstock.com/image-photo/selfie-mania-excited-young-guy-260nw-666304333.jpg",
+                txt_seller_name = "윤자이자이자식",
+                num_stars = 5.0f,
+                txt_tag1 = "#맥북감성",
+                txt_tag2 = "#16인치"
             )
         )
         datas.add(
             FavoriteMarketData(
-                img_favorite_market_seller ="https://cdn.pixabay.com/photo/2014/01/02/04/14/blue-eyes-237438__340.jpg",
-                txt_seller_name="허정마니마니바니바니",
-                num_stars=5.0f,
-                txt_tag1="#당근당근",
-                txt_tag2="#운팀장"
+                img_favorite_market_seller = "https://cdn.pixabay.com/photo/2014/01/02/04/14/blue-eyes-237438__340.jpg",
+                txt_seller_name = "허정마니마니바니바니",
+                num_stars = 5.0f,
+                txt_tag1 = "#당근당근",
+                txt_tag2 = "#운팀장"
             )
         )
         datas.add(
             FavoriteMarketData(
-                img_favorite_market_seller ="https://cdn.pixabay.com/photo/2018/03/06/22/57/portrait-3204843__340.jpg",
-                txt_seller_name="유난나나나",
-                num_stars=5.0f,
-                txt_tag1="#뼈때리기",
-                txt_tag2="#연애3년차"
+                img_favorite_market_seller = "https://cdn.pixabay.com/photo/2018/03/06/22/57/portrait-3204843__340.jpg",
+                txt_seller_name = "유난나나나",
+                num_stars = 5.0f,
+                txt_tag1 = "#뼈때리기",
+                txt_tag2 = "#연애3년차"
             )
         )
         datas.add(
             FavoriteMarketData(
-                img_favorite_market_seller ="https://cdn.pixabay.com/photo/2019/12/15/08/14/body-painting-4696539__340.jpg",
-                txt_seller_name="오렌지",
-                num_stars=5.0f,
-                txt_tag1="#사진은",
-                txt_tag2="#준비시작"
+                img_favorite_market_seller = "https://cdn.pixabay.com/photo/2019/12/15/08/14/body-painting-4696539__340.jpg",
+                txt_seller_name = "오렌지",
+                num_stars = 5.0f,
+                txt_tag1 = "#사진은",
+                txt_tag2 = "#준비시작"
             )
         )
         datas.add(
             FavoriteMarketData(
-                img_favorite_market_seller ="https://cdn.pixabay.com/photo/2015/05/03/14/40/woman-751236__340.jpg",
-                txt_seller_name="혜선사시대",
-                num_stars=5.0f,
-                txt_tag1="#인간네비",
-                txt_tag2="#퇴직예정"
+                img_favorite_market_seller = "https://cdn.pixabay.com/photo/2015/05/03/14/40/woman-751236__340.jpg",
+                txt_seller_name = "혜선사시대",
+                num_stars = 5.0f,
+                txt_tag1 = "#인간네비",
+                txt_tag2 = "#퇴직예정"
             )
         )
     }

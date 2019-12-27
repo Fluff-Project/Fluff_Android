@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.RecommendStyle.RecommendStyleActivity">
+    tools:context=".ui.recommendStyle.RecommendStyleActivity">
     <TextView
         android:id="@+id/txt_recommend_content1"
         android:layout_width="wrap_content"

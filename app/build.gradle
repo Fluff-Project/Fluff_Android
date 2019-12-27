@@ -59,4 +59,8 @@ dependencies {
     //indecator 효과
     implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2'
 
+
+    //Picaso 라이브러리 (이미지)
+    implementation 'com.squareup.picasso:picasso:2.4.0'
+
 }

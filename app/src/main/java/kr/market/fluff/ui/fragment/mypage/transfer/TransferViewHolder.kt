@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.market.fluff.R
-import kr.market.fluff.data.TransferData
+import kr.market.fluff.data.mypage.TransferData
 
 class TransferViewHolder(private val context:Context, view : View) : RecyclerView.ViewHolder(view){
     val img_transfer_item = view.findViewById<ImageView>(R.id.img_transfer_item)
