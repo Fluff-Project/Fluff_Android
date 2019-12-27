@@ -9,7 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import kr.market.fluff.R
 
-fun Toast.sendBlueToast(context : Context, message : String){
+fun Toast.sendToast(context : Context, message : String){
     val inflater : LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     val layout = inflater.inflate(R.layout.blue_toast, (context as Activity).findViewById<ViewGroup>(R.id.blue_toast_container))
 

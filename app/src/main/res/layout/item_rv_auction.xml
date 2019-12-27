@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="240dp"
+    android:id="@+id/cl_auction_view"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="14dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="14dp" />
+    <kr.market.fluff.ui.fragment.auction.SquareFrameLayout
+        android:id="@+id/sl_auction"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/img_auction_thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/auction_example" />
+
+    </kr.market.fluff.ui.fragment.auction.SquareFrameLayout>
+
+
+
+    <TextView
+        android:id="@+id/tv_auction_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="14dp"
+        android:textSize="16sp"
+        android:textColor="@color/colorBlack"
+        android:lineSpacingExtra="9sp"
+        android:fontFamily="@font/ko_pub"
+        android:textFontWeight="600"
+        android:text="샤넬 1990’s 트위드 재킷"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_auction_recent_highst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:fontFamily="@font/ko_pub"
+        android:lineSpacingExtra="7sp"
+        android:text="현재 최고가"
+        android:textColor="@color/colorBlack"
+        android:textFontWeight="800"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_auction_item_price"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_auction_item_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/sc_dream"
+        android:letterSpacing="0.02"
+        android:lineSpacingExtra="9sp"
+        android:text="260,000"
+        android:textColor="#000000"
+        android:textFontWeight="800"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_auction_extra_time"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_auction_price_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="7sp"
+        android:text="원"
+        android:textColor="@color/colorBlack"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_auction_item_price"
+        app:layout_constraintStart_toEndOf="@+id/tv_auction_item_price" />
+
+    <TextView
+        android:id="@+id/tv_auction_extra_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/sc_dream"
+        android:letterSpacing="0.03"
+        android:lineSpacingExtra="5sp"
+        android:textColor="#000000"
+        android:textFontWeight="800"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="12:32:52" />
+
+    <TextView
+        android:id="@+id/tv_auction_extra_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/ko_pub"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="6sp"
+        android:textColor="@color/colorBlack"
+        android:textFontWeight="500"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_auction_extra_time"
+        app:layout_constraintStart_toEndOf="@+id/tv_auction_extra_time"
+        tools:text="남음" />
+</androidx.constraintlayout.widget.ConstraintLayout>

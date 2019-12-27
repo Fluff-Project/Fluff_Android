@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kr.market.fluff.R
-import kr.market.fluff.data.CartSellersGoods
+import kr.market.fluff.data.cart.CartSellersGoods
 
 class CartSellerGoodsAdapter(private val context: Context): RecyclerView.Adapter<CartSellerGoodsViewHolder>(){
 

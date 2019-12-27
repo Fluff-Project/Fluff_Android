@@ -5,8 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kr.market.fluff.R
-import kr.market.fluff.data.CartSellersGoods
-import kr.market.fluff.data.TransferData
+import kr.market.fluff.data.mypage.TransferData
 
 class TransferAdapter(private val context: Context): RecyclerView.Adapter<TransferViewHolder>(){
 
