@@ -61,5 +61,7 @@ dependencies {
 
     //multi radiobutton
     implementation 'com.yuxingxin.multiradiogroup:library:1.0.0'
+    //Picaso 라이브러리 (이미지)
+    implementation 'com.squareup.picasso:picasso:2.4.0'
 
 }

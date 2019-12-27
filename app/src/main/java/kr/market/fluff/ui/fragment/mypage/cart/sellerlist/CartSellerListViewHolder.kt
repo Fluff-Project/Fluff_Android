@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.market.fluff.R
-import kr.market.fluff.data.CartSellerData
-import kr.market.fluff.data.CartSellersGoods
+import kr.market.fluff.data.cart.CartSellerData
+import kr.market.fluff.data.cart.CartSellersGoods
 import kr.market.fluff.ui.fragment.mypage.cart.goodslist.CartSellerGoodsAdapter
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 

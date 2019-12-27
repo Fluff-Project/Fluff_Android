@@ -8,9 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kr.market.fluff.R
-import kr.market.fluff.ui.fragment.AuctionFragment
-import kr.market.fluff.ui.fragment.GlanceFragment
 import kr.market.fluff.ui.fragment.HomeFragment
+import kr.market.fluff.ui.fragment.auction.AuctionFragment
+import kr.market.fluff.ui.fragment.glance.GlanceFragment
 import kr.market.fluff.ui.fragment.magazine.MagazineFragment
 import kr.market.fluff.ui.fragment.mypage.MyPageFragment
 

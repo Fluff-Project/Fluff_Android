@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_above="@+id/cl_detail_action_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <kr.market.fluff.ui.fragment.auction.SquareFrameLayout
+                    android:id="@+id/sfl_detail_auction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/img_auction_detail_thumbnail"
+                        android:layout_width="match_parent"
+                        android:layout_height="480dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/seller_example" />
+                </kr.market.fluff.ui.fragment.auction.SquareFrameLayout>
+
+                <ImageView
+                    android:id="@+id/img_detail_auction_back"
+                    android:layout_width="24dp"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_left"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_auction_detail_item_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="136dp"
+                    android:background="@drawable/detail_text_gradient"
+                    android:fontFamily="@font/ko_pub"
+                    android:gravity="bottom"
+                    android:lineSpacingExtra="10sp"
+                    android:paddingLeft="16dp"
+                    android:paddingBottom="16dp"
+                    android:text="샤네루 1990’s 트위드 재킷"
+                    android:textColor="@color/colorBlack"
+                    android:textFontWeight="600"
+                    android:textSize="19sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/sfl_detail_auction"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_auction_detail_recent_highst"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/ko_pub"
+                    android:lineSpacingExtra="7sp"
+                    android:text="현재 최고가"
+                    android:textColor="@color/colorBlack"
+                    android:textFontWeight="600"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_auction_detail_item_name" />
+
+                <TextView
+                    android:id="@+id/tv_auction_detail_item_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sc_dream"
+                    android:letterSpacing="0.02"
+                    android:lineSpacingExtra="13sp"
+                    android:text="320,000"
+                    android:textColor="#000000"
+                    android:textFontWeight="700"
+                    android:textSize="34sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_auction_detail_recent_highst"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_auction_detail_recent_highst" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="56dp"
+                    android:fontFamily="@font/ko_pub"
+                    android:letterSpacing="-0.03"
+                    android:lineSpacingExtra="7sp"
+                    android:textColor="@color/colorBlack"
+                    android:textFontWeight="700"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="@+id/guideline10"
+                    app:layout_constraintTop_toBottomOf="@+id/textView16"
+                    tools:text="샤네루 1990’s 트위드 재킷" />
+
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/ko_pub"
+                    android:letterSpacing="-0.03"
+                    android:lineSpacingExtra="7sp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="Chanel(샤넬) 클래식 셀렉션의 1990’s 트위드 재킷. V-넥, 앞 버튼으로 잠그는 형식, 앞 포켓, 버튼 장식, 긴소매. 파페치 클래식 셀렉션에서 시간이 지날수록 가치를 더하는 아이코닉한 디자인을 만나보세요. 파페치 파트너 스토어가 엄선하여 수집한 상품(pre-owned)으로 사용된 적이 없지만, 세월의 흔적으로 인한 가벼운 손상이 있을 수 있습니다."
+                    android:textColor="#434343"
+                    android:textFontWeight="500"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+                <TextView
+                    android:id="@+id/textView25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/ko_pub"
+                    android:letterSpacing="-0.03"
+                    android:lineSpacingExtra="7sp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="안감: 실크 100% / 겉감: 울 100%"
+                    android:textColor="#434343"
+                    android:textFontWeight="500"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+                <TextView
+                    android:id="@+id/textView26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/ko_pub"
+                    android:letterSpacing="-0.03"
+                    android:lineSpacingExtra="7sp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="총장: 71cm / 어깨 너비: 43cm \n가슴 둘레: 96cm / 소매 길이: 85cm"
+                    android:textColor="#434343"
+                    android:textFontWeight="500"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+                <TextView
+                    android:id="@+id/textView27"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/ko_pub"
+                    android:letterSpacing="-0.03"
+                    android:lineSpacingExtra="7sp"
+                    android:text="프랑스"
+                    android:textColor="#434343"
+                    android:textFontWeight="500"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toEndOf="@+id/textView22"
+                    app:layout_constraintTop_toTopOf="@+id/textView22" />
+
+                <TextView
+                    android:id="@+id/textView28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/ko_pub"
+                    android:letterSpacing="-0.03"
+                    android:lineSpacingExtra="7sp"
+                    android:text="GU Vintage shop"
+                    android:textColor="#434343"
+                    android:textFontWeight="500"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toEndOf="@+id/textView23"
+                    app:layout_constraintTop_toTopOf="@+id/textView23" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="54dp"
+                    android:background="#eaeaea"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/ko_pub"
+                    android:letterSpacing="-0.03"
+                    android:lineSpacingExtra="7sp"
+                    android:textColor="@color/colorBlack"
+                    android:textFontWeight="700"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="@+id/guideline10"
+                    app:layout_constraintTop_toBottomOf="@+id/view"
+                    tools:text="소재 구성" />
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/ko_pub"
+                    android:letterSpacing="-0.03"
+                    android:lineSpacingExtra="7sp"
+                    android:textColor="@color/colorBlack"
+                    android:textFontWeight="700"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="@+id/guideline10"
+                    app:layout_constraintTop_toBottomOf="@+id/textView25"
+                    tools:text="상세 사이즈" />
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/ko_pub"
+                    android:letterSpacing="-0.03"
+                    android:lineSpacingExtra="7sp"
+                    android:textColor="@color/colorBlack"
+                    android:textFontWeight="700"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="@+id/guideline10"
+                    app:layout_constraintTop_toBottomOf="@+id/textView26"
+                    tools:text="제조국" />
+
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/ko_pub"
+                    android:letterSpacing="-0.03"
+                    android:lineSpacingExtra="7sp"
+                    android:textColor="@color/colorBlack"
+                    android:textFontWeight="700"
+                    android:textSize="13sp"
+                    android:layout_marginBottom="40dp"
+                    app:layout_constraintStart_toStartOf="@+id/guideline10"
+                    app:layout_constraintTop_toBottomOf="@+id/textView22"
+                    tools:text="출품자 정보" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="@font/ko_pub"
+                    android:letterSpacing="-0.04"
+                    android:lineSpacingExtra="7sp"
+                    android:text="사이즈"
+                    android:textColor="#7c7c7c"
+                    android:textFontWeight="550"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="@+id/guideline10"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_auction_detail_item_price" />
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:fontFamily="@font/ko_pub"
+                    android:letterSpacing="-0.04"
+                    android:lineSpacingExtra="7sp"
+                    android:text="L"
+                    android:textColor="#7c7c7c"
+                    android:textFontWeight="550"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toEndOf="@+id/textView15"
+                    app:layout_constraintTop_toTopOf="@+id/textView15" />
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ko_pub"
+                    android:letterSpacing="-0.04"
+                    android:lineSpacingExtra="7sp"
+                    android:text="9.0/10"
+                    android:textColor="#7c7c7c"
+                    android:textFontWeight="550"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="@+id/textView17"
+                    app:layout_constraintTop_toTopOf="@+id/textView16" />
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/ko_pub"
+                    android:letterSpacing="-0.04"
+                    android:lineSpacingExtra="7sp"
+                    android:text="옷 상태"
+                    android:textColor="#7c7c7c"
+                    android:textFontWeight="550"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="@+id/guideline10"
+                    app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+                <TextView
+                    android:id="@+id/tv_auction_detail_price_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ko_pub"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="8sp"
+                    android:text="원"
+                    android:textColor="#000000"
+                    android:textFontWeight="700"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_auction_detail_item_price"
+                    app:layout_constraintStart_toEndOf="@+id/tv_auction_detail_item_price" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/ko_pub"
+                    android:lineSpacingExtra="6sp"
+                    android:text="총 43번의 입찰"
+                    android:textColor="#4b4b4b"
+                    android:textFontWeight="700"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_auction_detail_item_price"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="20dp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="20dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <!--하단-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_detail_action_bottom"
+        android:layout_width="match_parent"
+        android:background="#f8f8f8"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/btn_detail_auction_deal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_auction_detail_extra_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sc_dream"
+                android:letterSpacing="0.03"
+                android:lineSpacingExtra="7sp"
+                android:text="12:32:52"
+                android:textColor="#000000"
+                android:textFontWeight="700"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_auction_detail_extra_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="6sp"
+                android:text="남음"
+                android:textColor="@color/colorBlack"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_auction_detail_extra_time"
+                app:layout_constraintStart_toEndOf="@+id/tv_auction_detail_extra_time" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btn_detail_auction_deal"
+            style="@style/BlackButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="38dp"
+            android:layout_marginEnd="38dp"
+            android:layout_marginBottom="20dp"
+            android:ems="8"
+            android:fontFamily="@font/ko_pub"
+            android:text="입찰하기"
+            android:textFontWeight="900"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>

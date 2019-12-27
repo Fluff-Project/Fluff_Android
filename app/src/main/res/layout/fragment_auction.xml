@@ -3,7 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.AuctionFragment">
-
+    tools:context=".ui.fragment.auction.AuctionFragment">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_auction_list"
+        android:paddingTop="48dp"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </FrameLayout>

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kr.market.fluff.R
-import kr.market.fluff.data.FavoriteGoodsData
+import kr.market.fluff.data.mypage.FavoriteGoodsData
 
 class FavoriteGoodsAdapter(private val context: Context): RecyclerView.Adapter<FavoriteGoodsViewHolder>(){
 
