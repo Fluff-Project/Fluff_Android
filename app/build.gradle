@@ -59,4 +59,7 @@ dependencies {
     //indecator 효과
     implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2'
 
+    //multi radiobutton
+    implementation 'com.yuxingxin.multiradiogroup:library:1.0.0'
+
 }

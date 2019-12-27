@@ -10,8 +10,8 @@ import kotlinx.android.synthetic.main.activity_product_detail.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kr.market.fluff.R
 import kr.market.fluff.data.DetailProductData
-import kr.market.fluff.ui.cart.goodslist.HorizontalItemDecorator
 import kr.market.fluff.ui.fragment.viewpager.ViewPagerAdapter
+import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 
 class ProductDetailActivity : AppCompatActivity() {
 

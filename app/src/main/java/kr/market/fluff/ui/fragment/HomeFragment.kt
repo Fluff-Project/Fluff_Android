@@ -18,7 +18,7 @@ import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
 import kotlinx.android.synthetic.main.fragment_home.*
 import kr.market.fluff.R
 import kr.market.fluff.data.*
-import kr.market.fluff.ui.cart.goodslist.HorizontalItemDecorator
+import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.fragment.Home.home_recycler.recycler_common.HomeNewAdapter
 import kr.market.fluff.ui.fragment.Home.home_recycler.recycler_common.HomeRecentAdapter
 import kr.market.fluff.ui.fragment.Home.home_recycler.recycler_common.HomeRecommendAdapter
