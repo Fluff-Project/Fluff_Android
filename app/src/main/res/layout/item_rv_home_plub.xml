@@ -47,31 +47,42 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <RatingBar
-        android:id="@+id/rb_rv_star"
-        style="@style/myRatingBar"
-        android:layout_width="137dp"
-        android:layout_height="35dp"
+    <RelativeLayout
+        android:id="@+id/rl_home_plub_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:layout_marginBottom="4dp"
         android:layout_below="@id/tv_rv_hashtag1"
-        android:layout_marginLeft="34dp"
-        android:layout_marginTop="4dp"
-        android:layout_toRightOf="@id/img_rv_profile"
-        android:isIndicator="true"
-        android:numStars="5"
-        android:rating="3"
-        android:stepSize="0.5" />
+        android:layout_toRightOf="@id/img_rv_profile">
+
+
+
+    <RatingBar
+        android:id="@+id/rb_favorite_market_seller"
+        style="@style/RatingBar"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rating="4"/>
+
 
     <Button
         android:id="@+id/btn_rv_follow"
         style="@style/RoundFollowBtn"
         android:text="팔로우"
         android:layout_width="88dp"
+        android:textAlignment="center"
+        android:gravity="center"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="68dp"
+        android:layout_centerVertical="true"
         android:layout_marginRight="14dp"
         android:layout_height="28dp"
         />
+
+    </RelativeLayout>
+
+
         
 
 

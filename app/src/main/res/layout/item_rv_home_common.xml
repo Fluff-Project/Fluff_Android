@@ -9,6 +9,7 @@
         android:id="@+id/img_rc_dress"
         android:layout_width="174dp"
         android:layout_height="208dp"
+        android:scaleType="centerCrop"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

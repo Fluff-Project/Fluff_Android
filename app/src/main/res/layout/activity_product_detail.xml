@@ -11,8 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true">
-
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -28,9 +27,15 @@
                 android:layout_height="428dp"/>
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="16dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:layout_marginTop="62dp"
+                android:adjustViewBounds="true"
+                android:layout_marginLeft="16dp"
+                android:scaleType="centerCrop"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
+                android:layout_alignParentLeft="true"
                 android:src="@drawable/ic_left"/>
 
             <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
@@ -43,7 +48,7 @@
                 app:dotsSpacing="4dp"
                 app:dotsWidthFactor="2.5"
                 app:selectedDotColor="#ffffff"
-                app:progressMode="true"
+                app:progressMode="false"
                 android:layout_marginBottom="16dp"
                 android:layout_centerHorizontal="true"
                 android:layout_alignBottom="@id/vp_detail_viewpager"
@@ -203,6 +208,12 @@
                 android:layout_alignParentLeft="true"
                 />
 
+            <RelativeLayout
+                android:id="@+id/rl_detail_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/img_detail_profile">
+
             <TextView
                 android:id="@+id/tv_detail_seller_name"
                 android:layout_width="wrap_content"
@@ -212,11 +223,39 @@
                 android:textColor="#000000"
                 android:letterSpacing="-0.02"
                 android:lineSpacingExtra="5sp"
-                android:layout_toRightOf="@id/img_detail_profile"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="16dp"
                 android:layout_marginBottom="10dp"
                 android:text="tlc_house"
                 />
+
+
+                <RatingBar
+                    android:id="@+id/rb_favorite_market_seller"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_toRightOf="@id/tv_detail_seller_name"
+                    android:layout_centerVertical="true"
+                    android:scaleX="0.9"
+                    android:rating="4"
+                    android:scaleY="0.9"/>
+
+                <Button
+                    android:id="@+id/btn_detail_follow"
+                    android:layout_width="60dp"
+                    android:layout_height="24dp"
+                    android:text="팔로우"
+                    android:layout_alignParentRight="true"
+                    android:textSize="13sp"
+                    android:layout_marginRight="20dp"
+                    android:lineSpacingExtra="7sp"
+                    android:fontFamily="@font/ko_pub"
+                    android:textFontWeight="700"
+                    style="@style/BlackButton"/>
+
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/tv_detail_seller_review"
@@ -230,7 +269,7 @@
                 android:lineSpacingExtra="7sp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="16dp"
-                android:layout_below="@+id/tv_detail_seller_name"
+                android:layout_below="@+id/rl_detail_profile"
                 android:layout_toRightOf="@id/img_detail_profile"
                 android:text="고객후기"
                 />
@@ -248,7 +287,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="9dp"
                 android:layout_toRightOf="@id/tv_detail_seller_review_count"
-                android:layout_below="@+id/tv_detail_seller_name"
+                android:layout_below="@+id/rl_detail_profile"
                 android:text="단골손님"
                 />
 
@@ -262,7 +301,7 @@
                 android:lineSpacingExtra="5sp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="9dp"
-                android:layout_below="@+id/tv_detail_seller_name"
+                android:layout_below="@+id/rl_detail_profile"
                 android:layout_toRightOf="@+id/tv_detail_seller_review"
                 android:text="782"
 
@@ -278,7 +317,7 @@
                 android:lineSpacingExtra="5sp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="10dp"
-                android:layout_below="@+id/tv_detail_seller_name"
+                android:layout_below="@+id/rl_detail_profile"
                 android:layout_toRightOf="@id/tv_detail_seller_custom"
                 android:text="2364"
                 />
@@ -325,22 +364,24 @@
             android:layout_height="46dp">
 
         <ImageView
-            android:layout_width="36dp"
+            android:id="@+id/img_detail_heart"
+            android:layout_width="38dp"
+            android:scaleType="centerCrop"
             android:layout_height="match_parent"
-
             android:adjustViewBounds="true"
             android:src="@drawable/ic_empty_heart"/>
-        <Button
-            android:id="@+id/btn_cart_buy"
-            android:layout_width="284dp"
-            android:layout_height="46dp"
-            android:text="구매하기"
-            android:layout_alignParentRight="true"
-            android:textSize="15sp"
-            android:lineSpacingExtra="7sp"
-            android:fontFamily="@font/ko_pub"
-            android:textFontWeight="700"
-            style="@style/BlackButton"/>
+
+            <Button
+                android:id="@+id/btn_cart_buy"
+                android:layout_width="284dp"
+                android:layout_height="46dp"
+                android:text="구매하기"
+                android:layout_alignParentRight="true"
+                android:textSize="15sp"
+                android:lineSpacingExtra="7sp"
+                android:fontFamily="@font/ko_pub"
+                android:textFontWeight="700"
+                style="@style/BlackButton"/>
         </RelativeLayout>
 
     </RelativeLayout><!--하단바-->

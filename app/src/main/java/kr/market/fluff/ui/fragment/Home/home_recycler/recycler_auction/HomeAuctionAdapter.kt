@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kr.market.fluff.R
+import kr.market.fluff.data.HomeAuctionAdapter
 import kr.market.fluff.data.HomeAuctionData
 
 class HomeAuctionAdapter (var data:List<HomeAuctionData>): RecyclerView.Adapter<HomeAuctionViewHolder>(){

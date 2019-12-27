@@ -1,12 +1,19 @@
 package kr.market.fluff.ui.fragment.Home.home_recycler.recycler_common
 
+import android.content.Context
+import android.content.Intent
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.fragment_home_slider.*
 import kr.market.fluff.R
 import kr.market.fluff.data.HomeNewData
+import kr.market.fluff.ui.activity.HomeBannerDetail.HomeBannerDetailActivity
+import kr.market.fluff.ui.detail.ProductDetailActivity
+import kotlin.coroutines.coroutineContext
 
 class HomeNewViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView) {
     val home_recycler_img : ImageView = itemView.findViewById(R.id.img_rc_dress)
@@ -20,5 +27,17 @@ class HomeNewViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView) {
             .into(home_recycler_img)
         home_recycler_title.text = data.title
         home_recycler_price.text = data.price
+
+        home_recycler_img.setOnClickListener {
+
+            val intent = Intent(itemView.context, ProductDetailActivity::class.java)
+            intent.putExtra("product_name",home_recycler_title.text.toString())
+            intent.putExtra("product_price",home_recycler_price.text.toString())
+            intent.putExtra("product_img_url",data.img)
+            startActivity(itemView.context,intent,null)
+
+
+        }
     }
+
 }

@@ -78,7 +78,7 @@ data class TransferData(
 
 data class DetailProductData(
 
-    var img : String,
-    var price : String,
-    var product : String
+    val img : String,
+    val price : String,
+    val product : String
 )
