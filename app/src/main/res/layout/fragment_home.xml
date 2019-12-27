@@ -20,6 +20,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="58dp">
 
+                <ImageView
+                    android:src="@drawable/home_logo_ic"
+                    android:layout_width="68dp"
+                    android:layout_height="38dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_centerHorizontal="true"/>
+
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/vp_home_viewpager"
                 android:layout_width="match_parent"
@@ -35,7 +42,7 @@
                     app:dotsSpacing="4dp"
                     app:dotsWidthFactor="2.5"
                     app:selectedDotColor="#3f1a53"
-                    app:progressMode="true"
+                    app:progressMode="false"
                     android:layout_marginTop="14dp"
                     android:layout_centerHorizontal="true"
                     android:layout_below="@id/vp_home_viewpager"
@@ -95,13 +102,15 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:clipToPadding="false"
+                android:layout_marginTop="16dp"
                 android:paddingLeft="16dp"/>
 
 
             <RelativeLayout
                 android:id="@+id/rl_home_recent"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="72dp">
 
                 <TextView
                     android:id="@+id/tv_home_recenttitle"
@@ -156,6 +165,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="72dp"
+                android:layout_marginTop="16dp"
                 android:paddingLeft="16dp"/>
 
 

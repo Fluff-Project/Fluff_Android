@@ -25,7 +25,11 @@
         </activity>
         <activity android:name=".ui.detail.ProductDetailActivity" />
         <activity android:name=".ui.fragment.mypage.cart.CartActivity" />
+        <activity android:name=".ui.activity.HomeBannerDetail.HomeBannerDetailActivity">
+                </activity>
+
         <activity android:name=".ui.MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

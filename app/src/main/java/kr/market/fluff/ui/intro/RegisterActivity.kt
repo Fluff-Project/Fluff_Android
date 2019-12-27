@@ -208,7 +208,7 @@ class RegisterActivity : AppCompatActivity() {
     }
     private fun setBtnEnable(){
         btn_register_next.isEnabled = true
-        btn_register_next.background=ContextCompat.getDrawable(this,R.drawable.btn_black)
+       // btn_register_next.background=ContextCompat.getDrawable(this,R.drawable.btn_black)
     }
     private fun go_to_prev_anim(currentLayout : LinearLayout,prevLayout : LinearLayout){
         prevLayout.visibility = View.VISIBLE

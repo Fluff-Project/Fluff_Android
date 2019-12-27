@@ -13,6 +13,12 @@
         android:layout_alignParentLeft="true"
        />
 
+    <View
+        android:layout_width="174dp"
+        android:layout_height="210dp"
+        android:background="@drawable/home_auction_view"
+        />
+
     <TextView
         android:id="@+id/tv_rv_closet"
         android:layout_width="wrap_content"
@@ -20,7 +26,6 @@
         style="@style/HomeRvAuctionCloset"
         android:text="TextView"
         android:layout_alignParentLeft="true"
-        android:layout_above="@+id/tv_rv_title"
         android:layout_alignParentTop="true"/>
 
     <TextView
@@ -29,6 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:layout_alignBottom="@+id/img_rv_closet"
+        android:layout_below="@id/tv_rv_closet"
+        android:layout_marginTop="0dp"
         android:layout_alignParentLeft="true"/>
 </RelativeLayout>

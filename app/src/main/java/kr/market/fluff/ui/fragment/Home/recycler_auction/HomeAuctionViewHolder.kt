@@ -12,6 +12,7 @@ class HomeAuctionViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView
     val home_recycler_img : ImageView = itemView.findViewById(R.id.img_rv_closet)
     val home_recycler_closet : TextView = itemView.findViewById(R.id.tv_rv_closet)
     val home_recycler_title : TextView  = itemView.findViewById(R.id.tv_rv_title)
+
     fun bind(data : HomeAuctionData)
     {
         Glide.with(itemView)
