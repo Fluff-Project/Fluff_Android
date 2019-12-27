@@ -10,9 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_my_page.*
 import kr.market.fluff.R
-import kr.market.fluff.data.CartSellersGoods
-import kr.market.fluff.data.MyPageRecentSawGoods
-import kr.market.fluff.ui.fragment.mypage.cart.sellerlist.CartSellerListAdapter
+import kr.market.fluff.data.mypage.MyPageRecentSawGoods
 import kr.market.fluff.ui.fragment.mypage.favorite.FavoriteActivity
 import kr.market.fluff.ui.fragment.mypage.transfer.ConfirmTransferActivity
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator

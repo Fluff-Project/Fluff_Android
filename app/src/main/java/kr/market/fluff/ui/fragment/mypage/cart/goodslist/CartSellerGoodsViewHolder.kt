@@ -1,14 +1,13 @@
 package kr.market.fluff.ui.fragment.mypage.cart.goodslist
 
 import android.content.Context
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.market.fluff.R
-import kr.market.fluff.data.CartSellersGoods
+import kr.market.fluff.data.cart.CartSellersGoods
 
 class CartSellerGoodsViewHolder(private val context:Context,view : View) : RecyclerView.ViewHolder(view){
     val img_cart_item = view.findViewById<ImageView>(R.id.img_cart_item)

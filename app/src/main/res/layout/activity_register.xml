@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    tools:context=".ui.activity.RegisterActivity">
+    tools:context=".ui.intro.RegisterActivity">
 
 
     <ProgressBar
@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ko_pub"
                 android:hint="플러프에서 사용할 닉네임을 적어주세요."
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:paddingLeft="16dp"
                 android:textFontWeight="900" />
         </RelativeLayout>

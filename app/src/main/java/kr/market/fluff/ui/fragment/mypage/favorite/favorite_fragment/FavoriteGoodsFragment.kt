@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import kr.market.fluff.R
-import kr.market.fluff.data.FavoriteGoodsData
+import kr.market.fluff.data.mypage.FavoriteGoodsData
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
@@ -45,49 +45,56 @@ class FavoriteGoodsFragment : Fragment() {
                 txt_item_name = "보푸라기 풍성 니트",
                 txt_seller_name = "수연이네",
                 txt_goods_price = "23,000"
-        ))
+            )
+        )
         datas.add(
             FavoriteGoodsData(
                 img_goods = "https://cdn.pixabay.com/photo/2017/08/01/08/29/people-2563491__340.jpg",
                 txt_item_name = "보푸라기 풍성 니트",
                 txt_seller_name = "수연이네",
                 txt_goods_price = "23,000"
-            ))
+            )
+        )
         datas.add(
             FavoriteGoodsData(
                 img_goods = "https://cdn.pixabay.com/photo/2017/08/01/08/29/people-2563491__340.jpg",
                 txt_item_name = "보푸라기 풍성 니트",
                 txt_seller_name = "수연이네",
                 txt_goods_price = "23,000"
-            ))
+            )
+        )
         datas.add(
             FavoriteGoodsData(
                 img_goods = "https://cdn.pixabay.com/photo/2017/08/01/08/29/people-2563491__340.jpg",
                 txt_item_name = "보푸라기 풍성 니트",
                 txt_seller_name = "수연이네",
                 txt_goods_price = "23,000"
-            ))
+            )
+        )
         datas.add(
             FavoriteGoodsData(
                 img_goods = "https://cdn.pixabay.com/photo/2017/08/01/08/29/people-2563491__340.jpg",
                 txt_item_name = "보푸라기 풍성 니트",
                 txt_seller_name = "수연이네",
                 txt_goods_price = "23,000"
-            ))
+            )
+        )
         datas.add(
             FavoriteGoodsData(
                 img_goods = "https://cdn.pixabay.com/photo/2017/08/01/08/29/people-2563491__340.jpg",
                 txt_item_name = "보푸라기 풍성 니트",
                 txt_seller_name = "수연이네",
                 txt_goods_price = "23,000"
-            ))
+            )
+        )
         datas.add(
             FavoriteGoodsData(
                 img_goods = "https://cdn.pixabay.com/photo/2017/08/01/08/29/people-2563491__340.jpg",
                 txt_item_name = "보푸라기 풍성 니트",
                 txt_seller_name = "수연이네",
                 txt_goods_price = "23,000"
-            ))
+            )
+        )
     }
 
 }
