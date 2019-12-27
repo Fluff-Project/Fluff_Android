@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.market.fluff.R
 import kr.market.fluff.data.BannerRecyclerData
-import kr.market.fluff.data.HomeAuctionAdapter
 
 class BannerRecyclerViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView) {
     val banner_recycler_img : ImageView = itemView.findViewById(R.id.img_banner_rv_profile)

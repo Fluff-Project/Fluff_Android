@@ -21,7 +21,11 @@
         <activity android:name=".ui.PurchaseActivity" />
         <activity android:name=".ui.intro.RegisterActivity" />
         <activity android:name=".ui.intro.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".ui.detail.ProductDetailActivity" />
         <activity android:name=".ui.fragment.mypage.cart.CartActivity" />
@@ -30,11 +34,7 @@
 
         <activity android:name=".ui.MainActivity">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
