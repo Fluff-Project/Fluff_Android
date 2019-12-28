@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.detail.product.product_detail_recycler
+package kr.market.fluff.ui.detail.product_detail_recycler
 
 import android.view.View
 import android.widget.ImageView

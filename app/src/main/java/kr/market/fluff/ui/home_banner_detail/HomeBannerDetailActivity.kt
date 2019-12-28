@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_home_banner_detail.*
 import kr.market.fluff.R
-import kr.market.fluff.data.detail.BannerRecyclerData
+import kr.market.fluff.data.home.BannerRecyclerData
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 

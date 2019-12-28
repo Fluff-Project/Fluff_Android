@@ -1,6 +1,5 @@
-package kr.market.fluff.data.detail
+package kr.market.fluff.data.home
 
-import androidx.core.view.ViewPropertyAnimatorListener
 
 data class BannerRecyclerData (
 

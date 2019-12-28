@@ -109,7 +109,7 @@
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="12:32:52" />
+        android:text="12:32:52" />
 
     <TextView
         android:id="@+id/tv_auction_extra_text"
@@ -124,5 +124,5 @@
         android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_auction_extra_time"
         app:layout_constraintStart_toEndOf="@+id/tv_auction_extra_time"
-        tools:text="남음" />
+        android:text="남음" />
 </androidx.constraintlayout.widget.ConstraintLayout>

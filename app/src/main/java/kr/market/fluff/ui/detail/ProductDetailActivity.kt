@@ -1,5 +1,6 @@
-package kr.market.fluff.ui.detail.product
+package kr.market.fluff.ui.detail
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,8 +10,8 @@ import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 import kotlinx.android.synthetic.main.activity_product_detail.*
 import kr.market.fluff.R
 import kr.market.fluff.data.detail.DetailProductData
-import kr.market.fluff.ui.detail.product.FragmentDetailPagerAdapter
-import kr.market.fluff.ui.detail.product.product_detail_recycler.DetailRecyclerAdapter
+import kr.market.fluff.ui.PurchaseActivity
+import kr.market.fluff.ui.detail.product_detail_recycler.DetailRecyclerAdapter
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 
 class ProductDetailActivity : AppCompatActivity() {
@@ -39,6 +40,10 @@ class ProductDetailActivity : AppCompatActivity() {
                 heart_bool = true
             }
 
+        }
+        btn_cart_buy.setOnClickListener {
+            val intent = Intent(this, PurchaseActivity::class.java)
+            startActivity(intent)
         }
 
         tv_detail_closet_title.text = intent.getStringExtra("product_name")
