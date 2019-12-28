@@ -27,6 +27,7 @@
                 android:layout_height="428dp"/>
 
             <ImageView
+                android:id="@+id/img_product_detail_back"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_marginTop="62dp"

@@ -1,11 +1,11 @@
-package kr.market.fluff.ui.detail
+package kr.market.fluff.ui.detail.product_detail_recycler
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kr.market.fluff.R
-import kr.market.fluff.data.DetailProductData
+import kr.market.fluff.data.detail.DetailProductData
 
 
 class DetailRecyclerAdapter (var datas:List<DetailProductData>): RecyclerView.Adapter<DetailRecyclerViewHolder>(){
@@ -14,7 +14,9 @@ class DetailRecyclerAdapter (var datas:List<DetailProductData>): RecyclerView.Ad
             .from(parent.context)
             .inflate(R.layout.item_rv_detail_other, parent, false)
 
-        return DetailRecyclerViewHolder(view)
+        return DetailRecyclerViewHolder(
+            view
+        )
     }
 
     override fun getItemCount(): Int = datas.size

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.recommendStyle.RecommendStyleActivity">
     <TextView
-        android:id="@+id/txt_recommend_content1"
+        android:id="@+id/txt_flub_detail_content1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txt_recommend_content2"
+        android:id="@+id/txt_flub_detail_content2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
@@ -30,10 +30,10 @@
         android:textFontWeight="500"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_recommend_content1" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_flub_detail_content1" />
 
     <TextView
-        android:id="@+id/txt_recommend_content3"
+        android:id="@+id/txt_flub_detail_content3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
@@ -42,15 +42,15 @@
         android:textFontWeight="500"
         android:text="멋진 상품을 놓치지 말고 바로 확인해보세요!"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_recommend_content2" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_flub_detail_content2" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_recommend_style"
+        android:id="@+id/recycler_flub_detail_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="38dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_recommend_content3"
+        app:layout_constraintTop_toBottomOf="@+id/txt_flub_detail_content3"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp" />
 

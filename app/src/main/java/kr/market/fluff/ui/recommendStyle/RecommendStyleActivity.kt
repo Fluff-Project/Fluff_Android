@@ -30,7 +30,7 @@ class RecommendStyleActivity : AppCompatActivity() {
     private fun initRecommendStyleList(){
         recommendStyleAdapter =
             RecommendStyleAdapter(this)
-        recycler_recommend_style.apply {
+        recycler_flub_detail_style.apply {
             layoutManager = LinearLayoutManager(this@RecommendStyleActivity)
             adapter = recommendStyleAdapter
         }
