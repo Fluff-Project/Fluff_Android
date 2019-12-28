@@ -32,8 +32,6 @@ class HomeNewViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView) {
             intent.putExtra("product_price",home_recycler_price.text.toString())
             intent.putExtra("product_img_url",data.img)
             startActivity(itemView.context,intent,null)
-
-
         }
     }
 }
