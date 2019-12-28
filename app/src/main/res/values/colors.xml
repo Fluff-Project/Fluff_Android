@@ -29,5 +29,7 @@
     <color name="colorPurple">#9935e3</color>
     <color name="colorPink">#ff598b</color>
     <color name="colorMagenta">#fa1f93</color>
+    <color name="colorLightWhiteGrey">#f4f4f4</color>
+    <color name="colorCharcoalGrey">#707070</color>
 
 </resources>

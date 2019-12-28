@@ -4,8 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorCharcoal">
+    android:layout_height="wrap_content"
+    android:background="@drawable/view_filter_background"
+    app:behavior_peekHeight="620dp"
+    app:behavior_hideable="true"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    android:clickable="true">
 
     <TextView
         android:id="@+id/txt_glance_filter_title"
@@ -14,7 +18,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="24dp"
         android:text="빈티지 필터"
-        android:fontFamily="@font/ko_pub"
+        android:fontFamily="@font/ko_pub_dotum_bold"
         android:textFontWeight="900"
         android:textColor="@color/colorWhite"
         android:textSize="17sp"
@@ -28,7 +32,7 @@
         android:layout_marginTop="26dp"
         android:layout_marginEnd="17dp"
         android:text="CLEAR"
-        android:fontFamily="@font/ko_pub"
+        android:fontFamily="@font/ko_pub_dotum_bold"
         android:textFontWeight="900"
         android:textSize="15sp"
         android:textColor="@color/colorWhite"
@@ -41,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:text="컬러"
-        android:fontFamily="@font/ko_pub"
+        android:fontFamily="@font/ko_pub_dotum_bold"
         android:textFontWeight="900"
         android:textColor="@color/colorWhite"
         android:textSize="15sp"
@@ -56,151 +60,158 @@
         android:layout_marginTop="16dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/txt_glance_filter_color"
-        tools:layout_editor_absoluteX="0dp"
-        android:gravity="center">
-        <LinearLayout
-            android:layout_width="wrap_content"
+        tools:layout_editor_absoluteX="0dp">
+        <com.yuxingxin.library.MultiRadioGroup
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="60dp">
-            <CheckBox
-                android:id="@+id/cb_glance_filter_color_black"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:background="@drawable/selector_filter_color_black"
-                android:button="@null"
-                android:layout_weight="1"
-                android:layout_marginVertical="4dp"
-                android:layout_marginHorizontal="5dp"/>
-            <CheckBox
-                android:id="@+id/cb_glance_filter_color_white"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:background="@drawable/selector_filter_color_white"
-                android:button="@null"
-                android:layout_weight="1"
-                android:layout_marginVertical="4dp"
-                android:layout_marginHorizontal="5dp"/>
-            <CheckBox
-                android:id="@+id/cb_glance_filter_color_grey"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:background="@drawable/selector_filter_color_grey"
-                android:button="@null"
-                android:layout_weight="1"
-                android:layout_marginVertical="4dp"
-                android:layout_marginHorizontal="5dp"/>
-            <CheckBox
-                android:id="@+id/cb_glance_filter_color_beige"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:background="@drawable/selector_filter_color_beige"
-                android:button="@null"
-                android:layout_weight="1"
-                android:layout_marginVertical="4dp"
-                android:layout_marginHorizontal="5dp"/>
-            <CheckBox
-                android:id="@+id/cb_glance_filter_color_brown"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:background="@drawable/selector_filter_color_brown"
-                android:button="@null"
-                android:layout_weight="1"
-                android:layout_marginVertical="4dp"
-                android:layout_marginHorizontal="5dp"/>
-        </LinearLayout>
+            android:gravity="center">
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="60dp"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/cb_glance_filter_color_black"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/selector_filter_color_black"
+                    android:button="@null"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginHorizontal="5dp"/>
+                <RadioButton
+                    android:id="@+id/cb_glance_filter_color_white"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/selector_filter_color_white"
+                    android:button="@null"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginHorizontal="5dp"/>
+                <RadioButton
+                    android:id="@+id/cb_glance_filter_color_grey"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/selector_filter_color_grey"
+                    android:button="@null"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginHorizontal="5dp"/>
+                <RadioButton
+                    android:id="@+id/cb_glance_filter_color_beige"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/selector_filter_color_beige"
+                    android:button="@null"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginHorizontal="5dp"/>
+                <RadioButton
+                    android:id="@+id/cb_glance_filter_color_brown"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/selector_filter_color_brown"
+                    android:button="@null"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginHorizontal="5dp"/>
+            </RadioGroup>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="60dp">
-            <CheckBox
-                android:id="@+id/cb_glance_filter_color_chorale"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:background="@drawable/selector_filter_color_chorale"
-                android:button="@null"
-                android:layout_weight="1"
-                android:layout_marginVertical="4dp"
-                android:layout_marginHorizontal="5dp"/>
-            <CheckBox
-                android:id="@+id/cb_glance_filter_color_orange"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:background="@drawable/selector_filter_color_orange"
-                android:button="@null"
-                android:layout_weight="1"
-                android:layout_marginVertical="4dp"
-                android:layout_marginHorizontal="5dp"/>
-            <CheckBox
-                android:id="@+id/cb_glance_filter_color_darkgreen"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:background="@drawable/selector_filter_color_darkgreen"
-                android:button="@null"
-                android:layout_weight="1"
-                android:layout_marginVertical="4dp"
-                android:layout_marginHorizontal="5dp"/>
-            <CheckBox
-                android:id="@+id/cb_glance_filter_color_lightblue"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:background="@drawable/selector_filter_color_lightblue"
-                android:button="@null"
-                android:layout_weight="1"
-                android:layout_marginVertical="4dp"
-                android:layout_marginHorizontal="5dp"/>
-            <CheckBox
-                android:id="@+id/cb_glance_filter_color_darkblue"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:background="@drawable/selector_filter_color_darkblue"
-                android:button="@null"
-                android:layout_weight="1"
-                android:layout_marginVertical="4dp"
-                android:layout_marginHorizontal="5dp"/>
-        </LinearLayout>
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="60dp"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/cb_glance_filter_color_chorale"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/selector_filter_color_chorale"
+                    android:button="@null"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginHorizontal="5dp"/>
+                <RadioButton
+                    android:id="@+id/cb_glance_filter_color_orange"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/selector_filter_color_orange"
+                    android:button="@null"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginHorizontal="5dp"/>
+                <RadioButton
+                    android:id="@+id/cb_glance_filter_color_darkgreen"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/selector_filter_color_darkgreen"
+                    android:button="@null"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginHorizontal="5dp"/>
+                <RadioButton
+                    android:id="@+id/cb_glance_filter_color_lightblue"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/selector_filter_color_lightblue"
+                    android:button="@null"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginHorizontal="5dp"/>
+                <RadioButton
+                    android:id="@+id/cb_glance_filter_color_darkblue"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/selector_filter_color_darkblue"
+                    android:button="@null"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginHorizontal="5dp"/>
+            </RadioGroup>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="60dp">
-            <CheckBox
-                android:id="@+id/cb_glance_filter_color_check"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:background="@drawable/selector_filter_color_check"
-                android:button="@null"
-                android:layout_weight="1"
-                android:layout_marginVertical="4dp"
-                android:layout_marginHorizontal="5dp"/>
-            <CheckBox
-                android:id="@+id/cb_glance_filter_color_dot"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:background="@drawable/selector_filter_color_dot"
-                android:button="@null"
-                android:layout_weight="1"
-                android:layout_marginVertical="4dp"
-                android:layout_marginHorizontal="5dp"/>
-            <CheckBox
-                android:id="@+id/cb_glance_filter_color_purple"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:background="@drawable/selector_filter_color_purple"
-                android:button="@null"
-                android:layout_weight="1"
-                android:layout_marginVertical="4dp"
-                android:layout_marginHorizontal="5dp"/>
-            <CheckBox
-                android:id="@+id/cb_glance_filter_color_pink"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:background="@drawable/selector_filter_color_pink"
-                android:button="@null"
-                android:layout_weight="1"
-                android:layout_marginVertical="4dp"
-                android:layout_marginHorizontal="5dp"/>
-        </LinearLayout>
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="60dp"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/cb_glance_filter_color_check"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/selector_filter_color_check"
+                    android:button="@null"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginHorizontal="5dp"/>
+                <RadioButton
+                    android:id="@+id/cb_glance_filter_color_dot"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/selector_filter_color_dot"
+                    android:button="@null"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginHorizontal="5dp"/>
+                <RadioButton
+                    android:id="@+id/cb_glance_filter_color_purple"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/selector_filter_color_purple"
+                    android:button="@null"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginHorizontal="5dp"/>
+                <RadioButton
+                    android:id="@+id/cb_glance_filter_color_pink"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/selector_filter_color_pink"
+                    android:button="@null"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginHorizontal="5dp"/>
+            </RadioGroup>
+        </com.yuxingxin.library.MultiRadioGroup>
 
     </LinearLayout>
 
@@ -211,6 +222,7 @@
         android:layout_marginTop="40dp"
         android:text="카테고리"
         android:textSize="15sp"
+        android:fontFamily="@font/ko_pub_dotum_bold"
         android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -237,6 +249,7 @@
                     android:layout_marginHorizontal="10dp"
                     android:button="@null"
                     android:drawableTop="@drawable/selector_filter_category_outer"
+                    android:fontFamily="@font/ko_pub_dotum_medium"
                     android:text="아우터"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite" />
@@ -248,6 +261,7 @@
                     android:layout_marginHorizontal="10dp"
                     android:button="@null"
                     android:drawableTop="@drawable/selector_filter_category_top"
+                    android:fontFamily="@font/ko_pub_dotum_medium"
                     android:text="상의"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite" />
@@ -259,6 +273,7 @@
                     android:layout_marginHorizontal="10dp"
                     android:button="@null"
                     android:drawableTop="@drawable/selector_filter_category_bottom"
+                    android:fontFamily="@font/ko_pub_dotum_medium"
                     android:text="바지"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite" />
@@ -270,6 +285,7 @@
                     android:layout_marginHorizontal="10dp"
                     android:button="@null"
                     android:drawableTop="@drawable/selector_filter_category_skirt"
+                    android:fontFamily="@font/ko_pub_dotum_medium"
                     android:text="스커트"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite" />
@@ -281,6 +297,7 @@
                     android:layout_marginHorizontal="10dp"
                     android:button="@null"
                     android:drawableTop="@drawable/selector_filter_category_dress"
+                    android:fontFamily="@font/ko_pub_dotum_medium"
                     android:text="원피스"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite" />
@@ -292,6 +309,7 @@
                     android:layout_marginHorizontal="10dp"
                     android:button="@null"
                     android:drawableTop="@drawable/selector_filter_category_items"
+                    android:fontFamily="@font/ko_pub_dotum_medium"
                     android:text="패션 잡화"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite" />
@@ -306,6 +324,7 @@
         android:layout_marginTop="42dp"
         android:text="사이즈"
         android:textColor="@color/colorWhite"
+        android:fontFamily="@font/ko_pub_dotum_bold"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -321,53 +340,68 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_glance_filter_size"
         tools:layout_editor_absoluteX="0dp">
 
-        <TextView
+        <CheckBox
+            android:id="@+id/cb_glance_filter_size_s"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="4dp"
+            android:button="@null"
             android:background="@drawable/selector_btn_filter_size"
             android:gravity="center"
             android:paddingVertical="4dp"
+            android:fontFamily="@font/ko_pub_dotum_medium"
             android:text="S"
             android:textColor="@color/colorWhite" />
 
-        <TextView
+        <CheckBox
+            android:id="@+id/cb_glance_filter_size_m"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="4dp"
+            android:button="@null"
             android:background="@drawable/selector_btn_filter_size"
             android:gravity="center"
             android:paddingVertical="4dp"
+            android:fontFamily="@font/ko_pub_dotum_medium"
             android:text="M"
             android:textColor="@color/colorWhite" />
 
-        <TextView
+        <CheckBox
+            android:id="@+id/cb_glance_filter_size_l"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="4dp"
+            android:button="@null"
             android:background="@drawable/selector_btn_filter_size"
             android:gravity="center"
             android:paddingVertical="4dp"
+            android:fontFamily="@font/ko_pub_dotum_medium"
             android:text="L"
             android:textColor="@color/colorWhite" />
 
-        <TextView
+        <CheckBox
+            android:id="@+id/cb_glance_filter_size_xl"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="4dp"
+            android:button="@null"
             android:background="@drawable/selector_btn_filter_size"
             android:gravity="center"
             android:paddingVertical="4dp"
+            android:fontFamily="@font/ko_pub_dotum_medium"
             android:text="XL"
             android:textColor="@color/colorWhite" />
 
-        <TextView
+        <CheckBox
+            android:id="@+id/cb_glance_filter_size_xxl"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="4dp"
+            android:button="@null"
             android:background="@drawable/selector_btn_filter_size"
             android:gravity="center"
             android:paddingVertical="4dp"
+            android:fontFamily="@font/ko_pub_dotum_medium"
             android:text="XXL"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
@@ -379,6 +413,7 @@
         android:layout_marginTop="48dp"
         android:button="@drawable/selector_filter_want_btn_background"
         android:text=" 내가 팔로우하는 셀러들의 옷만 보기"
+        android:fontFamily="@font/ko_pub_dotum_bold"
         android:textColor="@color/colorWhite"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -398,9 +433,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="적용"
+            android:fontFamily="@font/ko_pub_dotum_bold"
             android:textSize="15sp"
-            android:background="@drawable/et_round_corner"
+            android:background="@drawable/btn_filter_white_background"
             android:layout_marginHorizontal="21dp"/>
     </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="53dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="9dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/btn_filter_scroll_bar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 import kotlinx.android.synthetic.main.activity_product_detail.*
 import kr.market.fluff.R
 import kr.market.fluff.data.detail.DetailProductData
+import kr.market.fluff.ui.detail.product.FragmentDetailPagerAdapter
 import kr.market.fluff.ui.detail.product.product_detail_recycler.DetailRecyclerAdapter
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 
@@ -89,10 +90,7 @@ class ProductDetailActivity : AppCompatActivity() {
     {
         val dotsIndicator= findViewById<DotsIndicator>(R.id.detail_dots_indicator)
         val viewPager = findViewById<ViewPager>(R.id.vp_detail_viewpager)
-        val adapter = FragmentDetailPagerAdapter(
-            supportFragmentManager,
-            3
-        )
+        val adapter = FragmentDetailPagerAdapter(supportFragmentManager,3)
         viewPager.adapter = adapter
         dotsIndicator.setViewPager(viewPager)
         vp_detail_viewpager.adapter = adapter
