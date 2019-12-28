@@ -9,7 +9,7 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.market.fluff.R
-import kr.market.fluff.ui.detail.ProductDetailActivity
+import kr.market.fluff.ui.detail.product.ProductDetailActivity
 import kr.market.fluff.data.home.HomeNewData
 
 class HomeNewViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView) {

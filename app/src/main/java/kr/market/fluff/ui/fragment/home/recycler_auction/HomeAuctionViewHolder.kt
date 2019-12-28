@@ -21,5 +21,8 @@ class HomeAuctionViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView
         home_recycler_closet.text = data.closet
         home_recycler_title.text = data.title
 
+
+
+
     }
 }
