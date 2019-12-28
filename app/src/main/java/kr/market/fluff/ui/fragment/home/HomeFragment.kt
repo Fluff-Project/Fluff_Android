@@ -66,6 +66,35 @@ class HomeFragment : Fragment() {
         makeKeywordRecycler(view)
         makeOctionRecycler(view)
         makeHomeViewPager(view)
+
+        img_home_newicon.setOnClickListener {
+
+        }
+
+        img_home_auctionicon.setOnClickListener {
+
+        }
+
+        img_home_plubicon.setOnClickListener {
+
+        }
+
+        img_home_recenticon.setOnClickListener {
+
+
+        }
+        img_home_recommendicon.setOnClickListener {
+
+
+        }
+        img_home_keywordicon.setOnClickListener {
+
+
+        }
+
+
+
+
     }
 
 
