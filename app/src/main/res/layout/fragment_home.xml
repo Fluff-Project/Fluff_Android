@@ -74,8 +74,8 @@
                     android:text="입고되었어요!" />
 
 
-            <ImageButton
-                android:id="@+id/imgbtn_home_newicon"
+            <ImageView
+                android:id="@+id/img_home_newicon"
                 android:layout_width="8dp"
                 android:layout_height="16dp"
                 android:layout_marginRight="14dp"
@@ -140,8 +140,8 @@
 
 
 
-                <ImageButton
-                    android:id="@+id/imgbtn_home_recenticon"
+                <ImageView
+                    android:id="@+id/img_home_recenticon"
                     android:layout_width="8dp"
                     android:layout_height="16dp"
                     android:layout_marginRight="14dp"
@@ -199,8 +199,8 @@
 
 
 
-                <ImageButton
-                    android:id="@+id/imgbtn_home_plubicon"
+                <ImageView
+                    android:id="@+id/img_home_plubicon"
                     android:layout_width="8dp"
                     android:layout_height="16dp"
                     android:layout_marginRight="14dp"
@@ -254,8 +254,8 @@
 
 
 
-                <ImageButton
-                    android:id="@+id/imgbtn_home_auctionicon"
+                <ImageView
+                    android:id="@+id/img_home_auctionicon"
                     android:layout_width="8dp"
                     android:layout_height="16dp"
                     android:layout_centerVertical="true"
@@ -308,8 +308,8 @@
                     android:text="화요일" />
 
 
-                <ImageButton
-                    android:id="@+id/imgbtn_home_recommend"
+                <ImageView
+                    android:id="@+id/img_home_recommend"
                     android:layout_width="8dp"
                     android:layout_height="16dp"
                     android:layout_centerVertical="true"

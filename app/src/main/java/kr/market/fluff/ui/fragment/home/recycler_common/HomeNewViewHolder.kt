@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.fragment.Home.home_recycler.recycler_common
+package kr.market.fluff.ui.fragment.home.recycler_common
 
 
 import android.content.Intent
@@ -9,7 +9,7 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.market.fluff.R
-import kr.market.fluff.ui.detail.ProductDetailActivity
+import kr.market.fluff.ui.detail.product.ProductDetailActivity
 import kr.market.fluff.data.home.HomeNewData
 
 class HomeNewViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView) {

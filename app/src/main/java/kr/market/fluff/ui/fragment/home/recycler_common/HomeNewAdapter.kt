@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.fragment.Home.home_recycler.recycler_common
+package kr.market.fluff.ui.fragment.home.recycler_common
 
 import android.view.LayoutInflater
 import android.view.View

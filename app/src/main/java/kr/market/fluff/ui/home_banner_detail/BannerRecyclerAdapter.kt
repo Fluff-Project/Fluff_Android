@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kr.market.fluff.R
-import kr.market.fluff.data.BannerRecyclerData
+import kr.market.fluff.data.detail.BannerRecyclerData
 
 class BannerRecyclerAdapter (var data:List<BannerRecyclerData>): RecyclerView.Adapter<BannerRecyclerViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerRecyclerViewHolder {

@@ -1,6 +1,5 @@
-package kr.market.fluff.ui.detail
+package kr.market.fluff.ui.detail.product
 
-import android.app.ActivityManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -11,7 +10,8 @@ import kr.market.fluff.R
 class FragmentDetailPagerAdapter(fm: FragmentManager?, val num_fragment : Int) : FragmentStatePagerAdapter(fm!!) {
     override fun getItem(p0: Int): Fragment {
 
-        var fragment : SliderDetailFragment = SliderDetailFragment()
+        var fragment : SliderDetailFragment =
+            SliderDetailFragment()
         var bundle : Bundle = Bundle(3)
 
         when(p0){

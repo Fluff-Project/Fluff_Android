@@ -1,4 +1,4 @@
-package kr.market.fluff.data
+package kr.market.fluff.data.detail
 
 import androidx.core.view.ViewPropertyAnimatorListener
 

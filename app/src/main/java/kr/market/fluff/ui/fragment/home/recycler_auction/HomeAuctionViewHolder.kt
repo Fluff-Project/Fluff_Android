@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.fragment.Home.home_recycler.recycler_auction
+package kr.market.fluff.ui.fragment.home.recycler_auction
 
 import android.view.View
 import android.widget.ImageView
@@ -20,6 +20,9 @@ class HomeAuctionViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView
             .into(home_recycler_img)
         home_recycler_closet.text = data.closet
         home_recycler_title.text = data.title
+
+
+
 
     }
 }
