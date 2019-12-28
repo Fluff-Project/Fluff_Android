@@ -16,6 +16,7 @@ import kr.market.fluff.R
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.enqueue
 import kr.market.fluff.ui.MainActivity
+import kr.market.fluff.ui.myStyle.MyStyleActivity
 import kr.market.fluff.ui.util.sendToast
 
 class LoginActivity : AppCompatActivity() {
@@ -55,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
                             if(response.body()!!.success){
                                 toast.sendToast(this,"로그인 되었습니다")
                                 val intent = Intent(this@LoginActivity,
-                                    MainActivity::class.java)
+                                    MyStyleActivity::class.java)
                                 intent.putExtra("userID",id_string)
                                 intent.putExtra("userPassword",pw_string)
                                 startActivity(intent)

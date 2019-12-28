@@ -1,5 +1,6 @@
 package kr.market.fluff.ui.recommendStyle
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -7,6 +8,7 @@ import kotlinx.android.synthetic.main.activity_recommend_style.*
 import kr.market.fluff.R
 import kr.market.fluff.data.RecommendStyleData
 import kr.market.fluff.data.RecommendStyleImgData
+import kr.market.fluff.ui.MainActivity
 
 class RecommendStyleActivity : AppCompatActivity() {
     private lateinit var recommendStyleAdapter: RecommendStyleAdapter
@@ -14,7 +16,15 @@ class RecommendStyleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recommend_style)
 
+        init()
+
+    }
+    private fun init(){
         initRecommendStyleList()
+        btn_recommend_style_signup.setOnClickListener {
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun initRecommendStyleList(){

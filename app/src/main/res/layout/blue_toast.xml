@@ -10,7 +10,7 @@
     android:id="@+id/blue_toast_container">
     <ImageView
         android:id="@+id/img_toast"
-        android:src="@drawable/ic_left"
+        android:src="@drawable/ic_check"
         android:layout_width="24dp"
         android:layout_centerVertical="true"
         android:layout_height="24dp"/>
