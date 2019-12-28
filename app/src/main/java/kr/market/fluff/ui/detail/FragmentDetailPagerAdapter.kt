@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.detail.product
+package kr.market.fluff.ui.detail
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

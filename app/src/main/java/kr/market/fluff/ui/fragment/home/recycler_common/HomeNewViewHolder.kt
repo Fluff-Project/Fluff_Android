@@ -9,8 +9,8 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.market.fluff.R
-import kr.market.fluff.ui.detail.product.ProductDetailActivity
 import kr.market.fluff.data.home.HomeNewData
+import kr.market.fluff.ui.detail.ProductDetailActivity
 
 class HomeNewViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView) {
     val home_recycler_img : ImageView = itemView.findViewById(R.id.img_rc_dress)
@@ -32,8 +32,6 @@ class HomeNewViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView) {
             intent.putExtra("product_price",home_recycler_price.text.toString())
             intent.putExtra("product_img_url",data.img)
             startActivity(itemView.context,intent,null)
-
-
         }
     }
 }

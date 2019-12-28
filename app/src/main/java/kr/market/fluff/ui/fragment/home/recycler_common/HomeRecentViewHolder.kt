@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.market.fluff.R
 import kr.market.fluff.data.home.HomeRecentData
-import kr.market.fluff.ui.detail.product.ProductDetailActivity
+import kr.market.fluff.ui.detail.ProductDetailActivity
 
 class HomeRecentViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView) {
     val home_recycler_img : ImageView = itemView.findViewById(R.id.img_rc_dress)
