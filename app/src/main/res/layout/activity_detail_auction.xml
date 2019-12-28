@@ -403,6 +403,8 @@
                 android:letterSpacing="-0.02"
                 android:lineSpacingExtra="6sp"
                 android:text="남음"
+                android:fontFamily="@font/ko_pub"
+                android:textFontWeight="400"
                 android:textColor="@color/colorBlack"
                 android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_auction_detail_extra_time"

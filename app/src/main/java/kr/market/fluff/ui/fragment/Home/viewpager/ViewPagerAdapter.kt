@@ -5,8 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import kr.market.fluff.data.HomeSliderData
-import kr.market.fluff.ui.fragment.home.viewpager.HomeSliderFragment
+import kr.market.fluff.data.home.HomeSliderData
 
 class ViewPagerAdapter(fm: FragmentManager?, val num_fragment : Int) :FragmentStatePagerAdapter(fm!!) {
     override fun getItem(p0: Int): Fragment {
@@ -17,27 +16,32 @@ class ViewPagerAdapter(fm: FragmentManager?, val num_fragment : Int) :FragmentSt
 
 
         datas = listOf(
-            HomeSliderData(0,
+            HomeSliderData(
+                0,
                 "https://image.made-in-china.com/202f0j00djUEvKrsLicq/Open-Style-Solid-L-Type-Walk-in-Closet-Wardrobe.jpg",
                 "타이틀1",
                 "서브타이틀1"
-                ),
-            HomeSliderData(1,
+            ),
+            HomeSliderData(
+                1,
                 "https://image.made-in-china.com/202f0j00djUEvKrsLicq/Open-Style-Solid-L-Type-Walk-in-Closet-Wardrobe.jpg",
                 "타이틀2",
                 "서브타이틀2"
             ),
-            HomeSliderData(2,
+            HomeSliderData(
+                2,
                 "https://image.made-in-china.com/202f0j00djUEvKrsLicq/Open-Style-Solid-L-Type-Walk-in-Closet-Wardrobe.jpg",
                 "타이틀3",
                 "서브타이틀3"
             ),
-            HomeSliderData(3,
+            HomeSliderData(
+                3,
                 "https://image.made-in-china.com/202f0j00djUEvKrsLicq/Open-Style-Solid-L-Type-Walk-in-Closet-Wardrobe.jpg",
                 "타이틀4",
                 "서브타이틀4"
             ),
-            HomeSliderData(4,
+            HomeSliderData(
+                4,
                 "https://image.made-in-china.com/202f0j00djUEvKrsLicq/Open-Style-Solid-L-Type-Walk-in-Closet-Wardrobe.jpg",
                 "타이틀5",
                 "서브타이틀5"
