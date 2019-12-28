@@ -9,6 +9,7 @@ import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 import kotlinx.android.synthetic.main.activity_product_detail.*
 import kr.market.fluff.R
 import kr.market.fluff.data.DetailProductData
+import kr.market.fluff.ui.fragment.home.viewpager.ViewPagerAdapter
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 
 class ProductDetailActivity : AppCompatActivity() {
