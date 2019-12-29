@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- 홈-->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -73,8 +74,8 @@
                     android:text="입고되었어요!" />
 
 
-            <ImageButton
-                android:id="@+id/imgbtn_home_newicon"
+            <ImageView
+                android:id="@+id/img_home_newicon"
                 android:layout_width="8dp"
                 android:layout_height="16dp"
                 android:layout_marginRight="14dp"
@@ -139,8 +140,8 @@
 
 
 
-                <ImageButton
-                    android:id="@+id/imgbtn_home_recenticon"
+                <ImageView
+                    android:id="@+id/img_home_recenticon"
                     android:layout_width="8dp"
                     android:layout_height="16dp"
                     android:layout_marginRight="14dp"
@@ -198,8 +199,8 @@
 
 
 
-                <ImageButton
-                    android:id="@+id/imgbtn_home_plubicon"
+                <ImageView
+                    android:id="@+id/img_home_plubicon"
                     android:layout_width="8dp"
                     android:layout_height="16dp"
                     android:layout_marginRight="14dp"
@@ -253,8 +254,8 @@
 
 
 
-                <ImageButton
-                    android:id="@+id/imgbtn_home_auctionicon"
+                <ImageView
+                    android:id="@+id/img_home_auctionicon"
                     android:layout_width="8dp"
                     android:layout_height="16dp"
                     android:layout_centerVertical="true"
@@ -307,8 +308,8 @@
                     android:text="화요일" />
 
 
-                <ImageButton
-                    android:id="@+id/imgbtn_home_recommend"
+                <ImageView
+                    android:id="@+id/img_home_recommendicon"
                     android:layout_width="8dp"
                     android:layout_height="16dp"
                     android:layout_centerVertical="true"
@@ -369,8 +370,8 @@
                     android:layout_toRightOf="@id/tv_home_keyword_keyword"
                     android:text=" 키워드" />
 
-                <ImageButton
-                    android:id="@+id/imgbtn_home_keyword"
+                <ImageView
+                    android:id="@+id/img_home_keywordicon"
                     android:layout_width="8dp"
                     android:layout_height="16dp"
                     android:layout_centerVertical="true"

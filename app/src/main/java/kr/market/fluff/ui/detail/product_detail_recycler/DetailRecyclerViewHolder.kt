@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.detail
+package kr.market.fluff.ui.detail.product_detail_recycler
 
 import android.view.View
 import android.widget.ImageView
@@ -6,7 +6,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.market.fluff.R
-import kr.market.fluff.data.DetailProductData
+import kr.market.fluff.data.detail.DetailProductData
 
 
 class DetailRecyclerViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView) {

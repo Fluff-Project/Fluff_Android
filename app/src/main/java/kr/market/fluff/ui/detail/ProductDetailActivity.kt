@@ -1,5 +1,6 @@
 package kr.market.fluff.ui.detail
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -8,8 +9,9 @@ import com.bumptech.glide.Glide
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 import kotlinx.android.synthetic.main.activity_product_detail.*
 import kr.market.fluff.R
-import kr.market.fluff.data.DetailProductData
-import kr.market.fluff.ui.fragment.home.viewpager.ViewPagerAdapter
+import kr.market.fluff.data.detail.DetailProductData
+import kr.market.fluff.ui.PurchaseActivity
+import kr.market.fluff.ui.detail.product_detail_recycler.DetailRecyclerAdapter
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 
 class ProductDetailActivity : AppCompatActivity() {
@@ -39,6 +41,18 @@ class ProductDetailActivity : AppCompatActivity() {
             }
 
         }
+        btn_cart_buy.setOnClickListener {
+            val intent = Intent(this, PurchaseActivity::class.java)
+            startActivity(intent)
+        }
+
+        tv_detail_closet_title.text = intent.getStringExtra("product_name")
+        tv_detail_closet_price.text = intent.getStringExtra("product_price")
+
+
+        img_product_detail_back.setOnClickListener {
+            finish()
+        }
 
 
         makeDetailViewPager()
@@ -48,11 +62,26 @@ class ProductDetailActivity : AppCompatActivity() {
     fun makeRecycler()
     {
         datas = listOf(
-            DetailProductData("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFSD12tSrR1flG6D_E2a_KsE7J4_ylgkbhn-ranKiF3WHc5WeiqQ&s","가격","상품명"),
-            DetailProductData("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFSD12tSrR1flG6D_E2a_KsE7J4_ylgkbhn-ranKiF3WHc5WeiqQ&s","가격","상품명"),
-            DetailProductData("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFSD12tSrR1flG6D_E2a_KsE7J4_ylgkbhn-ranKiF3WHc5WeiqQ&s","가격","상품명")
+            DetailProductData(
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFSD12tSrR1flG6D_E2a_KsE7J4_ylgkbhn-ranKiF3WHc5WeiqQ&s",
+                "가격",
+                "상품명"
+            ),
+            DetailProductData(
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFSD12tSrR1flG6D_E2a_KsE7J4_ylgkbhn-ranKiF3WHc5WeiqQ&s",
+                "가격",
+                "상품명"
+            ),
+            DetailProductData(
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFSD12tSrR1flG6D_E2a_KsE7J4_ylgkbhn-ranKiF3WHc5WeiqQ&s",
+                "가격",
+                "상품명"
+            )
         )
-        detailAdapter = DetailRecyclerAdapter(datas)
+        detailAdapter =
+            DetailRecyclerAdapter(
+                datas
+            )
         rv_detail_other.layoutManager = LinearLayoutManager(this@ProductDetailActivity, LinearLayoutManager.HORIZONTAL,false)
         rv_detail_other.adapter = detailAdapter
         rv_detail_other.addItemDecoration(HorizontalItemDecorator(24))

@@ -2,21 +2,12 @@ package kr.market.fluff.ui.activity.HomeBannerDetail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MotionEvent
-import android.view.View
 import android.view.WindowManager
-import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_home_banner_detail.*
-import kotlinx.android.synthetic.main.activity_product_detail.*
-import kotlinx.android.synthetic.main.item_banner_closet.*
 import kr.market.fluff.R
-import kr.market.fluff.data.BannerRecyclerData
-import kr.market.fluff.data.DetailProductData
-import kr.market.fluff.ui.detail.DetailRecyclerAdapter
+import kr.market.fluff.data.home.BannerRecyclerData
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
@@ -25,7 +16,6 @@ class HomeBannerDetailActivity : AppCompatActivity() {
     lateinit var bannerAdapter: BannerRecyclerAdapter
     lateinit var datas : List<BannerRecyclerData>
 
-    var banner_heart_bool : Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,23 +47,108 @@ class HomeBannerDetailActivity : AppCompatActivity() {
     fun makeBannerRecycler()
     {
         datas = listOf(
-            BannerRecyclerData(R.drawable.banner_closet,"98,000원","셔츠","셀러이름"),
-            BannerRecyclerData(R.drawable.banner_closet,"98,000원","셔츠","셀러이름"),
-            BannerRecyclerData(R.drawable.banner_closet,"98,000원","셔츠","셀러이름"),
-            BannerRecyclerData(R.drawable.banner_closet,"98,000원","셔츠","셀러이름"),
-            BannerRecyclerData(R.drawable.banner_closet,"98,000원","셔츠","셀러이름"),
-            BannerRecyclerData(R.drawable.banner_closet,"98,000원","셔츠","셀러이름"),
-            BannerRecyclerData(R.drawable.banner_closet,"98,000원","셔츠","셀러이름"),
-            BannerRecyclerData(R.drawable.banner_closet,"98,000원","셔츠","셀러이름"),
-            BannerRecyclerData(R.drawable.banner_closet,"98,000원","셔츠","셀러이름"),
-            BannerRecyclerData(R.drawable.banner_closet,"98,000원","셔츠","셀러이름"),
-            BannerRecyclerData(R.drawable.banner_closet,"98,000원","셔츠","셀러이름"),
-            BannerRecyclerData(R.drawable.banner_closet,"98,000원","셔츠","셀러이름"),
-            BannerRecyclerData(R.drawable.banner_closet,"98,000원","셔츠","셀러이름"),
-            BannerRecyclerData(R.drawable.banner_closet,"98,000원","셔츠","셀러이름"),
-            BannerRecyclerData(R.drawable.banner_closet,"98,000원","셔츠","셀러이름"),
-            BannerRecyclerData(R.drawable.banner_closet,"98,000원","셔츠","셀러이름"),
-            BannerRecyclerData(R.drawable.banner_closet,"98,000원","셔츠","셀러이름")
+            BannerRecyclerData(
+                R.drawable.banner_closet,
+                "98,000원",
+                "셔츠",
+                "셀러이름"
+            ),
+            BannerRecyclerData(
+                R.drawable.banner_closet,
+                "98,000원",
+                "셔츠",
+                "셀러이름"
+            ),
+            BannerRecyclerData(
+                R.drawable.banner_closet,
+                "98,000원",
+                "셔츠",
+                "셀러이름"
+            ),
+            BannerRecyclerData(
+                R.drawable.banner_closet,
+                "98,000원",
+                "셔츠",
+                "셀러이름"
+            ),
+            BannerRecyclerData(
+                R.drawable.banner_closet,
+                "98,000원",
+                "셔츠",
+                "셀러이름"
+            ),
+            BannerRecyclerData(
+                R.drawable.banner_closet,
+                "98,000원",
+                "셔츠",
+                "셀러이름"
+            ),
+            BannerRecyclerData(
+                R.drawable.banner_closet,
+                "98,000원",
+                "셔츠",
+                "셀러이름"
+            ),
+            BannerRecyclerData(
+                R.drawable.banner_closet,
+                "98,000원",
+                "셔츠",
+                "셀러이름"
+            ),
+            BannerRecyclerData(
+                R.drawable.banner_closet,
+                "98,000원",
+                "셔츠",
+                "셀러이름"
+            ),
+            BannerRecyclerData(
+                R.drawable.banner_closet,
+                "98,000원",
+                "셔츠",
+                "셀러이름"
+            ),
+            BannerRecyclerData(
+                R.drawable.banner_closet,
+                "98,000원",
+                "셔츠",
+                "셀러이름"
+            ),
+            BannerRecyclerData(
+                R.drawable.banner_closet,
+                "98,000원",
+                "셔츠",
+                "셀러이름"
+            ),
+            BannerRecyclerData(
+                R.drawable.banner_closet,
+                "98,000원",
+                "셔츠",
+                "셀러이름"
+            ),
+            BannerRecyclerData(
+                R.drawable.banner_closet,
+                "98,000원",
+                "셔츠",
+                "셀러이름"
+            ),
+            BannerRecyclerData(
+                R.drawable.banner_closet,
+                "98,000원",
+                "셔츠",
+                "셀러이름"
+            ),
+            BannerRecyclerData(
+                R.drawable.banner_closet,
+                "98,000원",
+                "셔츠",
+                "셀러이름"
+            ),
+            BannerRecyclerData(
+                R.drawable.banner_closet,
+                "98,000원",
+                "셔츠",
+                "셀러이름"
+            )
 
             )
 
