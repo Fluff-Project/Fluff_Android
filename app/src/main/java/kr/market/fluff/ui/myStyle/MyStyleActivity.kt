@@ -3,6 +3,7 @@ package kr.market.fluff.ui.myStyle
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_my_style.*
 import kr.market.fluff.R
@@ -11,6 +12,9 @@ import kr.market.fluff.ui.recommendStyle.RecommendStyleActivity
 
 class MyStyleActivity : AppCompatActivity() {
     private lateinit var myStyleAdapter : MyStyleAdapter
+    companion object{
+        var count : Int = 0
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_style)
@@ -18,10 +22,12 @@ class MyStyleActivity : AppCompatActivity() {
         init()
     }
     private fun init(){
+
         initMyStyleList()
         btn_my_style_default.setOnClickListener {
             val intent = Intent(this,RecommendStyleActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
     private fun initMyStyleList(){

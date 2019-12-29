@@ -2,6 +2,7 @@ package kr.market.fluff.ui.myStyle
 
 import android.graphics.Color
 import android.graphics.PorterDuff
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
@@ -10,8 +11,6 @@ import kr.market.fluff.R
 import kr.market.fluff.data.MyStyleData
 
 class MyStyleViewHolder (view: View) : RecyclerView.ViewHolder(view){
-    var count: Int = 0
-    var min: Int = 3
     val img_my_style: ImageView = view.findViewById(R.id.img_my_style)
     val img_my_style_checked: ImageView = view.findViewById(R.id.img_my_style_checked)
 
@@ -20,6 +19,11 @@ class MyStyleViewHolder (view: View) : RecyclerView.ViewHolder(view){
         img_my_style.setOnClickListener {
             img_my_style.setColorFilter(Color.parseColor("#88000000"), PorterDuff.Mode.SRC_OVER)
             img_my_style_checked.visibility = View.VISIBLE
+            MyStyleActivity.count++
+            Log.d("h","${MyStyleActivity.count}")
+            if(MyStyleActivity.count>2){
+
+            }
         }
     }
 }

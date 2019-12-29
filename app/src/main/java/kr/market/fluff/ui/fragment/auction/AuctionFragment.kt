@@ -9,9 +9,11 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import kr.market.fluff.R
 import kr.market.fluff.data.AuctionListData
+import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
 
@@ -33,16 +35,14 @@ class AuctionFragment : Fragment() {
         datas = ArrayList()
         rv_auction = view.findViewById(R.id.rv_auction_list)
         auctionAdapter = AuctionAdapter(this.activity!!,view.context)
-        rv_auction.layoutManager = LinearLayoutManager(view.context,
-            LinearLayoutManager.VERTICAL,false)
         addItems()
-        auctionAdapter.data = datas
-        rv_auction.adapter = auctionAdapter
-        rv_auction.addItemDecoration(
-            VerticalItemDecorator(
-                24
-            )
-        )
+        rv_auction.apply {
+            layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
+            adapter = auctionAdapter
+            addItemDecoration(VerticalItemDecorator(24))
+        }
+        val snapHelper = LinearSnapHelper()
+        snapHelper.attachToRecyclerView(rv_auction)
     }
 
     private fun addItems(){

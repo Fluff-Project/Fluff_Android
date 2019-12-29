@@ -3,9 +3,11 @@ package kr.market.fluff.ui.fragment.mypage.transfer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import kr.market.fluff.R
 import kr.market.fluff.data.mypage.TransferData
+import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
 class ConfirmTransferActivity : AppCompatActivity() {
@@ -21,17 +23,17 @@ class ConfirmTransferActivity : AppCompatActivity() {
         datas = ArrayList()
         setData()
         transferAdapter = TransferAdapter(this)
+
+
+        rv_confirmtransfer.apply {
+            layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
+            adapter = transferAdapter
+            addItemDecoration(VerticalItemDecorator(24))
+        }
         transferAdapter.data = datas
-        rv_confirmtransfer = findViewById<RecyclerView>(R.id.rv_confirmtransfer)
-        rv_confirmtransfer.addItemDecoration(
-            VerticalItemDecorator(
-                24
-            )
-        )
-        rv_confirmtransfer.layoutManager = LinearLayoutManager(this,
-            LinearLayoutManager.VERTICAL,false)
-        rv_confirmtransfer.adapter = transferAdapter
-        //데이터 저장된거 불러와서 어댑터에 추가작업 필요
+
+        val snapHelper = LinearSnapHelper()
+        snapHelper.attachToRecyclerView(rv_confirmtransfer)
     }
     private fun setData(){
         datas.add(

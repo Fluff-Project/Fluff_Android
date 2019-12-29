@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_login.tv_intro_register
 import kr.market.fluff.R
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.enqueue
+import kr.market.fluff.ui.App
 import kr.market.fluff.ui.MainActivity
 import kr.market.fluff.ui.myStyle.MyStyleActivity
 import kr.market.fluff.ui.util.sendToast
@@ -55,6 +56,7 @@ class LoginActivity : AppCompatActivity() {
                         if(response.isSuccessful){
                             if(response.body()!!.success){
                                 toast.sendToast(this,"로그인 되었습니다")
+                                App.prefs.isLogin = true
                                 val intent = Intent(this@LoginActivity,
                                     MyStyleActivity::class.java)
                                 intent.putExtra("userID",id_string)
@@ -161,8 +163,17 @@ class LoginActivity : AppCompatActivity() {
             super.onBackPressed()
         }
     }
+    private fun checkAutoLogin(){
+        if(App.prefs.isLogin == true){
+            toast.sendToast(this,"자동로그인 되었습니다")
+            val intent = Intent(this, MyStyleActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+    }
     private fun init(){
         toast = Toast(this)
+        checkAutoLogin()
         backGroundAnim()
         setListener()
     }

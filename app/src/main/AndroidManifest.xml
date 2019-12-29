@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:name=".ui.App"
         android:usesCleartextTraffic="true">
         <activity android:name=".ui.fragment.auction.DetailAuctionActivity" />
         <activity android:name=".ui.fragment.mypage.transfer.ConfirmTransferActivity" />
@@ -20,16 +21,18 @@
         <activity android:name=".ui.myStyle.MyStyleActivity" />
         <activity android:name=".ui.PurchaseActivity" />
         <activity android:name=".ui.intro.RegisterActivity" />
-        <activity android:name=".ui.intro.LoginActivity"></activity>
-        <activity android:name=".ui.detail.ProductDetailActivity" />
-        <activity android:name=".ui.fragment.mypage.cart.CartActivity" />
-        <activity android:name=".ui.activity.HomeBannerDetail.HomeBannerDetailActivity"></activity>
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.intro.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ui.detail.ProductDetailActivity" />
+        <activity android:name=".ui.fragment.mypage.cart.CartActivity" />
+        <activity android:name=".ui.activity.HomeBannerDetail.HomeBannerDetailActivity"></activity>
+        <activity android:name=".ui.MainActivity">
+
         </activity>
     </application>
 

@@ -1,9 +1,6 @@
 package kr.market.fluff.ui.fragment.glance
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +11,6 @@ import kotlinx.android.synthetic.main.fragment_glance.*
 import kotlinx.android.synthetic.main.glance_filter.*
 import kr.market.fluff.R
 import kr.market.fluff.data.GlanceListData
-import kr.market.fluff.ui.GlanceListAdapter
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
@@ -47,7 +43,8 @@ class GlanceFragment : Fragment() {
 
     }
     fun initRecyclerview(){
-        glanceListAdapter = GlanceListAdapter(context!!)
+        glanceListAdapter =
+            GlanceListAdapter(context!!)
         recycler_glance_list.apply {
             layoutManager = GridLayoutManager(context!!,2)
             adapter = glanceListAdapter

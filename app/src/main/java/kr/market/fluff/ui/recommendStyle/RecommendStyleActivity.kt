@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
+import androidx.recyclerview.widget.SnapHelper
 import kotlinx.android.synthetic.main.activity_recommend_style.*
 import kr.market.fluff.R
 import kr.market.fluff.data.RecommendStyleData
@@ -24,15 +26,18 @@ class RecommendStyleActivity : AppCompatActivity() {
         btn_recommend_style_signup.setOnClickListener {
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 
     private fun initRecommendStyleList(){
         recommendStyleAdapter =
             RecommendStyleAdapter(this)
+
         recycler_flub_detail_style.apply {
             layoutManager = LinearLayoutManager(this@RecommendStyleActivity)
             adapter = recommendStyleAdapter
+
         }
         recommendStyleAdapter.data = listOf(
             RecommendStyleData(
