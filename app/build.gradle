@@ -64,4 +64,7 @@ dependencies {
     //Picaso 라이브러리 (이미지)
     implementation 'com.squareup.picasso:picasso:2.4.0'
 
+    //페이스북 연동
+    implementation 'com.facebook.android:facebook-login:[5,6)'
+
 }
