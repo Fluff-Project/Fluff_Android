@@ -199,4 +199,12 @@
         <item name="colorControlActivated">@color/colorStar</item>
         <item name="ratingBarStyle">?android:attr/ratingBarStyleSmall</item>
     </style>
+
+    <style name="TextView_MyInfoUpdate">
+        <item name="android:fontFamily">@font/ko_pub_dotum_bold</item>
+        <item name="android:color">#414141</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+    </style>
+
 </resources>

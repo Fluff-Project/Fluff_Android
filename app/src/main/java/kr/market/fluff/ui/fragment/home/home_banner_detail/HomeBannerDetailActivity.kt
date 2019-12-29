@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.activity.HomeBannerDetail
+package kr.market.fluff.ui.activity.home_banner_detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -152,7 +152,7 @@ class HomeBannerDetailActivity : AppCompatActivity() {
 
             )
 
-        bannerAdapter = BannerRecyclerAdapter(datas)
+        bannerAdapter = BannerRecyclerAdapter(this, datas)
         rv_banner_closet.layoutManager = GridLayoutManager(this@HomeBannerDetailActivity,2)
         rv_banner_closet.adapter = bannerAdapter
         rv_banner_closet.addItemDecoration(HorizontalItemDecorator(30))
@@ -161,6 +161,7 @@ class HomeBannerDetailActivity : AppCompatActivity() {
 
 
     }
+
 
 
 }

@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.activity.HomeBannerDetail.HomeBannerDetailActivity">
+    android:layout_height="match_parent">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -25,13 +24,13 @@
                 <ImageView
                     android:id="@+id/img_banner_view"
                     android:layout_width="match_parent"
-                    android:layout_height="484dp"
+                    android:layout_height="286dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/signin_bg_img" />
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="484dp"
+                    android:layout_height="286dp"
                     android:background="#73000000"/>
 
                 <ImageView
@@ -53,7 +52,7 @@
                     style="@style/HomeVpSubTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="218dp"
+                    android:layout_marginTop="116dp"
                     android:layout_centerHorizontal="true"
                     android:text="TextView" />
 
@@ -76,7 +75,7 @@
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"
                 android:layout_marginTop="42dp"
-                android:layout_marginBottom="152dp"/>
+                android:paddingBottom="48dp" />
 
         </LinearLayout>
 

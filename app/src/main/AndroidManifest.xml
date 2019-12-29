@@ -13,6 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ui.fragment.home.home_detail.HomeRecommendActivity"></activity>
+        <activity android:name=".ui.fragment.home.home_detail.HomeRecentActivity"></activity>
+        <activity android:name=".ui.fragment.home.home_detail.HomeNewActivity" ></activity>
+        <activity android:name=".ui.fragment.mypage.update.MyInfoUpdateActivity"></activity>
+        <activity android:name=".ui.fragment.mypage.flub.FlubRegularCustomer" />
         <activity android:name=".ui.fragment.auction.DetailAuctionActivity" />
         <activity android:name=".ui.fragment.mypage.transfer.ConfirmTransferActivity" />
         <activity android:name=".ui.fragment.mypage.favorite.FavoriteActivity" />
@@ -20,11 +25,11 @@
         <activity android:name=".ui.myStyle.MyStyleActivity" />
         <activity android:name=".ui.PurchaseActivity" />
         <activity android:name=".ui.intro.RegisterActivity" />
-        <activity android:name=".ui.intro.LoginActivity"></activity>
+        <activity android:name=".ui.intro.LoginActivity" />
         <activity android:name=".ui.detail.ProductDetailActivity" />
         <activity android:name=".ui.fragment.mypage.cart.CartActivity" />
-        <activity android:name=".ui.activity.HomeBannerDetail.HomeBannerDetailActivity"></activity>
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.activity.home_banner_detail.HomeBannerDetailActivity"></activity>
+        <activity android:name=".ui.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

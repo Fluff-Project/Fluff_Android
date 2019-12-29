@@ -205,7 +205,7 @@
                         <TextView
                             style="@style/TextView_For_Purchase_request"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:padding="8dp"
                             android:text="배송지" />
