@@ -2,6 +2,7 @@ package kr.market.fluff.ui.intro
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.animation.LinearInterpolator
@@ -16,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_register.*
 import kr.market.fluff.R
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.enqueue
+import kr.market.fluff.ui.myStyle.MyStyleActivity
 import kr.market.fluff.ui.util.sendToast
 
 
@@ -26,8 +28,6 @@ class RegisterActivity : AppCompatActivity() {
     val requestToServer = RequestToServer
 
     var page : Int = 1
-
-    var progress_status : Int = 1
 
     //이메일, 비밀번호, 닉네임, 성별
     lateinit var string_register_email : String
@@ -75,6 +75,22 @@ class RegisterActivity : AppCompatActivity() {
         }
         }
 
+
+        ll_register_male.setOnClickListener{
+            setMaleView(true)
+            setFemaleView(false)
+            string_register_gender = "m"
+            setBtnEnable()
+        }
+        ll_register_female.setOnClickListener{
+            setMaleView(false)
+            setFemaleView(true)
+            string_register_gender = "f"
+            setBtnEnable()
+        }
+        setBtnClickListenerNext()
+    }
+    private fun setBtnClickListenerNext(){
         btn_register_next.setOnClickListener{
             val email_string = et_register_email.text.toString()
             if(page==1 && email_string.equals("")){
@@ -92,17 +108,12 @@ class RegisterActivity : AppCompatActivity() {
                 }
             }
         }
-        ll_register_male.setOnClickListener{
-            setMaleView(true)
-            setFemaleView(false)
-            string_register_gender = "m"
-            setBtnEnable()
-        }
-        ll_register_female.setOnClickListener{
-            setMaleView(false)
-            setFemaleView(true)
-            string_register_gender = "f"
-            setBtnEnable()
+    }
+    private fun setBtnClickListenerRegister(){
+        btn_register_next.setOnClickListener {
+            submit_datas()//
+            val intent = Intent(this,MyStyleActivity::class.java)
+            startActivity(intent)
         }
     }
     private fun requestValidation(){
@@ -171,22 +182,22 @@ class RegisterActivity : AppCompatActivity() {
         if(isselected){
             ll_register_male.background = ContextCompat.getDrawable(this,R.drawable.gender_black_background)
             tv_register_male.setTextColor(ContextCompat.getColor(this,R.color.colorPrimaryDark))
-            img_register_male.setImageResource(R.drawable.ic_black_circle)
+            //img_register_male.setImageResource(R.drawable.ic_black_circle)
         }else{
             ll_register_male.background = ContextCompat.getDrawable(this,R.drawable.gender_gray_background)
             tv_register_male.setTextColor(ContextCompat.getColor(this,R.color.colorGenderGrayText))
-            img_register_male.setImageResource(R.drawable.ic_gray_circle)
+            //img_register_male.setImageResource(R.drawable.ic_gray_circle)
         }
     }
     private fun setFemaleView(isselected : Boolean){
         if(isselected){
             ll_register_female.background = ContextCompat.getDrawable(this,R.drawable.gender_black_background)
             tv_register_female.setTextColor(ContextCompat.getColor(this,R.color.colorPrimaryDark))
-            img_register_female.setImageResource(R.drawable.ic_black_circle)
+            //img_register_female.setImageResource(R.drawable.ic_black_circle)
         }else{
             ll_register_female.background = ContextCompat.getDrawable(this,R.drawable.gender_gray_background)
             tv_register_female.setTextColor(ContextCompat.getColor(this,R.color.colorGenderGrayText))
-            img_register_female.setImageResource(R.drawable.ic_gray_circle)
+            //img_register_female.setImageResource(R.drawable.ic_gray_circle)
         }
     }
     private fun next_to_gender(){//버튼 텍스트랑 프로그래스바 바꾸기, 변수에 값 저장, 입력란 다 없애기, 성별선택 뷰 표시하기
@@ -197,6 +208,8 @@ class RegisterActivity : AppCompatActivity() {
 
         setBtnDisable()
         btn_register_next.setText("가입 완료하기")
+        setBtnClickListenerRegister()
+
         updateProgress(75,100)
     }
     private fun submit_datas(){
@@ -246,6 +259,7 @@ class RegisterActivity : AppCompatActivity() {
                 et_register_nick.setText(string_register_nick)
                 updateProgress(100,75)
                 page = 3
+                setBtnClickListenerNext()
                 setBtnEnable()
             }
         }

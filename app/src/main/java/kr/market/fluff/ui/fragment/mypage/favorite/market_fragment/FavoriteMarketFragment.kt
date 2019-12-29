@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 
 import kr.market.fluff.R
@@ -16,7 +17,7 @@ import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 class FavoriteMarketFragment : Fragment() {
 
     lateinit var rv_favorite : RecyclerView
-    lateinit var adapter: FavoriteMarketAdapter
+    lateinit var fav_adapter: FavoriteMarketAdapter
     lateinit var datas : ArrayList<FavoriteMarketData>
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_favorite_market, container, false)
@@ -39,15 +40,18 @@ class FavoriteMarketFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         datas = ArrayList()
         rv_favorite = view.findViewById(R.id.rv_favorite_market)
-        adapter =
-            FavoriteMarketAdapter(
-                view.context
-            )
+        fav_adapter = FavoriteMarketAdapter(view.context)
         addDatas()
-        adapter.data = datas
-        rv_favorite.layoutManager = LinearLayoutManager(view.context,LinearLayoutManager.VERTICAL,false)
-        rv_favorite.addItemDecoration(VerticalItemDecorator(24))
-        rv_favorite.adapter = adapter
+        fav_adapter.data = datas
+        rv_favorite.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            addItemDecoration(VerticalItemDecorator(24))
+            adapter = fav_adapter
+        }
+
+        val snapHelper = LinearSnapHelper()
+        snapHelper.attachToRecyclerView(rv_favorite)
+
     }
     private fun addDatas(){
         datas.add(

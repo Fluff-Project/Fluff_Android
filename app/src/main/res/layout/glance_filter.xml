@@ -424,7 +424,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorCharcoal"
         app:layout_constraintBottom_toBottomOf="parent"
         android:paddingVertical="15dp"
         tools:layout_editor_absoluteX="0dp">

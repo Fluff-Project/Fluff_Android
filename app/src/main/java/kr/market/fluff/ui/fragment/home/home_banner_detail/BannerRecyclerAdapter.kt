@@ -1,4 +1,4 @@
-package kr.market.fluff.ui.activity.home_banner_detail
+package kr.market.fluff.ui.fragment.home.home_banner_detail
 
 import android.content.Context
 import android.view.LayoutInflater

@@ -11,7 +11,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_home_slider.*
 import kr.market.fluff.R
-import kr.market.fluff.ui.activity.home_banner_detail.HomeBannerDetailActivity
+import kr.market.fluff.ui.fragment.home.home_banner_detail.HomeBannerDetailActivity
 
 /**
  * A simple [Fragment] subclass.
