@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.mypage.update.MyInfoUpdateActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_update_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_purchase_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            app:layout_constraintStart_toStartOf="@+id/guideline12"
+            app:layout_constraintTop_toTopOf="@+id/guideline13"
+            app:srcCompat="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/txt_update_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="32dp"
+            android:layout_toRightOf="@+id/img_purchase_back"
+            android:fontFamily="@font/ko_pub"
+            android:lineSpacingExtra="10sp"
+            android:text="내 정보 수정"
+            android:textColor="@color/colorBlack"
+            android:textFontWeight="900"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/img_purchase_back"
+            app:layout_constraintTop_toTopOf="@+id/guideline13" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="24dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cl_update_view"
+        android:layout_marginTop="-1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/txt_update_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="36dp"
+                android:fontFamily="@font/ko_pub_dotum_bold"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="9sp"
+                android:text="기본 정보 수정"
+                android:textColor="#000000"
+                android:textSize="17sp" />
+
+            <TableLayout
+                android:id="@+id/tl_update_basic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_update_title"
+                android:layout_marginTop="24dp">
+
+                <TableRow
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="32dp">
+
+                    <TextView
+                        style="@style/TextView_MyInfoUpdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text="아이디" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:background="@drawable/et_purchase"
+                        android:hint="ex)xxxxx@gmail.com"
+                        android:padding="8dp" />
+                </TableRow>
+
+
+                <TableRow
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="32dp">
+
+                    <TextView
+                        style="@style/TextView_MyInfoUpdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text="닉네임" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:background="@drawable/et_purchase"
+                        android:hint="ex) 뽀짝이"
+                        android:padding="8dp" />
+                </TableRow>
+
+
+                <TableRow
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="16dp">
+
+                    <TextView
+                        style="@style/TextView_MyInfoUpdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text="배송 주소" />
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:orientation="horizontal">
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:background="@drawable/et_purchase"
+                        android:padding="8dp" />
+
+                    <Button
+                        android:id="@+id/btn_update_address"
+                        android:layout_width="74dp"
+                        android:layout_height="38dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_black_rec"
+                        android:fontFamily="@font/ko_pub_dotum_medium"
+                        android:lineSpacingExtra="8sp"
+                        android:layout_marginLeft="12dp"
+                        android:padding="8dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="6dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="6dp"
+                        android:text="주소찾기"
+                        android:textColor="#ffffff"
+                        android:textSize="15sp" />
+
+                    </LinearLayout>
+
+                </TableRow>
+
+
+                <TableRow
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="32dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text=" " />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:background="@drawable/et_purchase"
+                        android:padding="8dp" />
+                </TableRow>
+
+
+                <TableRow
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="32dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text=" " />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:background="@drawable/et_purchase"
+                        android:padding="8dp" />
+                </TableRow>
+
+
+                <TableRow
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="32dp">
+
+                    <TextView
+                        style="@style/TextView_MyInfoUpdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text="연락처" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:background="@drawable/et_purchase"
+                        android:hint="ex) 010-0000-0000"
+                        android:padding="8dp" />
+                </TableRow>
+
+
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/txt_update_title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tl_update_basic"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/ko_pub_dotum_bold"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="9sp"
+                android:text="비밀번호 변경"
+                android:textColor="#000000"
+                android:textSize="17sp" />
+
+            <TableLayout
+                android:id="@+id/tl_update_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_update_title2"
+                android:layout_marginTop="24dp">
+
+                <TableRow
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="32dp">
+
+                    <TextView
+                        style="@style/TextView_MyInfoUpdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text="새 비밀번호" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:background="@drawable/et_purchase"
+                        android:padding="8dp" />
+                </TableRow>
+
+
+                <TableRow
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="32dp">
+
+                    <TextView
+                        style="@style/TextView_MyInfoUpdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text="새 비밀번호 확인" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:background="@drawable/et_purchase"
+                        android:inputType="textPassword"
+                        android:padding="8dp" />
+                </TableRow>
+
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/txt_update_title3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tl_update_password"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/ko_pub_dotum_bold"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="9sp"
+                android:text="성별 선택"
+                android:textColor="#000000"
+                android:textSize="17sp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_update_title3"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="138dp">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <RadioButton
+                        android:id="@+id/btn_update_gender_xy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="44dp"
+                        android:layout_marginStart="16dp"
+                        android:background="@drawable/btn_update_gender_background"
+                        android:button="@null"
+                        android:fontFamily="@font/ko_pub_dotum_medium"
+                        android:lineSpacingExtra="9sp"
+                        android:paddingLeft="66dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="66dp"
+                        android:paddingBottom="10dp"
+                        android:text="남자"
+                        android:textColor="@drawable/btn_text_gender"
+                        android:textSize="16sp"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintEnd_toStartOf="@+id/btn_update_gender_xx"/>
+                    <!--            app:layout_constraintBottom_toBottomOf="parent"
+
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"-->
+
+                    <RadioButton
+                        android:id="@+id/btn_update_gender_xx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="44dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/btn_update_gender_background"
+                        android:button="@null"
+                        android:fontFamily="@font/ko_pub_dotum_medium"
+                        android:lineSpacingExtra="9sp"
+                        android:paddingLeft="66dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="66dp"
+                        android:paddingBottom="10dp"
+                        android:text="여자"
+                        android:textColor="@drawable/btn_text_gender"
+                        android:textSize="16sp"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintLeft_toRightOf="@id/btn_update_gender_xy" />
+                    <!--            app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+
+                        app:layout_constraintTop_toTopOf="parent" -->
+
+                </RadioGroup>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <View
+        android:id="@+id/bottom_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/cl_myinfo_view"
+        android:background="@color/colorGenderGrayText" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_myinfo_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorWhite">
+    <Button
+        android:id="@+id/btn_myinfo_update"
+        style="@style/BlackButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:fontFamily="@font/ko_pub"
+        android:lineSpacingExtra="7sp"
+        android:text="변경 완료"
+        android:textFontWeight="700"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="15sp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

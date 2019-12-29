@@ -1,17 +1,23 @@
 package kr.market.fluff.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 import kotlinx.android.synthetic.main.fragment_home.*
 import kr.market.fluff.R
 import kr.market.fluff.data.home.*
+import kr.market.fluff.ui.MainActivity
+import kr.market.fluff.ui.fragment.home.home_detail.HomeNewActivity
+import kr.market.fluff.ui.fragment.home.home_detail.HomeRecentActivity
+import kr.market.fluff.ui.fragment.home.home_detail.HomeRecommendActivity
 import kr.market.fluff.ui.fragment.home.recycler_auction.HomeAuctionAdapter
 import kr.market.fluff.ui.fragment.home.recycler_common.HomeNewAdapter
 import kr.market.fluff.ui.fragment.home.recycler_common.HomeRecentAdapter
@@ -20,6 +26,7 @@ import kr.market.fluff.ui.fragment.home.recycler_keyword.HomeKeywordAdapter
 import kr.market.fluff.ui.fragment.home.recycler_plub.HomePlubAdapter
 import kr.market.fluff.ui.fragment.home.viewpager.ViewPagerAdapter
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
+import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
 class HomeFragment : Fragment() {
     lateinit var rv_home_new : RecyclerView
@@ -50,7 +57,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_home, container, false)
+        val view = inflater.inflate(kr.market.fluff.R.layout.fragment_home, container, false)
 
         // Inflate the layout for this fragment
         return view
@@ -66,12 +73,27 @@ class HomeFragment : Fragment() {
         makeKeywordRecycler(view)
         makeOctionRecycler(view)
         makeHomeViewPager(view)
+        changeView(view)
+
+    }
+
+    fun changeView(view : View)
+    {
+
+        val change_fragment: Fragment
 
         img_home_newicon.setOnClickListener {
+
+            val intent = Intent(context, HomeNewActivity::class.java)
+            intent.putExtra("new_keyword",tv_home_new_keyword.text.toString())
+            startActivity(intent)
 
         }
 
         img_home_auctionicon.setOnClickListener {
+
+            (activity as MainActivity).replaceFragment(2)
+
 
         }
 
@@ -81,27 +103,24 @@ class HomeFragment : Fragment() {
 
         img_home_recenticon.setOnClickListener {
 
-
+            val intent = Intent(context, HomeRecentActivity::class.java)
+            intent.putExtra("recent_keyword",tv_home_recent_keyword.text.toString())
+            startActivity(intent)
         }
         img_home_recommendicon.setOnClickListener {
-
-
-        }
-        img_home_keywordicon.setOnClickListener {
-
+            val intent = Intent(context, HomeRecommendActivity::class.java)
+            intent.putExtra("recommend_keyword",tv_home_recommend_keyword.text.toString())
+            startActivity(intent)
 
         }
-
-
-
 
     }
 
 
     fun makeHomeViewPager(view : View)
     {
-        val dotsIndicator= view.findViewById<DotsIndicator>(R.id.dots_indicator)
-        val viewPager = view.findViewById<ViewPager>(R.id.vp_home_viewpager)
+        val dotsIndicator= view.findViewById<DotsIndicator>(kr.market.fluff.R.id.dots_indicator)
+        val viewPager = view.findViewById<ViewPager>(kr.market.fluff.R.id.vp_home_viewpager)
         val adapter = ViewPagerAdapter(childFragmentManager,5)
         viewPager.adapter = adapter
         dotsIndicator.setViewPager(viewPager)
@@ -113,7 +132,7 @@ class HomeFragment : Fragment() {
     }
 
     fun makeNewRecycler(view : View)
-    {//
+    {
         new_datas = listOf(
             HomeNewData("https://previews.123rf.com/images/margolana/margolana1511/margolana151100248/48654416-%EA%B0%9C%EC%B2%B4-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9D%98-%EA%B2%A8%EC%9A%B8-%EC%98%B7-%EA%B7%B8%EB%A3%B9%EC%9D%80-%ED%8C%A8%EC%85%98-%EC%9A%94%EC%86%8C-%EB%82%A8%EC%9E%90-%EC%9D%98%EB%A5%98-%EC%84%B8%ED%8A%B8.jpg",
             "옷1","가격1"),
@@ -122,12 +141,16 @@ class HomeFragment : Fragment() {
             HomeNewData("https://previews.123rf.com/images/margolana/margolana1511/margolana151100248/48654416-%EA%B0%9C%EC%B2%B4-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9D%98-%EA%B2%A8%EC%9A%B8-%EC%98%B7-%EA%B7%B8%EB%A3%B9%EC%9D%80-%ED%8C%A8%EC%85%98-%EC%9A%94%EC%86%8C-%EB%82%A8%EC%9E%90-%EC%9D%98%EB%A5%98-%EC%84%B8%ED%8A%B8.jpg",
             "옷3","가격3")
         )
-        rv_home_new = view.findViewById(R.id.rv_home_new)
+        rv_home_new = view.findViewById(kr.market.fluff.R.id.rv_home_new)
         newAdapter =
             HomeNewAdapter(new_datas)
-        rv_home_new.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-        rv_home_new.adapter = newAdapter
-        rv_home_new.addItemDecoration(HorizontalItemDecorator(24))
+        rv_home_new.apply {
+            layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+            adapter = newAdapter
+            addItemDecoration(HorizontalItemDecorator(24))
+        }
+        val snapHelper = LinearSnapHelper()
+        snapHelper.attachToRecyclerView(rv_home_new)
         newAdapter.notifyDataSetChanged()
     }
 
@@ -141,15 +164,18 @@ class HomeFragment : Fragment() {
             HomeRecentData("https://previews.123rf.com/images/margolana/margolana1511/margolana151100248/48654416-%EA%B0%9C%EC%B2%B4-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9D%98-%EA%B2%A8%EC%9A%B8-%EC%98%B7-%EA%B7%B8%EB%A3%B9%EC%9D%80-%ED%8C%A8%EC%85%98-%EC%9A%94%EC%86%8C-%EB%82%A8%EC%9E%90-%EC%9D%98%EB%A5%98-%EC%84%B8%ED%8A%B8.jpg",
                 "옷3","가격3")
         )
-        rv_home_recent = view.findViewById(R.id.rv_home_recent)
+        rv_home_recent = view.findViewById(kr.market.fluff.R.id.rv_home_recent)
         recentAdapter =
             HomeRecentAdapter(
                 recent_datas
             )
-        rv_home_recent.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-        rv_home_recent.adapter = recentAdapter
-        rv_home_recent.addItemDecoration(HorizontalItemDecorator(24))
-        recentAdapter.notifyDataSetChanged()
+        rv_home_recent.apply {
+            layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+            adapter = recentAdapter
+            addItemDecoration(HorizontalItemDecorator(24))
+        }
+        val snapHelper = LinearSnapHelper()
+        snapHelper.attachToRecyclerView(rv_home_recent)
     }
 
     fun makeRecommendRecycler(view : View)
@@ -163,14 +189,14 @@ class HomeFragment : Fragment() {
                 "옷3","가격3")
         )
         rv_home_recommend = view.findViewById(R.id.rv_home_recommend)
-        recommendAdapter =
-            HomeRecommendAdapter(
-                recommend_datas
-            )
-        rv_home_recommend.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-        rv_home_recommend.adapter = recommendAdapter
-        rv_home_recommend.addItemDecoration(HorizontalItemDecorator(24))
-        recommendAdapter.notifyDataSetChanged()
+        recommendAdapter = HomeRecommendAdapter(recommend_datas)
+        rv_home_recommend.apply {
+            layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+            adapter = recommendAdapter
+            addItemDecoration(HorizontalItemDecorator(24))
+        }
+        val snapHelper = LinearSnapHelper()
+        snapHelper.attachToRecyclerView(rv_home_recommend)
     }
 
     fun makePlubRecycler(view : View)
@@ -183,12 +209,15 @@ class HomeFragment : Fragment() {
             HomePlubData("https://previews.123rf.com/images/margolana/margolana1511/margolana151100248/48654416-%EA%B0%9C%EC%B2%B4-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9D%98-%EA%B2%A8%EC%9A%B8-%EC%98%B7-%EA%B7%B8%EB%A3%B9%EC%9D%80-%ED%8C%A8%EC%85%98-%EC%9A%94%EC%86%8C-%EB%82%A8%EC%9E%90-%EC%9D%98%EB%A5%98-%EC%84%B8%ED%8A%B8.jpg",
                 "셀러3","해쉬테그1","해쉬테그2","팔로우")
         )
-        rv_home_plub = view.findViewById(R.id.rv_home_plub)
+        rv_home_plub = view.findViewById(kr.market.fluff.R.id.rv_home_plub)
         plubAdapter = HomePlubAdapter(plub_datas)
-        rv_home_plub.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-        rv_home_plub.adapter = plubAdapter
-        rv_home_plub.addItemDecoration(HorizontalItemDecorator(24))
-        plubAdapter.notifyDataSetChanged()
+        rv_home_plub.apply {
+            layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+            adapter = plubAdapter
+            addItemDecoration(HorizontalItemDecorator(24))
+        }
+        val snapHelper = LinearSnapHelper()
+        snapHelper.attachToRecyclerView(rv_home_plub)
     }
 
     fun makeKeywordRecycler(view : View)
@@ -197,14 +226,17 @@ class HomeFragment : Fragment() {
             HomeKeywordData("#스카프",R.drawable.img_keyword),
             HomeKeywordData("#데님",R.drawable.img_keyword),
             HomeKeywordData("#중절모",R.drawable.img_keyword)
-
-
         )
         rv_home_keyword = view.findViewById(R.id.rv_home_keyword)
         keywordAdapter = HomeKeywordAdapter(keyword_datas)
-        rv_home_keyword.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
-        rv_home_keyword.adapter = keywordAdapter
-        keywordAdapter.notifyDataSetChanged()
+
+        rv_home_keyword.apply {
+            layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
+            adapter = keywordAdapter
+            addItemDecoration(VerticalItemDecorator(24))
+        }
+        val snapHelper = LinearSnapHelper()
+        snapHelper.attachToRecyclerView(rv_home_keyword)
     }
 
     fun makeOctionRecycler(view: View)
@@ -219,10 +251,13 @@ class HomeFragment : Fragment() {
         )
         rv_home_auction = view.findViewById(R.id.rv_home_auction)
         auctionAdapter = HomeAuctionAdapter(auction_data)
-        rv_home_auction.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-        rv_home_auction.adapter = auctionAdapter
-        rv_home_auction.addItemDecoration(HorizontalItemDecorator(24))
-        auctionAdapter.notifyDataSetChanged()
+        rv_home_auction.apply {
+            layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+            adapter = auctionAdapter
+            addItemDecoration(HorizontalItemDecorator(24))
+        }
+        val snapHelper = LinearSnapHelper()
+        snapHelper.attachToRecyclerView(rv_home_auction)
     }
 
 }

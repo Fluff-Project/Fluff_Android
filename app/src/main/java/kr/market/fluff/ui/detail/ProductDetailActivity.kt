@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
@@ -82,26 +83,22 @@ class ProductDetailActivity : AppCompatActivity() {
             DetailRecyclerAdapter(
                 datas
             )
-        rv_detail_other.layoutManager = LinearLayoutManager(this@ProductDetailActivity, LinearLayoutManager.HORIZONTAL,false)
-        rv_detail_other.adapter = detailAdapter
-        rv_detail_other.addItemDecoration(HorizontalItemDecorator(24))
-        detailAdapter.notifyDataSetChanged()
-
-
-
+        rv_detail_other.apply {
+            layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+            adapter = detailAdapter
+            addItemDecoration(HorizontalItemDecorator(24))
+        }
+        val snapHelper = LinearSnapHelper()
+        snapHelper.attachToRecyclerView(rv_detail_other)
     }
 
     fun makeDetailViewPager()
     {
         val dotsIndicator= findViewById<DotsIndicator>(R.id.detail_dots_indicator)
-        val viewPager = findViewById<ViewPager>(R.id.vp_detail_viewpager)
         val adapter = FragmentDetailPagerAdapter(supportFragmentManager,3)
-        viewPager.adapter = adapter
-        dotsIndicator.setViewPager(viewPager)
+        dotsIndicator.setViewPager(vp_detail_viewpager)
         vp_detail_viewpager.adapter = adapter
         vp_detail_viewpager.offscreenPageLimit=2
-
-
     }
 
 }

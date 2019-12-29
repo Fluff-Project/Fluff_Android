@@ -43,7 +43,8 @@ class GlanceFragment : Fragment() {
 
     }
     fun initRecyclerview(){
-        glanceListAdapter = GlanceListAdapter(context!!)
+        glanceListAdapter =
+            GlanceListAdapter(context!!)
         recycler_glance_list.apply {
             layoutManager = GridLayoutManager(context!!,2)
             adapter = glanceListAdapter

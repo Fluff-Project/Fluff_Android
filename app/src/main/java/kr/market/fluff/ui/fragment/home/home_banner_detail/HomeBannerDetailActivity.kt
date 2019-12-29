@@ -1,9 +1,10 @@
-package kr.market.fluff.ui.activity.HomeBannerDetail
+package kr.market.fluff.ui.fragment.home.home_banner_detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_home_banner_detail.*
 import kr.market.fluff.R
@@ -152,16 +153,16 @@ class HomeBannerDetailActivity : AppCompatActivity() {
 
             )
 
-        bannerAdapter = BannerRecyclerAdapter(datas)
-        rv_banner_closet.layoutManager = GridLayoutManager(this@HomeBannerDetailActivity,2)
-        rv_banner_closet.adapter = bannerAdapter
-        rv_banner_closet.addItemDecoration(HorizontalItemDecorator(30))
-        rv_banner_closet.addItemDecoration(VerticalItemDecorator(28))
-        bannerAdapter.notifyDataSetChanged()
+        bannerAdapter = BannerRecyclerAdapter(this, datas)
 
-
+        rv_banner_closet.apply {
+            layoutManager = GridLayoutManager(this@HomeBannerDetailActivity,2)
+            adapter = bannerAdapter
+            addItemDecoration(HorizontalItemDecorator(30))
+            addItemDecoration(VerticalItemDecorator(28))
+        }
+        val snapHelper = LinearSnapHelper()
+        snapHelper.attachToRecyclerView(rv_banner_closet)
     }
-
-
 }
 

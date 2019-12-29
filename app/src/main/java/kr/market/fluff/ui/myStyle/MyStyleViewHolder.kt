@@ -31,7 +31,7 @@ class MyStyleViewHolder (view: View) : RecyclerView.ViewHolder(view){
             }
             if(ctx.click_count>=limit_count) {
                 ctx.changeBtn(true)
-            }else{
+            }else {
                 ctx.changeBtn(false)
             }
         }

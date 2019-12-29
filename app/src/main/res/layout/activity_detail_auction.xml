@@ -41,17 +41,23 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/tv_auction_detail_item_name"
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="136dp"
                     android:background="@drawable/detail_text_gradient"
+                    app:layout_constraintBottom_toBottomOf="@+id/sfl_detail_auction"
+                    app:layout_constraintStart_toStartOf="parent" />
+                <TextView
+                    android:id="@+id/tv_auction_detail_item_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:fontFamily="@font/ko_pub"
                     android:gravity="bottom"
                     android:lineSpacingExtra="10sp"
                     android:paddingLeft="16dp"
                     android:paddingBottom="16dp"
                     android:text="샤네루 1990’s 트위드 재킷"
+                    android:background="#00000000"
                     android:textColor="@color/colorBlack"
                     android:textFontWeight="600"
                     android:textSize="19sp"
@@ -100,7 +106,7 @@
                     android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="@+id/guideline10"
                     app:layout_constraintTop_toBottomOf="@+id/textView16"
-                    tools:text="샤네루 1990’s 트위드 재킷" />
+                    android:text="샤네루 1990’s 트위드 재킷" />
 
                 <TextView
                     android:id="@+id/textView24"
@@ -211,7 +217,7 @@
                     android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="@+id/guideline10"
                     app:layout_constraintTop_toBottomOf="@+id/view"
-                    tools:text="소재 구성" />
+                    android:text="소재 구성" />
 
                 <TextView
                     android:id="@+id/textView21"
@@ -226,7 +232,7 @@
                     android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="@+id/guideline10"
                     app:layout_constraintTop_toBottomOf="@+id/textView25"
-                    tools:text="상세 사이즈" />
+                    android:text="상세 사이즈" />
 
                 <TextView
                     android:id="@+id/textView22"
@@ -241,7 +247,7 @@
                     android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="@+id/guideline10"
                     app:layout_constraintTop_toBottomOf="@+id/textView26"
-                    tools:text="제조국" />
+                    android:text="제조국" />
 
                 <TextView
                     android:id="@+id/textView23"
@@ -257,7 +263,7 @@
                     android:layout_marginBottom="40dp"
                     app:layout_constraintStart_toStartOf="@+id/guideline10"
                     app:layout_constraintTop_toBottomOf="@+id/textView22"
-                    tools:text="출품자 정보" />
+                    android:text="출품자 정보" />
 
                 <TextView
                     android:id="@+id/textView15"
