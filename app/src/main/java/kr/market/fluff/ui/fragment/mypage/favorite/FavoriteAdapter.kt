@@ -25,6 +25,7 @@ class FavoriteAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdap
 
     override fun getPageTitle(position: Int): CharSequence? {
         return null
+
     }
 
 }
