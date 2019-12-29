@@ -1,4 +1,4 @@
-package kr.market.fluff.ui
+package kr.market.fluff.ui.fragment.glance
 
 import android.content.Context
 import android.view.LayoutInflater

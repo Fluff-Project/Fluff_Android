@@ -1,9 +1,6 @@
 package kr.market.fluff.ui.fragment.glance
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +11,6 @@ import kotlinx.android.synthetic.main.fragment_glance.*
 import kotlinx.android.synthetic.main.glance_filter.*
 import kr.market.fluff.R
 import kr.market.fluff.data.GlanceListData
-import kr.market.fluff.ui.GlanceListAdapter
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
@@ -56,12 +52,12 @@ class GlanceFragment : Fragment() {
         }
         glanceListAdapter.data = listOf(
             GlanceListData(
-                "https://previews.123rf.com/images/margolana/margolana1511/margolana151100248/48654416-%EA%B0%9C%EC%B2%B4-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9D%98-%EA%B2%A8%EC%9A%B8-%EC%98%B7-%EA%B7%B8%EB%A3%B9%EC%9D%80-%ED%8C%A8%EC%85%98-%EC%9A%94%EC%86%8C-%EB%82%A8%EC%9E%90-%EC%9D%98%EB%A5%98-%EC%84%B8%ED%8A%B8.jpg",
+                "https://cdn.pixabay.com/photo/2017/08/01/08/29/people-2563491__340.jpg",
                 "꾸뽁꾸뽁",
                 "큐티뽀짝니트",
                 30000),
             GlanceListData(
-                "https://previews.123rf.com/images/margolana/margolana1511/margolana151100248/48654416-%EA%B0%9C%EC%B2%B4-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9D%98-%EA%B2%A8%EC%9A%B8-%EC%98%B7-%EA%B7%B8%EB%A3%B9%EC%9D%80-%ED%8C%A8%EC%85%98-%EC%9A%94%EC%86%8C-%EB%82%A8%EC%9E%90-%EC%9D%98%EB%A5%98-%EC%84%B8%ED%8A%B8.jpg",
+                "https://cdn.pixabay.com/photo/2017/08/01/08/29/people-2563491__340.jpg",
                 "수연체동물",
                 "시크한바지",
                 30000)

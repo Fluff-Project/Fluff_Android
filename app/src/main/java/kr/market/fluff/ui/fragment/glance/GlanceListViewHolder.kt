@@ -1,4 +1,4 @@
-package kr.market.fluff.ui
+package kr.market.fluff.ui.fragment.glance
 
 import android.view.View
 import android.widget.ImageView
