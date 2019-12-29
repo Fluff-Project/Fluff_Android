@@ -14,6 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ui.fragment.mypage.applySeller.SellerEditActivity"></activity>
+        <activity android:name=".ui.fragment.mypage.applySeller.ApplySellerActivity" />
         <activity android:name=".ui.fragment.home.home_detail.HomeRecommendActivity"></activity>
         <activity android:name=".ui.fragment.home.home_detail.HomeRecentActivity"></activity>
         <activity android:name=".ui.fragment.home.home_detail.HomeNewActivity" ></activity>
@@ -39,7 +41,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.PurchaseCompleteActivity"></activity>
-        <activity android:name=".ui.fragment.mypage.applySeller.ApplySellerActivity"/>
         <activity android:name=".ui.fragment.mypage.transfer.ConfirmTransferActivity" />
         <activity android:name=".ui.fragment.mypage.favorite.FavoriteActivity" />
         <activity android:name=".ui.recommendStyle.RecommendStyleActivity" />
@@ -48,7 +49,7 @@
         <activity android:name=".ui.intro.RegisterActivity" />
         <activity android:name=".ui.detail.ProductDetailActivity" />
         <activity android:name=".ui.fragment.mypage.cart.CartActivity" />
-        <activity android:name=".ui.MainActivity" >
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
