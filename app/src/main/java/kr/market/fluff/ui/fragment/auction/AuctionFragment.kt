@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -26,23 +27,26 @@ class AuctionFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_auction, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // Inflate the layout for this fragment
+        Toast.makeText(view!!.context,"경매뷰 띄움",Toast.LENGTH_SHORT).show()
         datas = ArrayList()
         rv_auction = view.findViewById(R.id.rv_auction_list)
         auctionAdapter = AuctionAdapter(this.activity!!,view.context)
         addItems()
-        rv_auction.apply {
-            layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
-            adapter = auctionAdapter
-            addItemDecoration(VerticalItemDecorator(24))
-        }
+        auctionAdapter.data = datas
+        rv_auction.layoutManager  = LinearLayoutManager(view.context,LinearLayoutManager.VERTICAL,false)
+        rv_auction.adapter = auctionAdapter
+        rv_auction.addItemDecoration(VerticalItemDecorator(24))
+
         val snapHelper = LinearSnapHelper()
         snapHelper.attachToRecyclerView(rv_auction)
+
+        auctionAdapter.notifyDataSetChanged()
     }
 
     private fun addItems(){
