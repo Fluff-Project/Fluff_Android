@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_home_new.*
 import kr.market.fluff.R
 import kr.market.fluff.data.home.BannerRecyclerData
-import kr.market.fluff.ui.activity.home_banner_detail.BannerRecyclerAdapter
+import kr.market.fluff.ui.fragment.home.home_banner_detail.BannerRecyclerAdapter
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 

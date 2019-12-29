@@ -104,7 +104,7 @@ class HomeFragment : Fragment() {
         img_home_recenticon.setOnClickListener {
 
             val intent = Intent(context, HomeRecentActivity::class.java)
-            intent.putExtra("recent_keyword",tv_home_auction_keyword.text.toString())
+            intent.putExtra("recent_keyword",tv_home_recent_keyword.text.toString())
             startActivity(intent)
         }
         img_home_recommendicon.setOnClickListener {
@@ -113,9 +113,6 @@ class HomeFragment : Fragment() {
             startActivity(intent)
 
         }
-
-
-
 
     }
 
