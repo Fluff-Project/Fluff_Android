@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_my_page.*
 import kr.market.fluff.R
 import kr.market.fluff.data.mypage.MyPageRecentSawGoods
+import kr.market.fluff.ui.MainActivity
 import kr.market.fluff.ui.fragment.mypage.applySeller.ApplySellerActivity
 import kr.market.fluff.ui.fragment.mypage.favorite.FavoriteActivity
 import kr.market.fluff.ui.fragment.mypage.transfer.ConfirmTransferActivity
@@ -57,6 +58,10 @@ class MyPageFragment : Fragment() {
             val intent = Intent(this.context,
                 ConfirmTransferActivity::class.java)
             startActivity(intent)
+        }
+        rl_my_logout.setOnClickListener{
+            val logoutDialog = LogoutDialog(view!!.context)
+            logoutDialog.show()
         }
     }
     private fun setCreateStore(){

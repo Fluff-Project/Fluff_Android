@@ -13,5 +13,5 @@
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/product_detail_main" />
+        android:src="@drawable/product_detail_main" />
 </androidx.constraintlayout.widget.ConstraintLayout>

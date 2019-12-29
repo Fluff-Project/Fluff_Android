@@ -3,22 +3,27 @@ package kr.market.fluff.ui.intro
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
+import com.facebook.*
+import com.facebook.appevents.AppEventsLogger
+import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_login.btn_intro_login
-import kotlinx.android.synthetic.main.activity_login.tv_intro_register
 import kr.market.fluff.R
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.enqueue
 import kr.market.fluff.ui.App
-import kr.market.fluff.ui.MainActivity
 import kr.market.fluff.ui.myStyle.MyStyleActivity
 import kr.market.fluff.ui.util.sendToast
+import org.json.JSONException
+import java.util.*
+
 
 class LoginActivity : AppCompatActivity() {
 
@@ -27,8 +32,13 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var pw_string : String
     lateinit var toast: Toast
     val requestToServer = RequestToServer
+    lateinit var callbackManager : CallbackManager
+
+    var check_auto_login : Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        FacebookSdk.sdkInitialize(applicationContext)
+//        AppEventsLogger.activateApp(this)
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.activity_login)
         init()
@@ -103,21 +113,23 @@ class LoginActivity : AppCompatActivity() {
     private fun login_ptn_anim(){
         btn_login_login.visibility = View.VISIBLE
         ll_login_find.visibility - View.VISIBLE
+        blur_layout.visibility = View.VISIBLE
         val anims = AnimatorSet()
         val fade = ObjectAnimator.ofFloat(btn_intro_login, View.ALPHA, 1.0f, 0.0f)
         val fade2 = ObjectAnimator.ofFloat(ll_intro_register, View.ALPHA, 1.0f, 0.0f)
         val fade3 = ObjectAnimator.ofFloat(btn_login_login, View.ALPHA, 0.0f, 1.0f)
         val fade4 = ObjectAnimator.ofFloat(ll_login_find, View.ALPHA, 0.0f, 1.0f)
+        val fade5 = ObjectAnimator.ofFloat(fl_login_facebook, View.ALPHA, 1.0f, 0.0f)
         val blur = ObjectAnimator.ofFloat(blur_layout,View.ALPHA,0.0f,1.0f)
-        anims.playTogether(fade,fade2,fade3,fade4,blur)
+
+
+        anims.playTogether(fade,fade2,fade3,fade4,fade5,blur)
         anims.setDuration(1000)
         anims.start()
     }
     private fun backGroundAnim(){
         val fade = ObjectAnimator.ofFloat(img_intro_splash2, View.ALPHA, 1.0f, 0.0f)
-        fade.setDuration(2000)
-        val fade2 = ObjectAnimator.ofFloat(img_intro_splash, View.ALPHA, 0.0f, 1.0f)
-        fade2.setDuration(2000)
+        fade.duration = 2000
         fade.start()
     }
     private fun startAnim(){
@@ -143,8 +155,9 @@ class LoginActivity : AppCompatActivity() {
         val fade6 = ObjectAnimator.ofFloat(ll_intro_register, View.ALPHA, 0.0f, 1.0f)
         val fade7 = ObjectAnimator.ofFloat(btn_login_login, View.ALPHA, 1.0f, 0.0f)
         val fade8 = ObjectAnimator.ofFloat(ll_login_find, View.ALPHA, 1.0f, 0.0f)
+        val fade9 = ObjectAnimator.ofFloat(fl_login_facebook,View.ALPHA,0.0f,1.0f)
         val blur = ObjectAnimator.ofFloat(blur_layout,View.ALPHA,1.0f,0.0f)
-        anims.playTogether(ty1,ty2,ty3,sX,sY,fade,fade2,fade3,fade4,fade5,fade6,fade7,fade8,blur)
+        anims.playTogether(ty1,ty2,ty3,sX,sY,fade,fade2,fade3,fade4,fade5,fade6,fade7,fade8,fade9,blur)
         anims.duration = 1000
         anims.start()
         anims.doOnEnd {
@@ -164,15 +177,108 @@ class LoginActivity : AppCompatActivity() {
         }
     }
     private fun checkAutoLogin(){
-        if(App.prefs.isLogin == true){
+        check_auto_login = App.prefs.isLogin
+        Log.d("hj","로그인 boolean값 : ${check_auto_login}")
+        if(check_auto_login){
             toast.sendToast(this,"자동로그인 되었습니다")
             val intent = Intent(this, MyStyleActivity::class.java)
             startActivity(intent)
             finish()
         }
     }
+
+    private fun setFacebookLogin(){
+        btn_login_facebook_custom.setOnClickListener {
+            LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email","user_friends"));
+        }
+//        btn_login_facebook_login.setOnClickListener{
+//            callbackManager = CallbackManager.Factory.create()
+//            val mCallback = LoginCallback()
+//            btn_login_facebook_login.setReadPermissions("public_profile","email")
+//            btn_login_facebook_login.registerCallback(callbackManager,mCallback)
+//            LoginManager.getInstance().registerCallback(callbackManager,
+//                object : FacebookCallback<LoginResult?> {
+//                    override fun onSuccess(loginResult: LoginResult?) { // App code
+//                        Log.d("hj","Facebook Token: " + loginResult!!.accessToken.token)
+//                        startActivity(Intent(applicationContext,MyStyleActivity::class.java))
+//                    }
+//
+//                    override fun onCancel() { // App code
+//                        Log.d("hj","Facebook Token: 받아오기 취소됨")
+//                    }
+//
+//                    override fun onError(exception: FacebookException) { // App code
+//                        Log.d("hj","에러: " + exception)
+//                    }
+//                })
+//        }
+    }
+    private fun initFacebook() { //FaceBook Init
+        FacebookSdk.sdkInitialize(this.applicationContext)
+        callbackManager = CallbackManager.Factory.create()
+        LoginManager.getInstance().registerCallback(callbackManager,
+            object : FacebookCallback<LoginResult> {
+                override fun onSuccess(loginResult: LoginResult) {
+                    Log.d("Success", loginResult.accessToken.toString())
+                    Log.d(
+                        "Success",
+                        java.lang.String.valueOf(Profile.getCurrentProfile().getId())
+                    )
+                    Log.d(
+                        "Success",
+                        java.lang.String.valueOf(Profile.getCurrentProfile().getName())
+                    )
+                    Log.d(
+                        "Success",
+                        java.lang.String.valueOf(
+                            Profile.getCurrentProfile().getProfilePictureUri(
+                                200,
+                                200
+                            )
+                        )
+                    )
+                    requestUserProfile(loginResult)
+                }
+
+                override fun onCancel() {
+                    Toast.makeText(this@LoginActivity, "페이스북 로그인을 취소하셨습니다.", Toast.LENGTH_LONG).show()
+                }
+
+                override fun onError(exception: FacebookException) {
+                    Toast.makeText(this@LoginActivity, exception.message, Toast.LENGTH_LONG).show()
+                }
+            })
+    }
+
+    fun requestUserProfile(loginResult: LoginResult) {
+        val request = GraphRequest.newMeRequest(
+            loginResult.accessToken
+        ) { `object`, response ->
+            try {
+                val email =
+                    response.jsonObject.getString("email").toString()
+                Log.d("Result", email)
+            } catch (e: JSONException) {
+                e.printStackTrace()
+            }
+        }
+        val parameters = Bundle()
+        parameters.putString("fields", "email")
+        request.parameters = parameters
+        request.executeAsync()
+    }
+    override fun onActivityResult(
+        requestCode: Int,
+        resultCode: Int,
+        data: Intent?
+    ) {
+        callbackManager.onActivityResult(requestCode, resultCode, data)
+        super.onActivityResult(requestCode, resultCode, data)
+    }
     private fun init(){
+        setFacebookLogin()
         toast = Toast(this)
+        initFacebook()
         checkAutoLogin()
         backGroundAnim()
         setListener()
