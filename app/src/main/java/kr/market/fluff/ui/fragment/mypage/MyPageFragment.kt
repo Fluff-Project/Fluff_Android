@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_my_page.*
 import kr.market.fluff.R
 import kr.market.fluff.data.mypage.MyPageRecentSawGoods
+import kr.market.fluff.ui.fragment.mypage.applySeller.ApplySellerActivity
 import kr.market.fluff.ui.fragment.mypage.favorite.FavoriteActivity
 import kr.market.fluff.ui.fragment.mypage.transfer.ConfirmTransferActivity
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
@@ -58,10 +59,17 @@ class MyPageFragment : Fragment() {
             startActivity(intent)
         }
     }
+    private fun setCreateStore(){
+        btn_mypage_create_store.setOnClickListener {
+            var intent = Intent(context,ApplySellerActivity::class.java)
+            startActivity(intent)
+        }
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setRecycler(view)
         init()
+        setCreateStore()
     }
     private fun addItems(){
         recent_goods_datas.add(
