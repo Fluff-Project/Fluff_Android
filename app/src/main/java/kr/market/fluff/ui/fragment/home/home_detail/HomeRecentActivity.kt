@@ -1,51 +1,39 @@
-package kr.market.fluff.ui.fragment.home.home_banner_detail
+package kr.market.fluff.ui.fragment.home.home_detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.WindowManager
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearSnapHelper
-import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.activity_home_banner_detail.*
+import kotlinx.android.synthetic.main.activity_home_recent.*
 import kr.market.fluff.R
 import kr.market.fluff.data.home.BannerRecyclerData
+import kr.market.fluff.ui.activity.home_banner_detail.BannerRecyclerAdapter
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
-class HomeBannerDetailActivity : AppCompatActivity() {
+class HomeRecentActivity : AppCompatActivity() {
 
-    lateinit var bannerAdapter: BannerRecyclerAdapter
+    lateinit var homeRecentAdapter: BannerRecyclerAdapter
     lateinit var datas : List<BannerRecyclerData>
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-        setContentView(R.layout.activity_home_banner_detail)
+        setContentView(R.layout.activity_home_recent)
+        makeRecentRecycler()
+        makeTitle()
 
-
-        img_banner_back.setOnClickListener {
+        img_recent_detail_back.setOnClickListener {
             finish()
         }
 
-        makeViewPager()
-        makeBannerRecycler()
     }
 
-    fun makeViewPager()
+    fun makeTitle()
     {
-
-        txt_banner_subtitle.text = intent.getStringExtra("vp_sub_title")
-        txt_banner_title.text = intent.getStringExtra("vp_main_title")
-        Glide.with(this)
-            .load(intent.getStringExtra("img_url"))
-            .into(img_banner_view)
-
-
+        tv_recent_detail_keyword.text = intent.getStringExtra("recent_keyword")
 
     }
 
-    fun makeBannerRecycler()
+    fun makeRecentRecycler()
     {
         datas = listOf(
             BannerRecyclerData(
@@ -151,18 +139,18 @@ class HomeBannerDetailActivity : AppCompatActivity() {
                 "셀러이름"
             )
 
-            )
+        )
 
-        bannerAdapter = BannerRecyclerAdapter(this, datas)
+        homeRecentAdapter = BannerRecyclerAdapter(this,datas)
+        rv_home_detail_recent.layoutManager = GridLayoutManager(this@HomeRecentActivity,2)
+        rv_home_detail_recent.adapter = homeRecentAdapter
+        rv_home_detail_recent.addItemDecoration(HorizontalItemDecorator(30))
+        rv_home_detail_recent.addItemDecoration(VerticalItemDecorator(28))
+        homeRecentAdapter .notifyDataSetChanged()
 
-        rv_banner_closet.apply {
-            layoutManager = GridLayoutManager(this@HomeBannerDetailActivity,2)
-            adapter = bannerAdapter
-            addItemDecoration(HorizontalItemDecorator(30))
-            addItemDecoration(VerticalItemDecorator(28))
-        }
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(rv_banner_closet)
+      //  rv_home_detail_recent.focusable(false)
+        cl_home_detail_recent.requestFocus()
+
+
     }
 }
-

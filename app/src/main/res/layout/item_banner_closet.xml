@@ -25,12 +25,14 @@
 
         <ImageView
             android:id="@+id/img_banner_rv_heartbtn"
-            android:layout_width="20dp"
+            android:layout_width="24dp"
             android:layout_height="wrap_content"
             android:layout_alignRight="@id/img_banner_rv_profile"
+            android:layout_alignBottom="@id/img_banner_rv_profile"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            android:layout_marginTop="160dp"
+            android:layout_marginBottom="14dp"
+            android:layout_marginRight="10dp"
             android:src="@drawable/ic_empty_heart_white"
 
             />
