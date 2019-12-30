@@ -39,8 +39,7 @@
 
 #2. 프로그램 구조
 
-![d](https://user-images.githubusercontent.com/54485132/71461583-a4953700-27f3-11ea-9547-2ed74f5e90ff.png).
-<br/>
+![d](https://user-images.githubusercontent.com/54485132/71461583-a4953700-27f3-11ea-9547-2ed74f5e90ff.png)
 
 프로그램 구조는 크게 data, network, ui로 패키징하여 작업을 진행중이다.
 <br/>
