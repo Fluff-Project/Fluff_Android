@@ -18,6 +18,6 @@ class MyStyleAdapter (private val context: Context): RecyclerView.Adapter<MyStyl
     override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: MyStyleViewHolder, position: Int) {
-        holder.bind(data[position])
+        holder.bind(data[position],context)
     }
 }

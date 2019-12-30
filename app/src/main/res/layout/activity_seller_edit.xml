@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.mypage.applySeller.SellerEditActivity">
+
+    <TextView
+        android:id="@+id/txt_seller_edit_complete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/ko_pub_dotum_bold"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        android:text="완료"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edt_seller_edit_store_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="39dp"
+        android:layout_marginEnd="16dp"
+        android:hint="가게 이름을 입력하주세요"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_seller_edit_store_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_seller_edit_store_name"
+        app:layout_constraintTop_toTopOf="@+id/txt_seller_edit_store_name" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_seller_edit_profile"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/emptyprofile_ic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_seller_edit_store_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/ko_pub_dotum_bold"
+        android:text="가게 이름"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_seller_edit_profile" />
+
+    <TextView
+        android:id="@+id/txt_seller_edit_information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/ko_pub_dotum_bold"
+        android:text="한 줄 소개"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintStart_toStartOf="@+id/txt_seller_edit_store_name"
+        app:layout_constraintTop_toBottomOf="@+id/txt_seller_edit_store_name" />
+
+    <EditText
+        android:id="@+id/edt_seller_edit_information"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:inputType="textPersonName"
+        android:hint="가게에 대한 한 줄 소개를 입력해주세요"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_seller_edit_information"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/edt_seller_edit_store_name"
+        app:layout_constraintTop_toTopOf="@+id/txt_seller_edit_information" />
+
+    <TextView
+        android:id="@+id/txt_seller_edit_keyword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/ko_pub_dotum_bold"
+        android:text="키워드"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintStart_toStartOf="@+id/txt_seller_edit_information"
+        app:layout_constraintTop_toBottomOf="@+id/txt_seller_edit_information" />
+
+    <TextView
+        android:id="@+id/txt_seller_edit_store_explain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/ko_pub_dotum_bold"
+        android:text="가게 설명"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintStart_toStartOf="@+id/txt_seller_edit_keyword"
+        app:layout_constraintTop_toBottomOf="@+id/txt_seller_edit_keyword" />
+
+    <TextView
+        android:id="@+id/btn_seller_edit_keyword1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/keywords_background"
+        android:paddingHorizontal="6dp"
+        android:paddingVertical="3dp"
+        android:text="#키워드설정"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_seller_edit_keyword"
+        app:layout_constraintStart_toStartOf="@+id/edt_seller_edit_information"
+        app:layout_constraintTop_toTopOf="@+id/txt_seller_edit_keyword" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/keywords_background"
+        android:paddingHorizontal="6dp"
+        android:paddingVertical="3dp"
+        android:text="#키워드설정"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_seller_edit_keyword1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_seller_edit_keyword1"
+        app:layout_constraintTop_toTopOf="@+id/btn_seller_edit_keyword1"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_seller_edit_profile"
+        app:layout_constraintEnd_toEndOf="@+id/img_seller_edit_profile"
+        app:srcCompat="@drawable/plus_ic" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_seller_edit_store_explain">
+
+        <TextView
+            android:id="@+id/txt_seller_edit_store_intro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/ko_pub_dotum_bold"
+            android:text="가게 소개"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edt_seller_edit_store_intro"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:hint="가게를 소개해 주세요."
+            android:fontFamily="@font/ko_pub_dotum_light"
+            android:inputType="textPersonName"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txt_seller_edit_store_intro"
+            app:layout_constraintTop_toBottomOf="@+id/txt_seller_edit_store_intro" />
+
+        <TextView
+            android:id="@+id/txt_seller_edit_exchange_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ko_pub_dotum_bold"
+            android:text="교환/환불 여부"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/edt_seller_edit_store_intro"
+            app:layout_constraintTop_toBottomOf="@+id/edt_seller_edit_store_intro" />
+
+
+        <EditText
+            android:id="@+id/edt_seller_edit_exchange_check"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginRight="16dp"
+            android:hint="교환과 환불 여부에 대한 설명을 적어주세요."
+            android:fontFamily="@font/ko_pub_dotum_light"
+            android:inputType="textPersonName"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@+id/txt_seller_edit_exchange_check"
+            app:layout_constraintTop_toBottomOf="@+id/txt_seller_edit_exchange_check" />
+
+        <TextView
+            android:id="@+id/txt_seller_edit_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ko_pub_dotum_bold"
+            android:text="배송 관련"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/edt_seller_edit_exchange_check"
+            app:layout_constraintTop_toBottomOf="@+id/edt_seller_edit_exchange_check" />
+
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="배송 관련 안내를 적어주세요."
+            android:fontFamily="@font/ko_pub_dotum_light"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@+id/txt_seller_edit_"
+            app:layout_constraintTop_toBottomOf="@+id/txt_seller_edit_" />
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="업데이트 요일"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            android:fontFamily="@font/ko_pub_dotum_bold"
+            app:layout_constraintStart_toStartOf="@+id/editText4"
+            app:layout_constraintTop_toBottomOf="@+id/editText4" />
+
+        <EditText
+            android:id="@+id/editText5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="빈티지 업로드 요일에 대한 안내를 적어주세요."
+            android:textSize="13sp"
+            android:fontFamily="@font/ko_pub_dotum_light"
+            app:layout_constraintStart_toStartOf="@+id/textView29"
+            app:layout_constraintTop_toBottomOf="@+id/textView29" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
