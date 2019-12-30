@@ -147,4 +147,5 @@ implementation 'com.yuxingxin.multiradiogroup:library:1.0.0'
 해당 기능에 대해 kotlin의 collection 기능을 이용하였고, 이에 대한 코드는 다음과 같다.
 
 .![recyclerview](https://user-images.githubusercontent.com/54485132/71578004-a899bf80-2b39-11ea-8bc3-c6f0d481a328.gif).
-
+.
+![recycler](https://user-images.githubusercontent.com/54485132/71578123-3a093180-2b3a-11ea-901e-0e87ba7a1bcf.png).
