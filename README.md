@@ -42,6 +42,7 @@
 ![d](https://user-images.githubusercontent.com/54485132/71461583-a4953700-27f3-11ea-9547-2ed74f5e90ff.png).
 
 프로그램 구조는 크게 data, network, ui로 패키징하여 작업을 진행중이다.
+<br/>
 
 
 
@@ -50,7 +51,7 @@
 
 network는 다음과 위와 같이 BASE_URL을 가진 싱글톤과, 해당 부분 구현시 이용할 interface,
 Kotlin Extension Function을 이용한 enqueue 메소드가 있다.
-
+<br/>
 
 ![ui_structure](https://user-images.githubusercontent.com/54485132/71462003-40737280-27f5-11ea-9ff5-3ddfd5424a8e.png).
 
@@ -64,7 +65,7 @@ ui도 나름대로 패키징을 하였으나, 아직 뷰 구현이 진행중이�
 #3. 핵심 기능 구현 방법 정리
 
 1. 회원가입 및 로그인.
-
+<br/>
 .![register](https://user-images.githubusercontent.com/54485132/71463252-19b73b00-27f9-11ea-93a6-1be8127c1af5.gif).
 
 1) 애니매이션
