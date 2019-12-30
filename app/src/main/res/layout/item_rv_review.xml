@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_review_customer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textSize="14sp"
+        android:fontFamily="@font/ko_pub"
+        android:textFontWeight="800"
+        android:textColor="#000000"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="8sp"
+        android:text="tlc_house"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_review_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/ko_pub"
+        android:textSize="14sp"
+        android:textColor="#2d2d2d"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="8sp"
+        android:text="드로우핏 글렌체크"
+        android:textFontWeight="700"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_review_customer_name" />
+
+    <TextView
+        android:id="@+id/tv_review_contents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ko_pub"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="5sp"
+        android:text="체크 블레이져 너무 예쁘네요 배송도 빨리해주셨어요!\n근데 괜찮네여. 세탁도 해주셨어요!"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:textColor="#404040"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/tv_review_item_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_review_item_name" />
+
+    <RatingBar
+        android:id="@+id/rb_favorite_market_seller"
+        style="@style/RatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="8dp"
+        android:rating="4"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_review_customer_name"
+        app:layout_constraintStart_toEndOf="@+id/tv_review_customer_name"
+        app:layout_constraintTop_toTopOf="@+id/tv_review_customer_name" />
+
+    <TextView
+        android:id="@+id/tv_review_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/ko_pub"
+        android:letterSpacing="-0.04"
+        android:lineSpacingExtra="4sp"
+        android:textColor="#a2a2a2"
+        android:textFontWeight="500"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="2019.12.24" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:paddingTop="8dp"
+        android:clipToPadding="false"
+        android:id="@+id/rv_review_item_photos"
+        android:layout_width="match_parent"
+        android:paddingLeft="22dp"
+        android:paddingRight="22dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_review_contents" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorGenderGrayText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_review_item_photos" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,10 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import com.bumptech.glide.Glide
 import kr.market.fluff.R
 import kr.market.fluff.data.MagazineItem
+import kr.market.fluff.ui.CharacterWrapTextView
+import java.lang.StringBuilder
 
 class MagazinePagerAdapter(private val context : Context) : PagerAdapter(){
     val datas = mutableListOf<MagazineItem>()
@@ -33,6 +36,12 @@ class MagazinePagerAdapter(private val context : Context) : PagerAdapter(){
     }
     private fun bind(magazine_item : MagazineItem,view : View){
         val img_item_magazine = view.findViewById<ImageView>(R.id.img_item_magazine)
+        val txt_magazine_title_full = magazine_item.txt_title
+        val txt_title_length = txt_magazine_title_full.length
+
+
+        val tv_magazine_title = view.findViewById<CharacterWrapTextView>(R.id.tv_magazine_title)
         Glide.with(view).load(magazine_item.img_item).into(img_item_magazine)
+        tv_magazine_title.setText(magazine_item.txt_title)
     }
 }

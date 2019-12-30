@@ -39,8 +39,72 @@ class GlanceFragment : Fragment() {
         cb_glance_filter_want.setOnCheckedChangeListener { it, isChecked ->
             it.isChecked = isChecked
         }
+        txt_glance_filter_reset.setOnClickListener{
+            clearAllChecked()
+        }
 
+    }
+    private fun clearAllChecked(){
+        cb_glance_filter_color_black.isChecked = false
+        cb_glance_filter_color_white.isChecked = false
+        cb_glance_filter_color_grey.isChecked = false
+        cb_glance_filter_color_beige.isChecked = false
+        cb_glance_filter_color_brown.isChecked = false
+        cb_glance_filter_color_chorale.isChecked = false
+        cb_glance_filter_color_orange.isChecked = false
+        cb_glance_filter_color_darkgreen.isChecked = false
+        cb_glance_filter_color_lightblue.isChecked = false
+        cb_glance_filter_color_darkblue.isChecked = false
+        cb_glance_filter_color_check.isChecked = false
+        cb_glance_filter_color_dot.isChecked = false
+        cb_glance_filter_color_purple.isChecked = false
+        cb_glance_filter_color_pink.isChecked = false
+        rb_glance_filter_category_outer.isChecked = false
+        rb_glance_filter_category_top.isChecked = false
+        rb_glance_filter_category_bottom.isChecked = false
+        rb_glance_filter_category_skirt.isChecked = false
+        rb_glance_filter_category_dress.isChecked = false
+        rb_glance_filter_category_items.isChecked = false
+        cb_glance_filter_size_s.isChecked = false
+        cb_glance_filter_size_m.isChecked = false
+        cb_glance_filter_size_l.isChecked = false
+        cb_glance_filter_size_xl.isChecked = false
+        cb_glance_filter_size_xxl.isChecked = false
+        cb_glance_filter_want.isChecked = false
+        cb_glance_filter_jacket.isChecked = false
+        cb_glance_filter_detail_cardigun.isChecked = false
+        cb_glance_filter_detail_jumper.isChecked = false
+        cb_glance_filter_detail_jumper2.isChecked = false
+        cb_glance_filter_detail_vest.isChecked = false
+        cb_glance_filter_detail_coat.isChecked = false
+        cb_glance_filter_detail_padding.isChecked = false
+        cb_glance_filter_detail_tshirt.isChecked = false
+        cb_glance_filter_detail_knit.isChecked = false
+        cb_glance_filter_detail_shirt.isChecked = false
+        cb_glance_filter_detail_man.isChecked = false
+        cb_glance_filter_detail_hood.isChecked = false
+        cb_glance_filter_detail_blouse.isChecked = false
+        cb_glance_filter_detail_half_pants.isChecked = false
+        cb_glance_filter_detail_straight_pants.isChecked = false
+        cb_glance_filter_detail_wide_pants.isChecked = false
+        cb_glance_filter_detail_skinny.isChecked = false
+        cb_glance_filter_detail_Suspenders.isChecked = false
+        cb_glance_filter_detail_mini_skirt.isChecked = false
+        cb_glance_filter_detail_long_skirt.isChecked = false
+        cb_glance_filter_detail_mini_dress.isChecked = false
+        cb_glance_filter_detail_long_dress.isChecked = false
+        cb_glance_filter_detail_two_pieces.isChecked = false
+        cb_glance_filter_detail_bag.isChecked = false
+        cb_glance_filter_detail_globes.isChecked = false
+        cb_glance_filter_detail_scarf.isChecked = false
+        cb_glance_filter_detail_shawl.isChecked = false
 
+        ll_glance_filter_detail_outer.visibility = View.GONE
+        ll_glance_filter_detail_top.visibility = View.GONE
+        ll_glance_filter_detail_pants.visibility = View.GONE
+        ll_glance_filter_detail_skirt.visibility = View.GONE
+        ll_glance_filter_detail_dress.visibility = View.GONE
+        ll_glance_filter_detail_items.visibility = View.GONE
     }
     fun initRecyclerview(){
         glanceListAdapter =
@@ -138,73 +202,132 @@ class GlanceFragment : Fragment() {
             it.isChecked = isChecked
         }
     }
+    fun unCheckDetail(){
+        cb_glance_filter_jacket.isChecked = false
+        cb_glance_filter_detail_cardigun.isChecked = false
+        cb_glance_filter_detail_jumper.isChecked = false
+        cb_glance_filter_detail_jumper2.isChecked = false
+        cb_glance_filter_detail_vest.isChecked = false
+        cb_glance_filter_detail_coat.isChecked = false
+        cb_glance_filter_detail_padding.isChecked = false
+        cb_glance_filter_detail_tshirt.isChecked = false
+        cb_glance_filter_detail_knit.isChecked = false
+        cb_glance_filter_detail_shirt.isChecked = false
+        cb_glance_filter_detail_man.isChecked = false
+        cb_glance_filter_detail_hood.isChecked = false
+        cb_glance_filter_detail_blouse.isChecked = false
+        cb_glance_filter_detail_half_pants.isChecked = false
+        cb_glance_filter_detail_straight_pants.isChecked = false
+        cb_glance_filter_detail_wide_pants.isChecked = false
+        cb_glance_filter_detail_skinny.isChecked = false
+        cb_glance_filter_detail_Suspenders.isChecked = false
+        cb_glance_filter_detail_mini_skirt.isChecked = false
+        cb_glance_filter_detail_long_skirt.isChecked = false
+        cb_glance_filter_detail_mini_dress.isChecked = false
+        cb_glance_filter_detail_long_dress.isChecked = false
+        cb_glance_filter_detail_two_pieces.isChecked = false
+        cb_glance_filter_detail_bag.isChecked = false
+        cb_glance_filter_detail_globes.isChecked = false
+        cb_glance_filter_detail_scarf.isChecked = false
+        cb_glance_filter_detail_shawl.isChecked = false
+    }
     fun settingCategorySelect(){
         rb_glance_filter_category_outer.setOnCheckedChangeListener { it, isChecked ->
             it.isSelected = isChecked
-            if(isChecked) it.setTextColor(resources.getColor(R.color.colorMagenta))
-            else it.setTextColor(resources.getColor(R.color.colorWhite))
-            ll_glance_filter_detail_outer.visibility = View.VISIBLE
-            ll_glance_filter_detail_top.visibility = View.GONE
-            ll_glance_filter_detail_pants.visibility = View.GONE
-            ll_glance_filter_detail_skirt.visibility = View.GONE
-            ll_glance_filter_detail_dress.visibility = View.GONE
-            ll_glance_filter_detail_items.visibility = View.GONE
+            if(isChecked) {
+                unCheckDetail()
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+                ll_glance_filter_detail_outer.visibility = View.VISIBLE
+                ll_glance_filter_detail_top.visibility = View.GONE
+                ll_glance_filter_detail_pants.visibility = View.GONE
+                ll_glance_filter_detail_skirt.visibility = View.GONE
+                ll_glance_filter_detail_dress.visibility = View.GONE
+                ll_glance_filter_detail_items.visibility = View.GONE
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
 
         }
         rb_glance_filter_category_top.setOnCheckedChangeListener { it, isChecked ->
             it.isSelected = isChecked
-            if(isChecked) it.setTextColor(resources.getColor(R.color.colorMagenta))
-            else it.setTextColor(resources.getColor(R.color.colorWhite))
-            ll_glance_filter_detail_outer.visibility = View.GONE
-            ll_glance_filter_detail_top.visibility = View.VISIBLE
-            ll_glance_filter_detail_pants.visibility = View.GONE
-            ll_glance_filter_detail_skirt.visibility = View.GONE
-            ll_glance_filter_detail_dress.visibility = View.GONE
-            ll_glance_filter_detail_items.visibility = View.GONE
+            if(isChecked) {
+                unCheckDetail()
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+                ll_glance_filter_detail_outer.visibility = View.GONE
+                ll_glance_filter_detail_top.visibility = View.VISIBLE
+                ll_glance_filter_detail_pants.visibility = View.GONE
+                ll_glance_filter_detail_skirt.visibility = View.GONE
+                ll_glance_filter_detail_dress.visibility = View.GONE
+                ll_glance_filter_detail_items.visibility = View.GONE
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
         }
         rb_glance_filter_category_bottom.setOnCheckedChangeListener { it, isChecked ->
             it.isSelected = isChecked
-            if(isChecked) it.setTextColor(resources.getColor(R.color.colorMagenta))
-            else it.setTextColor(resources.getColor(R.color.colorWhite))
-            ll_glance_filter_detail_outer.visibility = View.GONE
-            ll_glance_filter_detail_top.visibility = View.GONE
-            ll_glance_filter_detail_pants.visibility = View.VISIBLE
-            ll_glance_filter_detail_skirt.visibility = View.GONE
-            ll_glance_filter_detail_dress.visibility = View.GONE
-            ll_glance_filter_detail_items.visibility = View.GONE
+            if(isChecked) {
+                unCheckDetail()
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+                ll_glance_filter_detail_outer.visibility = View.GONE
+                ll_glance_filter_detail_top.visibility = View.GONE
+                ll_glance_filter_detail_pants.visibility = View.VISIBLE
+                ll_glance_filter_detail_skirt.visibility = View.GONE
+                ll_glance_filter_detail_dress.visibility = View.GONE
+                ll_glance_filter_detail_items.visibility = View.GONE
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
         }
         rb_glance_filter_category_skirt.setOnCheckedChangeListener { it, isChecked ->
             it.isSelected = isChecked
-            if(isChecked) it.setTextColor(resources.getColor(R.color.colorMagenta))
-            else it.setTextColor(resources.getColor(R.color.colorWhite))
-            ll_glance_filter_detail_outer.visibility = View.GONE
-            ll_glance_filter_detail_top.visibility = View.GONE
-            ll_glance_filter_detail_pants.visibility = View.GONE
-            ll_glance_filter_detail_skirt.visibility = View.VISIBLE
-            ll_glance_filter_detail_dress.visibility = View.GONE
-            ll_glance_filter_detail_items.visibility = View.GONE
+            if(isChecked) {
+                unCheckDetail()
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+                ll_glance_filter_detail_outer.visibility = View.GONE
+                ll_glance_filter_detail_top.visibility = View.GONE
+                ll_glance_filter_detail_pants.visibility = View.GONE
+                ll_glance_filter_detail_skirt.visibility = View.VISIBLE
+                ll_glance_filter_detail_dress.visibility = View.GONE
+                ll_glance_filter_detail_items.visibility = View.GONE
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
         }
         rb_glance_filter_category_dress.setOnCheckedChangeListener { it, isChecked ->
             it.isSelected = isChecked
-            if(isChecked) it.setTextColor(resources.getColor(R.color.colorMagenta))
-            else it.setTextColor(resources.getColor(R.color.colorWhite))
-            ll_glance_filter_detail_outer.visibility = View.GONE
-            ll_glance_filter_detail_top.visibility = View.GONE
-            ll_glance_filter_detail_pants.visibility = View.GONE
-            ll_glance_filter_detail_skirt.visibility = View.GONE
-            ll_glance_filter_detail_dress.visibility = View.VISIBLE
-            ll_glance_filter_detail_items.visibility = View.GONE
+            if(isChecked) {
+                unCheckDetail()
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+                ll_glance_filter_detail_outer.visibility = View.GONE
+                ll_glance_filter_detail_top.visibility = View.GONE
+                ll_glance_filter_detail_pants.visibility = View.GONE
+                ll_glance_filter_detail_skirt.visibility = View.GONE
+                ll_glance_filter_detail_dress.visibility = View.VISIBLE
+                ll_glance_filter_detail_items.visibility = View.GONE
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
         }
         rb_glance_filter_category_items.setOnCheckedChangeListener { it, isChecked ->
             it.isSelected = isChecked
-            if(isChecked) it.setTextColor(resources.getColor(R.color.colorMagenta))
-            else it.setTextColor(resources.getColor(R.color.colorWhite))
-            ll_glance_filter_detail_outer.visibility = View.GONE
-            ll_glance_filter_detail_top.visibility = View.GONE
-            ll_glance_filter_detail_pants.visibility = View.GONE
-            ll_glance_filter_detail_skirt.visibility = View.GONE
-            ll_glance_filter_detail_dress.visibility = View.GONE
-            ll_glance_filter_detail_items.visibility = View.VISIBLE
+            if(isChecked) {
+                unCheckDetail()
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+                ll_glance_filter_detail_outer.visibility = View.GONE
+                ll_glance_filter_detail_top.visibility = View.GONE
+                ll_glance_filter_detail_pants.visibility = View.GONE
+                ll_glance_filter_detail_skirt.visibility = View.GONE
+                ll_glance_filter_detail_dress.visibility = View.GONE
+                ll_glance_filter_detail_items.visibility = View.VISIBLE
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
         }
     }
     fun settingSizeSelect(){

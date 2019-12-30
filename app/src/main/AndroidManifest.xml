@@ -14,6 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+
+        <activity android:name=".ui.review.ReviewActivity">
+        </activity>
+        <activity android:name=".ui.CompletingPurchaseActivity" />
+        <activity android:name=".ui.WelcomeActivity" />
         <activity android:name=".ui.ProductRegisterActivity">
 
         </activity>
@@ -26,7 +31,6 @@
         <activity android:name=".ui.fragment.mypage.flub.FlubRegularCustomer" />
         <activity android:name=".ui.fragment.auction.DetailAuctionActivity" />
         <activity android:name=".ui.intro.LoginActivity"></activity>
-
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />

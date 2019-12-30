@@ -14,7 +14,7 @@ fun Toast.sendToast(context : Context, message : String){
     val layout = inflater.inflate(R.layout.blue_toast, (context as Activity).findViewById<ViewGroup>(R.id.blue_toast_container))
 
     layout.findViewById<TextView>(R.id.tv_toast_message).text = message
-    setGravity(Gravity.BOTTOM,0,50)
+    setGravity(Gravity.BOTTOM,0,100)
     duration = Toast.LENGTH_SHORT
     view = layout
     show()
