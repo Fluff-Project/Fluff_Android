@@ -42,7 +42,7 @@
 ![d](https://user-images.githubusercontent.com/54485132/71461583-a4953700-27f3-11ea-9547-2ed74f5e90ff.png).
 
 프로그램 구조는 크게 data, network, ui로 패키징하여 작업을 진행중이다.
-<br/>
+<br>
 
 
 
@@ -66,7 +66,7 @@ ui도 나름대로 패키징을 하였으나, 아직 뷰 구현이 진행중이�
 #3. 핵심 기능 구현 방법 정리
 
 1. 회원가입 및 로그인.
-<br/>
+<br>
 ![register](https://user-images.githubusercontent.com/54485132/71463252-19b73b00-27f9-11ea-93a6-1be8127c1af5.gif).
 
 1) 애니매이션
@@ -85,11 +85,11 @@ toast.show()
 
 를 kotlin extension 을 이용하여 생성한 함수 sendToast()를 이용하여
 toast.sendToast(this,"멘트") 를 작성해주기만 하면 된다.
-<br/>
+<br>
 ![s](https://user-images.githubusercontent.com/54485132/71463993-816e8580-27fb-11ea-8b67-1a6dd3516188.png).
 2. lambda 식 이용하기.
 
-<br/>
+<br>
 ![back](https://user-images.githubusercontent.com/54485132/71465526-3c991d80-2800-11ea-9336-7cb551814fde.png).
 
 가독성을 높이기 위해 위와 같이 람다식을 활용하였다.
@@ -97,7 +97,7 @@ toast.sendToast(this,"멘트") 를 작성해주기만 하면 된다.
 
 
 3. 외부 라이브러리 및 소스 이용한 화면 전환하기.
-<br/>
+<br>
 ![main](https://user-images.githubusercontent.com/54485132/71464258-238e6d80-27fc-11ea-8f77-2fb96955a52c.gif).
 
 implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2' 을 이용해 추가한 Indicator를
@@ -106,7 +106,7 @@ implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2' 을 이용해 
 또한 매거진의 세로 스크롤 기능 또한 Vertical ViewPager 검색을 통해 기존의 뷰페이저를 변형한 커스텀을 적용시켰다.
 
 4. 리사이클러뷰를 이용한 화면 구성
-<br/>
+<br>
 ![fssfda](https://user-images.githubusercontent.com/54485132/71465343-b11f8c80-27ff-11ea-9be7-98c8b3f9e584.gif).
 
 
@@ -121,10 +121,10 @@ https://re-build.tistory.com/11
 해당 사이트 및 facebook developer 사이트를 참고하여 다음과 같이 페이스북 로그인 연동을 하였다.
 이와 더불어 SharedPreferences를 활용해 자동로그인 및 로그아웃에 대한 이벤트 처리를 구현하였다.
 아래는 해당 화면이다.
-<br/>
+<br>
 ![facebook_login](https://user-images.githubusercontent.com/54485132/71578034-c8c97e80-2b39-11ea-8b36-89b58ebbdc5f.gif).
 
-<br/>
+<br>
 ![autoLogin](https://user-images.githubusercontent.com/54485132/71577987-9750b300-2b39-11ea-85e3-c0eaa85e4c2e.gif).
 
 
@@ -132,10 +132,10 @@ https://re-build.tistory.com/11
 6. 경매 화면 애니매이션 적용
 구글 머티리얼 디자인 가이드와 구글링을 통해 recyclerview의 아이템 클릭시 액티비티로 전환될 때 애니매이션을 구현하였다.
 아래는 해당 화면과 코드이다.
-<br/>
+<br>
 ![auction](https://user-images.githubusercontent.com/54485132/71577995-9b7cd080-2b39-11ea-8389-5cb5e5eb3fdc.gif).
 
-<br/>
+<br>
 ![제목 없음](https://user-images.githubusercontent.com/54485132/71577999-a0418480-2b39-11ea-8426-023a9fa4a873.png).
 
 
@@ -145,20 +145,20 @@ https://re-build.tistory.com/11
 이 과정에서 RadioGroup은 기본으로 제공되는 상태로는 두 줄로 나열 할 수 없었기에 
 implementation 'com.yuxingxin.multiradiogroup:library:1.0.0'
 을 통해 이를 가능하게 해 주었다.
-<br/>
+<br>
 ![filter](https://user-images.githubusercontent.com/54485132/71578002-a20b4800-2b39-11ea-962a-2f33c14e8753.gif).
 
 
 
 8. 갤러리 연동하기 - 빈티지 샵을 등록하기 위해 사진을 올릴 필요가 있는데 이를 위해 내 폰의 갤러리를 연동할 수 있도록 하였다.
-<br/>
+<br>
 ![glary](https://user-images.githubusercontent.com/54485132/71577997-9e77c100-2b39-11ea-98bd-fd646d4de623.gif).
 
 
 9. RecyclerView 아이템 개수에 따른 처리 구현하기
 아래 사진을 보면 3개정도 이상의 아이템이 있는 경우 +3과 같은 요약 표시를 해줘야 할 필요가 있었다.
 해당 기능에 대해 kotlin의 collection 기능을 이용하였고, 이에 대한 코드는 다음과 같다.
-<br/>
+<br>
 
 ![recyclerview](https://user-images.githubusercontent.com/54485132/71578004-a899bf80-2b39-11ea-8bc3-c6f0d481a328.gif).
 
