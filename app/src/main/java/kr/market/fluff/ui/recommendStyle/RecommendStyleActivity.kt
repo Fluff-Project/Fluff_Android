@@ -11,6 +11,7 @@ import kr.market.fluff.R
 import kr.market.fluff.data.RecommendStyleData
 import kr.market.fluff.data.RecommendStyleImgData
 import kr.market.fluff.ui.MainActivity
+import kr.market.fluff.ui.WelcomeActivity
 
 class RecommendStyleActivity : AppCompatActivity() {
     private lateinit var recommendStyleAdapter: RecommendStyleAdapter
@@ -24,7 +25,7 @@ class RecommendStyleActivity : AppCompatActivity() {
     private fun init(){
         initRecommendStyleList()
         btn_recommend_style_signup.setOnClickListener {
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this,WelcomeActivity::class.java)
             startActivity(intent)
             finish()
         }

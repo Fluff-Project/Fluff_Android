@@ -2,6 +2,7 @@ package kr.market.fluff.network
 
 
 
+import kr.market.fluff.data.intro.ResponseLogin
 import kr.market.fluff.data.intro.ResponseValidateAndRegisterAndLogin
 import retrofit2.Call
 import retrofit2.http.*
@@ -13,9 +14,41 @@ interface RequestInterface {
     fun getValidation(
         @Field("userID")userID : String//userID에 String 타입 userID 값 전달.
     ) : Call<ResponseValidateAndRegisterAndLogin> //validate해서 받는 데이터의 형식.
-    //반환 JSON객체 : {"success" : true}
+
+
+    //로컬 로그인
+    // {
+    //    "email": "이메일",
+    //    "pwd": "비밀번호"
+    //}
+    //{
+    //    "code": 200,
+    //    "json": {
+    //        "success": true,
+    //        "message": "로그인이 성공하였습니다.",
+    //        "data": {
+    //            "token": "토큰",
+    //            "refresh": "리프레시 토큰"
+    //        }
+    //    }
+    //}
+//    @FormUrlEncoded
+//    @POST("/auth/localLogin")
+//    fun getValidation(
+//        @Field("email")email : String,//userID에 String 타입 userID 값 전달.
+//        @Field("pwd")pwd : String
+//    ) : Call<ResponseLogin> //validate해서 받는 데이터의 형식.
 
     //패스워드 암호화 고려해서 MySQL의 행 길이를 더 길게 해줘야 함!!!★★★★★★★★★★★★★
+
+//    @FormUrlEncoded
+//    @POST("auth/signUp")
+//    fun requestRegister(
+//        @Field("userID") userID : String,
+//        @Field("userPassword")userPassword : String,
+//        @Field("userPhone")userPhone : String
+//    ) : Call<ResponseValidateAndRegisterAndLogin>
+
     @FormUrlEncoded
     @POST("UserRegister.php")
     fun requestRegister(

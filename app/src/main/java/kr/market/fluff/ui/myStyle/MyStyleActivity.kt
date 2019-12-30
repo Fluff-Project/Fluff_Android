@@ -22,11 +22,13 @@ class MyStyleActivity : AppCompatActivity() {
     private fun init(){
 
         initMyStyleList()
+
         btn_my_style_default.setOnClickListener {
             val intent = Intent(this,RecommendStyleActivity::class.java)
             startActivity(intent)
             finish()
         }
+        btn_my_style_default.isEnabled = false
     }
     private fun initMyStyleList(){
         myStyleAdapter = MyStyleAdapter(this)
@@ -47,11 +49,13 @@ class MyStyleActivity : AppCompatActivity() {
     fun changeBtn(checked: Boolean){
         if(checked){
             btn_my_style_default.apply {
+                isEnabled = true
                 background = resources.getDrawable(R.drawable.btn_black)
                 text = "다음"
             }
         }else {
             btn_my_style_default.apply {
+                isEnabled = false
                 background = resources.getDrawable(R.drawable.my_style_btn_grey_background)
                 text = "3개 이상 선택해주세요"
             }

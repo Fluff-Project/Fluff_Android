@@ -161,8 +161,6 @@ class HomeBannerDetailActivity : AppCompatActivity() {
             addItemDecoration(HorizontalItemDecorator(30))
             addItemDecoration(VerticalItemDecorator(28))
         }
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(rv_banner_closet)
     }
 }
 
