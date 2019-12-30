@@ -1,7 +1,7 @@
 # Fluff_Android
 
 
-#1. 프로젝트 사용 라이브러리!
+#1. 프로젝트 사용 라이브러리! (2019.12.30 수정)
 
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.android.support:design:29.0.0'
@@ -27,6 +27,14 @@
 
     //indecator 효과
     implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2'
+    
+    //multi radiobutton
+    implementation 'com.yuxingxin.multiradiogroup:library:1.0.0'
+    //Picaso 라이브러리 (이미지)
+    implementation 'com.squareup.picasso:picasso:2.4.0'
+
+    //페이스북 연동
+    implementation 'com.facebook.android:facebook-login:[5,6)'
 
 
 #2. 프로그램 구조
@@ -105,4 +113,26 @@ implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2' 을 이용해 
 
 - 마이페이지의 최근 본 상품, 좋아요/팔로우 리스트
 
+5. 페이스북 로그인 연동하기
+https://re-build.tistory.com/11
+해당 사이트 및 facebook developer 사이트를 참고하여 다음과 같이 페이스북 로그인 연동을 하였다.
+이와 더불어 SharedPreferences를 활용해 자동로그인 및 로그아웃에 대한 이벤트 처리를 구현하였다.
+아래는 해당 화면과 코드이다.
 
+6. 경매 화면 애니매이션 적용
+구글 머티리얼 디자인 가이드와 구글링을 통해 recyclerview의 아이템 클릭시 액티비티로 전환될 때 애니매이션을 구현하였다.
+아래는 해당 화면과 코드이다.
+
+
+7.필터 뷰 완성 - Bottom sheet Behavior 이용
+옷을 선택할 때는 RadioButton을 이용하였다.
+이 과정에서 RadioGroup은 기본으로 제공되는 상태로는 두 줄로 나열 할 수 없었기에 
+implementation 'com.yuxingxin.multiradiogroup:library:1.0.0'
+을 통해 이를 가능하게 해 주었다.
+
+
+8. 갤러리 연동하기 - 빈티지 샵을 등록하기 위해 사진을 올릴 필요가 있는데 이를 위해 내 폰의 갤러리를 연동할 수 있도록 하였다.
+
+9. RecyclerView 아이템 개수에 따른 처리 구현하기
+아래 사진을 보면 3개정도 이상의 아이템이 있는 경우 +3과 같은 요약 표시를 해줘야 할 필요가 있었다.
+해당 기능에 대해 kotlin의 collection 기능을 이용하였고, 이에 대한 코드는 다음과 같다.
