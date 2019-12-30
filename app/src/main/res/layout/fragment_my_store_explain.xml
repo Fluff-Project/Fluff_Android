@@ -1,10 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".ui.fragment.mypage.applySeller.MyStoreExplainFragment">
+    tools:context=".ui.fragment.mypage.applySeller.MyStoreExplainFragment"
+    android:background="@color/colorWhite">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_store_explain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="32dp"
+        android:paddingTop="32dp">
 
 
+        <TextView
+            android:id="@+id/txt_store_explain1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ko_pub_dotum_bold"
+            android:text="가게 소개"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_store_explain2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/ko_pub_dotum_light"
+            android:text="저희는 가디건 위주의 빈티지 샵입니다~!"
+            android:textColor="@color/colorBlack"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txt_store_explain1"
+            app:layout_constraintTop_toBottomOf="@+id/txt_store_explain1" />
+
+        <TextView
+            android:id="@+id/txt_store_exchange1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/ko_pub_dotum_bold"
+            android:text="교환/환불 여부"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txt_store_explain2" />
+
+        <TextView
+            android:id="@+id/txt_store_exchange2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/ko_pub_dotum_light"
+            android:text="빈티지랑 교환 환불이 어렵습니다."
+            android:textColor="@color/colorBlack"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_store_exchange1" />
+        <TextView
+            android:id="@+id/txt_store_delivery1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/ko_pub_dotum_bold"
+            android:text="배송 관련"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txt_store_exchange2" />
+
+        <TextView
+            android:id="@+id/txt_store_delivery2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/ko_pub_dotum_light"
+            android:text="되도록 3일 이내"
+            android:textColor="@color/colorBlack"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_store_delivery1" />
+
+        <TextView
+            android:id="@+id/txt_store_update_day1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/ko_pub_dotum_bold"
+            android:text="업데이트 요일"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txt_store_delivery2" />
+
+        <TextView
+            android:id="@+id/txt_store_update_day2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/ko_pub_dotum_light"
+            android:text="매주 화"
+            android:textColor="@color/colorBlack"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_store_update_day1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
