@@ -56,6 +56,7 @@
         <activity android:name=".ui.detail.ProductDetailActivity" />
         <activity android:name=".ui.fragment.mypage.cart.CartActivity" />
         <activity android:name=".ui.MainActivity" >
+
         </activity>
         <activity android:name=".ui.fragment.home.home_banner_detail.HomeBannerDetailActivity" />
     </application>
