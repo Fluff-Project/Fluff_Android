@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
 import com.facebook.*
-import com.facebook.appevents.AppEventsLogger
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import kotlinx.android.synthetic.main.activity_login.*
@@ -32,12 +31,15 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var pw_string : String
     lateinit var toast: Toast
     val requestToServer = RequestToServer
+
     lateinit var callbackManager : CallbackManager
+    lateinit var loginManager : LoginManager
 
     var check_auto_login : Boolean = false
+    var check_auto_login_facebook_token : Long = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        FacebookSdk.sdkInitialize(applicationContext)
+        FacebookSdk.sdkInitialize(applicationContext)
 //        AppEventsLogger.activateApp(this)
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.activity_login)
@@ -121,8 +123,6 @@ class LoginActivity : AppCompatActivity() {
         val fade4 = ObjectAnimator.ofFloat(ll_login_find, View.ALPHA, 0.0f, 1.0f)
         val fade5 = ObjectAnimator.ofFloat(fl_login_facebook, View.ALPHA, 1.0f, 0.0f)
         val blur = ObjectAnimator.ofFloat(blur_layout,View.ALPHA,0.0f,1.0f)
-
-
         anims.playTogether(fade,fade2,fade3,fade4,fade5,blur)
         anims.setDuration(1000)
         anims.start()
@@ -138,7 +138,6 @@ class LoginActivity : AppCompatActivity() {
         login_ptn_anim()
         //5. 배경 어두워지게
     }
-
     private fun backToIntro(){
         isIntro = true
         val anims = AnimatorSet()
@@ -178,8 +177,11 @@ class LoginActivity : AppCompatActivity() {
     }
     private fun checkAutoLogin(){
         check_auto_login = App.prefs.isLogin
+        check_auto_login_facebook_token = App.prefs.facebook_token
         Log.d("hj","로그인 boolean값 : ${check_auto_login}")
-        if(check_auto_login){
+        val zero : Long = 0
+        Log.d("hj","페이스북 로그인 토큰 값 : ${check_auto_login_facebook_token}")
+        if(check_auto_login || !check_auto_login_facebook_token.equals(zero)){
             toast.sendToast(this,"자동로그인 되었습니다")
             val intent = Intent(this, MyStyleActivity::class.java)
             startActivity(intent)
@@ -188,35 +190,14 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun setFacebookLogin(){
+        loginManager = LoginManager.getInstance()
         btn_login_facebook_custom.setOnClickListener {
-            LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email","user_friends"));
+            loginManager.logInWithReadPermissions(this, Arrays.asList("public_profile","email"));
         }
-//        btn_login_facebook_login.setOnClickListener{
-//            callbackManager = CallbackManager.Factory.create()
-//            val mCallback = LoginCallback()
-//            btn_login_facebook_login.setReadPermissions("public_profile","email")
-//            btn_login_facebook_login.registerCallback(callbackManager,mCallback)
-//            LoginManager.getInstance().registerCallback(callbackManager,
-//                object : FacebookCallback<LoginResult?> {
-//                    override fun onSuccess(loginResult: LoginResult?) { // App code
-//                        Log.d("hj","Facebook Token: " + loginResult!!.accessToken.token)
-//                        startActivity(Intent(applicationContext,MyStyleActivity::class.java))
-//                    }
-//
-//                    override fun onCancel() { // App code
-//                        Log.d("hj","Facebook Token: 받아오기 취소됨")
-//                    }
-//
-//                    override fun onError(exception: FacebookException) { // App code
-//                        Log.d("hj","에러: " + exception)
-//                    }
-//                })
-//        }
     }
     private fun initFacebook() { //FaceBook Init
-        FacebookSdk.sdkInitialize(this.applicationContext)
         callbackManager = CallbackManager.Factory.create()
-        LoginManager.getInstance().registerCallback(callbackManager,
+        loginManager.registerCallback(callbackManager,
             object : FacebookCallback<LoginResult> {
                 override fun onSuccess(loginResult: LoginResult) {
                     Log.d("Success", loginResult.accessToken.toString())
@@ -238,6 +219,7 @@ class LoginActivity : AppCompatActivity() {
                         )
                     )
                     requestUserProfile(loginResult)
+
                 }
 
                 override fun onCancel() {
@@ -255,9 +237,12 @@ class LoginActivity : AppCompatActivity() {
             loginResult.accessToken
         ) { `object`, response ->
             try {
-                val email =
-                    response.jsonObject.getString("email").toString()
-                Log.d("Result", email)
+                Log.d("jsonObject"," : + ${response.jsonObject}")
+                App.prefs.facebook_token = response.jsonObject.getLong("id")
+                Log.d("hj :","facebook_token은 ${App.prefs.facebook_token} 입니다")
+//                val email : String =
+//                   response.jsonObject.getString("email").toString()
+//                Log.d("Result", email)
             } catch (e: JSONException) {
                 e.printStackTrace()
             }
@@ -272,6 +257,12 @@ class LoginActivity : AppCompatActivity() {
         resultCode: Int,
         data: Intent?
     ) {
+        Log.d("hj","result코드 : ${resultCode}, request코드: ${requestCode}")
+        if(requestCode == 64206 && resultCode == -1){
+            val intent = Intent(this,MyStyleActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
         callbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
     }
