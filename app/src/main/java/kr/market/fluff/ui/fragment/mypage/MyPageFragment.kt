@@ -1,5 +1,6 @@
 package kr.market.fluff.ui.fragment.mypage
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -21,7 +22,7 @@ import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
 
-class MyPageFragment : Fragment() {
+class MyPageFragment(private val activity : Activity) : Fragment() {
     lateinit var recentSawAdapter: RecentSawAdapter
     lateinit var rv_mypage_recent_goods : RecyclerView
     lateinit var recent_goods_datas : ArrayList<MyPageRecentSawGoods>
@@ -61,7 +62,7 @@ class MyPageFragment : Fragment() {
             startActivity(intent)
         }
         rl_my_logout.setOnClickListener{
-            val logoutDialog = LogoutDialog(view!!.context)
+            val logoutDialog = LogoutDialog(activity,view!!.context)
             logoutDialog.show()
         }
     }

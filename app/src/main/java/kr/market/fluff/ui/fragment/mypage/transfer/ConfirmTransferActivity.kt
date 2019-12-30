@@ -23,7 +23,7 @@ class ConfirmTransferActivity : AppCompatActivity() {
         datas = ArrayList()
         setData()
         transferAdapter = TransferAdapter(this)
-
+        rv_confirmtransfer = findViewById(R.id.rv_confirmtransfer)
 
         rv_confirmtransfer.apply {
             layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)

@@ -189,7 +189,7 @@
             android:id="@+id/et_login_email"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            style="@style/RoundEditText"
+            style="@style/RoundLoginEditText"
             android:hint="이메일"
             android:inputType="textEmailAddress"
             android:layout_marginLeft="24dp"
@@ -215,7 +215,7 @@
         <EditText
             android:visibility="gone"
             android:id="@+id/et_login_pw"
-            style="@style/RoundEditText"
+            style="@style/RoundLoginEditText"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginLeft="24dp"

@@ -96,8 +96,9 @@ class ProductDetailActivity : AppCompatActivity() {
     {
         val dotsIndicator= findViewById<DotsIndicator>(R.id.detail_dots_indicator)
         val adapter = FragmentDetailPagerAdapter(supportFragmentManager,3)
-        dotsIndicator.setViewPager(vp_detail_viewpager)
+        val vp_detail_viewpager = findViewById<ViewPager>(R.id.vp_detail_viewpager)
         vp_detail_viewpager.adapter = adapter
+        dotsIndicator.setViewPager(vp_detail_viewpager)
         vp_detail_viewpager.offscreenPageLimit=2
     }
 
