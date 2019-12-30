@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.mypage.applySeller.SellerEditActivity">
+    tools:context=".ui.fragment.mypage.applySeller.SellerEditActivity"
+    android:background="@color/colorWhiteGray">
 
     <TextView
         android:id="@+id/txt_seller_edit_complete"
@@ -13,9 +14,9 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/ko_pub_dotum_bold"
+        android:text="완료"
         android:textColor="@color/colorBlack"
         android:textSize="14sp"
-        android:text="완료"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,9 +26,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="39dp"
         android:layout_marginEnd="16dp"
-        android:hint="가게 이름을 입력하주세요"
+        android:hint="가게 이름을 입력해주세요"
+        android:backgroundTint="@color/colorLightGrey"
+        android:fontFamily="@font/ko_pub_dotum_medium"
         android:inputType="textPersonName"
         android:textSize="14sp"
+        android:textColor="@color/colorBlack"
         app:layout_constraintBottom_toBottomOf="@+id/txt_seller_edit_store_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txt_seller_edit_store_name"
@@ -71,8 +75,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:inputType="textPersonName"
+        android:backgroundTint="@color/colorLightGrey"
+        android:fontFamily="@font/ko_pub_dotum_medium"
         android:hint="가게에 대한 한 줄 소개를 입력해주세요"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorBlack"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/txt_seller_edit_information"
         app:layout_constraintEnd_toEndOf="parent"
@@ -105,11 +112,14 @@
         android:id="@+id/btn_seller_edit_keyword1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
         android:background="@drawable/keywords_background"
+        android:fontFamily="@font/ko_pub_dotum_medium"
         android:paddingHorizontal="6dp"
-        android:paddingVertical="3dp"
+        android:paddingVertical="5dp"
         android:text="#키워드설정"
         android:textColor="@color/colorBlack"
+        android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="@+id/txt_seller_edit_keyword"
         app:layout_constraintStart_toStartOf="@+id/edt_seller_edit_information"
         app:layout_constraintTop_toTopOf="@+id/txt_seller_edit_keyword" />
@@ -121,8 +131,10 @@
         android:layout_marginStart="4dp"
         android:background="@drawable/keywords_background"
         android:paddingHorizontal="6dp"
-        android:paddingVertical="3dp"
+        android:paddingVertical="5dp"
         android:text="#키워드설정"
+        android:textSize="11sp"
+        android:fontFamily="@font/ko_pub_dotum_medium"
         android:textColor="@color/colorBlack"
         app:layout_constraintBottom_toBottomOf="@+id/btn_seller_edit_keyword1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -130,6 +142,16 @@
         app:layout_constraintStart_toEndOf="@+id/btn_seller_edit_keyword1"
         app:layout_constraintTop_toTopOf="@+id/btn_seller_edit_keyword1"
         app:layout_constraintVertical_bias="1.0" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0.7dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorLightGrey"
+        app:layout_constraintEnd_toEndOf="@+id/edt_seller_edit_information"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_seller_edit_keyword1"
+        app:layout_constraintTop_toBottomOf="@+id/btn_seller_edit_keyword1" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -146,7 +168,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="7dp"
         android:layout_marginEnd="16dp"
+        android:background="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -165,14 +189,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
+        <kr.market.fluff.ui.util.LinedEditText
             android:id="@+id/edt_seller_edit_store_intro"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="16dp"
-            android:hint="가게를 소개해 주세요."
             android:fontFamily="@font/ko_pub_dotum_light"
-            android:inputType="textPersonName"
+            android:textColor="@color/colorBlack"
+            android:hint="가게를 소개해 주세요."
+            android:layout_marginTop="9dp"
+            android:lineSpacingExtra="5dp"
+            android:background="@null"
+            android:inputType="textMultiLine"
             android:textSize="13sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/txt_seller_edit_store_intro"
@@ -182,6 +210,7 @@
             android:id="@+id/txt_seller_edit_exchange_check"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/ko_pub_dotum_bold"
             android:text="교환/환불 여부"
             android:textColor="@color/colorBlack"
@@ -190,15 +219,20 @@
             app:layout_constraintTop_toBottomOf="@+id/edt_seller_edit_store_intro" />
 
 
-        <EditText
+        <kr.market.fluff.ui.util.LinedEditText
             android:id="@+id/edt_seller_edit_exchange_check"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginRight="16dp"
-            android:hint="교환과 환불 여부에 대한 설명을 적어주세요."
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/ko_pub_dotum_light"
-            android:inputType="textPersonName"
+            android:hint="교환과 환불 여부에 대한 설명을 적어주세요."
+            android:textColor="@color/colorBlack"
+            android:layout_marginTop="9dp"
+            android:lineSpacingExtra="5dp"
+            android:background="@null"
+            android:inputType="textMultiLine"
             android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/txt_seller_edit_exchange_check"
             app:layout_constraintTop_toBottomOf="@+id/txt_seller_edit_exchange_check" />
 
@@ -206,6 +240,7 @@
             android:id="@+id/txt_seller_edit_"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/ko_pub_dotum_bold"
             android:text="배송 관련"
             android:textColor="@color/colorBlack"
@@ -213,40 +248,64 @@
             app:layout_constraintStart_toStartOf="@+id/edt_seller_edit_exchange_check"
             app:layout_constraintTop_toBottomOf="@+id/edt_seller_edit_exchange_check" />
 
-        <EditText
+        <kr.market.fluff.ui.util.LinedEditText
             android:id="@+id/editText4"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="배송 관련 안내를 적어주세요."
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/ko_pub_dotum_light"
+            android:hint="배송 관련 안내를 적어주세요."
+            android:textColor="@color/colorBlack"
+            android:layout_marginTop="9dp"
+            android:lineSpacingExtra="5dp"
+            android:background="@null"
+            android:inputType="textMultiLine"
             android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/txt_seller_edit_"
             app:layout_constraintTop_toBottomOf="@+id/txt_seller_edit_" />
 
         <TextView
-            android:id="@+id/textView29"
+            android:id="@+id/txt_seller_edit_update_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/ko_pub_dotum_bold"
             android:text="업데이트 요일"
             android:textColor="@color/colorBlack"
             android:textSize="14sp"
-            android:fontFamily="@font/ko_pub_dotum_bold"
             app:layout_constraintStart_toStartOf="@+id/editText4"
             app:layout_constraintTop_toBottomOf="@+id/editText4" />
 
-        <EditText
-            android:id="@+id/editText5"
-            android:layout_width="wrap_content"
+        <kr.market.fluff.ui.util.LinedEditText
+            android:id="@+id/edt_seller_edit_update_day"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="빈티지 업로드 요일에 대한 안내를 적어주세요."
-            android:textSize="13sp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp"
             android:fontFamily="@font/ko_pub_dotum_light"
-            app:layout_constraintStart_toStartOf="@+id/textView29"
-            app:layout_constraintTop_toBottomOf="@+id/textView29" />
+            android:hint="빈티지 업로드 요일에 대한 안내를 적어주세요."
+            android:textColor="@color/colorBlack"
+            android:layout_marginTop="5dp"
+            android:lineSpacingExtra="5dp"
+            android:background="@null"
+            android:inputType="textMultiLine"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txt_seller_edit_update_day"
+            app:layout_constraintTop_toBottomOf="@+id/txt_seller_edit_update_day" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/img_seller_edit_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/btn_back" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

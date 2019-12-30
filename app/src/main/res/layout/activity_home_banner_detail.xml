@@ -14,7 +14,9 @@
 
         <LinearLayout
             android:orientation="vertical"
+            android:focusable="true"
             android:layout_width="match_parent"
+            android:descendantFocusability="blocksDescendants"
             android:layout_height="wrap_content">
 
             <RelativeLayout
@@ -72,6 +74,7 @@
                 android:id="@+id/rv_banner_closet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"
                 android:layout_marginTop="42dp"

@@ -5,5 +5,5 @@
         android:drawable="@drawable/dots_ic"/>
     <item
         android:state_checked="true"
-        android:drawable="@drawable/dots_selcected_ic"/>
+        android:drawable="@drawable/dots_select_ic"/>
 </selector>

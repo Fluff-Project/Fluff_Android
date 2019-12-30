@@ -17,15 +17,12 @@ import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
 class ApplySellerActivity : AppCompatActivity() {
     private lateinit var applySellerPagerAdapter: ApplySellerPagerAdapter
-    val REQUEST_CODE_SELECT_IMAGE: Int = 1004
-    lateinit var selectedPicUri:Uri
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_apply_seller)
 
         settingTab()
-        settingLoadImg()
     }
     private fun settingTab(){
         applySellerPagerAdapter = ApplySellerPagerAdapter(supportFragmentManager,2)
@@ -61,24 +58,7 @@ class ApplySellerActivity : AppCompatActivity() {
         tl_apply_seller_tablayout.getTabAt(0)?.text = "내 가게"
         tl_apply_seller_tablayout.getTabAt(1)?.text = "가게 설명"
     }
-    private fun settingLoadImg(){
-        img_apply_seller_profile.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = android.provider.MediaStore.Images.Media.CONTENT_TYPE
-            intent.data = android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-            startActivityForResult(intent,REQUEST_CODE_SELECT_IMAGE)
-        }
-    }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == REQUEST_CODE_SELECT_IMAGE){
-            if(resultCode == Activity.RESULT_OK){
-                data?.let{
-                    selectedPicUri = it.data!!
-                    Glide.with(this).load(selectedPicUri).thumbnail(0.1f).into(img_apply_seller_profile)
-                }
-            }
-        }
-    }
+
+
 }
