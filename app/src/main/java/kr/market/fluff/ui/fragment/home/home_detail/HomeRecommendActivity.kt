@@ -2,6 +2,7 @@ package kr.market.fluff.ui.fragment.home.home_detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_home_recommend.*
 import kr.market.fluff.R
@@ -17,6 +18,7 @@ class HomeRecommendActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.activity_home_recommend)
 
         makeRecommendRecycler()
