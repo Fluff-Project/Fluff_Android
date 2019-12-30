@@ -143,32 +143,68 @@ class GlanceFragment : Fragment() {
             it.isSelected = isChecked
             if(isChecked) it.setTextColor(resources.getColor(R.color.colorMagenta))
             else it.setTextColor(resources.getColor(R.color.colorWhite))
+            ll_glance_filter_detail_outer.visibility = View.VISIBLE
+            ll_glance_filter_detail_top.visibility = View.GONE
+            ll_glance_filter_detail_pants.visibility = View.GONE
+            ll_glance_filter_detail_skirt.visibility = View.GONE
+            ll_glance_filter_detail_dress.visibility = View.GONE
+            ll_glance_filter_detail_items.visibility = View.GONE
 
         }
         rb_glance_filter_category_top.setOnCheckedChangeListener { it, isChecked ->
             it.isSelected = isChecked
             if(isChecked) it.setTextColor(resources.getColor(R.color.colorMagenta))
             else it.setTextColor(resources.getColor(R.color.colorWhite))
+            ll_glance_filter_detail_outer.visibility = View.GONE
+            ll_glance_filter_detail_top.visibility = View.VISIBLE
+            ll_glance_filter_detail_pants.visibility = View.GONE
+            ll_glance_filter_detail_skirt.visibility = View.GONE
+            ll_glance_filter_detail_dress.visibility = View.GONE
+            ll_glance_filter_detail_items.visibility = View.GONE
         }
         rb_glance_filter_category_bottom.setOnCheckedChangeListener { it, isChecked ->
             it.isSelected = isChecked
             if(isChecked) it.setTextColor(resources.getColor(R.color.colorMagenta))
             else it.setTextColor(resources.getColor(R.color.colorWhite))
+            ll_glance_filter_detail_outer.visibility = View.GONE
+            ll_glance_filter_detail_top.visibility = View.GONE
+            ll_glance_filter_detail_pants.visibility = View.VISIBLE
+            ll_glance_filter_detail_skirt.visibility = View.GONE
+            ll_glance_filter_detail_dress.visibility = View.GONE
+            ll_glance_filter_detail_items.visibility = View.GONE
         }
         rb_glance_filter_category_skirt.setOnCheckedChangeListener { it, isChecked ->
             it.isSelected = isChecked
             if(isChecked) it.setTextColor(resources.getColor(R.color.colorMagenta))
             else it.setTextColor(resources.getColor(R.color.colorWhite))
+            ll_glance_filter_detail_outer.visibility = View.GONE
+            ll_glance_filter_detail_top.visibility = View.GONE
+            ll_glance_filter_detail_pants.visibility = View.GONE
+            ll_glance_filter_detail_skirt.visibility = View.VISIBLE
+            ll_glance_filter_detail_dress.visibility = View.GONE
+            ll_glance_filter_detail_items.visibility = View.GONE
         }
         rb_glance_filter_category_dress.setOnCheckedChangeListener { it, isChecked ->
             it.isSelected = isChecked
             if(isChecked) it.setTextColor(resources.getColor(R.color.colorMagenta))
             else it.setTextColor(resources.getColor(R.color.colorWhite))
+            ll_glance_filter_detail_outer.visibility = View.GONE
+            ll_glance_filter_detail_top.visibility = View.GONE
+            ll_glance_filter_detail_pants.visibility = View.GONE
+            ll_glance_filter_detail_skirt.visibility = View.GONE
+            ll_glance_filter_detail_dress.visibility = View.VISIBLE
+            ll_glance_filter_detail_items.visibility = View.GONE
         }
         rb_glance_filter_category_items.setOnCheckedChangeListener { it, isChecked ->
             it.isSelected = isChecked
             if(isChecked) it.setTextColor(resources.getColor(R.color.colorMagenta))
             else it.setTextColor(resources.getColor(R.color.colorWhite))
+            ll_glance_filter_detail_outer.visibility = View.GONE
+            ll_glance_filter_detail_top.visibility = View.GONE
+            ll_glance_filter_detail_pants.visibility = View.GONE
+            ll_glance_filter_detail_skirt.visibility = View.GONE
+            ll_glance_filter_detail_dress.visibility = View.GONE
+            ll_glance_filter_detail_items.visibility = View.VISIBLE
         }
     }
     fun settingSizeSelect(){

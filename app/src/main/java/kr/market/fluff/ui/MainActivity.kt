@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             ).commit()}
             4 -> {supportFragmentManager.beginTransaction().replace(
                 kr.market.fluff.R.id.fragment_container,
-                MyPageFragment()
+                MyPageFragment(this)
             ).commit()}
         }
 
