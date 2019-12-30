@@ -47,14 +47,14 @@
 
 
 ![network_structure](https://user-images.githubusercontent.com/54485132/71461999-3cdfeb80-27f5-11ea-90d1-13545e10940c.png)
-<br/>
+
 
 
 network는 다음과 위와 같이 BASE_URL을 가진 싱글톤과, 해당 부분 구현시 이용할 interface,
 Kotlin Extension Function을 이용한 enqueue 메소드가 있다.
 
 ![ui_structure](https://user-images.githubusercontent.com/54485132/71462003-40737280-27f5-11ea-9ff5-3ddfd5424a8e.png)
-<br/>
+
 
 
 ui도 나름대로 패키징을 하였으나, 아직 뷰 구현이 진행중이라 구조가 명확하지는 않다.
@@ -99,7 +99,7 @@ toast.sendToast(this,"멘트") 를 작성해주기만 하면 된다.
 3. 외부 라이브러리 및 소스 이용한 화면 전환하기.
 
 ![main](https://user-images.githubusercontent.com/54485132/71464258-238e6d80-27fc-11ea-8f77-2fb96955a52c.gif)
-<br/>
+
 implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2' 을 이용해 추가한 Indicator를
 뷰페이져와 연동시켜 전환 효과를 적용시켰다.
 
@@ -108,7 +108,7 @@ implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2' 을 이용해 
 4. 리사이클러뷰를 이용한 화면 구성
 
 ![fssfda](https://user-images.githubusercontent.com/54485132/71465343-b11f8c80-27ff-11ea-9be7-98c8b3f9e584.gif)
-<br/>
+
 위에 사용된 리사이클러뷰는 세미나때 배운 내용을 바탕으로 적용되었다.
 
 - 홈화면의 상단 뷰페이져를 제외한 목록들
@@ -150,13 +150,13 @@ implementation 'com.yuxingxin.multiradiogroup:library:1.0.0'
 8. 갤러리 연동하기 - 빈티지 샵을 등록하기 위해 사진을 올릴 필요가 있는데 이를 위해 내 폰의 갤러리를 연동할 수 있도록 하였다.
 
 ![glary](https://user-images.githubusercontent.com/54485132/71577997-9e77c100-2b39-11ea-98bd-fd646d4de623.gif)
-<br/>
+
 
 9. RecyclerView 아이템 개수에 따른 처리 구현하기
 아래 사진을 보면 3개정도 이상의 아이템이 있는 경우 +3과 같은 요약 표시를 해줘야 할 필요가 있었다.
 해당 기능에 대해 kotlin의 collection 기능을 이용하였고, 이에 대한 코드는 다음과 같다.
 <br/>
-![recyclerview](https://user-images.githubusercontent.com/54485132/71578004-a899bf80-2b39-11ea-8bc3-c6f0d481a328.gif)<br/>
+![recyclerview](https://user-images.githubusercontent.com/54485132/71578004-a899bf80-2b39-11ea-8bc3-c6f0d481a328.gif)
 
 ![recycler](https://user-images.githubusercontent.com/54485132/71578123-3a093180-2b3a-11ea-901e-0e87ba7a1bcf.png)
 
