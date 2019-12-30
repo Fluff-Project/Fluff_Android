@@ -46,7 +46,6 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
         <activity android:name=".ui.PurchaseCompleteActivity"></activity>
         <activity android:name=".ui.fragment.mypage.transfer.ConfirmTransferActivity" />
         <activity android:name=".ui.fragment.mypage.favorite.FavoriteActivity" />
