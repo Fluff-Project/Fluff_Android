@@ -14,11 +14,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.review.ReviewActivity">
 
+        <activity android:name=".ui.review.ReviewActivity">
         </activity>
         <activity android:name=".ui.CompletingPurchaseActivity" />
         <activity android:name=".ui.WelcomeActivity" />
+        <activity android:name=".ui.ProductRegisterActivity">
+
+        </activity>
         <activity android:name=".ui.fragment.mypage.applySeller.SellerEditActivity" />
         <activity android:name=".ui.fragment.mypage.applySeller.ApplySellerActivity" />
         <activity android:name=".ui.fragment.home.home_detail.HomeRecommendActivity" />
@@ -27,14 +30,7 @@
         <activity android:name=".ui.fragment.mypage.update.MyInfoUpdateActivity" />
         <activity android:name=".ui.fragment.mypage.flub.FlubRegularCustomer" />
         <activity android:name=".ui.fragment.auction.DetailAuctionActivity" />
-        <activity android:name=".ui.intro.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+        <activity android:name=".ui.intro.LoginActivity"></activity>
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -55,18 +51,22 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.PurchaseCompleteActivity" >
-
-        </activity>
+        <activity android:name=".ui.PurchaseCompleteActivity" />
         <activity android:name=".ui.fragment.mypage.transfer.ConfirmTransferActivity" />
         <activity android:name=".ui.fragment.mypage.favorite.FavoriteActivity" />
         <activity android:name=".ui.recommendStyle.RecommendStyleActivity" />
         <activity android:name=".ui.myStyle.MyStyleActivity" />
         <activity android:name=".ui.PurchaseActivity" />
-        <activity android:name=".ui.intro.RegisterActivity" />
+        <activity android:name=".ui.intro.RegisterActivity" ></activity>
         <activity android:name=".ui.detail.ProductDetailActivity" />
         <activity android:name=".ui.fragment.mypage.cart.CartActivity" />
-        <activity android:name=".ui.MainActivity" />
+        <activity android:name=".ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".ui.fragment.home.home_banner_detail.HomeBannerDetailActivity" />
     </application>
 
