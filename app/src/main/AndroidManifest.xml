@@ -22,7 +22,13 @@
         <activity android:name=".ui.fragment.mypage.update.MyInfoUpdateActivity"></activity>
         <activity android:name=".ui.fragment.mypage.flub.FlubRegularCustomer" />
         <activity android:name=".ui.fragment.auction.DetailAuctionActivity" />
-        <activity android:name=".ui.intro.LoginActivity"></activity>
+        <activity android:name=".ui.intro.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>
@@ -49,13 +55,7 @@
         <activity android:name=".ui.intro.RegisterActivity" />
         <activity android:name=".ui.detail.ProductDetailActivity" />
         <activity android:name=".ui.fragment.mypage.cart.CartActivity" />
-        <activity android:name=".ui.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".ui.MainActivity"></activity>
         <activity android:name=".ui.fragment.home.home_banner_detail.HomeBannerDetailActivity" />
     </application>
 
