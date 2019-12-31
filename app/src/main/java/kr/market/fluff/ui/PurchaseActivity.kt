@@ -1,5 +1,6 @@
 package kr.market.fluff.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_purchase.*
@@ -18,6 +19,10 @@ class PurchaseActivity : AppCompatActivity() {
     private fun setListener(){
         img_purchase_back.setOnClickListener{
             finish()
+        }
+        btn_purchase_buy.setOnClickListener {
+            val intent = Intent(this,CompletingPurchaseActivity::class.java)
+            startActivity(intent)
         }
     }
 }

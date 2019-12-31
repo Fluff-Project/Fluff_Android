@@ -5,5 +5,5 @@
         android:drawable="@drawable/check_ic"/>
     <item
         android:state_checked="true"
-        android:drawable="@drawable/check_selcected_ic"/>
+        android:drawable="@drawable/check_select_ic"/>
 </selector>

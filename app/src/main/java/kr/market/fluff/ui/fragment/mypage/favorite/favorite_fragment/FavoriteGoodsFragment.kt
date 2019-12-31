@@ -42,9 +42,6 @@ class FavoriteGoodsFragment : Fragment() {
             addItemDecoration(HorizontalItemDecorator(24))
             adapter = goode_adapter
         }
-
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(rv_favorite)
     }
     private fun addDatas(){
         datas.add(

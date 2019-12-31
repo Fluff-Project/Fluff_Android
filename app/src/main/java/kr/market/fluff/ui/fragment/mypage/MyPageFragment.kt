@@ -18,6 +18,7 @@ import kr.market.fluff.ui.fragment.mypage.applySeller.ApplySellerActivity
 import kr.market.fluff.ui.fragment.mypage.applySeller.SellerEditActivity
 import kr.market.fluff.ui.fragment.mypage.favorite.FavoriteActivity
 import kr.market.fluff.ui.fragment.mypage.transfer.ConfirmTransferActivity
+import kr.market.fluff.ui.fragment.mypage.update.MyInfoUpdateActivity
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
@@ -45,8 +46,8 @@ class MyPageFragment(private val activity : Activity) : Fragment() {
             adapter = recentSawAdapter
             addItemDecoration(HorizontalItemDecorator(24))
         }
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(rv_mypage_recent_goods)
+//        val snapHelper = LinearSnapHelper()
+//        snapHelper.attachToRecyclerView(rv_mypage_recent_goods)
 
 
     }
@@ -65,6 +66,11 @@ class MyPageFragment(private val activity : Activity) : Fragment() {
             val logoutDialog = LogoutDialog(activity,view!!.context)
             logoutDialog.show()
         }
+        rl_myInfo_update.setOnClickListener {
+            val intent = Intent(this.context, MyInfoUpdateActivity::class.java)
+            startActivity(intent)
+        }
+
     }
     private fun setCreateStore(){
         btn_mypage_create_store.setOnClickListener {

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragment.magazine.MagazineFragment">
 
-    <kr.market.fluff.ui.fragment.magazine.VerticalViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/vp_magazine"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

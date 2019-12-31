@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f8f8f8"
+    tools:context=".ui.review.ReviewActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/top_review_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f8f8f8"
+        android:paddingBottom="24dp">
+
+        <ImageView
+            android:id="@+id/img_purchase_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toTopOf="@+id/guideline5"
+            app:srcCompat="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="32dp"
+            android:layout_toRightOf="@+id/img_purchase_back"
+            android:fontFamily="@font/ko_pub"
+            android:lineSpacingExtra="10sp"
+            android:text="구매하기"
+            android:textColor="@color/colorBlack"
+            android:textFontWeight="900"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/img_purchase_back"
+            app:layout_constraintTop_toTopOf="@+id/guideline5" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorGenderGrayText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_purchase_back" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="18dp"
+            android:src="@drawable/banner_closet"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="24dp" />
+
+        <TextView
+            android:id="@+id/textView42"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/sc_dream"
+            android:gravity="center_horizontal"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="7sp"
+            android:text="vintage.sabina"
+            android:textColor="#000000"
+            android:textFontWeight="700"
+            android:textSize="17sp"
+            app:layout_constraintStart_toEndOf="@+id/circleImageView"
+            app:layout_constraintTop_toTopOf="@+id/circleImageView" />
+
+        <TextView
+            android:id="@+id/textView43"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/sc_dream"
+            android:gravity="center_horizontal"
+            android:letterSpacing="-0.03"
+            android:lineSpacingExtra="8sp"
+            android:text="4.8"
+            android:textColor="#2d2d2d"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/rb_favorite_score"
+            app:layout_constraintEnd_toEndOf="@+id/textView42"
+            app:layout_constraintStart_toEndOf="@+id/rb_favorite_score"
+            app:layout_constraintTop_toTopOf="@+id/rb_favorite_score" />
+
+        <TextView
+            android:id="@+id/textView44"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/sc_dream"
+            android:gravity="center_horizontal"
+            android:letterSpacing="-0.03"
+            android:lineSpacingExtra="8sp"
+            android:text="고객후기"
+            android:textColor="#2d2d2d"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/textView42"
+            app:layout_constraintTop_toBottomOf="@+id/rb_favorite_score" />
+
+        <TextView
+            android:id="@+id/textView45"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/sc_dream"
+            android:textSize="14sp"
+            android:textColor="#2d2d2d"
+            android:letterSpacing="-0.03"
+            android:lineSpacingExtra="8sp"
+            android:text="79"
+            app:layout_constraintBottom_toBottomOf="@+id/textView44"
+            app:layout_constraintStart_toEndOf="@+id/textView44"
+            app:layout_constraintTop_toTopOf="@+id/textView44" />
+
+        <RatingBar
+            android:id="@+id/rb_favorite_score"
+            style="@style/RatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:rating="4"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            app:layout_constraintStart_toStartOf="@+id/textView42"
+            app:layout_constraintTop_toBottomOf="@+id/textView42" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--상단바-->
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_review"
+        android:clipToPadding="false"
+        android:paddingTop="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/top_review_layout"/>
+
+
+
+
+
+
+
+</RelativeLayout>

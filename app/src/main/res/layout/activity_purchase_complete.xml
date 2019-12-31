@@ -47,6 +47,7 @@
         android:text="확인" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_bill_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/tv_complete_ment"
@@ -54,7 +55,7 @@
         android:layout_marginTop="72dp"
         android:layout_marginRight="18dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/colorWhite">
+        android:background="@drawable/bill_img">
 
         <ImageView
             android:id="@+id/imageView3"
@@ -97,8 +98,8 @@
             android:id="@+id/dot_line_view2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="14dp"
             android:layout_marginLeft="22dp"
+            android:layout_marginTop="14dp"
             android:layout_marginRight="22dp"
             android:background="@drawable/dot_line"
             app:layout_constraintTop_toBottomOf="@+id/textView32"
@@ -108,8 +109,8 @@
             android:id="@+id/dot_line_view3"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="12dp"
             android:layout_marginLeft="22dp"
+            android:layout_marginTop="12dp"
             android:layout_marginRight="22dp"
             android:background="@drawable/dot_line"
             app:layout_constraintTop_toBottomOf="@+id/textView34"
@@ -164,11 +165,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/sc_dream"
-            android:textSize="23sp"
-            android:textColor="#000000"
             android:lineSpacingExtra="9sp"
             android:text="22,500원"
+            android:textColor="#000000"
             android:textFontWeight="600"
+            android:textSize="23sp"
             app:layout_constraintBottom_toBottomOf="@+id/textView38"
             app:layout_constraintEnd_toStartOf="@+id/guideline12"
             app:layout_constraintTop_toTopOf="@+id/textView38" />
@@ -241,14 +242,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ko_pub"
-            android:textSize="13sp"
-            android:textColor="#414141"
-            android:lineSpacingExtra="7sp"
             android:gravity="end"
-            tools:text="서울시 중랑구 면목동 3.8동 129-12\n201호"
+            android:lineSpacingExtra="7sp"
+            android:textColor="#414141"
             android:textFontWeight="500"
+            android:textSize="13sp"
             app:layout_constraintEnd_toEndOf="@+id/textView31"
-            app:layout_constraintTop_toTopOf="@+id/textView30" />
+            app:layout_constraintTop_toTopOf="@+id/textView30"
+            tools:text="서울시 중랑구 면목동 3.8동 129-12\n201호" />
 
         <TextView
             android:id="@+id/textView30"

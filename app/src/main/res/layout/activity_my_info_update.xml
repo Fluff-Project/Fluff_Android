@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/img_purchase_back"
+            android:id="@+id/img_myInfo_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -26,14 +26,14 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="32dp"
-            android:layout_toRightOf="@+id/img_purchase_back"
-            android:fontFamily="@font/ko_pub"
+            android:layout_toRightOf="@+id/img_myInfo_back"
+            android:fontFamily="@font/ko_pub_dotum_bold"
             android:lineSpacingExtra="10sp"
             android:text="내 정보 수정"
             android:textColor="@color/colorBlack"
             android:textFontWeight="900"
             android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/img_purchase_back"
+            app:layout_constraintStart_toEndOf="@+id/img_myInfo_back"
             app:layout_constraintTop_toTopOf="@+id/guideline13" />
 
         <androidx.constraintlayout.widget.Guideline
@@ -91,16 +91,19 @@
                     <TextView
                         style="@style/TextView_MyInfoUpdate"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:layout_weight="1"
                         android:padding="8dp"
+                        android:layout_gravity="start"
                         android:text="아이디" />
 
                     <EditText
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="8"
                         android:background="@drawable/et_purchase"
+                        android:fontFamily="@font/ko_pub"
+                        android:textFontWeight="500"
                         android:hint="ex)xxxxx@gmail.com"
                         android:padding="8dp" />
                 </TableRow>
@@ -114,17 +117,20 @@
                     <TextView
                         style="@style/TextView_MyInfoUpdate"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:layout_weight="1"
                         android:padding="8dp"
+                        android:layout_gravity="start"
                         android:text="닉네임" />
 
                     <EditText
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="8"
                         android:background="@drawable/et_purchase"
                         android:hint="ex) 뽀짝이"
+                        android:fontFamily="@font/ko_pub"
+                        android:textFontWeight="500"
                         android:padding="8dp" />
                 </TableRow>
 
@@ -137,21 +143,23 @@
                     <TextView
                         style="@style/TextView_MyInfoUpdate"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:layout_weight="1"
                         android:padding="8dp"
+                        android:layout_gravity="start"
+                        android:gravity="center"
                         android:text="배송 주소" />
 
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="8"
                         android:orientation="horizontal">
 
                     <EditText
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:layout_weight="8"
                         android:background="@drawable/et_purchase"
                         android:padding="8dp" />
@@ -159,13 +167,12 @@
                     <Button
                         android:id="@+id/btn_update_address"
                         android:layout_width="74dp"
-                        android:layout_height="38dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@drawable/btn_black_rec"
                         android:fontFamily="@font/ko_pub_dotum_medium"
                         android:lineSpacingExtra="8sp"
                         android:layout_marginLeft="12dp"
-                        android:padding="8dp"
                         android:paddingLeft="10dp"
                         android:paddingTop="6dp"
                         android:paddingRight="10dp"
@@ -186,15 +193,17 @@
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:layout_weight="1"
                         android:padding="8dp"
                         android:text=" " />
 
                     <EditText
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="8"
+                        android:fontFamily="@font/ko_pub"
+                        android:textFontWeight="500"
                         android:background="@drawable/et_purchase"
                         android:padding="8dp" />
                 </TableRow>
@@ -207,14 +216,16 @@
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:layout_weight="1"
                         android:padding="8dp"
                         android:text=" " />
 
                     <EditText
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/ko_pub"
+                        android:textFontWeight="500"
                         android:layout_weight="8"
                         android:background="@drawable/et_purchase"
                         android:padding="8dp" />
@@ -229,16 +240,19 @@
                     <TextView
                         style="@style/TextView_MyInfoUpdate"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:layout_weight="1"
-                        android:padding="8dp"
+                        android:gravity="center"
+                        android:layout_gravity="start"
                         android:text="연락처" />
 
                     <EditText
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="8"
                         android:background="@drawable/et_purchase"
+                        android:fontFamily="@font/ko_pub"
+                        android:textFontWeight="500"
                         android:hint="ex) 010-0000-0000"
                         android:padding="8dp" />
                 </TableRow>
@@ -275,15 +289,18 @@
                     <TextView
                         style="@style/TextView_MyInfoUpdate"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_gravity="start"
                         android:layout_weight="1"
                         android:padding="8dp"
                         android:text="새 비밀번호" />
 
                     <EditText
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="8"
+                        android:fontFamily="@font/ko_pub"
+                        android:textFontWeight="500"
                         android:background="@drawable/et_purchase"
                         android:padding="8dp" />
                 </TableRow>
@@ -297,17 +314,20 @@
                     <TextView
                         style="@style/TextView_MyInfoUpdate"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_gravity="start"
                         android:layout_weight="1"
                         android:padding="8dp"
                         android:text="새 비밀번호 확인" />
 
                     <EditText
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="8"
                         android:background="@drawable/et_purchase"
                         android:inputType="textPassword"
+                        android:fontFamily="@font/ko_pub"
+                        android:textFontWeight="500"
                         android:padding="8dp" />
                 </TableRow>
 
@@ -338,6 +358,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:gravity="center"
+
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
@@ -345,21 +367,21 @@
 
                     <RadioButton
                         android:id="@+id/btn_update_gender_xy"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="44dp"
                         android:layout_marginStart="16dp"
-                        android:background="@drawable/btn_update_gender_background"
                         android:button="@null"
+                        android:background="@drawable/btn_update_gender_background"
                         android:fontFamily="@font/ko_pub_dotum_medium"
                         android:lineSpacingExtra="9sp"
-                        android:paddingLeft="66dp"
                         android:paddingTop="10dp"
-                        android:paddingRight="66dp"
                         android:paddingBottom="10dp"
                         android:text="남자"
+                        android:layout_marginEnd="4dp"
                         android:textColor="@drawable/btn_text_gender"
                         android:textSize="16sp"
-                        app:layout_constraintHorizontal_weight="1"
+                        android:layout_weight="1"
+                        android:gravity="center"
                         app:layout_constraintEnd_toStartOf="@+id/btn_update_gender_xx"/>
                     <!--            app:layout_constraintBottom_toBottomOf="parent"
 
@@ -369,22 +391,20 @@
 
                     <RadioButton
                         android:id="@+id/btn_update_gender_xx"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="44dp"
-                        android:layout_marginLeft="8dp"
+                        android:layout_marginStart="4dp"
                         android:layout_marginEnd="16dp"
                         android:background="@drawable/btn_update_gender_background"
-                        android:button="@null"
                         android:fontFamily="@font/ko_pub_dotum_medium"
-                        android:lineSpacingExtra="9sp"
-                        android:paddingLeft="66dp"
                         android:paddingTop="10dp"
-                        android:paddingRight="66dp"
                         android:paddingBottom="10dp"
+                        android:button="@null"
                         android:text="여자"
                         android:textColor="@drawable/btn_text_gender"
                         android:textSize="16sp"
-                        app:layout_constraintHorizontal_weight="1"
+                        android:layout_weight="1"
+                        android:gravity="center"
                         app:layout_constraintLeft_toRightOf="@id/btn_update_gender_xy" />
                     <!--            app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"

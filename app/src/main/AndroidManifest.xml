@@ -14,12 +14,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.fragment.mypage.applySeller.SellerEditActivity"></activity>
+        <activity android:name=".ui.fragment.magazine.DetailMagazineActivity"></activity>
+        <activity android:name=".ui.review.ReviewActivity"></activity>
+        <activity android:name=".ui.CompletingPurchaseActivity" />
+        <activity android:name=".ui.WelcomeActivity" />
+        <activity android:name=".ui.ProductRegisterActivity"></activity>
+        <activity android:name=".ui.fragment.mypage.applySeller.SellerEditActivity" />
         <activity android:name=".ui.fragment.mypage.applySeller.ApplySellerActivity" />
-        <activity android:name=".ui.fragment.home.home_detail.HomeRecommendActivity"></activity>
-        <activity android:name=".ui.fragment.home.home_detail.HomeRecentActivity"></activity>
-        <activity android:name=".ui.fragment.home.home_detail.HomeNewActivity" ></activity>
-        <activity android:name=".ui.fragment.mypage.update.MyInfoUpdateActivity"></activity>
+        <activity android:name=".ui.fragment.home.home_detail.HomeRecommendActivity" />
+        <activity android:name=".ui.fragment.home.home_detail.HomeRecentActivity" />
+        <activity android:name=".ui.fragment.home.home_detail.HomeNewActivity" />
+        <activity android:name=".ui.fragment.mypage.update.MyInfoUpdateActivity" />
         <activity android:name=".ui.fragment.mypage.flub.FlubRegularCustomer" />
         <activity android:name=".ui.fragment.auction.DetailAuctionActivity" />
         <activity android:name=".ui.intro.LoginActivity">
@@ -29,24 +34,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>
+            android:value="@string/facebook_app_id" />
+
         <activity
             android:name="com.facebook.FacebookActivity"
-            android:configChanges= "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
         <activity
             android:name="com.facebook.CustomTabActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.PurchaseCompleteActivity"></activity>
+        <activity android:name=".ui.PurchaseCompleteActivity" />
         <activity android:name=".ui.fragment.mypage.transfer.ConfirmTransferActivity" />
         <activity android:name=".ui.fragment.mypage.favorite.FavoriteActivity" />
         <activity android:name=".ui.recommendStyle.RecommendStyleActivity" />
@@ -55,7 +64,7 @@
         <activity android:name=".ui.intro.RegisterActivity" />
         <activity android:name=".ui.detail.ProductDetailActivity" />
         <activity android:name=".ui.fragment.mypage.cart.CartActivity" />
-        <activity android:name=".ui.MainActivity" >
+        <activity android:name=".ui.MainActivity">
 
         </activity>
         <activity android:name=".ui.fragment.home.home_banner_detail.HomeBannerDetailActivity" />

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f8f8f8"
     tools:context=".ui.fragment.mypage.MyPageFragment">
 
 
@@ -50,27 +51,31 @@
             android:id="@+id/tv_mypage_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/ko_pub"
             android:letterSpacing="-0.03"
             android:lineSpacingExtra="9sp"
-            android:fontFamily="@font/ko_pub"
-            android:textFontWeight="900"
             android:text="김꾸뽁"
             android:textColor="#2e2e2e"
+            android:textFontWeight="900"
             android:textSize="26sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/ko_pub"
             android:letterSpacing="-0.03"
             android:lineSpacingExtra="9sp"
             android:text="님"
-            android:fontFamily="@font/ko_pub"
-            android:textFontWeight="900"
             android:textColor="#2e2e2e"
+            android:textFontWeight="900"
             android:textSize="26sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_mypage_user_name"
             app:layout_constraintStart_toEndOf="@+id/tv_mypage_user_name"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toTopOf="@+id/tv_mypage_user_name" />
+
         <LinearLayout
             android:id="@+id/ll_my_favorite"
             android:layout_width="wrap_content"
@@ -99,9 +104,10 @@
 
     <TextView
         android:id="@+id/tv_mypage_user_email"
+        style="@style/TextView_for_Mypage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/TextView_for_Mypage"
+        android:layout_marginTop="8dp"
         android:text="bbojjackbbojjack@naver.com"
         android:textColor="#797979"
         app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -211,6 +217,7 @@
                     android:background="@color/colorButtonDisAble" />
 
                 <RelativeLayout
+                    android:id="@+id/rl_myInfo_update"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -248,6 +255,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         style="@style/TextView_for_Mypage"
+                        android:textColor="#3a4047"
                         android:text="취향 재설정" />
 
                     <ImageView

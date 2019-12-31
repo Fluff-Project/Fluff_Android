@@ -20,7 +20,7 @@ class EditDialog(context: Context) :  Dialog(context) {
             dismiss()
         }
         tv_dialog_edit_yes.setOnClickListener {
-            //TODO
+
         }
     }
 

@@ -32,8 +32,6 @@ class AuctionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // Inflate the layout for this fragment
-        Toast.makeText(view!!.context,"경매뷰 띄움",Toast.LENGTH_SHORT).show()
         datas = ArrayList()
         rv_auction = view.findViewById(R.id.rv_auction_list)
         auctionAdapter = AuctionAdapter(this.activity!!,view.context)
@@ -43,8 +41,8 @@ class AuctionFragment : Fragment() {
         rv_auction.adapter = auctionAdapter
         rv_auction.addItemDecoration(VerticalItemDecorator(24))
 
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(rv_auction)
+//        val snapHelper = LinearSnapHelper()
+//        snapHelper.attachToRecyclerView(rv_auction)
 
         auctionAdapter.notifyDataSetChanged()
     }

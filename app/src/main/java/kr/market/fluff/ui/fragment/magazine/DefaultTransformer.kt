@@ -12,8 +12,5 @@ class DefaultTransformer : ViewPager.PageTransformer {
             alpha = position + 1
         }
         view.alpha = alpha
-        view.translationX = view.width * -position
-        val yPosition = position * view.height
-        view.translationY = yPosition
     }
 }
