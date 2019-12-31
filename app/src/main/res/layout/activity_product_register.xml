@@ -70,66 +70,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
-                <androidx.core.widget.NestedScrollView
-                    android:id="@+id/scroll_register_recycler"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_register_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="16dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
                     android:orientation="horizontal"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/txt_register_photo"
-                    app:layout_constraintVertical_bias="0.0">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    app:layout_constraintVertical_bias="1.0" />
 
 
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/rv_register_photo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="80dp"
-                            android:orientation="horizontal"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <RelativeLayout
-                            android:id="@+id/rl_register_photo_update"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintLeft_toRightOf="@id/rv_register_photo"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <ImageView
-                                android:id="@+id/img_register_photo"
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_centerInParent="true"
-                                android:background="#f8f8f8" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:fontFamily="@font/ko_pub_dotum_bold"
-                                android:letterSpacing="-0.03"
-                                android:lineSpacingExtra="11sp"
-                                android:text="+"
-                                android:textColor="@color/colorBlack"
-                                android:textSize="20sp" />
-
-                        </RelativeLayout>
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.core.widget.NestedScrollView>
             </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
             <androidx.constraintlayout.widget.ConstraintLayout

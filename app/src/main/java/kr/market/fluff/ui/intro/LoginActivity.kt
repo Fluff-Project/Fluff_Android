@@ -15,8 +15,10 @@ import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import kotlinx.android.synthetic.main.activity_login.*
 import kr.market.fluff.R
+import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.enqueue
+import kr.market.fluff.network.safeEnqueue
 import kr.market.fluff.ui.App
 import kr.market.fluff.ui.myStyle.MyStyleActivity
 import kr.market.fluff.ui.util.sendToast
@@ -57,31 +59,48 @@ class LoginActivity : AppCompatActivity() {
         btn_login_login.setOnClickListener{
             id_string = et_login_email.text.toString()
             pw_string = et_login_pw.text.toString()
-            if(id_string.equals("")||pw_string.equals("")){
+            if(id_string.isBlank() ||pw_string.isBlank()){
                 sendToast("빈칸 없이 입력해주세요")
                 return@setOnClickListener
-            }else{
-                val requestLoginToServer = requestToServer.service.requestLogin_appjam(id_string,pw_string)
-                requestLoginToServer.enqueue(
-                    onResponse = {
-                            response ->
-                        if(response.isSuccessful){
-                            if(response.body()!!.json.success){
-                                sendToast("로그인 되었습니다")
-                                App.prefs.isLogin = true
-                                val intent = Intent(this@LoginActivity,
-                                    MyStyleActivity::class.java)
-                                intent.putExtra("userID",id_string)
-                                intent.putExtra("userPassword",pw_string)
-                                startActivity(intent)
-                                finish()
-                            }else{
-                                sendToast("로그인 실패")
-                            }
-                        }
+            }
+//                val requestLoginToServer = requestToServer.service.requestLogin_appjam(id_string,pw_string)
+//                requestLoginToServer.enqueue(
+//                    onResponse = {
+//                            response ->
+//                        if(response.isSuccessful){
+//                            if(response.body()!!.json.success){
+//                                sendToast("로그인 되었습니다")
+//                                App.prefs.isLogin = true
+//                                val intent = Intent(this@LoginActivity,
+//                                    MyStyleActivity::class.java)
+//                                intent.putExtra("userID",id_string)
+//                                intent.putExtra("userPassword",pw_string)
+//                                startActivity(intent)
+//                                finish()
+//                            }else{
+//                                sendToast("로그인 실패")
+//                            }
+//                        }
+//                    }
+//                )
+            requestToServer.service.requestLogin_appjam(
+                RequestInterface.LoginRequest(id_string,pw_string)
+            )
+                .safeEnqueue(
+                    onSuccess = {
+                        sendToast("로그인 되었습니다")
+                        App.prefs.isLogin = true
+                        val intent = Intent(this@LoginActivity,
+                            MyStyleActivity::class.java)
+                        intent.putExtra("userID",id_string)
+                        intent.putExtra("userPassword",pw_string)
+                        startActivity(intent)
+                        finish()
+                    },
+                    onFail = { _, _ ->
+                        sendToast("로그인 실패")
                     }
                 )
-            }
         }
         ll_login_find.setOnClickListener{
 

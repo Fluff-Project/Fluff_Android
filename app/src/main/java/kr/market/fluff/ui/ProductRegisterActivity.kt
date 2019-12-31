@@ -22,90 +22,63 @@ import kr.market.fluff.ui.fragment.home.home_banner_detail.BannerRecyclerAdapter
 import kr.market.fluff.ui.fragment.home.recycler_common.HomeNewAdapter
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
+import kr.market.fluff.ui.util.sendToast
 
 
 class ProductRegisterActivity : AppCompatActivity()  {
 
-    lateinit var seekbar : SeekBar
-    lateinit var seekbar_num : TextView
-    var check_count : Int =0
-    lateinit var img : ImageView
     val REQUEST_CODE_SELECT_IMAGE: Int = 1004
-    var selectedPicUri: Uri? = null
+    var check_count : Int =0
     lateinit var photoAdapter: RegisterPhotoAdapter
-    var datas : ArrayList<RegisterPhotoData> = ArrayList<RegisterPhotoData>()
+    var datas : ArrayList<RegisterPhotoData> = ArrayList()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(kr.market.fluff.R.layout.activity_product_register)
-        init()
+        setContentView(R.layout.activity_product_register)
         settingRegisterColorSelect()
         settingRegisterCategorySelect()
         settingRegisterSizeSelect()
         settingRegisterStyleSelect()
         settingRegisterGenderSelect()
         settingSeekBar()
-        settingPhotoRecycler()
         RecyclerPhoto()
-
-
-    }
-    private fun init(){
-        seekbar = findViewById(kr.market.fluff.R.id.seekBar_register_condition)
-        seekbar_num = findViewById(kr.market.fluff.R.id.txt_register_seekBar_num)
-        img = findViewById(R.id.img_register_photo)
-    }
-
-        fun settingPhotoRecycler()
-    {
-        img.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = android.provider.MediaStore.Images.Media.CONTENT_TYPE
-            intent.data = android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-            startActivityForResult(intent,REQUEST_CODE_SELECT_IMAGE)
-        }
-
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == REQUEST_CODE_SELECT_IMAGE){
             if(resultCode == Activity.RESULT_OK){
-                data?.let{
-                    selectedPicUri = it.data!!
-                    datas.add(RegisterPhotoData(selectedPicUri!!))
+                data?.data?.let{
+                    datas.add(RegisterPhotoData(it))
 //                    RecyclerPhoto()
                     photoAdapter.notifyDataSetChanged()
-
+                    rv_register_photo.scrollToPosition(photoAdapter.itemCount - 1)
                 }
             }
         }
     }
 
-
-
     fun RecyclerPhoto()
     {
-        photoAdapter = RegisterPhotoAdapter(this, datas)
+        photoAdapter = RegisterPhotoAdapter(this,this, datas) {
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = android.provider.MediaStore.Images.Media.CONTENT_TYPE
+            intent.data = android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            this.startActivityForResult(intent,REQUEST_CODE_SELECT_IMAGE)
+        }
         rv_register_photo.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
             adapter = photoAdapter
             addItemDecoration(HorizontalItemDecorator(24))
         }
-//        val snapHelper = LinearSnapHelper()
-//        snapHelper.attachToRecyclerView(rv_register_photo)
-
     }
 
     fun settingSeekBar()
     {
-        seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+        seekBar_register_condition.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-
-                seekbar_num.text = p1.toString()
-
+                txt_register_seekBar_num.text = p1.toString()
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {
@@ -115,7 +88,6 @@ class ProductRegisterActivity : AppCompatActivity()  {
             }
 
         })
-
     }
 
 
@@ -139,7 +111,6 @@ class ProductRegisterActivity : AppCompatActivity()  {
     }
 
     fun settingRegisterStyleSelect(){
-
         cb_register_filter_detail_simple.setOnCheckedChangeListener { it, isChecked ->
             checkBoxConfirm(it)
 
@@ -199,23 +170,16 @@ class ProductRegisterActivity : AppCompatActivity()  {
         cb_register_filter_detail_oldschool.setOnCheckedChangeListener { it, isChecked ->
             it.isChecked = isChecked
             checkBoxConfirm(it)
-
             if(isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
             else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
         }
         cb_register_filter_detail_feminine.setOnCheckedChangeListener { it, isChecked ->
             it.isChecked = isChecked
             checkBoxConfirm(it)
-
             if(isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
             else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
         }
-
-
-
     }
-
-
     fun settingRegisterColorSelect(){
 
         check_count = 0

@@ -2,6 +2,7 @@ package kr.market.fluff.network
 
 
 
+import com.facebook.login.Login
 import kr.market.fluff.data.intro.ResponseLogin
 import kr.market.fluff.data.intro.ResponseValidateAndRegisterAndLogin
 import retrofit2.Call
@@ -40,12 +41,19 @@ interface RequestInterface {
 
 
 //--------------------앱잼 서버 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    @FormUrlEncoded
     @POST("/auth/login")
-    fun requestLogin_appjam(
-        @Field("email")email : String,//userID에 String 타입 userID 값 전달.
-        @Field("pwd")pwd : String
-    ) : Call<ResponseLogin> //validate해서 받는 데이터의 형식.
+    fun requestLogin_appjam(@Body body: LoginRequest) : Call<BaseResponse<LoginResponse>> //validate해서 받는 데이터의 형식.
+
+    data class LoginRequest(
+        val email: String,
+        val pwd: String
+    )
+
+    data class LoginResponse(
+        val token: String,
+        val refresh: String
+    )
+
     /*
     //회원가입시 이메일 중복체크
     @FormUrlEncoded

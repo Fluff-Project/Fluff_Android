@@ -20,7 +20,13 @@
         </activity>
         <activity android:name=".ui.CompletingPurchaseActivity" />
         <activity android:name=".ui.WelcomeActivity" />
-        <activity android:name=".ui.ProductRegisterActivity"></activity>
+        <activity android:name=".ui.ProductRegisterActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".ui.fragment.mypage.applySeller.SellerEditActivity" />
         <activity android:name=".ui.fragment.mypage.applySeller.ApplySellerActivity" />
         <activity android:name=".ui.fragment.home.home_detail.HomeRecommendActivity" />
@@ -30,11 +36,7 @@
         <activity android:name=".ui.fragment.mypage.flub.FlubRegularCustomer" />
         <activity android:name=".ui.fragment.auction.DetailAuctionActivity" />
         <activity android:name=".ui.intro.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data

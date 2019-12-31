@@ -20,9 +20,9 @@ fun<T> Call<T>.enqueue(
 }
 
 fun<ResponseData> Call<BaseResponse<ResponseData>>.safeEnqueue(
-    onError: (Throwable) -> Unit,
-    onSuccess: (ResponseData) -> Unit,
-    onFail: (code: Int, message: String) -> Unit
+    onError: (Throwable) -> Unit = { Log.e("h", "error : $it") },
+    onSuccess: (ResponseData) -> Unit = {},
+    onFail: (code: Int, message: String) -> Unit = {_,_ -> Unit}
 ) {
     this.enqueue(object : Callback<BaseResponse<ResponseData>> {
         override fun onFailure(call: Call<BaseResponse<ResponseData>>, t: Throwable) {
