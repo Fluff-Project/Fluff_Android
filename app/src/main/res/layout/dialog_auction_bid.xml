@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="280dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ko_pub"
+        android:text="입찰하기"
+        android:textColor="@color/colorBlack"
+        android:textFontWeight="600"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_bid_close" />
+
+
+    <EditText
+        android:id="@+id/et_bid_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/ko_pub"
+        android:hint="가격을 입력해주세요"
+        android:background="@drawable/et_purchase"
+        android:padding="12dp"
+        android:gravity="center"
+        android:inputType="numberDecimal"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:textColor="@color/colorBlack"
+        android:textFontWeight="500"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dialog_title" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:fontFamily="@font/ko_pub"
+        android:text="원"
+        android:textColor="#000000"
+        android:textFontWeight="900"
+        app:layout_constraintBottom_toBottomOf="@+id/et_bid_price"
+        app:layout_constraintEnd_toEndOf="@+id/et_bid_price"
+        app:layout_constraintTop_toTopOf="@+id/et_bid_price" />
+
+    <Button
+        android:id="@+id/btn_bid_confirm"
+        android:layout_width="180dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="34dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        style="@style/BlackButton"
+        android:fontFamily="@font/ko_pub"
+        android:textFontWeight="700"
+        android:text="확인"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_bid_price"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/img_bid_close"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_close_black" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

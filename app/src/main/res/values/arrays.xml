@@ -2,7 +2,6 @@
 <resources>
     <string-array name="bank_entries">
         <item>입금할 은행을 선택해주세요.</item>
-        <item>Android I/O</item>
         <item>KEB하나은행</item>
         <item>SC제일은행</item>
         <item>국민은행</item>

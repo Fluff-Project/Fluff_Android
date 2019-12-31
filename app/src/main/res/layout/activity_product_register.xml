@@ -89,21 +89,14 @@
                         android:layout_height="wrap_content">
 
 
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/rv_register_photo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="80dp"
-                            android:orientation="horizontal"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
 
                         <RelativeLayout
                             android:id="@+id/rl_register_photo_update"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="16dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintLeft_toRightOf="@id/rv_register_photo"
                             app:layout_constraintTop_toTopOf="parent">
 
                             <ImageView
@@ -125,6 +118,17 @@
                                 android:textSize="20sp" />
 
                         </RelativeLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_register_photo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="80dp"
+                            android:orientation="horizontal"
+                            app:layout_constraintLeft_toRightOf="@id/rl_register_photo_update"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
 
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -193,32 +197,28 @@
                 </TableLayout>
 
 
-                <LinearLayout
-                    android:id="@+id/ll_register_size"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tl_register_content">
 
                     <TextView
                         android:id="@+id/txt_register_size"
                         style="@style/TextView_register_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="8dp"
                         android:gravity="center_vertical"
-                        android:text="사이즈"
-                        app:layout_goneMarginLeft="20dp"
-                        app:layout_goneMarginRight="8dp" />
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tl_register_content"
+                        android:text="사이즈"/>
 
                     <LinearLayout
                         android:id="@+id/rl_register_filter_size"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="8"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="16dp"
+                        app:layout_constraintLeft_toRightOf="@id/txt_register_size"
+                        app:layout_constraintTop_toBottomOf="@id/tl_register_content"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -226,7 +226,7 @@
                             android:id="@+id/cb_register_filter_size_s"
                             android:layout_width="46dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="6dp"
+                            android:layout_marginHorizontal="4dp"
                             android:background="@drawable/selector_register_style"
                             android:button="@null"
                             android:fontFamily="@font/ko_pub_dotum_medium"
@@ -240,7 +240,7 @@
                             android:id="@+id/cb_register_filter_size_m"
                             android:layout_width="46dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="6dp"
+                            android:layout_marginHorizontal="4dp"
                             android:background="@drawable/selector_register_style"
                             android:button="@null"
                             android:fontFamily="@font/ko_pub_dotum_medium"
@@ -254,7 +254,7 @@
                             android:id="@+id/cb_register_filter_size_l"
                             android:layout_width="46dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="6dp"
+                            android:layout_marginHorizontal="4dp"
                             android:background="@drawable/selector_register_style"
                             android:button="@null"
                             android:fontFamily="@font/ko_pub_dotum_medium"
@@ -268,7 +268,7 @@
                             android:id="@+id/cb_register_filter_size_xl"
                             android:layout_width="46dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="6dp"
+                            android:layout_marginHorizontal="4dp"
                             android:background="@drawable/selector_register_style"
                             android:button="@null"
                             android:fontFamily="@font/ko_pub_dotum_medium"
@@ -282,7 +282,7 @@
                             android:id="@+id/cb_register_filter_size_xxl"
                             android:layout_width="50dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="6dp"
+                            android:layout_marginHorizontal="4dp"
                             android:background="@drawable/selector_register_style"
                             android:button="@null"
                             android:fontFamily="@font/ko_pub_dotum_medium"
@@ -293,14 +293,14 @@
                             android:textSize="13sp" />
                     </LinearLayout>
 
-                </LinearLayout>
+
 
                 <LinearLayout
                     android:id="@+id/ll_register_condition"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/ll_register_size"
+                    app:layout_constraintTop_toBottomOf="@id/txt_register_size"
                     app:layout_constraintLeft_toLeftOf="parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="28dp"
@@ -357,7 +357,7 @@
                     style="@style/TextView_register_title"
                     app:layout_constraintTop_toBottomOf="@id/txt_register_color"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    android:text="(1개 선택)"/>
+                    android:text="(2개 선택)"/>
 
                 <LinearLayout
                     android:id="@+id/ll_register_filter_color"
@@ -371,37 +371,33 @@
                     app:layout_constraintLeft_toRightOf="@id/txt_register_color_2"
                     app:layout_constraintTop_toBottomOf="@id/ll_register_condition">
 
-                    <com.yuxingxin.library.MultiRadioGroup
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
 
-                        <RadioGroup
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/cb_register_filter_color_black"
                                 android:layout_width="38dp"
                                 android:layout_height="38dp"
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_black"
+                                android:background="@drawable/selector_register_color_black"
                                 android:button="@null" />
 
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/cb_register_filter_color_white"
                                 android:layout_width="38dp"
                                 android:layout_height="38dp"
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_white"
+                                android:background="@drawable/selector_register_color_white"
                                 android:button="@null" />
 
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/cb_register_filter_color_grey"
                                 android:layout_width="38dp"
                                 android:layout_height="38dp"
@@ -411,7 +407,7 @@
                                 android:background="@drawable/selector_filter_color_grey"
                                 android:button="@null" />
 
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/cb_register_filter_color_beige"
                                 android:layout_width="38dp"
                                 android:layout_height="38dp"
@@ -421,7 +417,7 @@
                                 android:background="@drawable/selector_filter_color_beige"
                                 android:button="@null" />
 
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/cb_register_filter_color_brown"
                                 android:layout_width="38dp"
                                 android:layout_height="38dp"
@@ -430,110 +426,110 @@
                                 android:layout_weight="1"
                                 android:background="@drawable/selector_filter_color_brown"
                                 android:button="@null" />
-                        </RadioGroup>
+                        </LinearLayout>
 
-                        <RadioGroup
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/cb_register_filter_color_chorale"
                                 android:layout_width="38dp"
                                 android:layout_height="38dp"
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_chorale"
+                                android:background="@drawable/selector_register_color_chorale"
                                 android:button="@null" />
 
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/cb_register_filter_color_orange"
                                 android:layout_width="38dp"
                                 android:layout_height="38dp"
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_orange"
+                                android:background="@drawable/selector_register_color_orange"
                                 android:button="@null" />
 
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/cb_register_filter_color_darkgreen"
                                 android:layout_width="38dp"
                                 android:layout_height="38dp"
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_darkgreen"
+                                android:background="@drawable/selector_register_color_darkgreen"
                                 android:button="@null" />
 
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/cb_register_filter_color_lightblue"
                                 android:layout_width="38dp"
                                 android:layout_height="38dp"
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_lightblue"
+                                android:background="@drawable/selector_register_color_lightblue"
                                 android:button="@null" />
 
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/cb_register_filter_color_darkblue"
                                 android:layout_width="38dp"
                                 android:layout_height="38dp"
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_darkblue"
+                                android:background="@drawable/selector_register_color_darkblue"
                                 android:button="@null" />
-                        </RadioGroup>
+                        </LinearLayout>
 
-                        <RadioGroup
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:orientation="horizontal">
 
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/cb_register_filter_color_check"
                                 android:layout_width="38dp"
                                 android:layout_height="38dp"
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
+                                android:button="@null"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_check"
-                                android:button="@null" />
+                                android:background="@drawable/selector_register_color_check"/>
 
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/cb_register_filter_color_dot"
                                 android:layout_width="38dp"
                                 android:layout_height="38dp"
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_dot"
-                                android:button="@null" />
+                                android:button="@null"
+                                android:background="@drawable/selector_register_color_dot"/>
 
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/cb_register_filter_color_purple"
                                 android:layout_width="38dp"
                                 android:layout_height="38dp"
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_purple"
-                                android:button="@null" />
+                                android:button="@null"
+                                android:background="@drawable/selector_register_color_purple"/>
 
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/cb_register_filter_color_pink"
                                 android:layout_width="38dp"
                                 android:layout_height="38dp"
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_pink"
-                                android:button="@null" />
-                        </RadioGroup>
-                    </com.yuxingxin.library.MultiRadioGroup>
+                                android:button="@null"
+                                android:background="@drawable/selector_register_color_pink"/>
+                        </LinearLayout>
 
                 </LinearLayout>
 

@@ -41,13 +41,7 @@ interface RequestInterface {
 
     //패스워드 암호화 고려해서 MySQL의 행 길이를 더 길게 해줘야 함!!!★★★★★★★★★★★★★
 
-//    @FormUrlEncoded
-//    @POST("auth/signUp")
-//    fun requestRegister(
-//        @Field("userID") userID : String,
-//        @Field("userPassword")userPassword : String,
-//        @Field("userPhone")userPhone : String
-//    ) : Call<ResponseValidateAndRegisterAndLogin>
+
 
     @FormUrlEncoded
     @POST("UserRegister.php")
@@ -63,4 +57,32 @@ interface RequestInterface {
         @Field("userID") userID : String,
         @Field("userPassword")userPassword : String
     ) : Call<ResponseValidateAndRegisterAndLogin>
+
+
+    /*
+    //회원가입시 이메일 중복체크
+    @FormUrlEncoded
+    @POST("auth/validate")
+    fun requestRegister_appjam(
+        @Field("email") userID : String,
+    ) : Call<ResponseValidation>
+
+
+    //회원가입시 데이터 제출
+    @FormUrlEncoded
+    @POST("auth/signUp")
+    fun requestRegister_appjam(
+        @Field("email") userID : String,
+        @Field("pwd") pwd : String,
+        @Field("nickname") nickname : String,
+        @Field("gender") gender : String
+    ) : Call<ResponseRegister>
+
+
+    //
+
+
+
+     *
+     */
 }

@@ -66,6 +66,10 @@ class DetailAuctionActivity : AppCompatActivity() {
         img_detail_auction_back.setOnClickListener {
             onBackPressed()
         }
+        btn_detail_auction_deal.setOnClickListener {
+            val bidDialog = BidDialog(this,view!!.context)
+            bidDialog.show()
+        }
     }
     private fun loadItem(){
         tv_auction_detail_item_name .text = mItem!!.txt_item_name
