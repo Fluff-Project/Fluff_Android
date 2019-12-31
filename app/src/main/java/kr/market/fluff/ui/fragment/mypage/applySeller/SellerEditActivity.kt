@@ -13,15 +13,25 @@ import kr.market.fluff.R
 class SellerEditActivity : AppCompatActivity() {
     val REQUEST_CODE_SELECT_IMAGE: Int = 1004
     lateinit var selectedPicUri: Uri
+    lateinit var editDialog: EditDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seller_edit)
+        init()
 
+
+    }
+    private fun init(){
+        editDialog = EditDialog(this).apply {
+            positiveListener = {
+                finish()
+            }
+        }
         settingLoadImg()
         settingBtnBack()
         settingBtnComplete()
-
     }
+
     private fun settingBtnComplete(){
         txt_seller_edit_complete.setOnClickListener {
             val intent = Intent(this,ApplySellerActivity::class.java)
@@ -31,11 +41,17 @@ class SellerEditActivity : AppCompatActivity() {
 
     private fun settingBtnBack(){
         img_seller_edit_back.setOnClickListener {
-            val editDialog = EditDialog(this)
             editDialog.show()
         }
     }
 
+    override fun onBackPressed() {
+        if(editDialog.isShowing){
+            editDialog.dismiss()
+        }else{
+            editDialog.show()
+        }
+    }
     private fun settingLoadImg(){
         img_seller_edit_profile.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)

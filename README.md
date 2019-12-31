@@ -84,7 +84,7 @@ val toast = Toast.makeText(this,"멘트",Toast.LENTH_SHORT)
 toast.show()
 
 를 kotlin extension 을 이용하여 생성한 함수 sendToast()를 이용하여
-toast.sendToast(this,"멘트") 를 작성해주기만 하면 된다.
+sendToast("멘트") 를 작성해주기만 하면 된다.
 
 ![s](https://user-images.githubusercontent.com/54485132/71463993-816e8580-27fb-11ea-8b67-1a6dd3516188.png)
 ## 2. lambda 식 이용하기.

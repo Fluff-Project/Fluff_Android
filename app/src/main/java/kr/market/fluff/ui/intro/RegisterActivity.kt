@@ -94,7 +94,7 @@ class RegisterActivity : AppCompatActivity() {
         btn_register_next.setOnClickListener{
             val email_string = et_register_email.text.toString()
             if(page==1 && email_string.equals("")){
-                toast.sendToast(this,"빈칸 없이 작성해주세요")
+                sendToast("빈칸 없이 작성해주세요")
                 img_id_check.setImageResource(R.drawable.ic_check)
                 return@setOnClickListener
             }else{
@@ -119,7 +119,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun requestValidation(){
         val text = et_register_email.text.toString()
         if (text.equals("")){
-            toast.sendToast(this,"아이디는 빈칸일 수 없습니다")
+            sendToast("아이디는 빈칸일 수 없습니다")
             img_id_check.setImageResource(R.drawable.ic_check)
             validate = false
         }else{
@@ -128,11 +128,11 @@ class RegisterActivity : AppCompatActivity() {
                     if(response.isSuccessful){//네트워크 통신 성공했을 때.
                         validate  = response.body()!!.success
                         if(validate){
-                            toast.sendToast(this,"사용 가능한 아이디입니다.")
+                            sendToast("사용 가능한 아이디입니다.")
                             img_id_check.setImageResource(R.drawable.ic_check_ok)
                             next_to_pwd()
                         }else{
-                            toast.sendToast(this,"중복된 아이디입니다.")
+                            sendToast("중복된 아이디입니다.")
                             img_id_check.setImageResource(R.drawable.ic_check_no)
                         }
                     }

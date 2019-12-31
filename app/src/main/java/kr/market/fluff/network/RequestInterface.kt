@@ -2,6 +2,7 @@ package kr.market.fluff.network
 
 
 
+import com.facebook.login.Login
 import kr.market.fluff.data.intro.ResponseLogin
 import kr.market.fluff.data.intro.ResponseValidateAndRegisterAndLogin
 import retrofit2.Call
@@ -16,28 +17,8 @@ interface RequestInterface {
     ) : Call<ResponseValidateAndRegisterAndLogin> //validate해서 받는 데이터의 형식.
 
 
-    //로컬 로그인
-    // {
-    //    "email": "이메일",
-    //    "pwd": "비밀번호"
-    //}
-    //{
-    //    "code": 200,
-    //    "json": {
-    //        "success": true,
-    //        "message": "로그인이 성공하였습니다.",
-    //        "data": {
-    //            "token": "토큰",
-    //            "refresh": "리프레시 토큰"
-    //        }
-    //    }
-    //}
-    @FormUrlEncoded
-    @POST("/auth/login")
-    fun requestLogin_appjam(
-        @Field("email")email : String,//userID에 String 타입 userID 값 전달.
-        @Field("pwd")pwd : String
-    ) : Call<ResponseLogin> //validate해서 받는 데이터의 형식.
+
+
 
     //패스워드 암호화 고려해서 MySQL의 행 길이를 더 길게 해줘야 함!!!★★★★★★★★★★★★★
 
@@ -58,6 +39,20 @@ interface RequestInterface {
         @Field("userPassword")userPassword : String
     ) : Call<ResponseValidateAndRegisterAndLogin>
 
+
+//--------------------앱잼 서버 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    @POST("/auth/login")
+    fun requestLogin_appjam(@Body body: LoginRequest) : Call<BaseResponse<LoginResponse>> //validate해서 받는 데이터의 형식.
+
+    data class LoginRequest(
+        val email: String,
+        val pwd: String
+    )
+
+    data class LoginResponse(
+        val token: String,
+        val refresh: String
+    )
 
     /*
     //회원가입시 이메일 중복체크

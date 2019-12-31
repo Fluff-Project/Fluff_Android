@@ -5,10 +5,12 @@ import android.content.Context
 import android.os.Bundle
 import kotlinx.android.synthetic.main.dialog_seller_edit.*
 import kr.market.fluff.R
-import kr.market.fluff.ui.MainActivity
-import kr.market.fluff.ui.fragment.mypage.MyPageFragment
 
-class EditDialog(context: Context) :  Dialog(context) {
+
+class EditDialog(
+    context: Context,
+    var positiveListener: () -> Unit = {}
+) :  Dialog(context) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +22,8 @@ class EditDialog(context: Context) :  Dialog(context) {
             dismiss()
         }
         tv_dialog_edit_yes.setOnClickListener {
-
+            dismiss()
+            positiveListener()
         }
     }
 

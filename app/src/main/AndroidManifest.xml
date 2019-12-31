@@ -15,7 +15,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".ui.fragment.magazine.DetailMagazineActivity"></activity>
-        <activity android:name=".ui.review.ReviewActivity"></activity>
+        <activity android:name=".ui.review.ReviewActivity">
+
+        </activity>
         <activity android:name=".ui.CompletingPurchaseActivity" />
         <activity android:name=".ui.WelcomeActivity" />
         <activity android:name=".ui.ProductRegisterActivity"></activity>
@@ -61,7 +63,6 @@
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
