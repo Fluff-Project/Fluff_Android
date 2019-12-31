@@ -46,8 +46,8 @@ class MyPageFragment(private val activity : Activity) : Fragment() {
             adapter = recentSawAdapter
             addItemDecoration(HorizontalItemDecorator(24))
         }
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(rv_mypage_recent_goods)
+//        val snapHelper = LinearSnapHelper()
+//        snapHelper.attachToRecyclerView(rv_mypage_recent_goods)
 
 
     }

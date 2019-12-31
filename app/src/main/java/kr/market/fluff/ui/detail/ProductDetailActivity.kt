@@ -88,8 +88,8 @@ class ProductDetailActivity : AppCompatActivity() {
             adapter = detailAdapter
             addItemDecoration(HorizontalItemDecorator(24))
         }
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(rv_detail_other)
+//        val snapHelper = LinearSnapHelper()
+//        snapHelper.attachToRecyclerView(rv_detail_other)
     }
 
     fun makeDetailViewPager()

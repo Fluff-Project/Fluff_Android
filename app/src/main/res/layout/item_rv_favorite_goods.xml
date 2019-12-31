@@ -34,13 +34,14 @@
         android:id="@+id/tv_favorite_item_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textColor="#000000"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/ko_pub"
         android:letterSpacing="-0.03"
         android:lineSpacingExtra="8sp"
         android:text="수연이의 후리스"
-        android:fontFamily="@font/ko_pub"
+        android:textColor="#000000"
         android:textFontWeight="400"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_favorite_seller_name" />
 

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <kr.market.fluff.ui.fragment.auction.SquareFrameLayout
+            android:id="@+id/sfl_detail_magazine"
+            android:layout_width="match_parent"
+            android:layout_height="408dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_detail_magazine_thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="408dp"
+                android:scaleType="centerCrop"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#26000000" />
+        </kr.market.fluff.ui.fragment.auction.SquareFrameLayout>
+
+        <ImageView
+            android:id="@+id/img_detail_magazine_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="36dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/home_logo_ic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_detail_magazine_title"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sc_dream"
+            android:lineSpacingExtra="13sp"
+            android:text="군복에서 시작 된\n빈티지 아이템"
+            android:textColor="@color/colorWhite"
+            android:textFontWeight="400"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_detail_magazine_date"
+            app:layout_constraintStart_toStartOf="@+id/tv_detail_magazine_article"
+            app:layout_constraintTop_toBottomOf="@+id/tv_detail_magazine_article"
+            app:layout_constraintVertical_bias="0.568" />
+
+        <TextView
+            android:id="@+id/tv_detail_magazine_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="26dp"
+            android:fontFamily="@font/sc_dream"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="6sp"
+            android:textColor="@color/colorWhite"
+            android:textFontWeight="400"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/sfl_detail_magazine"
+            app:layout_constraintStart_toStartOf="@+id/tv_detail_magazine_title"
+            android:text="2019.12.12" />
+
+        <TextView
+            android:id="@+id/tv_detail_magazine_article"
+            android:layout_width="83dp"
+            android:layout_height="23dp"
+            android:layout_marginTop="120dp"
+            android:background="#000000"
+            android:fontFamily="@font/sc_dream"
+            android:lineSpacingExtra="8sp"
+            android:paddingLeft="4dp"
+            android:text="Article."
+            android:textColor="@color/colorWhite"
+            android:textFontWeight="600"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline18"
+            app:layout_constraintTop_toBottomOf="@+id/img_detail_magazine_logo" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <TextView
+            android:id="@+id/tv_detail_magazine_contents_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="9sp"
+            android:fontFamily="@font/ko_pub"
+            android:textFontWeight="700"
+            android:gravity="center"
+            android:text="어김없이 뼈가 시린 겨울이 찾아왔다."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sfl_detail_magazine" />
+
+        <TextView
+            android:id="@+id/tv_detail_magazine_contents_title2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="16dp"
+            android:fontFamily="@font/ko_pub"
+            android:gravity="center"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="9sp"
+            android:text="1. 저먼 아미 트레이너 \n GERMAN ARMY TRAINER"
+            android:textColor="#000000"
+            android:textFontWeight="700"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.625"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+        <TextView
+            android:id="@+id/tv_detail_magazine_contents_title3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="16dp"
+            android:paddingBottom="80dp"
+            android:fontFamily="@font/ko_pub"
+            android:gravity="center"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="9sp"
+            android:text="흔히 ‘독일군 스니커’라고 불리는 신발\n
+실제로 1970년대 독일 연방군\n
+병사들에게 활동화로 지급됐다.\n
+메종 마르지엘라의 레플리카\n
+스니커즈로도 더 잘 알려져 있다."
+            android:textColor="#000000"
+            android:textFontWeight="500"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_detail_magazine_contents_title2" />
+
+        <TextView
+            android:id="@+id/tv_detail_magazine_contents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="16dp"
+            android:fontFamily="@font/ko_pub"
+            android:gravity="center"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="9sp"
+            android:text="필자는 아직도 군인 시절의\n뼈가 시린 혹한기 훈련은 잊을 수 없다.\n옛날 군인 아저씨들은 어떻게\n이리도 추운 겨울을 견딜 수 있었을까.\n\n
+입을 때는 몰랐지만\n알고 보면 과거 군대에서 시작된\n패션 빈티지 아이템 8가지를 소개한다."
+            android:textColor="#000000"
+            android:textFontWeight="500"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_detail_magazine_contents_title" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="71dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="71dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_detail_magazine_contents"
+            android:src="@drawable/german_shoes" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</ScrollView>

@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_apply_seller.*
 import kotlinx.android.synthetic.main.fragment_my_product_list.*
 import kr.market.fluff.R
 import kr.market.fluff.data.MyProductListData
+import kr.market.fluff.ui.ProductRegisterActivity
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
@@ -21,8 +22,14 @@ class ApplySellerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_apply_seller)
-
+        init()
+    }
+    private fun init(){
         settingTab()
+        img_seller_add_item.setOnClickListener {
+            val intent = Intent(this,ProductRegisterActivity::class.java)
+            startActivity(intent)
+        }
     }
     private fun settingTab(){
         applySellerPagerAdapter = ApplySellerPagerAdapter(supportFragmentManager,2)
@@ -58,7 +65,4 @@ class ApplySellerActivity : AppCompatActivity() {
         tl_apply_seller_tablayout.getTabAt(0)?.text = "내 가게"
         tl_apply_seller_tablayout.getTabAt(1)?.text = "가게 설명"
     }
-
-
-
 }

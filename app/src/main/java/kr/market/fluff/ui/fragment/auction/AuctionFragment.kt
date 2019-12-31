@@ -41,8 +41,8 @@ class AuctionFragment : Fragment() {
         rv_auction.adapter = auctionAdapter
         rv_auction.addItemDecoration(VerticalItemDecorator(24))
 
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(rv_auction)
+//        val snapHelper = LinearSnapHelper()
+//        snapHelper.attachToRecyclerView(rv_auction)
 
         auctionAdapter.notifyDataSetChanged()
     }

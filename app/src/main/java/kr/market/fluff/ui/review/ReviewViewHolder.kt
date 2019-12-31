@@ -84,7 +84,7 @@ class ReviewViewHolder(view : View) : RecyclerView.ViewHolder(view){
             layoutManager = LinearLayoutManager(itemView.context,LinearLayoutManager.HORIZONTAL,false)
             addItemDecoration(HorizontalItemDecorator(24))
         }
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(rv_review_item_photos)
+//        val snapHelper = LinearSnapHelper()
+//        snapHelper.attachToRecyclerView(rv_review_item_photos)
     }
 }

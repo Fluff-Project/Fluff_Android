@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
@@ -149,8 +148,8 @@ class HomeFragment : Fragment() {
             adapter = newAdapter
             addItemDecoration(HorizontalItemDecorator(24))
         }
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(rv_home_new)
+//        val snapHelper = LinearSnapHelper()
+//        snapHelper.attachToRecyclerView(rv_home_new)
         newAdapter.notifyDataSetChanged()
     }
 
@@ -174,8 +173,8 @@ class HomeFragment : Fragment() {
             adapter = recentAdapter
             addItemDecoration(HorizontalItemDecorator(24))
         }
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(rv_home_recent)
+//        val snapHelper = LinearSnapHelper()
+//        snapHelper.attachToRecyclerView(rv_home_recent)
     }
 
     fun makeRecommendRecycler(view : View)
@@ -195,8 +194,8 @@ class HomeFragment : Fragment() {
             adapter = recommendAdapter
             addItemDecoration(HorizontalItemDecorator(24))
         }
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(rv_home_recommend)
+//        val snapHelper = LinearSnapHelper()
+//        snapHelper.attachToRecyclerView(rv_home_recommend)
     }
 
     fun makePlubRecycler(view : View)
@@ -216,8 +215,8 @@ class HomeFragment : Fragment() {
             adapter = plubAdapter
             addItemDecoration(HorizontalItemDecorator(24))
         }
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(rv_home_plub)
+//        val snapHelper = LinearSnapHelper()
+//        snapHelper.attachToRecyclerView(rv_home_plub)
     }
 
     fun makeKeywordRecycler(view : View)
@@ -235,8 +234,8 @@ class HomeFragment : Fragment() {
             adapter = keywordAdapter
             addItemDecoration(VerticalItemDecorator(24))
         }
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(rv_home_keyword)
+//        val snapHelper = LinearSnapHelper()
+//        snapHelper.attachToRecyclerView(rv_home_keyword)
     }
 
     fun makeOctionRecycler(view: View)
@@ -256,8 +255,8 @@ class HomeFragment : Fragment() {
             adapter = auctionAdapter
             addItemDecoration(HorizontalItemDecorator(24))
         }
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(rv_home_auction)
+//        val snapHelper = LinearSnapHelper()
+//        snapHelper.attachToRecyclerView(rv_home_auction)
     }
 
 }

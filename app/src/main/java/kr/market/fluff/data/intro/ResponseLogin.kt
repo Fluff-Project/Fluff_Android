@@ -1,6 +1,7 @@
 package kr.market.fluff.data.intro
 
 data class ResponseLogin(
+    val code : Int,
     val json : ResponseLoginData
 )
 data class ResponseLoginData(
