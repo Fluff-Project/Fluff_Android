@@ -7,8 +7,9 @@
 
     <ImageView
         android:id="@+id/img_rc_dress"
-        android:layout_width="174dp"
-        android:layout_height="208dp"
+        android:layout_width="176dp"
+        android:layout_height="220dp"
+        android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

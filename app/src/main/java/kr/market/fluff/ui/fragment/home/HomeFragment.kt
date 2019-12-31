@@ -24,6 +24,7 @@ import kr.market.fluff.ui.fragment.home.recycler_common.HomeRecommendAdapter
 import kr.market.fluff.ui.fragment.home.recycler_keyword.HomeKeywordAdapter
 import kr.market.fluff.ui.fragment.home.recycler_plub.HomePlubAdapter
 import kr.market.fluff.ui.fragment.home.viewpager.ViewPagerAdapter
+import kr.market.fluff.ui.recommendStyle.RecommendStyleActivity
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
@@ -97,6 +98,8 @@ class HomeFragment : Fragment() {
         }
 
         img_home_plubicon.setOnClickListener {
+            val intent = Intent(context, RecommendStyleActivity::class.java)
+            startActivity(intent)
 
         }
 
