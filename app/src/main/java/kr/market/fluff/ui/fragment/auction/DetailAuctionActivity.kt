@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.core.transition.addListener
 import androidx.core.view.ViewCompat
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_detail_auction.*
 import kr.market.fluff.R
 import kr.market.fluff.data.AuctionListData
 
@@ -39,7 +40,9 @@ class DetailAuctionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_auction)
-
+        init()
+    }
+    private fun init(){
         mItem = intent.getParcelableExtra("item")
         img_auction_detail_thumbnail  = findViewById(R.id.img_auction_detail_thumbnail)
         tv_auction_detail_item_name  = findViewById(R.id.tv_auction_detail_item_name)
@@ -56,7 +59,13 @@ class DetailAuctionActivity : AppCompatActivity() {
         ViewCompat.setTransitionName(tv_auction_detail_price_text , VIEW_NAME_PRICE_TEXT)
         ViewCompat.setTransitionName(tv_auction_detail_extra_time , VIEW_NAME_EXTRA_TIME)
         ViewCompat.setTransitionName(tv_auction_detail_extra_text , VIEW_NAME_EXTRA_TEXT)
+        setClickLIstener()
         loadItem()
+    }
+    private fun setClickLIstener(){
+        img_detail_auction_back.setOnClickListener {
+            onBackPressed()
+        }
     }
     private fun loadItem(){
         tv_auction_detail_item_name .text = mItem!!.txt_item_name

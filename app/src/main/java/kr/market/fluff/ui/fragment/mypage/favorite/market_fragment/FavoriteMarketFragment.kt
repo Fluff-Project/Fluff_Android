@@ -49,8 +49,8 @@ class FavoriteMarketFragment : Fragment() {
             adapter = fav_adapter
         }
 
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(rv_favorite)
+//        val snapHelper = LinearSnapHelper()
+//        snapHelper.attachToRecyclerView(rv_favorite)
 
     }
     private fun addDatas(){

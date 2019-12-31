@@ -32,8 +32,8 @@ class ConfirmTransferActivity : AppCompatActivity() {
         }
         transferAdapter.data = datas
 
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(rv_confirmtransfer)
+//        val snapHelper = LinearSnapHelper()
+//        snapHelper.attachToRecyclerView(rv_confirmtransfer)
     }
     private fun setData(){
         datas.add(

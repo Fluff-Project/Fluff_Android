@@ -29,8 +29,8 @@ class ReviewActivity : AppCompatActivity() {
         rv_review.adapter = reviewAdapter
         rv_review.addItemDecoration(VerticalItemDecorator(24))
 
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(rv_review)
+//        val snapHelper = LinearSnapHelper()
+//        snapHelper.attachToRecyclerView(rv_review)
     }
     private fun addDatas(){
         review_datas.add(

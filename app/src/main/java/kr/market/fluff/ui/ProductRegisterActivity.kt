@@ -93,8 +93,8 @@ class ProductRegisterActivity : AppCompatActivity()  {
             adapter = photoAdapter
             addItemDecoration(HorizontalItemDecorator(24))
         }
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(rv_register_photo)
+//        val snapHelper = LinearSnapHelper()
+//        snapHelper.attachToRecyclerView(rv_register_photo)
 
     }
 
