@@ -76,8 +76,9 @@
 
                 <ImageView
                     android:id="@+id/img_home_newicon"
-                    android:layout_width="24dp"
-                    android:layout_height="16dp"
+                    android:layout_width="32dp"
+                    android:layout_height="24dp"
+                    android:padding="4dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="14dp"
@@ -201,8 +202,9 @@
 
                 <ImageView
                     android:id="@+id/img_home_plubicon"
-                    android:layout_width="24dp"
-                    android:layout_height="16dp"
+                    android:layout_width="32dp"
+                    android:layout_height="24dp"
+                    android:padding="4dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="14dp"
@@ -256,8 +258,9 @@
 
                 <ImageView
                     android:id="@+id/img_home_auctionicon"
-                    android:layout_width="24dp"
-                    android:layout_height="16dp"
+                    android:layout_width="32dp"
+                    android:layout_height="24dp"
+                    android:padding="4dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="14dp"
@@ -311,8 +314,9 @@
 
                 <ImageView
                     android:id="@+id/img_home_recommendicon"
-                    android:layout_width="8dp"
-                    android:layout_height="16dp"
+                    android:layout_width="32dp"
+                    android:layout_height="24dp"
+                    android:padding="4dp"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="14dp"
                     android:layout_alignParentRight="true"

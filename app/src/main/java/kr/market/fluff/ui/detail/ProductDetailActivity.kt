@@ -3,16 +3,19 @@ package kr.market.fluff.ui.detail
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+import kotlinx.android.synthetic.main.activity_detail_auction.*
 import kotlinx.android.synthetic.main.activity_product_detail.*
 import kr.market.fluff.R
 import kr.market.fluff.data.detail.DetailProductData
 import kr.market.fluff.ui.PurchaseActivity
 import kr.market.fluff.ui.detail.product_detail_recycler.DetailRecyclerAdapter
+import kr.market.fluff.ui.util.drawCustomToast
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 
 class ProductDetailActivity : AppCompatActivity() {
@@ -26,12 +29,16 @@ class ProductDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_product_detail)
 
         img_detail_heart.setOnClickListener {
+            var toast = Toast(this )
 
             if(heart_bool) {
 
                 Glide.with(this)
                      .load(R.drawable.ic_check_heart)
                      .into(img_detail_heart)
+
+                toast.drawCustomToast(this)
+
                 heart_bool=false
             }
             else {
