@@ -27,6 +27,7 @@ class MyPageFragment(private val activity : Activity) : Fragment() {
     lateinit var recentSawAdapter: RecentSawAdapter
     lateinit var rv_mypage_recent_goods : RecyclerView
     lateinit var recent_goods_datas : ArrayList<MyPageRecentSawGoods>
+    var REQ_CODE = 1
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -68,10 +69,20 @@ class MyPageFragment(private val activity : Activity) : Fragment() {
         }
         rl_myInfo_update.setOnClickListener {
             val intent = Intent(this.context, MyInfoUpdateActivity::class.java)
-            startActivity(intent)
+            intent.putExtra("myInfo_email",tv_mypage_user_email.text.toString())
+            startActivityForResult(intent,REQ_CODE)
         }
 
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+
+        tv_mypage_user_name.text = data?.getStringExtra("result_nickname")
+
+    }
+
     private fun setCreateStore(){
         btn_mypage_create_store.setOnClickListener {
             var intent = Intent(context,SellerEditActivity::class.java)
