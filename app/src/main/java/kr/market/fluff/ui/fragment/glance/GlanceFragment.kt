@@ -33,6 +33,7 @@ class GlanceFragment : Fragment() {
         settingCategorySelect()
         settingSizeSelect()
         initRecyclerview()
+        settingCategoryDetailSelect()
 
         settingFilter()
 
@@ -72,23 +73,23 @@ class GlanceFragment : Fragment() {
         cb_glance_filter_size_xxl.isChecked = false
         cb_glance_filter_want.isChecked = false
         cb_glance_filter_jacket.isChecked = false
-        cb_glance_filter_detail_cardigun.isChecked = false
+        cb_glance_filter_detail_cardigan.isChecked = false
         cb_glance_filter_detail_jumper.isChecked = false
-        cb_glance_filter_detail_jumper2.isChecked = false
+        cb_glance_filter_detail_military_jumper.isChecked = false
         cb_glance_filter_detail_vest.isChecked = false
         cb_glance_filter_detail_coat.isChecked = false
         cb_glance_filter_detail_padding.isChecked = false
         cb_glance_filter_detail_tshirt.isChecked = false
         cb_glance_filter_detail_knit.isChecked = false
         cb_glance_filter_detail_shirt.isChecked = false
-        cb_glance_filter_detail_man.isChecked = false
+        cb_glance_filter_detail_sweater.isChecked = false
         cb_glance_filter_detail_hood.isChecked = false
         cb_glance_filter_detail_blouse.isChecked = false
         cb_glance_filter_detail_half_pants.isChecked = false
         cb_glance_filter_detail_straight_pants.isChecked = false
         cb_glance_filter_detail_wide_pants.isChecked = false
         cb_glance_filter_detail_skinny.isChecked = false
-        cb_glance_filter_detail_Suspenders.isChecked = false
+        cb_glance_filter_detail_suspenders.isChecked = false
         cb_glance_filter_detail_mini_skirt.isChecked = false
         cb_glance_filter_detail_long_skirt.isChecked = false
         cb_glance_filter_detail_mini_dress.isChecked = false
@@ -204,23 +205,23 @@ class GlanceFragment : Fragment() {
     }
     fun unCheckDetail(){
         cb_glance_filter_jacket.isChecked = false
-        cb_glance_filter_detail_cardigun.isChecked = false
+        cb_glance_filter_detail_cardigan.isChecked = false
         cb_glance_filter_detail_jumper.isChecked = false
-        cb_glance_filter_detail_jumper2.isChecked = false
+        cb_glance_filter_detail_military_jumper.isChecked = false
         cb_glance_filter_detail_vest.isChecked = false
         cb_glance_filter_detail_coat.isChecked = false
         cb_glance_filter_detail_padding.isChecked = false
         cb_glance_filter_detail_tshirt.isChecked = false
         cb_glance_filter_detail_knit.isChecked = false
         cb_glance_filter_detail_shirt.isChecked = false
-        cb_glance_filter_detail_man.isChecked = false
+        cb_glance_filter_detail_sweater.isChecked = false
         cb_glance_filter_detail_hood.isChecked = false
         cb_glance_filter_detail_blouse.isChecked = false
         cb_glance_filter_detail_half_pants.isChecked = false
         cb_glance_filter_detail_straight_pants.isChecked = false
         cb_glance_filter_detail_wide_pants.isChecked = false
         cb_glance_filter_detail_skinny.isChecked = false
-        cb_glance_filter_detail_Suspenders.isChecked = false
+        cb_glance_filter_detail_suspenders.isChecked = false
         cb_glance_filter_detail_mini_skirt.isChecked = false
         cb_glance_filter_detail_long_skirt.isChecked = false
         cb_glance_filter_detail_mini_dress.isChecked = false
@@ -358,5 +359,240 @@ class GlanceFragment : Fragment() {
         }
     }
 
-
+    private fun settingCategoryDetailSelect(){
+        cb_glance_filter_jacket.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_cardigan.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_jumper.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_military_jumper.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_vest.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_coat.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_padding.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_tshirt.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_knit.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_sweater.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_hood.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_blouse.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_half_pants.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_straight_pants.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_wide_pants.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_skinny.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_suspenders.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_mini_skirt.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_long_skirt.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_mini_dress.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_long_dress.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_two_pieces.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_bag.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_globes.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_scarf.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+        cb_glance_filter_detail_shawl.setOnCheckedChangeListener { it, isChecked ->
+            it.isSelected = isChecked
+            if(isChecked) {
+                it.setTextColor(resources.getColor(R.color.colorMagenta))
+            }
+            else {
+                it.setTextColor(resources.getColor(R.color.colorWhite))
+            }
+        }
+    }
 }
