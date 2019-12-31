@@ -61,12 +61,12 @@ class LoginActivity : AppCompatActivity() {
                 toast.sendToast(this,"빈칸 없이 입력해주세요")
                 return@setOnClickListener
             }else{
-                val requestLoginToServer = requestToServer.service.requestLogin(id_string,pw_string)
+                val requestLoginToServer = requestToServer.service.requestLogin_appjam(id_string,pw_string)
                 requestLoginToServer.enqueue(
                     onResponse = {
                             response ->
                         if(response.isSuccessful){
-                            if(response.body()!!.success){
+                            if(response.body()!!.json.success){
                                 toast.sendToast(this,"로그인 되었습니다")
                                 App.prefs.isLogin = true
                                 val intent = Intent(this@LoginActivity,
