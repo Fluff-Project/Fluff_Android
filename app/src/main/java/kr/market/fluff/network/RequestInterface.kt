@@ -32,12 +32,12 @@ interface RequestInterface {
     //        }
     //    }
     //}
-//    @FormUrlEncoded
-//    @POST("/auth/localLogin")
-//    fun getValidation(
-//        @Field("email")email : String,//userID에 String 타입 userID 값 전달.
-//        @Field("pwd")pwd : String
-//    ) : Call<ResponseLogin> //validate해서 받는 데이터의 형식.
+    @FormUrlEncoded
+    @POST("/auth/login")
+    fun requestLogin_appjam(
+        @Field("email")email : String,//userID에 String 타입 userID 값 전달.
+        @Field("pwd")pwd : String
+    ) : Call<ResponseLogin> //validate해서 받는 데이터의 형식.
 
     //패스워드 암호화 고려해서 MySQL의 행 길이를 더 길게 해줘야 함!!!★★★★★★★★★★★★★
 
