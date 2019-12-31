@@ -1,5 +1,6 @@
 package kr.market.fluff.ui.fragment.glance
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import kotlinx.android.synthetic.main.fragment_glance.*
 import kotlinx.android.synthetic.main.glance_filter.*
 import kr.market.fluff.R
 import kr.market.fluff.data.GlanceListData
+import kr.market.fluff.ui.fragment.mypage.cart.CartActivity
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
@@ -29,14 +31,11 @@ class GlanceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        settingColorSelect()
-        settingCategorySelect()
-        settingSizeSelect()
-        initRecyclerview()
-        settingCategoryDetailSelect()
-
-        settingFilter()
-
+        initSettings()
+        img_glance_my_cart.setOnClickListener {
+            val intent = Intent(view.context,CartActivity::class.java)
+            startActivity(intent)
+        }
         cb_glance_filter_want.setOnCheckedChangeListener { it, isChecked ->
             it.isChecked = isChecked
         }
@@ -44,6 +43,17 @@ class GlanceFragment : Fragment() {
             clearAllChecked()
         }
 
+    }
+    private fun initSettings(){
+
+
+        settingColorSelect()
+        settingCategorySelect()
+        settingSizeSelect()
+        initRecyclerview()
+        settingCategoryDetailSelect()
+
+        settingFilter()
     }
     private fun clearAllChecked(){
         cb_glance_filter_color_black.isChecked = false
