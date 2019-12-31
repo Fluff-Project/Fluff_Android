@@ -287,6 +287,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10dp"
                         android:button="@null"
+                        android:drawablePadding="9dp"
                         android:drawableTop="@drawable/selector_filter_category_outer"
                         android:fontFamily="@font/ko_pub_dotum_medium"
                         android:text="아우터"
@@ -301,6 +302,7 @@
                         android:button="@null"
                         android:drawableTop="@drawable/selector_filter_category_top"
                         android:fontFamily="@font/ko_pub_dotum_medium"
+                        android:drawablePadding="9dp"
                         android:text="상의"
                         android:textAlignment="center"
                         android:textColor="@color/colorWhite" />
@@ -313,6 +315,7 @@
                         android:button="@null"
                         android:drawableTop="@drawable/selector_filter_category_bottom"
                         android:fontFamily="@font/ko_pub_dotum_medium"
+                        android:drawablePadding="9dp"
                         android:text="바지"
                         android:textAlignment="center"
                         android:textColor="@color/colorWhite" />
@@ -322,6 +325,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10dp"
+                        android:drawablePadding="9dp"
                         android:button="@null"
                         android:drawableTop="@drawable/selector_filter_category_skirt"
                         android:fontFamily="@font/ko_pub_dotum_medium"
@@ -334,6 +338,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10dp"
+                        android:drawablePadding="9dp"
                         android:button="@null"
                         android:drawableTop="@drawable/selector_filter_category_dress"
                         android:fontFamily="@font/ko_pub_dotum_medium"
@@ -346,6 +351,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10dp"
+                        android:drawablePadding="9dp"
                         android:button="@null"
                         android:drawableTop="@drawable/selector_filter_category_items"
                         android:fontFamily="@font/ko_pub_dotum_medium"
@@ -402,7 +408,7 @@
                             android:textColor="@color/colorWhite" />
 
                         <CheckBox
-                            android:id="@+id/cb_glance_filter_detail_cardigun"
+                            android:id="@+id/cb_glance_filter_detail_cardigan"
                             android:layout_width="77dp"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="4dp"
@@ -428,7 +434,7 @@
                             android:textColor="@color/colorWhite" />
 
                         <CheckBox
-                            android:id="@+id/cb_glance_filter_detail_jumper2"
+                            android:id="@+id/cb_glance_filter_detail_military_jumper"
                             android:layout_width="77dp"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="4dp"
@@ -553,7 +559,7 @@
                             android:textColor="@color/colorWhite" />
 
                         <CheckBox
-                            android:id="@+id/cb_glance_filter_detail_man"
+                            android:id="@+id/cb_glance_filter_detail_sweater"
                             android:layout_width="77dp"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="4dp"
@@ -687,7 +693,7 @@
                         android:orientation="horizontal">
 
                         <CheckBox
-                            android:id="@+id/cb_glance_filter_detail_Suspenders"
+                            android:id="@+id/cb_glance_filter_detail_suspenders"
                             android:layout_width="77dp"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="4dp"
@@ -735,6 +741,19 @@
                             android:gravity="center"
                             android:paddingVertical="4dp"
                             android:text="미니스커트"
+                            android:textColor="@color/colorWhite" />
+
+                        <CheckBox
+                            android:id="@+id/cb_glance_filter_detail_middle_skirt"
+                            android:layout_width="77dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="4dp"
+                            android:background="@drawable/selector_btn_filter_size"
+                            android:button="@null"
+                            android:fontFamily="@font/ko_pub_dotum_medium"
+                            android:gravity="center"
+                            android:paddingVertical="4dp"
+                            android:text="미디 스커트"
                             android:textColor="@color/colorWhite" />
 
                         <CheckBox
