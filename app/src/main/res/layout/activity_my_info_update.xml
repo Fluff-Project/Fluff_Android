@@ -98,13 +98,17 @@
                         android:text="아이디" />
 
                     <EditText
+                        android:id="@+id/edit_myInfo_id"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="8"
+                        android:textColor="#000000"
+                        android:autoSizeTextType="uniform"
+                        android:ellipsize="end"
+                        android:maxLength="20"
                         android:background="@drawable/et_purchase"
                         android:fontFamily="@font/ko_pub"
                         android:textFontWeight="500"
-                        android:hint="ex)xxxxx@gmail.com"
                         android:padding="8dp" />
                 </TableRow>
 
@@ -124,19 +128,20 @@
                         android:text="닉네임" />
 
                     <EditText
+                        android:id="@+id/edit_myInfo_nickname"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="8"
                         android:background="@drawable/et_purchase"
-                        android:hint="ex) 뽀짝이"
                         android:fontFamily="@font/ko_pub"
-                        android:textFontWeight="500"
-                        android:padding="8dp" />
+                        android:hint="ex) 뽀짝이"
+                        android:padding="8dp"
+                        android:textFontWeight="500" />
                 </TableRow>
 
 
                 <TableRow
-                    android:layout_marginLeft="24dp"
+                    android:layout_marginLeft="30dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginRight="16dp">
 
@@ -160,7 +165,7 @@
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="35dp"
-                        android:layout_weight="8"
+                        android:layout_weight="9"
                         android:background="@drawable/et_purchase"
                         android:padding="8dp" />
 
@@ -169,10 +174,11 @@
                         android:layout_width="74dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:padding="8dp"
                         android:background="@drawable/btn_black_rec"
                         android:fontFamily="@font/ko_pub_dotum_medium"
                         android:lineSpacingExtra="8sp"
-                        android:layout_marginLeft="12dp"
+                        android:layout_marginLeft="8dp"
                         android:paddingLeft="10dp"
                         android:paddingTop="6dp"
                         android:paddingRight="10dp"

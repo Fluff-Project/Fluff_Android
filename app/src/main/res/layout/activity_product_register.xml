@@ -388,7 +388,7 @@
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_black"
+                                android:background="@drawable/selector_register_color_black"
                                 android:button="@null" />
 
                             <RadioButton
@@ -398,7 +398,7 @@
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_white"
+                                android:background="@drawable/selector_register_color_white"
                                 android:button="@null" />
 
                             <RadioButton
@@ -444,7 +444,7 @@
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_chorale"
+                                android:background="@drawable/selector_register_color_chorale"
                                 android:button="@null" />
 
                             <RadioButton
@@ -454,7 +454,7 @@
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_orange"
+                                android:background="@drawable/selector_register_color_orange"
                                 android:button="@null" />
 
                             <RadioButton
@@ -464,7 +464,7 @@
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_darkgreen"
+                                android:background="@drawable/selector_register_color_darkgreen"
                                 android:button="@null" />
 
                             <RadioButton
@@ -474,7 +474,7 @@
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_lightblue"
+                                android:background="@drawable/selector_register_color_lightblue"
                                 android:button="@null" />
 
                             <RadioButton
@@ -484,7 +484,7 @@
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_darkblue"
+                                android:background="@drawable/selector_register_color_darkblue"
                                 android:button="@null" />
                         </RadioGroup>
 
@@ -500,7 +500,7 @@
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_check"
+                                android:background="@drawable/selector_register_color_check"
                                 android:button="@null" />
 
                             <RadioButton
@@ -510,7 +510,7 @@
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_dot"
+                                android:background="@drawable/selector_register_color_dot"
                                 android:button="@null" />
 
                             <RadioButton
@@ -520,7 +520,7 @@
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_purple"
+                                android:background="@drawable/selector_register_color_purple"
                                 android:button="@null" />
 
                             <RadioButton
@@ -530,7 +530,7 @@
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_marginVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/selector_filter_color_pink"
+                                android:background="@drawable/selector_register_color_pink"
                                 android:button="@null" />
                         </RadioGroup>
                     </com.yuxingxin.library.MultiRadioGroup>
