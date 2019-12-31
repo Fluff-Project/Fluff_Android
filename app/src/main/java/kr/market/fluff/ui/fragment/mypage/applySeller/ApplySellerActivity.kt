@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.fragment_my_product_list.*
 import kr.market.fluff.R
 import kr.market.fluff.data.MyProductListData
 import kr.market.fluff.ui.ProductRegisterActivity
+import kr.market.fluff.ui.review.ReviewActivity
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
@@ -28,6 +29,10 @@ class ApplySellerActivity : AppCompatActivity() {
         settingTab()
         img_seller_add_item.setOnClickListener {
             val intent = Intent(this,ProductRegisterActivity::class.java)
+            startActivity(intent)
+        }
+        ll_apply_seller_review.setOnClickListener {
+            val intent = Intent(this,ReviewActivity::class.java)
             startActivity(intent)
         }
     }

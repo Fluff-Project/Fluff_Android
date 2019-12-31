@@ -20,7 +20,7 @@ class RegisterPhotoViewHolder (view: View) : RecyclerView.ViewHolder(view){
     val img_photo: ImageView = view.findViewById(R.id.img_register_rv_photo)
 
 
-    fun bind( data : RegisterPhotoData,context: Context){
+    fun bind( data : RegisterPhotoData){
 
         Glide.with(itemView).load(data.img).thumbnail(0.1f).into(img_photo)
 

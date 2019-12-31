@@ -24,7 +24,7 @@ class ReviewActivity : AppCompatActivity() {
         addDatas()
         reviewAdapter = ReviewAdapter(this)
         reviewAdapter.data = review_datas
-        rv_review=findViewById<RecyclerView>(R.id.rv_review)
+        rv_review=findViewById(R.id.rv_review)
         rv_review.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
         rv_review.adapter = reviewAdapter
         rv_review.addItemDecoration(VerticalItemDecorator(24))
