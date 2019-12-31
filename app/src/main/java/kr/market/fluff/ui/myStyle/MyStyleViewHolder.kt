@@ -34,7 +34,7 @@ class MyStyleViewHolder (view: View) : RecyclerView.ViewHolder(view){
                 val anims = AnimatorSet()
                 val fade = ObjectAnimator.ofFloat(img_my_style_checked, View.ALPHA, 0.0f, 1.0f)
                 anims.playTogether(fade)
-                anims.setDuration(1000)
+                anims.duration=500
                 anims.start()
 
                 ctx.click_count++

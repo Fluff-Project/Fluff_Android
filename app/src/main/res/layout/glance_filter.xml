@@ -395,7 +395,7 @@
                         android:orientation="horizontal">
 
                         <CheckBox
-                            android:id="@+id/cb_glance_filter_jacket"
+                            android:id="@+id/cb_glance_filter_detail_jacket"
                             android:layout_width="77dp"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="4dp"
@@ -1034,6 +1034,7 @@
         android:paddingVertical="15dp">
 
         <Button
+            android:id="@+id/btn_glance_filter_apply"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="적용"
