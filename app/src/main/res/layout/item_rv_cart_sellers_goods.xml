@@ -6,11 +6,12 @@
 
     <ImageView
         android:id="@+id/img_cart_item"
-        android:layout_width="184dp"
-        android:layout_height="212dp"
+        android:layout_width="wrap_content"
+        android:layout_height="220dp"
+        android:adjustViewBounds="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:src="@drawable/cart_image_example"
         app:layout_constraintTop_toTopOf="parent" />
 

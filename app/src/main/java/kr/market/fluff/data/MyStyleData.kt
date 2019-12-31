@@ -1,7 +1,8 @@
 package kr.market.fluff.data
-
+data class GetSurvey(
+    var image: ArrayList<MyStyleData>
+)
 data class MyStyleData(
-    var id: Int,
-    var img_url: String,
-    var hash_tag: String
+    var url: String,
+    var keyword: List<String>
 )
