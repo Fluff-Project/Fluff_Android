@@ -7,27 +7,20 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.LinearSnapHelper
-import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.activity_detail_auction.*
-import kotlinx.android.synthetic.main.activity_home_banner_detail.*
 import kotlinx.android.synthetic.main.activity_product_register.*
-import kotlinx.android.synthetic.main.fragment_home.*
 import kr.market.fluff.R
 import kr.market.fluff.data.RegisterPhotoData
-import kr.market.fluff.ui.fragment.home.home_banner_detail.BannerRecyclerAdapter
-import kr.market.fluff.ui.fragment.home.recycler_common.HomeNewAdapter
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
-import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
 
 class ProductRegisterActivity : AppCompatActivity()  {
 
     lateinit var seekbar : SeekBar
     lateinit var seekbar_num : TextView
-    var check_count : Int =0
+    var style_check_count : Int =0
+    var color_check_count : Int = 0
+    
     lateinit var img : ImageView
     val REQUEST_CODE_SELECT_IMAGE: Int = 1004
     var selectedPicUri: Uri? = null
@@ -140,168 +133,418 @@ class ProductRegisterActivity : AppCompatActivity()  {
     fun settingRegisterStyleSelect(){
 
         cb_register_filter_detail_simple.setOnCheckedChangeListener { it, isChecked ->
-            checkBoxConfirm(it)
+            if(it.isChecked)
+            {
+                it.isChecked = true
+                style_check_count++
+                checkBoxStyleConfirm(it)
+            }
+            else
+            {
+                it.isChecked = false
+                style_check_count--
+                checkBoxStyleConfirm(it)
+            }
 
-
-            if(isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
         }
         cb_register_filter_detail_strit.setOnCheckedChangeListener { it, isChecked ->
-            it.isChecked = isChecked
-            checkBoxConfirm(it)
 
-            if(isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
+            if(it.isChecked)
+            {
+                it.isChecked = true
+                style_check_count++
+                checkBoxStyleConfirm(it)
+            }
+            else
+            {
+                it.isChecked = false
+                style_check_count--
+                checkBoxStyleConfirm(it)
+            }
+
         }
         cb_register_filter_detail_lovely.setOnCheckedChangeListener { it, isChecked ->
-            it.isChecked = isChecked
-            checkBoxConfirm(it)
+            if(it.isChecked)
+            {
+                it.isChecked = true
+                style_check_count++
+                checkBoxStyleConfirm(it)
+            }
+            else
+            {
+                it.isChecked = false
+                style_check_count--
+                checkBoxStyleConfirm(it)
+            }
 
-            if(isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
+
         }
         cb_register_filter_detail_modernchic.setOnCheckedChangeListener { it, isChecked ->
-            it.isChecked = isChecked
-            checkBoxConfirm(it)
+            if(it.isChecked)
+            {
+                it.isChecked = true
+                style_check_count++
+                checkBoxStyleConfirm(it)
+            }
+            else
+            {
+                it.isChecked = false
+                style_check_count--
+                checkBoxStyleConfirm(it)
+            }
 
-            if(isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
         }
         cb_register_filter_detail_unique.setOnCheckedChangeListener { it, isChecked ->
-            it.isChecked = isChecked
-            checkBoxConfirm(it)
+            if(it.isChecked)
+            {
+                it.isChecked = true
+                style_check_count++
+                checkBoxStyleConfirm(it)
+            }
+            else
+            {
+                it.isChecked = false
+                style_check_count--
+                checkBoxStyleConfirm(it)
+            }
 
-            if(isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
+
         }
         cb_register_filter_detail_formal.setOnCheckedChangeListener { it, isChecked ->
-            it.isChecked = isChecked
-            checkBoxConfirm(it)
+            if(it.isChecked)
+            {
+                it.isChecked = true
+                style_check_count++
+                checkBoxStyleConfirm(it)
+            }
+            else
+            {
+                it.isChecked = false
+                style_check_count--
+                checkBoxStyleConfirm(it)
+            }
 
-            if(isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
         }
         cb_register_filter_detail_ethnic.setOnCheckedChangeListener { it, isChecked ->
-            it.isChecked = isChecked
-            checkBoxConfirm(it)
+            if(it.isChecked)
+            {
+                it.isChecked = true
+                style_check_count++
+                checkBoxStyleConfirm(it)
+            }
+            else
+            {
+                it.isChecked = false
+                style_check_count--
+                checkBoxStyleConfirm(it)
+            }
 
-            if(isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
         }
         cb_register_filter_detail_sporty.setOnCheckedChangeListener { it, isChecked ->
-            it.isChecked = isChecked
-            checkBoxConfirm(it)
+            if(it.isChecked)
+            {
+                it.isChecked = true
+                style_check_count++
+                checkBoxStyleConfirm(it)
+            }
+            else
+            {
+                it.isChecked = false
+                style_check_count--
+                checkBoxStyleConfirm(it)
+            }
 
-            if(isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
         }
         cb_register_filter_detail_oldschool.setOnCheckedChangeListener { it, isChecked ->
-            it.isChecked = isChecked
-            checkBoxConfirm(it)
+            if(it.isChecked)
+            {
+                it.isChecked = true
+                style_check_count++
+                checkBoxStyleConfirm(it)
+            }
+            else
+            {
+                it.isChecked = false
+                style_check_count--
+                checkBoxStyleConfirm(it)
+            }
 
-            if(isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
         }
         cb_register_filter_detail_feminine.setOnCheckedChangeListener { it, isChecked ->
-            it.isChecked = isChecked
-            checkBoxConfirm(it)
+            if(it.isChecked)
+            {
+                it.isChecked = true
+                style_check_count++
+                checkBoxStyleConfirm(it)
+            }
+            else
+            {
+                it.isChecked = false
+                style_check_count--
+                checkBoxStyleConfirm(it)
+            }
 
-            if(isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
+
         }
 
 
 
     }
+    fun checkBoxStyleConfirm(it : CompoundButton)
+    {
+        if (style_check_count >2)
+        {
+            it.isChecked = false
+            Toast.makeText(this,"두개 까지만 선택 가능합니다.",Toast.LENGTH_SHORT).show()
+            style_check_count --
 
+        }
+
+
+        if(it.isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
+        else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
+    }
 
     fun settingRegisterColorSelect(){
 
-        check_count = 0
+        style_check_count = 0
 
             cb_register_filter_color_black.setOnCheckedChangeListener { it, isChecked ->
-                it.isChecked = isChecked
-
+                if(it.isChecked)
+                {
+                    it.isChecked = true
+                    color_check_count++
+                    checkBoxColorConfirm(it)
+                }
+                else
+                {
+                    it.isChecked = false
+                    color_check_count--
+                    checkBoxColorConfirm(it)
+                }
             }
         cb_register_filter_color_white.setOnCheckedChangeListener { it, isChecked ->
-            it.isChecked = isChecked
-
+            if(it.isChecked)
+            {
+                it.isChecked = true
+                color_check_count++
+                checkBoxColorConfirm(it)
+            }
+            else
+            {
+                it.isChecked = false
+                color_check_count--
+                checkBoxColorConfirm(it)
+            }
         }
-            cb_register_filter_color_grey.setOnCheckedChangeListener { it, isChecked ->
-                it.isChecked = isChecked
+            cb_register_filter_color_grey.setOnCheckedChangeListener {    it, isChecked ->
+                if(it.isChecked)
+            {
+                it.isChecked = true
+                color_check_count++
+                checkBoxColorConfirm(it)
+            }
+            else
+            {
+                it.isChecked = false
+                color_check_count--
+                checkBoxColorConfirm(it)
+            }
 
             }
             cb_register_filter_color_beige.setOnCheckedChangeListener { it, isChecked ->
-                it.isChecked = isChecked
-
+                if(it.isChecked)
+                {
+                    it.isChecked = true
+                    color_check_count++
+                    checkBoxColorConfirm(it)
+                }
+                else
+                {
+                    it.isChecked = false
+                    color_check_count--
+                    checkBoxColorConfirm(it)
+                }
             }
             cb_register_filter_color_brown.setOnCheckedChangeListener { it, isChecked ->
-                it.isChecked = isChecked
-
+                if(it.isChecked)
+                {
+                    it.isChecked = true
+                    color_check_count++
+                    checkBoxColorConfirm(it)
+                }
+                else {
+                    it.isChecked = false
+                    color_check_count--
+                    checkBoxColorConfirm(it)
+                }
             }
             cb_register_filter_color_chorale.setOnCheckedChangeListener { it, isChecked ->
-                it.isChecked = isChecked
+                if(it.isChecked)
+                {
+                    it.isChecked = true
+                    color_check_count++
+                    checkBoxColorConfirm(it)
+                }
+                else
+                {
+                    it.isChecked = false
+                    color_check_count--
+                    checkBoxColorConfirm(it)
+                }
 
             }
             cb_register_filter_color_orange.setOnCheckedChangeListener { it, isChecked ->
-                it.isChecked = isChecked
+                if(it.isChecked)
+                {
+                    it.isChecked = true
+                    color_check_count++
+                    checkBoxColorConfirm(it)
+                }
+                else
+                {
+                    it.isChecked = false
+                    color_check_count--
+                    checkBoxColorConfirm(it)
+                }
 
             }
             cb_register_filter_color_darkgreen.setOnCheckedChangeListener { it, isChecked ->
-                it.isChecked = isChecked
+                if(it.isChecked)
+                {
+                    it.isChecked = true
+                    color_check_count++
+                    checkBoxColorConfirm(it)
+                }
+                else
+                {
+                    it.isChecked = false
+                    color_check_count--
+                    checkBoxColorConfirm(it)
+                }
 
             }
             cb_register_filter_color_lightblue.setOnCheckedChangeListener { it, isChecked ->
-                it.isChecked = isChecked
+                if(it.isChecked)
+                {
+                    it.isChecked = true
+                    color_check_count++
+                    checkBoxColorConfirm(it)
+                }
+                else
+                {
+                    it.isChecked = false
+                    color_check_count--
+                    checkBoxColorConfirm(it)
+                }
 
             }
             cb_register_filter_color_darkblue.setOnCheckedChangeListener { it, isChecked ->
-                it.isChecked = isChecked
+                if(it.isChecked)
+                {
+                    it.isChecked = true
+                    color_check_count++
+                    checkBoxColorConfirm(it)
+                }
+                else
+                {
+                    it.isChecked = false
+                    color_check_count--
+                    checkBoxColorConfirm(it)
+                }
 
             }
             cb_register_filter_color_check.setOnCheckedChangeListener { it, isChecked ->
-                it.isChecked = isChecked
+                if(it.isChecked)
+                {
+                    it.isChecked = true
+                    color_check_count++
+                    checkBoxColorConfirm(it)
+                }
+                else
+                {
+                    it.isChecked = false
+                    color_check_count--
+                    checkBoxColorConfirm(it)
+                }
 
             }
             cb_register_filter_color_dot.setOnCheckedChangeListener { it, isChecked ->
-                it.isChecked = isChecked
+                if(it.isChecked)
+                {
+                    it.isChecked = true
+                    color_check_count++
+                    checkBoxColorConfirm(it)
+                }
+                else
+                {
+                    it.isChecked = false
+                    color_check_count--
+                    checkBoxColorConfirm(it)
+                }
 
             }
             cb_register_filter_color_purple.setOnCheckedChangeListener { it, isChecked ->
-                it.isChecked = isChecked
+                if(it.isChecked)
+                {
+                    it.isChecked = true
+                    color_check_count++
+                    checkBoxColorConfirm(it)
+                }
+                else
+                {
+                    it.isChecked = false
+                    color_check_count--
+                    checkBoxColorConfirm(it)
+                }
 
             }
             cb_register_filter_color_pink.setOnCheckedChangeListener { it, isChecked ->
-                it.isChecked = isChecked
+                if(it.isChecked)
+                {
+                    it.isChecked = true
+                    color_check_count++
+                    checkBoxColorConfirm(it)
+                }
+                else
+                {
+                    it.isChecked = false
+                    color_check_count--
+                    checkBoxColorConfirm(it)
+                }
 
             }
 
     }
 
-    fun checkBoxConfirm(it : CompoundButton)
+    fun checkBoxColorConfirm(it : CompoundButton)
     {
-        if (check_count >= 2 && it.isChecked)
+        if (color_check_count >2)
         {
             it.isChecked = false
-            Toast.makeText(applicationContext, "2개까지만 선택 가능 합니다.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"두개 까지만 선택 가능합니다.",Toast.LENGTH_SHORT).show()
+            color_check_count--
+
         }
-        else
-        {
-            check_count ++
-        }
+
     }
+
+
     fun settingRegisterCategorySelect(){
 
         rb_register_filter_category_outer.setOnCheckedChangeListener { it, isChecked ->
             it.isSelected = isChecked
-            if(isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorMagenta))
+            if (isChecked)
+            {
+                it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorMagenta))
+                rl_register_filter_detail_category_outer.visibility = View.VISIBLE
+                rl_register_filter_detail_category_top.visibility = View.GONE
+                rl_register_filter_detail_category_pants.visibility = View.GONE
+                rl_register_filter_detail_category_skirt.visibility = View.GONE
+                rl_register_filter_detail_category_dress.visibility = View.GONE
+                rl_register_filter_detail_category_items.visibility = View.GONE
+            }
             else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
-            rl_register_filter_detail_category_outer.visibility = View.VISIBLE
-            rl_register_filter_detail_category_top.visibility = View.GONE
-            rl_register_filter_detail_category_pants.visibility = View.GONE
-            rl_register_filter_detail_category_skirt.visibility = View.GONE
-            rl_register_filter_detail_category_dress.visibility = View.GONE
-            rl_register_filter_detail_category_items.visibility = View.GONE
 
         }
         rb_register_filter_category_top.setOnCheckedChangeListener { it, isChecked ->
