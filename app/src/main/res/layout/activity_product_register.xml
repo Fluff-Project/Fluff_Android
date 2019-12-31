@@ -579,6 +579,7 @@
                             android:button="@null"
                             android:drawableTop="@drawable/selector_register_category_outer"
                             android:fontFamily="@font/ko_pub_dotum_medium"
+                            android:drawablePadding="9dp"
                             android:text="아우터"
                             android:textAlignment="center"
                             android:textColor="@drawable/text_register_category_style" />
@@ -592,6 +593,7 @@
                             android:button="@null"
                             android:drawableTop="@drawable/selector_register_category_top"
                             android:fontFamily="@font/ko_pub_dotum_medium"
+                            android:drawablePadding="9dp"
                             android:text="상의"
                             android:textAlignment="center"
                             android:textColor="@drawable/text_register_category_style" />
@@ -606,6 +608,7 @@
                             android:drawableTop="@drawable/selector_register_category_bottom"
                             android:fontFamily="@font/ko_pub_dotum_medium"
                             android:text="바지"
+                            android:drawablePadding="9dp"
                             android:textAlignment="center"
                             android:textColor="@drawable/text_register_category_style" />
 
@@ -619,6 +622,7 @@
                             android:drawableTop="@drawable/selector_register_category_skirt"
                             android:fontFamily="@font/ko_pub_dotum_medium"
                             android:text="스커트"
+                            android:drawablePadding="9dp"
                             android:textAlignment="center"
                             android:textColor="@drawable/text_register_category_style" />
 
@@ -632,6 +636,7 @@
                             android:drawableTop="@drawable/selector_register_category_dress"
                             android:fontFamily="@font/ko_pub_dotum_medium"
                             android:text="원피스"
+                            android:drawablePadding="9dp"
                             android:textAlignment="center"
                             android:textColor="@drawable/text_register_category_style" />
 
@@ -645,6 +650,7 @@
                             android:drawableTop="@drawable/selector_register_category_items"
                             android:fontFamily="@font/ko_pub_dotum_medium"
                             android:text="패션 잡화"
+                            android:drawablePadding="9dp"
                             android:textAlignment="center"
                             android:textColor="@drawable/text_register_category_style" />
 
