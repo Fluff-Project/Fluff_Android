@@ -22,6 +22,6 @@ class WelcomeActivity : AppCompatActivity() {
             finish()
         }
         val toast = Toast(this)
-        toast.sendToast(this,"환영합니다!")
+        sendToast("환영합니다!")
     }
 }

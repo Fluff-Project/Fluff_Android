@@ -6,8 +6,8 @@
 
     <ImageView
         android:id="@+id/img_rv_closet"
-        android:layout_width="180dp"
-        android:layout_height="220dp"
+        android:layout_width="174dp"
+        android:layout_height="208dp"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         android:layout_alignParentTop="true"
@@ -16,7 +16,7 @@
 
     <View
         android:layout_width="174dp"
-        android:layout_height="210dp"
+        android:layout_height="208dp"
         android:background="@drawable/home_auction_view"
         />
 

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_detail_auction.*
 import kotlinx.android.synthetic.main.activity_home_banner_detail.*
@@ -407,7 +408,6 @@ class ProductRegisterActivity : AppCompatActivity()  {
             else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
         }
     }
-
 }
 
 

@@ -15,7 +15,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".ui.fragment.magazine.DetailMagazineActivity"></activity>
-        <activity android:name=".ui.review.ReviewActivity"></activity>
+        <activity android:name=".ui.review.ReviewActivity">
+
+        </activity>
         <activity android:name=".ui.CompletingPurchaseActivity" />
         <activity android:name=".ui.WelcomeActivity" />
         <activity android:name=".ui.ProductRegisterActivity"></activity>

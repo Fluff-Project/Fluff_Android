@@ -18,3 +18,36 @@ fun<T> Call<T>.enqueue(
         }
     })
 }
+
+fun<ResponseData> Call<BaseResponse<ResponseData>>.safeEnqueue(
+    onError: (Throwable) -> Unit,
+    onSuccess: (ResponseData) -> Unit,
+    onFail: (code: Int, message: String) -> Unit
+) {
+    this.enqueue(object : Callback<BaseResponse<ResponseData>> {
+        override fun onFailure(call: Call<BaseResponse<ResponseData>>, t: Throwable) {
+            onError(t)
+        }
+        override fun onResponse(
+            call: Call<BaseResponse<ResponseData>>,
+            response: Response<BaseResponse<ResponseData>>
+        ) {
+            response.body()?.let { res ->
+                res.json.data?.let {
+                    onSuccess(it)
+                } ?: onFail(res.code, res.json.message)
+            } ?: onError(IllegalArgumentException())
+        }
+    })
+}
+
+data class BaseResponse<T>(
+    val code: Int,
+    val json: BaseResponseJson<T>
+)
+
+data class BaseResponseJson<T>(
+    val success: Boolean,
+    val message: String,
+    val data: T?
+)

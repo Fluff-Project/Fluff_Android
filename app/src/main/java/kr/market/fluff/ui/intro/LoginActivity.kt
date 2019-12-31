@@ -58,7 +58,7 @@ class LoginActivity : AppCompatActivity() {
             id_string = et_login_email.text.toString()
             pw_string = et_login_pw.text.toString()
             if(id_string.equals("")||pw_string.equals("")){
-                toast.sendToast(this,"빈칸 없이 입력해주세요")
+                sendToast("빈칸 없이 입력해주세요")
                 return@setOnClickListener
             }else{
                 val requestLoginToServer = requestToServer.service.requestLogin_appjam(id_string,pw_string)
@@ -67,7 +67,7 @@ class LoginActivity : AppCompatActivity() {
                             response ->
                         if(response.isSuccessful){
                             if(response.body()!!.json.success){
-                                toast.sendToast(this,"로그인 되었습니다")
+                                sendToast("로그인 되었습니다")
                                 App.prefs.isLogin = true
                                 val intent = Intent(this@LoginActivity,
                                     MyStyleActivity::class.java)
@@ -76,7 +76,7 @@ class LoginActivity : AppCompatActivity() {
                                 startActivity(intent)
                                 finish()
                             }else{
-                                toast.sendToast(this,"로그인 실패")
+                                sendToast("로그인 실패")
                             }
                         }
                     }
@@ -182,7 +182,7 @@ class LoginActivity : AppCompatActivity() {
         val zero : Long = 0
         Log.d("hj","페이스북 로그인 토큰 값 : ${check_auto_login_facebook_token}")
         if(check_auto_login || !check_auto_login_facebook_token.equals(zero)){
-            toast.sendToast(this,"자동로그인 되었습니다")
+            sendToast("자동로그인 되었습니다")
             val intent = Intent(this, MyStyleActivity::class.java)
             startActivity(intent)
             finish()
