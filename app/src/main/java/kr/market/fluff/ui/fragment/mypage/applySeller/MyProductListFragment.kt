@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
+import kotlinx.android.synthetic.main.activity_apply_seller.*
 import kotlinx.android.synthetic.main.fragment_my_product_list.*
 
 import kr.market.fluff.R
@@ -15,6 +16,7 @@ import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
 class MyProductListFragment : Fragment() {
     private lateinit var myProductListAdapter: MyProductListAdapter
+    private var createProductCheck: Boolean=false
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,7 +27,18 @@ class MyProductListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         settingRecyclerMyProductList()
+
+
+        if(!createProductCheck){
+            cl_my_product_list.visibility=View.VISIBLE
+            rv_my_product_list.visibility = View.INVISIBLE
+        }else{
+            cl_my_product_list.visibility=View.INVISIBLE
+            rv_my_product_list.visibility = View.VISIBLE
+        }
+
     }
 
     private fun settingRecyclerMyProductList(){

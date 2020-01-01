@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kr.market.fluff.R
-import kr.market.fluff.data.MyStyleData
+import kr.market.fluff.data.myStyle.MyStyleData
 
 class MyStyleAdapter (private val context: Context): RecyclerView.Adapter<MyStyleViewHolder>(){
     var data = listOf<MyStyleData>()

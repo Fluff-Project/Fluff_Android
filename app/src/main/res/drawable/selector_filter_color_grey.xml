@@ -2,8 +2,8 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:state_checked="false"
-        android:drawable="@drawable/grey_ic"/>
+        android:drawable="@drawable/cb_filter_color_grey"/>
     <item
         android:state_checked="true"
-        android:drawable="@drawable/grey_select_ic"/>
+        android:drawable="@drawable/cb_filter_color_grey_select"/>
 </selector>
