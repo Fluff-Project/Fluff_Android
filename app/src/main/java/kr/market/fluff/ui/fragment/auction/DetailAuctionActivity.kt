@@ -10,8 +10,13 @@ import android.widget.TextView
 import androidx.core.transition.addListener
 import androidx.core.view.ViewCompat
 import com.squareup.picasso.Picasso
+import io.socket.client.Socket
+import io.socket.emitter.Emitter
 import kotlinx.android.synthetic.main.activity_detail_auction.*
 import kr.market.fluff.data.AuctionListData
+import kr.market.fluff.network.SocketApplication.get
+import org.json.JSONObject
+import java.util.*
 import kr.market.fluff.ui.util.sendToast
 import java.time.Duration
 import java.time.LocalDateTime
@@ -40,6 +45,7 @@ class DetailAuctionActivity : AppCompatActivity() {
     lateinit var tv_auction_detail_extra_time: TextView
     lateinit var tv_auction_detail_extra_text: TextView
 
+    lateinit var socket: Socket
 
     private var mItem: AuctionListData? = null
 
@@ -51,12 +57,13 @@ class DetailAuctionActivity : AppCompatActivity() {
     var itemSec : Int = 0
 
 
+    private var auctionId: Int = 1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(kr.market.fluff.R.layout.activity_detail_auction)
         init()
     }
-
     private fun init(){
         mItem = intent.getParcelableExtra("item")
         img_auction_detail_thumbnail  = findViewById(kr.market.fluff.R.id.img_auction_detail_thumbnail)
@@ -76,6 +83,7 @@ class DetailAuctionActivity : AppCompatActivity() {
         ViewCompat.setTransitionName(tv_auction_detail_extra_text , VIEW_NAME_EXTRA_TEXT)
         setClickLIstener()
         loadItem()
+        settingSocket()
 
         itemYear = intent.getIntExtra("item_time_year",0)
         itemMon = intent.getIntExtra("item_time_month",0)
@@ -151,7 +159,9 @@ class DetailAuctionActivity : AppCompatActivity() {
     private fun loadItem(){
         tv_auction_detail_item_name .text = mItem!!.txt_item_name
         tv_auction_detail_recent_highst .text = "현재 최고가"
-        tv_auction_detail_item_price .text = mItem!!.txt_item_price
+
+       //tv_auction_detail_item_price .text = mItem!!.txt_item_price
+
         tv_auction_detail_price_text .text = "원"
       //  tv_auction_detail_extra_time .text = mItem!!.txt_extra_time.toString()
         tv_auction_detail_extra_text .text = "남음"
@@ -177,7 +187,7 @@ class DetailAuctionActivity : AppCompatActivity() {
             .load(mItem!!.img_thumnail)
             .noFade()
             .noPlaceholder()
-            .into(img_auction_detail_thumbnail )
+            .into(img_auction_detail_thumbnail)
     }
     private fun addTransitionListener() : Boolean{
         var transition : Transition? = window.sharedElementEnterTransition
@@ -211,5 +221,25 @@ class DetailAuctionActivity : AppCompatActivity() {
             return true
         }
         return false
+    }
+    private fun settingSocket(){
+        socket = get(auctionId.toString())
+        socket.connect()
+
+        socket.on("bid",onPriceReceived)
+    }
+    private val onPriceReceived = Emitter.Listener {
+
+        val receivePrice = it[0] as JSONObject
+
+        val tt = object : TimerTask() {
+            override fun run() {
+                runOnUiThread {
+                    tv_auction_detail_extra_time.text=receivePrice.getString("bid")
+                }
+            }
+        }
+
+        tt.run()
     }
 }

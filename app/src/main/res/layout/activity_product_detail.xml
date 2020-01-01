@@ -377,7 +377,7 @@
                 android:id="@+id/btn_cart_buy"
                 android:layout_width="284dp"
                 android:layout_height="44dp"
-                android:text="구매하기"
+                android:text="장바구니 담기"
                 android:layout_alignParentRight="true"
                 android:textSize="15sp"
                 android:lineSpacingExtra="7sp"

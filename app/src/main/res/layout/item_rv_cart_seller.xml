@@ -10,13 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/img_cart_rv_seller_checkbox"
+        <CheckBox
+            android:id="@+id/cb_cart_rv_seller_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="16dp"
-            android:src="@drawable/ic_check_box"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -31,7 +30,7 @@
             android:layout_marginStart="12dp"
             android:src="@drawable/seller_example"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/img_cart_rv_seller_checkbox"
+            app:layout_constraintStart_toEndOf="@+id/cb_cart_rv_seller_checkbox"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout

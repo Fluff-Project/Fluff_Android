@@ -19,7 +19,9 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="10dp"
+        android:paddingBottom="14dp"
         android:text="빈티지 필터"
+
         android:fontFamily="@font/ko_pub_dotum_bold"
         android:textFontWeight="900"
         android:textColor="@color/colorWhite"
@@ -66,7 +68,7 @@
                 android:id="@+id/txt_glance_filter_color"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="26dp"
+                android:layout_marginTop="16dp"
                 android:fontFamily="@font/ko_pub_dotum_bold"
                 android:text="컬러"
                 android:textColor="@color/colorWhite"
@@ -390,12 +392,13 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
                         android:layout_marginTop="20dp"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:orientation="horizontal">
 
                         <CheckBox
-                            android:id="@+id/cb_glance_filter_jacket"
+                            android:id="@+id/cb_glance_filter_detail_jacket"
                             android:layout_width="77dp"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="4dp"
@@ -452,7 +455,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:gravity="center"
+                        android:paddingHorizontal="20dp"
+                        android:gravity="left"
                         android:orientation="horizontal">
 
                         <CheckBox
@@ -516,7 +520,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:gravity="center"
+                        android:gravity="left"
+                        android:paddingHorizontal="20dp"
                         android:orientation="horizontal">
 
                         <CheckBox
@@ -577,7 +582,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:gravity="center"
+                        android:gravity="left"
+                        android:paddingHorizontal="20dp"
                         android:orientation="horizontal">
 
                         <CheckBox
@@ -628,7 +634,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:gravity="center"
+                        android:gravity="left"
+                        android:paddingHorizontal="20dp"
                         android:orientation="horizontal">
 
                         <CheckBox
@@ -689,7 +696,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:gravity="center"
+                        android:gravity="left"
+                        android:paddingHorizontal="20dp"
                         android:orientation="horizontal">
 
                         <CheckBox
@@ -753,7 +761,7 @@
                             android:fontFamily="@font/ko_pub_dotum_medium"
                             android:gravity="center"
                             android:paddingVertical="4dp"
-                            android:text="미디 스커트"
+                            android:text="미디스커트"
                             android:textColor="@color/colorWhite" />
 
                         <CheckBox
@@ -1034,6 +1042,7 @@
         android:paddingVertical="15dp">
 
         <Button
+            android:id="@+id/btn_glance_filter_apply"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="적용"

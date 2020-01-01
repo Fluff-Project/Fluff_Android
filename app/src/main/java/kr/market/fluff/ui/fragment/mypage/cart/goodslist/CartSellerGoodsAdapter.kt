@@ -3,11 +3,13 @@ package kr.market.fluff.ui.fragment.mypage.cart.goodslist
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.CheckBox
 import androidx.recyclerview.widget.RecyclerView
 import kr.market.fluff.R
 import kr.market.fluff.data.cart.CartSellersGoods
 
-class CartSellerGoodsAdapter(private val context: Context): RecyclerView.Adapter<CartSellerGoodsViewHolder>(){
+class CartSellerGoodsAdapter(private val context: Context
+): RecyclerView.Adapter<CartSellerGoodsViewHolder>(){
 
     var data = mutableListOf<CartSellersGoods>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartSellerGoodsViewHolder {

@@ -1,8 +1,7 @@
 package kr.market.fluff.ui.fragment.auction
 
 import android.app.Activity
-import android.app.ActivityOptions
-import android.content.Context
+
 import android.content.Intent
 import android.os.CountDownTimer
 import android.view.View

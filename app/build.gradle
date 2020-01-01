@@ -72,4 +72,9 @@ dependencies {
 
 
 
+    //socket.io 라이브러리
+    implementation ('io.socket:socket.io-client:1.0.0') {
+        exclude group: 'org.json', module: 'json'
+    }
+
 }

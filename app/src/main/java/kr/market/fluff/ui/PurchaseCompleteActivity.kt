@@ -11,6 +11,7 @@ import androidx.core.animation.doOnEnd
 import kotlinx.android.synthetic.main.activity_purchase_complete.*
 import kr.market.fluff.R
 import kr.market.fluff.ui.fragment.mypage.transfer.ConfirmTransferActivity
+import kr.market.fluff.ui.util.priceFormTextView
 
 class PurchaseCompleteActivity : AppCompatActivity() {
 
@@ -20,6 +21,18 @@ class PurchaseCompleteActivity : AppCompatActivity() {
         init()
     }
     private fun init(){
+
+        val total_price = intent.getLongExtra("total_price",0)
+        val total_real_price = intent.getLongExtra("total_real_price",0)
+        val user_name = intent.getStringExtra("user_name")
+        val address = intent.getStringExtra("address")
+
+        tv_purchased_person_name.text = user_name
+        tv_complete_user_adress.text = address
+        tv_complete_total_real_price.priceFormTextView(tv_complete_total_real_price,total_real_price)
+        tv_complete_total_price.priceFormTextView(tv_complete_total_price,total_price)
+
+
         initAnim()
         btn_purchase_complete.setOnClickListener {
             val intent = Intent(this,ConfirmTransferActivity::class.java)

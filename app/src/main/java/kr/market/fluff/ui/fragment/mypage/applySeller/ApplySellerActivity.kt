@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
@@ -58,8 +59,14 @@ class ApplySellerActivity : AppCompatActivity() {
                     tl_apply_seller_tablayout.getTabAt(1)?.text = "가게 설명"
 
                     when(position) {
-                        0 -> tl_apply_seller_tablayout.getTabAt(0)?.text = "내 가게"
-                        1 -> tl_apply_seller_tablayout.getTabAt(1)?.text = "가게 설명"
+                        0 -> {
+                            tl_apply_seller_tablayout.getTabAt(0)?.text = "내 가게"
+                            img_seller_add_item.visibility = View.VISIBLE
+                        }
+                        1 -> {
+                            tl_apply_seller_tablayout.getTabAt(1)?.text = "가게 설명"
+                            img_seller_add_item.visibility = View.INVISIBLE
+                        }
                     }
                 }
             })

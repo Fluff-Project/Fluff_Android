@@ -1,6 +1,7 @@
 package kr.market.fluff.ui.fragment.mypage.cart.sellerlist
 
 import android.view.View
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,7 +14,6 @@ import kr.market.fluff.ui.fragment.mypage.cart.goodslist.CartSellerGoodsAdapter
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 
 class CartSellerListViewHolder(view : View) : RecyclerView.ViewHolder(view){
-    val img_cart_rv_seller_checkbox = view.findViewById<ImageView>(R.id.img_cart_rv_seller_checkbox)
     val img_cart_rv_seller = view.findViewById<ImageView>(R.id.img_cart_rv_seller)
     val tv_cart_rv_seller_name = view.findViewById<TextView>(R.id.tv_cart_rv_seller_name)
     val tv_cart_rv_goods_num = view.findViewById<TextView>(R.id.tv_cart_rv_goods_num)
@@ -32,21 +32,21 @@ class CartSellerListViewHolder(view : View) : RecyclerView.ViewHolder(view){
             CartSellersGoods(
                 img_cart_item = "https://cdn.pixabay.com/photo/2014/02/27/16/10/medieval-276019__340.jpg",
                 txt_item_name = "목늘어난 반팔티",
-                txt_item_price = "19,800 원"
+                txt_item_price = 19800
             )
         )
         goods_adapter.data.add(
             CartSellersGoods(
                 img_cart_item = "https://cdn.pixabay.com/photo/2014/02/27/16/10/medieval-276019__340.jpg",
                 txt_item_name = "목늘어난 반팔티",
-                txt_item_price = "19,800 원"
+                txt_item_price = 19800
             )
         )
         goods_adapter.data.add(
             CartSellersGoods(
                 img_cart_item = "https://cdn.pixabay.com/photo/2014/02/27/16/10/medieval-276019__340.jpg",
                 txt_item_name = "목늘어난 반팔티",
-                txt_item_price = "19,800 원"
+                txt_item_price = 19800
             )
         )
     }

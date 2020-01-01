@@ -340,6 +340,7 @@
             <!--
 
             <RelativeLayout
+                android:visibility="gone"
                 android:id="@+id/rl_home_keyword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -373,6 +374,7 @@
             </RelativeLayout>
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/tv_home_keywordsubtitle"
                 style="@style/HomeSubTitleText"
                 android:layout_marginLeft="16dp"
@@ -382,6 +384,7 @@
                 android:layout_marginBottom="0dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:visibility="gone"
                 android:id="@+id/rv_home_keyword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
