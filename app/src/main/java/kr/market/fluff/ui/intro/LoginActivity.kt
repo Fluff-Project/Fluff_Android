@@ -2,12 +2,12 @@ package kr.market.fluff.ui.intro
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
 import com.facebook.*
@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.activity_login.*
 import kr.market.fluff.R
 import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.network.RequestToServer
-import kr.market.fluff.network.enqueue
 import kr.market.fluff.network.safeEnqueue
 import kr.market.fluff.ui.App
 import kr.market.fluff.ui.myStyle.MyStyleActivity
@@ -29,20 +28,15 @@ import java.util.*
 class LoginActivity : AppCompatActivity() {
 
     private var isIntro : Boolean = true
-    private lateinit var id_string : String
-    private lateinit var pw_string : String
-    lateinit var toast: Toast
+    var local_id_string : String? = null
+    var local_pwd_string : String? = null
     val requestToServer = RequestToServer
 
     lateinit var callbackManager : CallbackManager
-    lateinit var loginManager : LoginManager
-
-    var check_auto_login : Boolean = false
     var check_auto_login_facebook_token : Long = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         FacebookSdk.sdkInitialize(applicationContext)
-//        AppEventsLogger.activateApp(this)
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.activity_login)
         init()
@@ -54,57 +48,45 @@ class LoginActivity : AppCompatActivity() {
         }
         tv_intro_register.setOnClickListener{
             val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent,100)
         }
         btn_login_login.setOnClickListener{
-            id_string = et_login_email.text.toString()
-            pw_string = et_login_pw.text.toString()
-            if(id_string.isBlank() ||pw_string.isBlank()){
+            local_id_string = et_login_email.text.toString()
+            local_pwd_string = et_login_pw.text.toString()
+            if(local_id_string!!.isBlank()||local_pwd_string!!.isBlank()){
                 sendToast("빈칸 없이 입력해주세요")
                 return@setOnClickListener
             }
-//                val requestLoginToServer = requestToServer.service.requestLogin_appjam(id_string,pw_string)
-//                requestLoginToServer.enqueue(
-//                    onResponse = {
-//                            response ->
-//                        if(response.isSuccessful){
-//                            if(response.body()!!.json.success){
-//                                sendToast("로그인 되었습니다")
-//                                App.prefs.isLogin = true
-//                                val intent = Intent(this@LoginActivity,
-//                                    MyStyleActivity::class.java)
-//                                intent.putExtra("userID",id_string)
-//                                intent.putExtra("userPassword",pw_string)
-//                                startActivity(intent)
-//                                finish()
-//                            }else{
-//                                sendToast("로그인 실패")
-//                            }
-//                        }
-//                    }
-//                )
-            requestToServer.service.requestLogin_appjam(
-                RequestInterface.LoginRequest(id_string,pw_string)
-            )
-                .safeEnqueue(
-                    onSuccess = {
-                        sendToast("로그인 되었습니다")
-                        App.prefs.isLogin = true
-                        val intent = Intent(this@LoginActivity,
-                            MyStyleActivity::class.java)
-                        intent.putExtra("userID",id_string)
-                        intent.putExtra("userPassword",pw_string)
-                        startActivity(intent)
-                        finish()
-                    },
-                    onFail = { _, _ ->
-                        sendToast("로그인 실패")
-                    }
-                )
+            requestLoginToServer()
         }
         ll_login_find.setOnClickListener{
 
         }
+    }
+    private fun requestLoginToServer(){
+        requestToServer.service.requestLogin(
+            RequestInterface.LoginRequest(local_id_string!!,local_pwd_string!!)
+        )
+            .safeEnqueue(
+                onSuccess = {
+                    val local_token = it.token
+                    Log.d("hj",local_token)
+                    sendToast("로그인 되었습니다")
+                    App.prefs.local_login_token = local_token
+                    App.prefs.local_login_id = local_id_string
+                    App.prefs.local_login_pwd = local_pwd_string
+                    val intent = Intent(this@LoginActivity,
+                        MyStyleActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                },
+                onFail = { _, _ ->
+                    sendToast("로그인 실패")
+                },
+                onError = {
+                    sendToast("통신 실패")
+                }
+            )
     }
     private fun logoAnim(){
         val anims = AnimatorSet()
@@ -131,7 +113,7 @@ class LoginActivity : AppCompatActivity() {
         anims.setDuration(1000)
         anims.start()
     }
-    private fun login_ptn_anim(){
+    private fun login_btn_anim(){
         btn_login_login.visibility = View.VISIBLE
         ll_login_find.visibility - View.VISIBLE
         blur_layout.visibility = View.VISIBLE
@@ -154,8 +136,7 @@ class LoginActivity : AppCompatActivity() {
     private fun startAnim(){
         logoAnim()
         email_pwd_anim()
-        login_ptn_anim()
-        //5. 배경 어두워지게
+        login_btn_anim()
     }
     private fun backToIntro(){
         isIntro = true
@@ -188,33 +169,25 @@ class LoginActivity : AppCompatActivity() {
         }
     }
     override fun onBackPressed() {
-        if (!isIntro){
-            backToIntro()
-        }else{
-            super.onBackPressed()
-        }
+        if(!isIntro) backToIntro()
+        else super.onBackPressed()
     }
     private fun checkAutoLogin(){
-        check_auto_login = App.prefs.isLogin
         check_auto_login_facebook_token = App.prefs.facebook_token
-        Log.d("hj","로그인 boolean값 : ${check_auto_login}")
-        val zero : Long = 0
+        local_id_string = App.prefs.local_login_id
+        local_pwd_string = App.prefs.local_login_pwd
+        Log.d("hj","로그인 id값 : ${local_id_string}")
         Log.d("hj","페이스북 로그인 토큰 값 : ${check_auto_login_facebook_token}")
-        if(check_auto_login || !check_auto_login_facebook_token.equals(zero)){
-            sendToast("자동로그인 되었습니다")
-            val intent = Intent(this, MyStyleActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+        local_id_string?.let {
+            requestLoginToServer()
+            sendToast("자동로그인 합니다...")
+        }?: return
     }
-
     private fun setFacebookLogin(){
-        loginManager = LoginManager.getInstance()
+        val loginManager = LoginManager.getInstance()
         btn_login_facebook_custom.setOnClickListener {
             loginManager.logInWithReadPermissions(this, Arrays.asList("public_profile","email"));
         }
-    }
-    private fun initFacebook() { //FaceBook Init
         callbackManager = CallbackManager.Factory.create()
         loginManager.registerCallback(callbackManager,
             object : FacebookCallback<LoginResult> {
@@ -238,19 +211,17 @@ class LoginActivity : AppCompatActivity() {
                         )
                     )
                     requestUserProfile(loginResult)
-
                 }
 
                 override fun onCancel() {
-                    Toast.makeText(this@LoginActivity, "페이스북 로그인을 취소하셨습니다.", Toast.LENGTH_LONG).show()
+                    sendToast("페이스북 로그인을 취소하셨습니다")
                 }
 
                 override fun onError(exception: FacebookException) {
-                    Toast.makeText(this@LoginActivity, exception.message, Toast.LENGTH_LONG).show()
+                    sendToast(exception.toString())
                 }
             })
     }
-
     fun requestUserProfile(loginResult: LoginResult) {
         val request = GraphRequest.newMeRequest(
             loginResult.accessToken
@@ -278,39 +249,22 @@ class LoginActivity : AppCompatActivity() {
     ) {
         Log.d("hj","result코드 : ${resultCode}, request코드: ${requestCode}")
         if(requestCode == 64206 && resultCode == -1){
+            callbackManager.onActivityResult(requestCode, resultCode, data)
             val intent = Intent(this,MyStyleActivity::class.java)
             startActivity(intent)
             finish()
+        }else if(requestCode==100 && resultCode== Activity.RESULT_OK){
+            login_btn_anim()
+            et_login_email.setText(data!!.getStringExtra("email"))
+            et_login_pw.setText(data!!.getStringExtra("pwd"))
+            btn_login_login.callOnClick()
         }
-        callbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
     }
     private fun init(){
         setFacebookLogin()
-        toast = Toast(this)
-        initFacebook()
         checkAutoLogin()
         backGroundAnim()
         setListener()
     }
-
-    //회원가입 하고 돌아왔을 때 처리
-    /*
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        when{
-            requestCode == 100
-            -> {
-                id_string = data?.getStringExtra("userID").toString()
-                pw_string = data?.getStringExtra("userPassword").toString()
-                if(id_string.equals("null")||pw_string.equals("null")){
-                    return
-                }else{
-                    et_id.setText(id_string)
-                    et_pw.setText(pw_string)
-                }
-            }
-        }
-    }
-    */
 }

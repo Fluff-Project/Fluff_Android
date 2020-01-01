@@ -15,9 +15,9 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import kotlinx.android.synthetic.main.activity_register.*
 import kr.market.fluff.R
+import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.network.RequestToServer
-import kr.market.fluff.network.enqueue
-import kr.market.fluff.ui.myStyle.MyStyleActivity
+import kr.market.fluff.network.safeEnqueue
 import kr.market.fluff.ui.util.sendToast
 
 
@@ -111,9 +111,7 @@ class RegisterActivity : AppCompatActivity() {
     }
     private fun setBtnClickListenerRegister(){
         btn_register_next.setOnClickListener {
-            submit_datas()//
-            val intent = Intent(this,MyStyleActivity::class.java)
-            startActivity(intent)
+            submit_datas()
         }
     }
     private fun requestValidation(){
@@ -123,19 +121,18 @@ class RegisterActivity : AppCompatActivity() {
             img_id_check.setImageResource(R.drawable.ic_check)
             validate = false
         }else{
-            requestToServer.service.getValidation(text).enqueue(
-                onResponse = { response ->
-                    if(response.isSuccessful){//네트워크 통신 성공했을 때.
-                        validate  = response.body()!!.success
-                        if(validate){
-                            sendToast("사용 가능한 아이디입니다.")
-                            img_id_check.setImageResource(R.drawable.ic_check_ok)
-                            next_to_pwd()
-                        }else{
-                            sendToast("중복된 아이디입니다.")
-                            img_id_check.setImageResource(R.drawable.ic_check_no)
-                        }
-                    }
+            requestToServer.service.requestValidate(RequestInterface.ValidateRequest(text)).safeEnqueue(
+                onSuccess = {
+                        sendToast("사용 가능한 아이디입니다.")
+                        img_id_check.setImageResource(R.drawable.ic_check_ok)
+                        next_to_pwd()
+                    },
+                onFail = {_,_->
+                    sendToast("중복된 아이디입니다.")
+                    img_id_check.setImageResource(R.drawable.ic_check_no)
+                },
+                onError = {
+                    sendToast("통신 실패")
                 }
             )
         }
@@ -214,6 +211,32 @@ class RegisterActivity : AppCompatActivity() {
     }
     private fun submit_datas(){
         //서버로 넘기기
+        if(string_register_email.isBlank()||string_register_pwd.isBlank()||string_register_nick.isBlank()||string_register_gender.isBlank()){
+            sendToast("성별을 선택해주세요")
+            return
+        }else{
+            requestToServer.service.requestRegister(RequestInterface.RegisterRequest(
+                string_register_email,
+                string_register_nick,
+                string_register_pwd,
+                string_register_gender
+            )).safeEnqueue(
+                onSuccess ={
+                    sendToast("회원가입에 성공하였습니다.")
+                    val intent = Intent(this,LoginActivity::class.java)
+                    intent.putExtra("email",string_register_email)
+                    intent.putExtra("pwd",string_register_pwd)
+                    startActivity(intent)
+                    finish()
+                },
+                onFail = {_,_->
+                    sendToast("회원가입에 실패하였습니다.")
+                },
+                onError = {
+                    sendToast("통신 실패")
+                }
+            )
+        }
     }
     private fun setBtnDisable(){
         btn_register_next.isEnabled=false
@@ -265,6 +288,25 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 }
+
+
+
+//            requestToServer.service.getValidation(text).enqueue(
+//                onResponse = { response ->
+//                    if(response.isSuccessful){//네트워크 통신 성공했을 때.
+//                        validate  = response.body()!!.success
+//                        if(validate){
+//                            sendToast("사용 가능한 아이디입니다.")
+//                            img_id_check.setImageResource(R.drawable.ic_check_ok)
+//                            next_to_pwd()
+//                        }else{
+//                            sendToast("중복된 아이디입니다.")
+//                            img_id_check.setImageResource(R.drawable.ic_check_no)
+//                        }
+//                    }
+//                }
+//            )
+
 //다음 페이지로 바꾸기
 /*
 val requestRegister = requestToServer.service.requestRegister(id_string,pw_string,nick_name,gender)
