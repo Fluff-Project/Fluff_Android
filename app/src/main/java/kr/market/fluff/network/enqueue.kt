@@ -5,6 +5,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
+
+
 fun<T> Call<T>.enqueue(
     onFailure: (Throwable) -> Unit = { Log.e("h", "error : $it") },
     onResponse: (response: Response<T>) -> Unit = {}

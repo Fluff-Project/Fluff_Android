@@ -34,7 +34,9 @@ class LogoutDialog(val activity : Activity,context: Context) :  Dialog(context) 
                     AccessToken.setCurrentAccessToken(null)
                     LoginManager.getInstance().logOut()
             }
-            App.prefs.isLogin=false
+            App.prefs.local_login_token = ""
+            App.prefs.local_login_id = null
+            App.prefs.local_login_pwd = null
             App.prefs.facebook_token = 0
             App.prefs.editor.commit()
             val intent = Intent(context, LoginActivity::class.java)

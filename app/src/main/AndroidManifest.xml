@@ -28,7 +28,7 @@
         <activity android:name=".ui.fragment.mypage.update.MyInfoUpdateActivity" />
         <activity android:name=".ui.fragment.mypage.flub.FlubRegularCustomer" />
         <activity android:name=".ui.fragment.auction.DetailAuctionActivity" />
-        <activity android:name=".ui.intro.LoginActivity" >
+        <activity android:name=".ui.intro.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
