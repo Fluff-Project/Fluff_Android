@@ -29,7 +29,7 @@ class ProductDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_detail)
-
+        img_detail_my_cart.setOnClickListener {startActivity(Intent(this,CartActivity::class.java))}
         img_detail_heart.setOnClickListener {
             var toast = Toast(this )
 
