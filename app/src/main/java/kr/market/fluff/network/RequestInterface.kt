@@ -41,18 +41,11 @@ interface RequestInterface {
 
 
 //--------------------앱잼 서버 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    @POST("/auth/checkEmail")
-    fun requestValidate(@Body body : ValidateRequest) : Call<BaseResponse<ValidateResponse>>
-    data class ValidateRequest(
-        val email : String
-    )
-    data class ValidateResponse(
-        val email: String
-    )
-
-
     @POST("/auth/login")
     fun requestLogin(@Body body: LoginRequest) : Call<BaseResponse<LoginResponse>> //validate해서 받는 데이터의 형식.
+    //@Body-> 객체를 전달 , @Field 사용시 @FormUrlEncoded
+    // @Serialized -> Respones 단계시
+
 
     data class LoginRequest(
         val email: String,
@@ -62,6 +55,19 @@ interface RequestInterface {
     data class LoginResponse(
         val token: String,
         val refresh: String
+    )
+
+    //로그인 중복확인 부분
+    @POST("/auth/checkEmail")
+    fun requestValidate(@Body body:LoginValidateRequest ) : Call<BaseResponse<LoginValidateResponse>>
+
+    data class LoginValidateRequest(
+        val email : String
+    )
+
+    data class LoginValidateResponse(
+        val email : String,
+        val duplication : Boolean
     )
 
 
