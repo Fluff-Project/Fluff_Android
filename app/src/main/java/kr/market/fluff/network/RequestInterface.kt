@@ -5,6 +5,10 @@ package kr.market.fluff.network
 import com.facebook.login.Login
 import kr.market.fluff.data.intro.ResponseLogin
 import kr.market.fluff.data.intro.ResponseValidateAndRegisterAndLogin
+import kr.market.fluff.data.myStyle.MyStyleResponse
+import kr.market.fluff.data.myStyle.RecommendStyleData
+import kr.market.fluff.data.myStyle.RequestRecommendStyle
+import org.json.JSONArray
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -44,6 +48,20 @@ interface RequestInterface {
     @POST("/auth/login")
     fun requestLogin_appjam(@Body body: LoginRequest) : Call<BaseResponse<LoginResponse>> //validate해서 받는 데이터의 형식.
 
+    @GET("/survey")
+    fun requestSurvey(
+        @Header("Content-Type") content_type: String,
+        @Header("x-access-token") token: String
+    ): Call<BaseResponse<MyStyleResponse>>
+
+    @POST("/recommend/keyDB")
+    fun requestRecommend(
+        @Header("Content-Type") content_type: String,
+        @Header("x-access-token") token: String,
+        @Body body: RequestRecommendStyle
+    ): Call<BaseResponse<RecommendStyleData>>
+    //수정 필요
+
     data class LoginRequest(
         val email: String,
         val pwd: String
@@ -53,6 +71,7 @@ interface RequestInterface {
         val token: String,
         val refresh: String
     )
+
 
     /*
     //회원가입시 이메일 중복체크

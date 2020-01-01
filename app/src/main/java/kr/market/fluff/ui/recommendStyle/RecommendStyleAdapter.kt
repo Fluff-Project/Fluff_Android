@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kr.market.fluff.R
-import kr.market.fluff.data.RecommendStyleData
+import kr.market.fluff.data.myStyle.RecommendStyleData
 
 class RecommendStyleAdapter (private val context: Context):RecyclerView.Adapter<RecommendStyleViewHolder>(){
     var data = listOf<RecommendStyleData>()

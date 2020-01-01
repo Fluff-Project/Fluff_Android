@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.market.fluff.R
-import kr.market.fluff.data.RecommendStyleData
-import kr.market.fluff.data.RecommendStyleImgData
+import kr.market.fluff.data.myStyle.RecommendStyleData
+import kr.market.fluff.data.myStyle.RecommendStyleImgData
 
 class RecommendStyleViewHolder(view: View): RecyclerView.ViewHolder(view){
     lateinit var recommendStyleImgAdapter: RecommendStyleImgAdapter

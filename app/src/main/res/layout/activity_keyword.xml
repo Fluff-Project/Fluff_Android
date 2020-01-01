@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.mypage.applySeller.KeywordActivity">
+    tools:context=".ui.fragment.mypage.applySeller.keyword.KeywordActivity"
+    android:background="@color/colorWhiteGray">
 
     <TextView
         android:id="@+id/txt_keyword_apply"
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="12dp"
+        android:paddingBottom="16dp"
         android:fontFamily="@font/ko_pub_dotum_bold"
         android:text="대표 키워드 등록"
         android:textColor="@color/colorBlack"
@@ -32,9 +34,27 @@
         app:srcCompat="@drawable/arrow_ic" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_keyword_apply"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_marginTop="16dp"
+        android:paddingTop="16dp"
+        android:clipToPadding="false"
         app:layout_constraintTop_toBottomOf="@+id/txt_keyword_apply"
         tools:layout_editor_absoluteX="1dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="등록 완료"
+        android:textSize="15sp"
+        android:fontFamily="@font/ko_pub_dotum_medium"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/my_style_btn_black_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

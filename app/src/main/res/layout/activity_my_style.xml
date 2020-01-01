@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="40dp"
         android:text="당신의 스타일을 선택해주세요!"
         android:textFontWeight="900"
         android:textColor="#000000"
@@ -39,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
         android:layout_marginTop="4dp"
+        android:paddingBottom="20dp"
         android:fontFamily="@font/ko_pub"
         android:textFontWeight="500"
         android:text="플러프가 당신이 좋아할만한 옷을 추천해드립니다!"
@@ -50,13 +51,15 @@
         android:id="@+id/recycler_my_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="17dp"
-        android:layout_marginTop="32dp"
+        android:paddingHorizontal="17dp"
+        android:paddingTop="32dp"
+        android:paddingBottom="280dp"
+        android:clipToPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_my_style_content3"
-        app:layout_constraintVertical_bias="0.032" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btn_my_style_default"

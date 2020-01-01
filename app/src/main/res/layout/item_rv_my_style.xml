@@ -11,7 +11,7 @@
         android:id="@+id/img_my_style"
         android:layout_width="157dp"
         android:layout_height="157dp"
-        android:layout_margin="3dp"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
