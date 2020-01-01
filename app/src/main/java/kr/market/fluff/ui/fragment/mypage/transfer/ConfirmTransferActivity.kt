@@ -42,7 +42,7 @@ class ConfirmTransferActivity : AppCompatActivity() {
                 purchase_date = "2019.12.25",
                 seller_name = "binteegee",
                 item_name = "양털잠옷",
-                transfer_status = "배송준비",
+                transfer_status = "결제완료",
                 buy_price = 13900
             )
         )
@@ -52,7 +52,7 @@ class ConfirmTransferActivity : AppCompatActivity() {
                 purchase_date = "2019.12.21",
                 seller_name = "불면증",
                 item_name = "수면바지",
-                transfer_status = "배송중",
+                transfer_status = "결제완료",
                 buy_price = 37500
             )
         )
@@ -62,7 +62,7 @@ class ConfirmTransferActivity : AppCompatActivity() {
                 purchase_date = "2019.12.22",
                 seller_name = "노래하는 코트",
                 item_name = "울 코트",
-                transfer_status = "배송완료",
+                transfer_status = "결제완료",
                 buy_price = 76400
             )
         )
@@ -72,7 +72,7 @@ class ConfirmTransferActivity : AppCompatActivity() {
                 purchase_date = "2019.12.25",
                 seller_name = "양치기소년",
                 item_name = "무스탕",
-                transfer_status = "출고완료",
+                transfer_status = "결제완료",
                 buy_price = 24500
             )
         )
@@ -82,7 +82,7 @@ class ConfirmTransferActivity : AppCompatActivity() {
                 purchase_date = "2019.12.20",
                 seller_name = "여름옷전문",
                 item_name = "롱패딩",
-                transfer_status = "배송중",
+                transfer_status = "결제완료",
                 buy_price = 103500
             )
         )

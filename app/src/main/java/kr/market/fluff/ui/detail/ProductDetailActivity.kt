@@ -15,8 +15,10 @@ import kr.market.fluff.R
 import kr.market.fluff.data.detail.DetailProductData
 import kr.market.fluff.ui.PurchaseActivity
 import kr.market.fluff.ui.detail.product_detail_recycler.DetailRecyclerAdapter
+import kr.market.fluff.ui.fragment.mypage.cart.CartActivity
 import kr.market.fluff.ui.util.drawCustomToast
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
+import kr.market.fluff.ui.util.sendToast
 
 class ProductDetailActivity : AppCompatActivity() {
 
@@ -50,8 +52,8 @@ class ProductDetailActivity : AppCompatActivity() {
 
         }
         btn_cart_buy.setOnClickListener {
-            val intent = Intent(this, PurchaseActivity::class.java)
-            startActivity(intent)
+            sendToast("상품이 장바구니에 담겼습니다.")
+            //TODO 상품 정보 장바구니에 담는 요청 처리하기
         }
 
         tv_detail_closet_title.text = intent.getStringExtra("product_name")

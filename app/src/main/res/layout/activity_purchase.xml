@@ -116,17 +116,33 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/img_purchase_item"
                         app:layout_constraintTop_toTopOf="parent">
-
-                        <TextView
-                            android:id="@+id/tv_purchase_item_name"
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/ko_pub"
-                            android:lineSpacingExtra="7sp"
-                            android:text="누빔안감 울 숏코트"
-                            android:textColor="#7c7c7c"
-                            android:textFontWeight="700"
-                            android:textSize="13sp" />
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/tv_purchase_item_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/ko_pub"
+                                android:lineSpacingExtra="7sp"
+                                android:text="누빔안감 울 숏코트"
+                                android:textColor="#7c7c7c"
+                                android:textFontWeight="700"
+                                android:textSize="13sp" />
+                            <TextView
+                                android:visibility="gone"
+                                android:id="@+id/tv_purchase_extra_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/ko_pub"
+                                android:lineSpacingExtra="7sp"
+                                android:text=" 외 n개"
+                                android:textColor="#7c7c7c"
+                                android:textFontWeight="700"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
 
                         <TextView
                             android:id="@+id/tv_purchase_item_price"
@@ -168,12 +184,13 @@
                             android:text="이름" />
 
                         <EditText
+                            android:id="@+id/et_purcahase_name"
                             style="@style/EditTExt_For_Purchase_request"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="8"
                             android:background="@drawable/et_purchase"
-                            android:hint="ex) 홍길동"
+                            android:text="최호준"
                             android:padding="8dp" />
                     </TableRow>
 
@@ -195,7 +212,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="8"
                             android:background="@drawable/et_purchase"
-                            android:hint="ex) 010-0000-0000"
+                            android:text="010-4904-7870"
                             android:inputType="phone"
                             android:padding="8dp" />
                     </TableRow>
@@ -222,7 +239,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="8"
                                 android:background="@drawable/et_purchase"
-                                android:hint="ex) 사당로 2길"
+                                android:ellipsize="end"
+                                android:inputType="text"
+                                android:text="서울특별시 동작구 사당로 2길 2-10"
                                 android:padding="8dp" />
 
                             <Button
@@ -248,12 +267,15 @@
                             android:padding="8dp" />
 
                         <EditText
+                            android:id="@+id/et_user_address1"
                             style="@style/EditTExt_For_Purchase_request"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="8"
                             android:background="@drawable/et_purchase"
-                            android:hint="주소"
+                            android:ellipsize="end"
+                            android:inputType="text"
+                            android:text="서울특별시 동작구 사당로 2길 2-10"
                             android:padding="8dp" />
                     </TableRow>
 
@@ -269,12 +291,14 @@
                             android:padding="8dp" />
 
                         <EditText
+                            android:id="@+id/et_user_address2"
                             style="@style/EditTExt_For_Purchase_request"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="8"
+                            android:inputType="text"
                             android:background="@drawable/et_purchase"
-                            android:hint="상세주소"
+                            android:text="102호"
                             android:padding="8dp" />
                     </TableRow>
 
@@ -294,6 +318,7 @@
                             style="@style/EditTExt_For_Purchase_request"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:inputType="text"
                             android:layout_weight="8"
                             android:background="@drawable/et_purchase"
                             android:hint="예) 배송 전 연락 바랍니다."
@@ -346,6 +371,7 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/tv_purchase_total_item_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -415,6 +441,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tv_purchase_total_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
