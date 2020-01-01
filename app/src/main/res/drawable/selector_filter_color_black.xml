@@ -2,10 +2,10 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:state_checked="false"
-        android:drawable="@drawable/black_ic"/>
+        android:drawable="@drawable/cb_filter_color_black"/>
 
     <item
         android:state_checked="true"
-        android:drawable="@drawable/blank_select_ic"/>
+        android:drawable="@drawable/cb_filter_color_black_select"/>
 
 </selector>

@@ -5,6 +5,10 @@ package kr.market.fluff.network
 import com.facebook.login.Login
 import kr.market.fluff.data.intro.ResponseLogin
 import kr.market.fluff.data.intro.ResponseValidateAndRegisterAndLogin
+import kr.market.fluff.data.myStyle.MyStyleResponse
+import kr.market.fluff.data.myStyle.RecommendStyleData
+import kr.market.fluff.data.myStyle.RequestRecommendStyle
+import org.json.JSONArray
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -35,6 +39,13 @@ interface RequestInterface {
     fun requestLogin(@Body body: LoginRequest) : Call<BaseResponse<LoginResponse>> //validate해서 받는 데이터의 형식.
     //@Body-> 객체를 전달 , @Field 사용시 @FormUrlEncoded
     // @Serialized -> Respones 단계시
+
+
+    @GET("/survey")
+    fun requestSurvey(
+        @Header("Content-Type") content_type: String,
+        @Header("x-access-token") token: String
+    ): Call<BaseResponse<MyStyleResponse>>
 
 
     data class LoginRequest(
@@ -153,6 +164,8 @@ interface RequestInterface {
     data class ConfirmOrderResponse(
         val data : String
     )
+
+
 
 
     /*

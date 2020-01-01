@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_detail_auction.*
 import kotlinx.android.synthetic.main.activity_seller_edit.*
 import kr.market.fluff.R
+import kr.market.fluff.ui.fragment.mypage.applySeller.keyword.KeywordActivity
 
 class SellerEditActivity : AppCompatActivity() {
     val REQUEST_CODE_SELECT_IMAGE: Int = 1004
@@ -30,6 +31,11 @@ class SellerEditActivity : AppCompatActivity() {
         settingLoadImg()
         settingBtnBack()
         settingBtnComplete()
+
+        btn_seller_edit_keyword1.setOnClickListener {
+            val intent = Intent(this,KeywordActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun settingBtnComplete(){
