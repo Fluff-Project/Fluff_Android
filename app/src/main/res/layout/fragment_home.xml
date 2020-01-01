@@ -121,24 +121,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:text="최근에 " />
+                    android:text="당신을 위한 " />
 
                 <TextView
                     android:id="@+id/tv_home_recent_keyword"
                     style="@style/HomeKeywordText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="-3dp"
                     android:layout_toRightOf="@id/tv_home_recenttitle"
                     android:text="무스탕" />
 
-                <TextView
-                    android:id="@+id/tv_home_recenttitle2"
-                    style="@style/HomeTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/tv_home_recent_keyword"
-                    android:text="을 많이 보셨군요!" />
 
 
                 <ImageView
@@ -345,6 +337,7 @@
 
 
 
+            <!--
 
             <RelativeLayout
                 android:id="@+id/rl_home_keyword"
@@ -397,6 +390,8 @@
                 android:layout_marginTop="20dp"
                 android:paddingBottom="75dp"
                 />
+
+            -->
 
 
         </LinearLayout>

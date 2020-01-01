@@ -23,6 +23,7 @@ class MyStyleViewHolder (view: View) : RecyclerView.ViewHolder(view){
         Glide.with(itemView).load(data.url).into(img_my_style)
         var ctx = context as MyStyleActivity
         img_my_style.setOnClickListener {
+            //Log.e()
             if(img_my_style_checked.visibility == View.VISIBLE){
                 img_my_style.setColorFilter(Color.parseColor("#00ffffff"), PorterDuff.Mode.SRC_OVER)
                 img_my_style_checked.visibility = View.INVISIBLE

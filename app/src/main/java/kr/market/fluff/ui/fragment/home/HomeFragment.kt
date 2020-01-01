@@ -45,10 +45,9 @@ class HomeFragment : Fragment() {
     lateinit var plubAdapter: HomePlubAdapter
     lateinit var plub_datas : List<HomePlubData>
 
-    lateinit var rv_home_keyword : RecyclerView
+    /*lateinit var rv_home_keyword : RecyclerView
     lateinit var keywordAdapter: HomeKeywordAdapter
-    lateinit var keyword_datas : List<HomeKeywordData>
-
+    lateinit var keyword_datas : List<HomeKeywordData>*/
     lateinit var rv_home_auction : RecyclerView
     lateinit var auctionAdapter: HomeAuctionAdapter
     lateinit var auction_data : List<HomeAuctionData>
@@ -70,10 +69,11 @@ class HomeFragment : Fragment() {
         makeRecentRecycler(view)
         makeRecommendRecycler(view)
         makePlubRecycler(view)
-        makeKeywordRecycler(view)
         makeOctionRecycler(view)
         makeHomeViewPager(view)
         changeView(view)
+        // makeKeywordRecycler(view)
+
 
     }
 
@@ -221,7 +221,7 @@ class HomeFragment : Fragment() {
 //        val snapHelper = LinearSnapHelper()
 //        snapHelper.attachToRecyclerView(rv_home_plub)
     }
-
+/*
     fun makeKeywordRecycler(view : View)
     {
         keyword_datas = listOf(
@@ -240,6 +240,8 @@ class HomeFragment : Fragment() {
 //        val snapHelper = LinearSnapHelper()
 //        snapHelper.attachToRecyclerView(rv_home_keyword)
     }
+    */
+
 
     fun makeOctionRecycler(view: View)
     {
