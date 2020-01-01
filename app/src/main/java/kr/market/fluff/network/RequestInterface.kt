@@ -61,6 +61,7 @@ interface RequestInterface {
     )
 
 
+    //TODO 구현 확인 필요
     @POST("/auth/signUp")
     fun requestRegister(@Body body: RegisterRequest) : Call<BaseResponse<RegisterResponse>> //validate해서 받는 데이터의 형식.
 
@@ -74,6 +75,7 @@ interface RequestInterface {
         val message : String
     )
 
+    //TODO 구현 필요
     @GET("magazine/")
     fun request_magazine() : Call<BaseResponseJson<MagazineResponse>>
     data class MagazineResponse(
@@ -84,14 +86,19 @@ interface RequestInterface {
         val _id : String
     )
 
+    //TODO 구현 필요
     @GET("/follow/followList")
     fun request_follow_list() : Call<BaseResponseJson<FollowResponse>>
     data class FollowResponse(
         val _id : String
     )
 
+    //TODO 구현 필요 - 장바구니 목록 불러오기 - CartActivity
     @GET("/cart")
-    fun request_cart_list() : Call<BaseResponseJson<ArrayList<CartListObject>>>
+    fun request_cart_list(
+        @Header("Content-Type") content_type : String,
+        @Header("x-access-token") token :String
+    ) : Call<BaseResponseJson<ArrayList<CartListObject>>>
     data class CartListObject(
         val userName : String,
         val Img : String,
@@ -100,16 +107,19 @@ interface RequestInterface {
         val price : Long
     )
 
-    //TODO 아래 부분 다 수정 필요!
+    //TODO 구현 필요 - 장바구니에 상품 담기 - ProductDetailActivity
     @FormUrlEncoded
     @POST("/cart")
     fun request_cart_add(
+        @Header("Content-Type") content_type : String,
+        @Header("x-access-token") token :String,
         @Field("goodsIdList")goodsIdList : ArrayList<GoodsAddRequest>
     ) : Call<BaseResponseJson<ArrayList<String>>>
     data class GoodsAddRequest(
         val _id : String
     )
 
+    //TODO 구현 필요 - 장바구니 상품 삭제 - CartActivity
     @DELETE("/cart")
     fun request_cart_delete(
         @Header("Content-Type") content_type : String,
@@ -124,14 +134,22 @@ interface RequestInterface {
         val data : String
     )
 
+    //TODO 구현 필요 - 최종 주문 리스트 넘겨줌(결제 완료) -- CompletingPurchaseActivity
     @POST("order/goodsList")
-    fun request_order_add() : Call<BaseResponseJson<AddOrderListResponse>>
+    fun request_order_add(
+        @Header("Content-Type") content_type : String,
+        @Header("x-access-token") token :String
+    ) : Call<BaseResponseJson<AddOrderListResponse>>
     data class AddOrderListResponse(
         val data : String
     )
 
+    //TODO 구현 필요 - 최종 주문결과 확인(조회) - PurchaseCompleteActivity
     @GET("order/goodsList")
-    fun request_order_confirm() : Call<BaseResponseJson<ConfirmOrderResponse>>
+    fun request_order_confirm(
+        @Header("Content-Type") content_type : String,
+        @Header("x-access-token") token :String
+    ) : Call<BaseResponseJson<ConfirmOrderResponse>>
     data class ConfirmOrderResponse(
         val data : String
     )
