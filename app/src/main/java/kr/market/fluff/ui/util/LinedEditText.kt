@@ -8,7 +8,7 @@ import android.graphics.Rect
 import android.util.AttributeSet
 import android.widget.EditText
 
-public class LinedEditText(context: Context, attrs: AttributeSet): EditText(context,attrs){
+class LinedEditText(context: Context, attrs: AttributeSet): EditText(context,attrs){
     private var mRect = Rect()
     private var mPaint = Paint()
     override fun onDraw(canvas: Canvas?) {
