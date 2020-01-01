@@ -1,5 +1,7 @@
 package kr.market.fluff.ui.fragment.glance
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.fragment_glance.*
 import kotlinx.android.synthetic.main.glance_filter.*
 import kr.market.fluff.R
@@ -206,6 +209,12 @@ class GlanceFragment : Fragment() {
 
         btn_glance_filter_set.setOnClickListener {
             bottomSheet.state = BottomSheetBehavior.STATE_COLLAPSED
+
+            val anims = AnimatorSet()
+            val ty1 = ObjectAnimator.ofFloat(glance_filter, View.TRANSLATION_Y, 1500f, 0f)
+            anims.playTogether(ty1)
+            anims.setDuration(1000)
+            anims.start()
         }
         glance_filter_blur.setOnClickListener {
             bottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
@@ -378,6 +387,12 @@ class GlanceFragment : Fragment() {
                 ll_glance_filter_detail_skirt.visibility = View.GONE
                 ll_glance_filter_detail_dress.visibility = View.GONE
                 ll_glance_filter_detail_items.visibility = View.GONE
+
+                val anims = AnimatorSet()
+                val ty1 = ObjectAnimator.ofFloat(ll_glance_filter_detail_outer, View.TRANSLATION_Y, -300f, 0f)
+                anims.playTogether(ty1)
+                anims.setDuration(1000)
+                anims.start()
             }
             else {
                 it.setTextColor(resources.getColor(R.color.colorWhite))
@@ -395,6 +410,12 @@ class GlanceFragment : Fragment() {
                 ll_glance_filter_detail_skirt.visibility = View.GONE
                 ll_glance_filter_detail_dress.visibility = View.GONE
                 ll_glance_filter_detail_items.visibility = View.GONE
+
+                val anims = AnimatorSet()
+                val ty1 = ObjectAnimator.ofFloat(ll_glance_filter_detail_top, View.TRANSLATION_Y, -300f, 0f)
+                anims.playTogether(ty1)
+                anims.setDuration(1000)
+                anims.start()
             }
             else {
                 it.setTextColor(resources.getColor(R.color.colorWhite))
@@ -412,6 +433,12 @@ class GlanceFragment : Fragment() {
                 ll_glance_filter_detail_skirt.visibility = View.GONE
                 ll_glance_filter_detail_dress.visibility = View.GONE
                 ll_glance_filter_detail_items.visibility = View.GONE
+
+                val anims = AnimatorSet()
+                val ty1 = ObjectAnimator.ofFloat(ll_glance_filter_detail_pants, View.TRANSLATION_Y, -300f, 0f)
+                anims.playTogether(ty1)
+                anims.setDuration(1000)
+                anims.start()
             }
             else {
                 it.setTextColor(resources.getColor(R.color.colorWhite))
@@ -429,6 +456,12 @@ class GlanceFragment : Fragment() {
                 ll_glance_filter_detail_skirt.visibility = View.VISIBLE
                 ll_glance_filter_detail_dress.visibility = View.GONE
                 ll_glance_filter_detail_items.visibility = View.GONE
+
+                val anims = AnimatorSet()
+                val ty1 = ObjectAnimator.ofFloat(ll_glance_filter_detail_skirt, View.TRANSLATION_Y, -300f, 0f)
+                anims.playTogether(ty1)
+                anims.setDuration(1000)
+                anims.start()
             }
             else {
                 it.setTextColor(resources.getColor(R.color.colorWhite))
@@ -446,6 +479,12 @@ class GlanceFragment : Fragment() {
                 ll_glance_filter_detail_skirt.visibility = View.GONE
                 ll_glance_filter_detail_dress.visibility = View.VISIBLE
                 ll_glance_filter_detail_items.visibility = View.GONE
+
+                val anims = AnimatorSet()
+                val ty1 = ObjectAnimator.ofFloat(ll_glance_filter_detail_dress, View.TRANSLATION_Y, -300f, 0f)
+                anims.playTogether(ty1)
+                anims.setDuration(1000)
+                anims.start()
             }
             else {
                 it.setTextColor(resources.getColor(R.color.colorWhite))
@@ -463,6 +502,12 @@ class GlanceFragment : Fragment() {
                 ll_glance_filter_detail_skirt.visibility = View.GONE
                 ll_glance_filter_detail_dress.visibility = View.GONE
                 ll_glance_filter_detail_items.visibility = View.VISIBLE
+
+                val anims = AnimatorSet()
+                val ty1 = ObjectAnimator.ofFloat(ll_glance_filter_detail_items, View.TRANSLATION_Y, -300f, 0f)
+                anims.playTogether(ty1)
+                anims.setDuration(1000)
+                anims.start()
             }
             else {
                 it.setTextColor(resources.getColor(R.color.colorWhite))

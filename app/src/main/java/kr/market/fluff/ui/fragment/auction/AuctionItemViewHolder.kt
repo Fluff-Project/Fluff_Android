@@ -25,6 +25,7 @@ class AuctionItemViewHolder(view : View) : RecyclerView.ViewHolder(view){
     val tv_auction_price_text   = view.findViewById<TextView>(R.id.tv_auction_price_text)
     val tv_auction_extra_time    = view.findViewById<TextView>(R.id.tv_auction_extra_time )//ㅇ
     val tv_auction_extra_text   = view.findViewById<TextView>(R.id.tv_auction_extra_text)
+
     fun bind(auctionListData : AuctionListData,activity: Activity){
         Glide.with(itemView).load(auctionListData.img_thumnail).into(img_auction_thumbnail)
         tv_auction_item_name.text = auctionListData.txt_item_name

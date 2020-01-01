@@ -74,8 +74,8 @@ class MyStyleActivity : AppCompatActivity() {
             addItemDecoration(HorizontalItemDecorator(10))
             addItemDecoration(VerticalItemDecorator(10))
         }
-        val token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTBhNDE2ZjIxN2YyMjAwMTE5YjYwMzciLCJ1c2VybmFtZSI6IuyekOydvOuPmeyDneyLoOydvCIsImVtYWlsIjoicGxhbkBzb3B0Lm9yZyIsImlhdCI6MTU3Nzc5ODIxOSwiZXhwIjoxNTc3ODg0NjE5LCJpc3MiOiJvb2V1bnoifQ.XtPtNy4M51PFj8hu9WF3Wo-aZI3eL_RINUorhPfqFAA"
-        requestToServer.service.requestSurvey("application/json",token)
+        val token = App.prefs.local_login_token
+        requestToServer.service.requestSurvey("application/json",token!!)
             .safeEnqueue(
                 onSuccess = {
                     sendToast("성공")
@@ -86,7 +86,6 @@ class MyStyleActivity : AppCompatActivity() {
                     sendToast("실패")
                 }
             )
-
 
     }
     fun changeBtn(checked: Boolean){

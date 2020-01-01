@@ -57,13 +57,6 @@ interface RequestInterface {
         @Header("x-access-token") token: String
     ): Call<BaseResponse<MyStyleResponse>>
 
-    @POST("/recommend/keyDB")
-    fun requestRecommend(
-        @Header("Content-Type") content_type: String,
-        @Header("x-access-token") token: String,
-        @Body body: RequestRecommendStyle
-    ): Call<BaseResponse<RecommendStyleData>>
-    //수정 필요
 
     data class LoginRequest(
         val email: String,
