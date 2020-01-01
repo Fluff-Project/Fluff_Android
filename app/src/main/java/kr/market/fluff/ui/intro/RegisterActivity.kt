@@ -15,8 +15,10 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import kotlinx.android.synthetic.main.activity_register.*
 import kr.market.fluff.R
+import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.enqueue
+import kr.market.fluff.network.safeEnqueue
 import kr.market.fluff.ui.myStyle.MyStyleActivity
 import kr.market.fluff.ui.util.sendToast
 
@@ -118,7 +120,38 @@ class RegisterActivity : AppCompatActivity() {
     }
     private fun requestValidation(){
         val text = et_register_email.text.toString()
-        if (text.equals("")){
+
+        if(text.isBlank())
+        {
+            sendToast("아이디는 빈칸일 수 없습니다.")
+        }
+
+        requestToServer.service.requestValidate(
+            RequestInterface.LoginValidateRequest(text)
+        )
+            .safeEnqueue(
+                onSuccess = {
+                    if(it.duplication)
+                    {
+                        sendToast(text+" 는 중복된 id 입니다.")
+                        img_id_check.setImageResource(R.drawable.ic_check_no)
+                    }
+                    else
+                    {
+                        sendToast(text+" 는 사용가능한 id 입니다.")
+                        img_id_check.setImageResource(R.drawable.ic_check_ok)
+                        next_to_pwd()
+                    }
+
+                },
+                onFail = {_,_->
+                    sendToast("서버 연결 실패")
+                }
+                )
+
+
+
+/*if (text.equals("")){
             sendToast("아이디는 빈칸일 수 없습니다")
             img_id_check.setImageResource(R.drawable.ic_check)
             validate = false
@@ -139,6 +172,8 @@ class RegisterActivity : AppCompatActivity() {
                 }
             )
         }
+
+ */
 
     }
     private fun nextAnim(prevLayout:LinearLayout,nextLayout : LinearLayout){
