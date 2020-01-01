@@ -3,6 +3,7 @@ package kr.market.fluff.ui.fragment.auction
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.transition.Transition
 import android.widget.ImageView
 import android.widget.TextView
@@ -12,11 +13,16 @@ import com.squareup.picasso.Picasso
 import io.socket.client.Socket
 import io.socket.emitter.Emitter
 import kotlinx.android.synthetic.main.activity_detail_auction.*
-import kr.market.fluff.R
 import kr.market.fluff.data.AuctionListData
 import kr.market.fluff.network.SocketApplication.get
 import org.json.JSONObject
 import java.util.*
+import kr.market.fluff.ui.util.sendToast
+import java.time.Duration
+import java.time.LocalDateTime
+import java.time.LocalDateTime.now
+
+
 
 class DetailAuctionActivity : AppCompatActivity() {
     companion object{
@@ -43,22 +49,30 @@ class DetailAuctionActivity : AppCompatActivity() {
 
     private var mItem: AuctionListData? = null
 
+    var itemYear : Int = 0
+    var itemMon : Int = 0
+    var itemDay : Int = 0
+    var itemHours : Int = 0
+    var itemMin : Int = 0
+    var itemSec : Int = 0
+
+
     private var auctionId: Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail_auction)
+        setContentView(kr.market.fluff.R.layout.activity_detail_auction)
         init()
     }
     private fun init(){
         mItem = intent.getParcelableExtra("item")
-        img_auction_detail_thumbnail  = findViewById(R.id.img_auction_detail_thumbnail)
-        tv_auction_detail_item_name  = findViewById(R.id.tv_auction_detail_item_name)
-        tv_auction_detail_recent_highst  = findViewById(R.id.tv_auction_detail_recent_highst)
-        tv_auction_detail_item_price  = findViewById(R.id.tv_auction_detail_item_price)
-        tv_auction_detail_price_text  = findViewById(R.id.tv_auction_detail_price_text)
-        tv_auction_detail_extra_time  = findViewById(R.id.tv_auction_detail_extra_time)
-        tv_auction_detail_extra_text  = findViewById(R.id.tv_auction_detail_extra_text)
+        img_auction_detail_thumbnail  = findViewById(kr.market.fluff.R.id.img_auction_detail_thumbnail)
+        tv_auction_detail_item_name  = findViewById(kr.market.fluff.R.id.tv_auction_detail_item_name)
+        tv_auction_detail_recent_highst  = findViewById(kr.market.fluff.R.id.tv_auction_detail_recent_highst)
+        tv_auction_detail_item_price  = findViewById(kr.market.fluff.R.id.tv_auction_detail_item_price)
+        tv_auction_detail_price_text  = findViewById(kr.market.fluff.R.id.tv_auction_detail_price_text)
+        tv_auction_detail_extra_time  = findViewById(kr.market.fluff.R.id.tv_auction_detail_extra_time)
+        tv_auction_detail_extra_text  = findViewById(kr.market.fluff.R.id.tv_auction_detail_extra_text)
 
         ViewCompat.setTransitionName(img_auction_detail_thumbnail , VIEW_NAME_THUMBNAIL_IMAGE)
         ViewCompat.setTransitionName(tv_auction_detail_item_name , VIEW_NAME_ITEM_TITLE)
@@ -70,6 +84,68 @@ class DetailAuctionActivity : AppCompatActivity() {
         setClickLIstener()
         loadItem()
         settingSocket()
+
+        itemYear = intent.getIntExtra("item_time_year",0)
+        itemMon = intent.getIntExtra("item_time_month",0)
+        itemDay = intent.getIntExtra("item_time_day",0)
+        itemHours = intent.getIntExtra("item_time_hours",0)
+        itemMin = intent.getIntExtra("item_time_min",0)
+        itemSec = intent.getIntExtra("item_time_sec",0)
+
+
+        setTimer()
+    }
+
+    fun setTimer()
+    {
+        val start_date_time: LocalDateTime = now()
+        val end_date_time : LocalDateTime = LocalDateTime.of(itemYear,itemMon,itemDay,itemHours,itemMin,itemSec)
+        var duration: Duration = Duration.between(start_date_time, end_date_time)
+
+         countDownTimer(duration.seconds)
+    }
+
+
+    fun countDownTimer(long: Long)
+    {
+        var countDownTimer = object :  CountDownTimer(long*1000, 1000)
+        {
+            override fun onFinish() {
+                tv_auction_detail_extra_time.text = "경매가 마감되었습니다."
+                tv_auction_detail_extra_text.text = ""
+                sendToast("경매가 마감되었습니다.")
+            }
+
+            override fun onTick(p0: Long) {
+
+                val hours = p0.div(3600000)
+                var temp = p0/1000 - hours*3600
+                val min = p0.div(60000).toInt() - p0.div(3600000)*60
+                val seconds = temp - min*60
+
+                if ( hours < 10)
+                {
+                    tv_auction_detail_extra_time.text  = "0" + hours.toString()+ " : "+ min.toString() + " : " + seconds.toString()
+                    if( min < 10)
+                    {
+                        tv_auction_detail_extra_time.text  = "0" + hours.toString()+ " : "+ "0" + min.toString() + " : " + seconds.toString()
+                    }
+                }
+                else
+                {
+                    if(min < 10)
+                    {
+                        tv_auction_detail_extra_time.text  =  hours.toString()+ " : "+ "0" + min.toString() + " : " + seconds.toString()
+
+                    }
+                    tv_auction_detail_extra_time.text  = hours.toString()+ " : "+ min.toString() + " : " + seconds.toString()
+
+                }
+            }
+
+        }
+
+        countDownTimer.start()
     }
     private fun setClickLIstener(){
         img_detail_auction_back.setOnClickListener {
@@ -87,8 +163,7 @@ class DetailAuctionActivity : AppCompatActivity() {
        //tv_auction_detail_item_price .text = mItem!!.txt_item_price
 
         tv_auction_detail_price_text .text = "원"
-
-        tv_auction_detail_extra_time .text = mItem!!.txt_extra_time
+      //  tv_auction_detail_extra_time .text = mItem!!.txt_extra_time.toString()
         tv_auction_detail_extra_text .text = "남음"
         if (addTransitionListener()) {
             loadThumbnail()
