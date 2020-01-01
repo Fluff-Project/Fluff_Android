@@ -10,11 +10,11 @@ import retrofit2.http.*
 
 interface RequestInterface {
     //회원가입 화면의 중복확인 부분
-    @FormUrlEncoded
-    @POST("UserValidate.php")
-    fun getValidation(
-        @Field("userID")userID : String//userID에 String 타입 userID 값 전달.
-    ) : Call<ResponseValidateAndRegisterAndLogin> //validate해서 받는 데이터의 형식.
+//    @FormUrlEncoded
+//    @POST("UserValidate.php")
+//    fun getValidation(
+//        @Field("userID")userID : String//userID에 String 타입 userID 값 전달.
+//    ) : Call<ResponseValidateAndRegisterAndLogin> //validate해서 받는 데이터의 형식.
 
 
 
@@ -24,26 +24,28 @@ interface RequestInterface {
 
 
 
-    @FormUrlEncoded
-    @POST("UserRegister.php")
-    fun requestRegister(
-        @Field("userID") userID : String,
-        @Field("userPassword")userPassword : String,
-        @Field("userPhone")userPhone : String
-    ) : Call<ResponseValidateAndRegisterAndLogin>
-
-    @FormUrlEncoded
-    @POST("UserLogin.php")
-    fun requestLogin(
-        @Field("userID") userID : String,
-        @Field("userPassword")userPassword : String
-    ) : Call<ResponseValidateAndRegisterAndLogin>
+//    @FormUrlEncoded
+//    @POST("UserRegister.php")
+//    fun requestRegister(
+//        @Field("userID") userID : String,
+//        @Field("userPassword")userPassword : String,
+//        @Field("userPhone")userPhone : String
+//    ) : Call<ResponseValidateAndRegisterAndLogin>
+//
+//    @FormUrlEncoded
+//    @POST("UserLogin.php")
+//    fun requestLogin(
+//        @Field("userID") userID : String,
+//        @Field("userPassword")userPassword : String
+//    ) : Call<ResponseValidateAndRegisterAndLogin>
 
 
 //--------------------앱잼 서버 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    @POST("/auth/login") // @Body-> 객체를 전달 , @Field 사용시 @FormUrlEncoded
-// @Serialized -> Respones 단계시
-    fun requestLogin_appjam(@Body body: LoginRequest) : Call<BaseResponse<LoginResponse>> //validate해서 받는 데이터의 형식.
+    @POST("/auth/login")
+    fun requestLogin(@Body body: LoginRequest) : Call<BaseResponse<LoginResponse>> //validate해서 받는 데이터의 형식.
+    //@Body-> 객체를 전달 , @Field 사용시 @FormUrlEncoded
+    // @Serialized -> Respones 단계시
+
 
     data class LoginRequest(
         val email: String,
@@ -67,6 +69,37 @@ interface RequestInterface {
         val email : String,
         val duplication : Boolean
     )
+
+
+    @POST("/auth/signUp")
+    fun requestRegister(@Body body: RegisterRequest) : Call<BaseResponse<RegisterResponse>> //validate해서 받는 데이터의 형식.
+
+    data class RegisterRequest(
+        val email : String,
+        val username : String,
+        val pwd : String,
+        val gender : String
+    )
+    data class RegisterResponse(
+        val message : String
+    )
+
+    @GET("magazine/")
+    fun request_magazine() : Call<BaseResponseJson<MagazineResponse>>
+    data class MagazineResponse(
+        val magazine_data : ArrayList<MagazineThumbnail>
+    )
+    data class MagazineThumbnail(
+        val imgUrl : String,
+        val _id : String
+    )
+
+    @GET("/follow/followList")
+    fun request_follow_list() : Call<BaseResponseJson<FollowResponse>>
+    data class FollowResponse(
+        val _id : String
+    )
+
 
     /*
     //회원가입시 이메일 중복체크
