@@ -70,7 +70,7 @@ class LoginActivity : AppCompatActivity() {
             .safeEnqueue(
                 onSuccess = {
                     val local_token = it.token
-                    Log.d("hj",local_token)
+                    Log.d("hj","토큰값 : ${local_token}")
                     sendToast("로그인 되었습니다")
                     App.prefs.local_login_token = local_token
                     App.prefs.local_login_id = local_id_string

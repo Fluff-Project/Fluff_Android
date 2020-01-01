@@ -73,7 +73,7 @@ interface RequestInterface {
 
 
     //TODO 구현 확인 필요
-    @POST("/auth/signUp")
+    @POST("/auth/directSignUp")
     fun requestRegister(@Body body: RegisterRequest) : Call<BaseResponse<RegisterResponse>> //validate해서 받는 데이터의 형식.
 
     data class RegisterRequest(
@@ -83,12 +83,18 @@ interface RequestInterface {
         val gender : String
     )
     data class RegisterResponse(
-        val message : String
+        val email : String,
+        val username : String,
+        val pwd : String,
+        val gender : String
     )
 
     //TODO 구현 필요
     @GET("magazine/")
-    fun request_magazine() : Call<BaseResponseJson<MagazineResponse>>
+    fun request_magazine(
+        @Header("Content-Type") content_type: String,
+        @Header("x-access-token") token: String
+    ) : Call<BaseResponseJson<MagazineResponse>>
     data class MagazineResponse(
         val magazine_data : ArrayList<MagazineThumbnail>
     )
