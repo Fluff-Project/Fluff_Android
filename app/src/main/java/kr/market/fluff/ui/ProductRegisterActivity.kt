@@ -22,7 +22,6 @@ class ProductRegisterActivity : AppCompatActivity()  {
     lateinit var photoAdapter: RegisterPhotoAdapter
     var datas : ArrayList<RegisterPhotoData> = ArrayList()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_register)
@@ -34,7 +33,6 @@ class ProductRegisterActivity : AppCompatActivity()  {
         settingSeekBar()
         RecyclerPhoto()
     }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == REQUEST_CODE_SELECT_IMAGE){
@@ -48,7 +46,6 @@ class ProductRegisterActivity : AppCompatActivity()  {
             }
         }
     }
-
     fun RecyclerPhoto()
     {
         photoAdapter = RegisterPhotoAdapter(this,this, datas) {
@@ -63,7 +60,6 @@ class ProductRegisterActivity : AppCompatActivity()  {
             addItemDecoration(HorizontalItemDecorator(24))
         }
     }
-
     fun settingSeekBar()
     {
         seekBar_register_condition.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
@@ -79,27 +75,24 @@ class ProductRegisterActivity : AppCompatActivity()  {
 
         })
     }
-
-
     fun settingRegisterGenderSelect()
     {
         cb_register_filter_gender_man.setOnCheckedChangeListener { it, isChecked ->
             it.isChecked = isChecked
-            if(isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
+            if(isChecked) it.setTextColor(resources.getColor(R.color.colorWhite))
+            else it.setTextColor(resources.getColor(R.color.colorBlack))
         }
         cb_register_filter_gender_woman.setOnCheckedChangeListener { it, isChecked ->
             it.isChecked = isChecked
-            if(isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
+            if(isChecked) it.setTextColor(resources.getColor(R.color.colorWhite))
+            else it.setTextColor(resources.getColor(R.color.colorBlack))
         }
         cb_register_filter_gender_unisex.setOnCheckedChangeListener { it, isChecked ->
             it.isChecked = isChecked
-            if(isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
+            if(isChecked) it.setTextColor(resources.getColor(R.color.colorWhite))
+            else it.setTextColor(resources.getColor(R.color.colorBlack))
         }
     }
-
     fun settingRegisterStyleSelect(){
         cb_register_filter_detail_simple.setOnCheckedChangeListener { it, isChecked ->
             if(it.isChecked)
@@ -114,10 +107,8 @@ class ProductRegisterActivity : AppCompatActivity()  {
                 style_check_count--
                 checkBoxStyleConfirm(it)
             }
-
         }
         cb_register_filter_detail_strit.setOnCheckedChangeListener { it, isChecked ->
-
             if(it.isChecked)
             {
                 it.isChecked = true
@@ -130,7 +121,6 @@ class ProductRegisterActivity : AppCompatActivity()  {
                 style_check_count--
                 checkBoxStyleConfirm(it)
             }
-
         }
         cb_register_filter_detail_lovely.setOnCheckedChangeListener { it, isChecked ->
             if(it.isChecked)
@@ -255,9 +245,6 @@ class ProductRegisterActivity : AppCompatActivity()  {
 
 
         }
-
-
-
     }
     fun checkBoxStyleConfirm(it : CompoundButton)
     {
@@ -266,18 +253,13 @@ class ProductRegisterActivity : AppCompatActivity()  {
             it.isChecked = false
             Toast.makeText(this,"두개 까지만 선택 가능합니다.",Toast.LENGTH_SHORT).show()
             style_check_count --
-
         }
-
-
-        if(it.isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
-        else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
+        if(it.isChecked) it.setTextColor(resources.getColor(R.color.colorWhite))
+        else it.setTextColor(resources.getColor(R.color.colorBlack))
     }
 
     fun settingRegisterColorSelect(){
-
         style_check_count = 0
-
             cb_register_filter_color_black.setOnCheckedChangeListener { it, isChecked ->
                 if(it.isChecked)
                 {
@@ -481,11 +463,8 @@ class ProductRegisterActivity : AppCompatActivity()  {
                     color_check_count--
                     checkBoxColorConfirm(it)
                 }
-
             }
-
     }
-
     fun checkBoxColorConfirm(it : CompoundButton)
     {
         if (color_check_count >2)
@@ -497,10 +476,7 @@ class ProductRegisterActivity : AppCompatActivity()  {
         }
 
     }
-
-
     fun settingRegisterCategorySelect(){
-
         rb_register_filter_category_outer.setOnCheckedChangeListener { it, isChecked ->
             it.isSelected = isChecked
             if (isChecked)
@@ -513,8 +489,7 @@ class ProductRegisterActivity : AppCompatActivity()  {
                 rl_register_filter_detail_category_dress.visibility = View.GONE
                 rl_register_filter_detail_category_items.visibility = View.GONE
             }
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
-
+            else it.setTextColor(resources.getColor(R.color.colorBlack))
         }
         rb_register_filter_category_top.setOnCheckedChangeListener { it, isChecked ->
             it.isSelected = isChecked
@@ -528,8 +503,7 @@ class ProductRegisterActivity : AppCompatActivity()  {
                 rl_register_filter_detail_category_dress.visibility = View.GONE
                 rl_register_filter_detail_category_items.visibility = View.GONE
             }
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
-
+            else it.setTextColor(resources.getColor(R.color.colorBlack))
         }
         rb_register_filter_category_pants.setOnCheckedChangeListener { it, isChecked ->
             it.isSelected = isChecked
@@ -543,8 +517,7 @@ class ProductRegisterActivity : AppCompatActivity()  {
                 rl_register_filter_detail_category_dress.visibility = View.GONE
                 rl_register_filter_detail_category_items.visibility = View.GONE
             }
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
-
+            else it.setTextColor(resources.getColor(R.color.colorBlack))
         }
         rb_register_filter_category_skirt.setOnCheckedChangeListener { it, isChecked ->
             it.isSelected = isChecked
@@ -558,8 +531,7 @@ class ProductRegisterActivity : AppCompatActivity()  {
                 rl_register_filter_detail_category_dress.visibility = View.GONE
                 rl_register_filter_detail_category_items.visibility = View.GONE
             }
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
-
+            else it.setTextColor(resources.getColor(R.color.colorBlack))
         }
         rb_register_filter_category_dress.setOnCheckedChangeListener { it, isChecked ->
             it.isSelected = isChecked
@@ -573,8 +545,7 @@ class ProductRegisterActivity : AppCompatActivity()  {
                 rl_register_filter_detail_category_dress.visibility = View.VISIBLE
                 rl_register_filter_detail_category_items.visibility = View.GONE
             }
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
-
+            else it.setTextColor(resources.getColor(R.color.colorBlack))
         }
         rb_register_filter_category_items.setOnCheckedChangeListener { it, isChecked ->
             it.isSelected = isChecked
@@ -588,38 +559,36 @@ class ProductRegisterActivity : AppCompatActivity()  {
                 rl_register_filter_detail_category_dress.visibility = View.GONE
                 rl_register_filter_detail_category_items.visibility = View.VISIBLE
             }
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
-
+            else it.setTextColor(resources.getColor(R.color.colorBlack))
         }
     }
     fun settingRegisterSizeSelect(){
         cb_register_filter_size_s.setOnCheckedChangeListener { it, isChecked ->
             it.isChecked = isChecked
-            if(isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
+            if(isChecked) it.setTextColor(resources.getColor(R.color.colorWhite))
+            else it.setTextColor(resources.getColor(R.color.colorBlack))
         }
         cb_register_filter_size_m.setOnCheckedChangeListener { it, isChecked ->
             it.isChecked = isChecked
-            if(isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
+            if(isChecked) it.setTextColor(resources.getColor(R.color.colorWhite))
+            else it.setTextColor(resources.getColor(R.color.colorBlack))
         }
         cb_register_filter_size_l.setOnCheckedChangeListener { it, isChecked ->
             it.isChecked = isChecked
-            if(isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
+            if(isChecked) it.setTextColor(resources.getColor(R.color.colorWhite))
+            else it.setTextColor(resources.getColor(R.color.colorBlack))
         }
         cb_register_filter_size_xl.setOnCheckedChangeListener { it, isChecked ->
             it.isChecked = isChecked
-            if(isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
+            if(isChecked) it.setTextColor(resources.getColor(R.color.colorWhite))
+            else it.setTextColor(resources.getColor(R.color.colorBlack))
         }
         cb_register_filter_size_xxl.setOnCheckedChangeListener { it, isChecked ->
             it.isChecked = isChecked
-            if(isChecked) it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorWhite))
-            else it.setTextColor(resources.getColor(kr.market.fluff.R.color.colorBlack))
+            if(isChecked) it.setTextColor(resources.getColor(R.color.colorWhite))
+            else it.setTextColor(resources.getColor(R.color.colorBlack))
         }
     }
-
 }
 
 

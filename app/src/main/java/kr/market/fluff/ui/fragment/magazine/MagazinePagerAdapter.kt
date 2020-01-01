@@ -18,15 +18,10 @@ import kr.market.fluff.data.MagazineData
 import kr.market.fluff.ui.fragment.auction.DetailAuctionActivity
 
 class MagazinePagerAdapter(private val activity: Activity,private val context : Context) : PagerAdapter(){
-    val datas = mutableListOf<MagazineData>()
+    var datas = ArrayList<MagazineData>()
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
         return view == `object`
     }
-
-    fun addItem(item : MagazineData){
-        datas.add(item)
-    }
-
     override fun getCount(): Int {
         return datas.size
     }
