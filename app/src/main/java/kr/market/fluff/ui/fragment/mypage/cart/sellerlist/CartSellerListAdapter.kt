@@ -3,6 +3,7 @@ package kr.market.fluff.ui.fragment.mypage.cart.sellerlist
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.CheckBox
 import androidx.recyclerview.widget.RecyclerView
 import kr.market.fluff.R
 import kr.market.fluff.data.cart.CartSellerData

@@ -19,15 +19,7 @@ interface RequestInterface {
 //    fun getValidation(
 //        @Field("userID")userID : String//userID에 String 타입 userID 값 전달.
 //    ) : Call<ResponseValidateAndRegisterAndLogin> //validate해서 받는 데이터의 형식.
-
-
-
-
-
     //패스워드 암호화 고려해서 MySQL의 행 길이를 더 길게 해줘야 함!!!★★★★★★★★★★★★★
-
-
-
 //    @FormUrlEncoded
 //    @POST("UserRegister.php")
 //    fun requestRegister(
@@ -43,8 +35,6 @@ interface RequestInterface {
 //        @Field("userPassword")userPassword : String
 //    ) : Call<ResponseValidateAndRegisterAndLogin>
 
-
-//--------------------앱잼 서버 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     @POST("/auth/login")
     fun requestLogin(@Body body: LoginRequest) : Call<BaseResponse<LoginResponse>> //validate해서 받는 데이터의 형식.
     //@Body-> 객체를 전달 , @Field 사용시 @FormUrlEncoded
@@ -109,6 +99,52 @@ interface RequestInterface {
     fun request_follow_list() : Call<BaseResponseJson<FollowResponse>>
     data class FollowResponse(
         val _id : String
+    )
+
+    @GET("/cart")
+    fun request_cart_list() : Call<BaseResponseJson<ArrayList<CartListObject>>>
+    data class CartListObject(
+        val userName : String,
+        val Img : String,
+        val goodsId : String,
+        val goodsName : String,
+        val price : Long
+    )
+
+    //TODO 아래 부분 다 수정 필요!
+    @FormUrlEncoded
+    @POST("/cart")
+    fun request_cart_add(
+        @Field("goodsIdList")goodsIdList : ArrayList<GoodsAddRequest>
+    ) : Call<BaseResponseJson<ArrayList<String>>>
+    data class GoodsAddRequest(
+        val _id : String
+    )
+
+    @DELETE("/cart")
+    fun request_cart_delete(
+        @Header("Content-Type") content_type : String,
+        @Header("x-access-token") token :String,
+        @Body body: CartDeleteRequest
+    ) : Call<BaseResponseJson<CartDeleteResponse>>
+//    request_cart_delete("application/json",token,body)
+    data class CartDeleteRequest(
+        val deleteId : ArrayList<String>
+    )
+    data class CartDeleteResponse(
+        val data : String
+    )
+
+    @POST("order/goodsList")
+    fun request_order_add() : Call<BaseResponseJson<AddOrderListResponse>>
+    data class AddOrderListResponse(
+        val data : String
+    )
+
+    @GET("order/goodsList")
+    fun request_order_confirm() : Call<BaseResponseJson<ConfirmOrderResponse>>
+    data class ConfirmOrderResponse(
+        val data : String
     )
 
 
