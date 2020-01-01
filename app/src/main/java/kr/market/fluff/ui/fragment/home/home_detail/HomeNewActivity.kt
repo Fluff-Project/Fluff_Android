@@ -1,5 +1,6 @@
 package kr.market.fluff.ui.fragment.home.home_detail
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
@@ -8,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_home_new.*
 import kr.market.fluff.R
 import kr.market.fluff.data.home.BannerRecyclerData
 import kr.market.fluff.ui.fragment.home.home_banner_detail.BannerRecyclerAdapter
+import kr.market.fluff.ui.fragment.mypage.cart.CartActivity
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
@@ -22,22 +24,16 @@ class HomeNewActivity : AppCompatActivity() {
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.activity_home_new)
 
-
-        img_new_detail_back.setOnClickListener {
-            finish()
-        }
+        img_new_detail_back.setOnClickListener {finish()}
+        img_home_new_my_cart.setOnClickListener {startActivity(Intent(this,CartActivity::class.java))}
         makeNewRecycler()
         makeTitle()
-
     }
     fun makeTitle()
-    {
-        tv_new_detail_keyword.text = intent.getStringExtra("new_keyword")
-    }
+    {tv_new_detail_keyword.text = intent.getStringExtra("new_keyword")}
 
     fun makeNewRecycler()
     {
-
         datas = listOf(
             BannerRecyclerData(
                 R.drawable.banner_closet,

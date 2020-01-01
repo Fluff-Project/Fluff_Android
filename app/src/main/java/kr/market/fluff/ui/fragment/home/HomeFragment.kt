@@ -71,40 +71,27 @@ class HomeFragment : Fragment() {
         makePlubRecycler(view)
         makeOctionRecycler(view)
         makeHomeViewPager(view)
-        changeView(view)
+        changeView()
         // makeKeywordRecycler(view)
 
 
     }
 
-    fun changeView(view : View)
+    fun changeView()
     {
-
-        val change_fragment: Fragment
-
         img_home_newicon.setOnClickListener {
-
             val intent = Intent(context, HomeNewActivity::class.java)
             intent.putExtra("new_keyword",tv_home_new_keyword.text.toString())
             startActivity(intent)
-
         }
-
-        img_home_auctionicon.setOnClickListener {
-
-            (activity as MainActivity).replaceFragment(2)
-
-
-        }
+        img_home_auctionicon.setOnClickListener {(activity as MainActivity).replaceFragment(2)}
 
         img_home_plubicon.setOnClickListener {
             val intent = Intent(context, RecommendStyleActivity::class.java)
             startActivity(intent)
-
         }
 
         img_home_recenticon.setOnClickListener {
-
             val intent = Intent(context, HomeRecentActivity::class.java)
             intent.putExtra("recent_keyword",tv_home_recent_keyword.text.toString())
             startActivity(intent)
@@ -113,9 +100,7 @@ class HomeFragment : Fragment() {
             val intent = Intent(context, HomeRecommendActivity::class.java)
             intent.putExtra("recommend_keyword",tv_home_recommend_keyword.text.toString())
             startActivity(intent)
-
         }
-
     }
 
 
@@ -128,8 +113,6 @@ class HomeFragment : Fragment() {
         dotsIndicator.setViewPager(viewPager)
         vp_home_viewpager.adapter = adapter
         vp_home_viewpager.offscreenPageLimit=2
-
-
 
     }
 

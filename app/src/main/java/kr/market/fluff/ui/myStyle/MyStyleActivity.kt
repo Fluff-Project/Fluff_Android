@@ -39,13 +39,10 @@ class MyStyleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_style)
-
         init()
     }
     private fun init(){
-
         initMyStyleList()
-
         btn_my_style_default.setOnClickListener {
             val intent = Intent(this,RecommendStyleActivity::class.java)
             intent.putExtra("simple",simple.toString())
@@ -73,6 +70,7 @@ class MyStyleActivity : AppCompatActivity() {
             adapter = myStyleAdapter
             addItemDecoration(HorizontalItemDecorator(10))
             addItemDecoration(VerticalItemDecorator(10))
+            setItemViewCacheSize(40)
         }
         val token = App.prefs.local_login_token
         requestToServer.service.requestSurvey("application/json",token!!)
