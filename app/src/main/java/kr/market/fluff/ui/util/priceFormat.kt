@@ -4,8 +4,16 @@ import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
 import android.widget.EditText
-import kotlinx.android.synthetic.main.dialog_auction_bid.*
+import android.widget.TextView
 import java.text.DecimalFormat
+
+fun TextView.priceFormTextView(textView: TextView,price_data : Long){
+    val decimalFormat = DecimalFormat("#,###")
+    val tv = textView
+    var price = "${price_data}"
+    price = decimalFormat.format(price.replace(",".toRegex(), "").toDouble())
+    tv.setText("${price}원")
+}
 
 fun EditText.priceForm(editText: EditText) {
     val decimalFormat = DecimalFormat("#,###")
