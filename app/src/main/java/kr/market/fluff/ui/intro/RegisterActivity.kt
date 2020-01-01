@@ -125,7 +125,7 @@ class RegisterActivity : AppCompatActivity() {
         {
             sendToast("아이디는 빈칸일 수 없습니다.")
         }
-
+// 회원가입 email 중복성 검사
         requestToServer.service.requestValidate(
             RequestInterface.LoginValidateRequest(text)
         )
