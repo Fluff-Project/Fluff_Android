@@ -33,17 +33,30 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/arrow_ic" />
 
+<!--    <ListView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingTop="16dp"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/txt_keyword_apply"-->
+<!--        android:clipToPadding="false"-->
+<!--        android:choiceMode="multipleChoice"/>-->
+
+
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_keyword_apply"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:paddingTop="16dp"
         android:clipToPadding="false"
         app:layout_constraintTop_toBottomOf="@+id/txt_keyword_apply"
         tools:layout_editor_absoluteX="1dp" />
 
+
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_keyword_apply"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"

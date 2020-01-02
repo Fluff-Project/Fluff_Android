@@ -15,9 +15,9 @@ class KeywordAdapter(private val context: Context):RecyclerView.Adapter<KeywordV
         return KeywordViewHolder(view)
     }
 
-    override fun getItemCount(): Int =data.size
+    override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: KeywordViewHolder, position: Int) {
-        holder.bind(data[position])
+        holder.bind(data[position],context)
     }
 }

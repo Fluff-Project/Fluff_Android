@@ -2,29 +2,42 @@ package kr.market.fluff.ui.fragment.mypage.applySeller.keyword
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_keyword.*
+import kotlinx.android.synthetic.main.item_rv_keyword.*
 import kr.market.fluff.R
 import kr.market.fluff.data.mypage.KeywordData
+import kr.market.fluff.ui.util.sendToast
 
 class KeywordActivity : AppCompatActivity() {
     private lateinit var keywordAdapter: KeywordAdapter
+    var count :Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_keyword)
 
         init()
     }
+
     private fun init(){
         settingKeywordList()
+
+        btn_keyword_apply.setOnClickListener {
+
+        }
     }
     private fun settingKeywordList(){
         keywordAdapter = KeywordAdapter(this)
         rv_keyword_apply.apply {
             layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
             adapter = keywordAdapter
+            setItemViewCacheSize(15)
         }
+
+
 
         keywordAdapter.data = listOf(
             KeywordData("심플"),
@@ -39,4 +52,5 @@ class KeywordActivity : AppCompatActivity() {
             KeywordData("페미닌")
         )
     }
+
 }
