@@ -2,14 +2,10 @@ package kr.market.fluff.ui.fragment.mypage.applySeller.keyword
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_keyword.*
-import kotlinx.android.synthetic.main.item_rv_keyword.*
 import kr.market.fluff.R
 import kr.market.fluff.data.mypage.KeywordData
-import kr.market.fluff.ui.util.sendToast
 
 class KeywordActivity : AppCompatActivity() {
     private lateinit var keywordAdapter: KeywordAdapter

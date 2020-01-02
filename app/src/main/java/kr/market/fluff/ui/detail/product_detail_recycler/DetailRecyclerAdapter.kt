@@ -22,8 +22,6 @@ class DetailRecyclerAdapter (var datas:List<DetailProductData>): RecyclerView.Ad
     override fun getItemCount(): Int = datas.size
 
     override fun onBindViewHolder(holder: DetailRecyclerViewHolder, position: Int) {
-
         holder.bind(datas[position])
-
     }
 }

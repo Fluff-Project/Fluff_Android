@@ -6,12 +6,10 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_recommend_style.*
 import kr.market.fluff.R
-import kr.market.fluff.data.myStyle.RecommendStyleImgData
-import kr.market.fluff.data.myStyle.RecommendStyleRequest
+import kr.market.fluff.data.App
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.safeEnqueue
-import kr.market.fluff.ui.App
-import kr.market.fluff.ui.WelcomeActivity
+import kr.market.fluff.ui.intro.WelcomeActivity
 import kr.market.fluff.ui.util.sendToast
 
 class RecommendStyleActivity : AppCompatActivity() {
@@ -29,7 +27,7 @@ class RecommendStyleActivity : AppCompatActivity() {
 
 
         btn_recommend_style_signup.setOnClickListener {
-            val intent = Intent(this,WelcomeActivity::class.java)
+            val intent = Intent(this, WelcomeActivity::class.java)
             startActivity(intent)
             finish()
         }

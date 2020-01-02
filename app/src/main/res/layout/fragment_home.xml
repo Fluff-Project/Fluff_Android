@@ -6,6 +6,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <!-- 홈-->
 
+
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -15,19 +18,15 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="58dp">
 
-                <ImageView
-                    android:src="@drawable/home_logo_ic"
-                    android:layout_width="68dp"
-                    android:layout_height="38dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_centerHorizontal="true"/>
 
-            <androidx.viewpager.widget.ViewPager
+
+                <androidx.viewpager.widget.ViewPager
                 android:id="@+id/vp_home_viewpager"
                 android:layout_width="match_parent"
                 android:layout_height="484dp"/>
@@ -49,6 +48,15 @@
                     android:layout_alignParentBottom="true">
 
                 </com.tbuonomo.viewpagerdotsindicator.DotsIndicator>
+
+
+                <ImageView
+                    android:src="@drawable/home_logo_ic"
+                    android:layout_width="68dp"
+                    android:layout_height="38dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"/>
 
 
             </RelativeLayout>
@@ -86,16 +94,14 @@
         </RelativeLayout>
 
 
-
-
             <TextView
                 android:id="@+id/tv_home_newsubtitle"
                 style="@style/HomeSubTitleText"
-                android:layout_marginLeft="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="회원님이 좋아할 만한 빈티지에요"
-                android:layout_marginBottom="0dp"/>
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="0dp"
+                android:text="고민하는 순간, 다음은 없어요~" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_home_new"
@@ -131,7 +137,13 @@
                     android:layout_toRightOf="@id/tv_home_recenttitle"
                     android:text="무스탕" />
 
-
+                <TextView
+                    android:id="@+id/tv_home_recenttitle2"
+                    style="@style/HomeTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_home_recent_keyword"
+                    android:text=" 추천" />
 
                 <ImageView
                     android:id="@+id/img_home_recenticon"
@@ -142,14 +154,35 @@
                     android:layout_marginRight="14dp"
                     android:src="@drawable/home_arrow_ic" />
             </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/tv_home_recentsubtitle"
                 style="@style/HomeSubTitleText"
-                android:layout_marginLeft="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="회원님이 좋아할 만한 빈티지에요"
-                android:layout_marginBottom="0dp"/>
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="0dp"
+                android:text="최근에 " />
+                <TextView
+                    android:id="@+id/tv_home_recentsubtitle_keyword"
+                    style="@style/HomeSubTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:layout_toRightOf="@id/tv_home_recentsubtitle"
+                    android:text="무스탕" />
+                <TextView
+                    android:id="@+id/tv_home_recentsubtitle2"
+                    style="@style/HomeSubTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:layout_toRightOf="@id/tv_home_recentsubtitle_keyword"
+                    android:text= "을 많이 보셨군요? 이런건 어때요?" />
+            </RelativeLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_home_recent"
@@ -209,7 +242,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="뽀뿌리님이 좋아할 만한 셀러에요"
+                android:text="회원님이 좋아할 만한 셀러에요"
                 android:layout_marginBottom="0dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -265,7 +298,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="플러프에만 있는 유니크 빈티지"
+                android:text="플러프에만 있는 하이퀄리티 빈티지예요"
                 android:layout_marginBottom="0dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -399,4 +432,7 @@
 
         </LinearLayout>
     </ScrollView>
+
+
+
 </FrameLayout>

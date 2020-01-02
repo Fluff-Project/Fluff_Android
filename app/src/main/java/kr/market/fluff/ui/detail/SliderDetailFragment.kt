@@ -28,7 +28,7 @@ class SliderDetailFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
 
-        val img: Int = arguments!!.getInt("background_img")
+        val img: String = arguments!!.getString("background_img")!!
 
         Glide.with(context!!)
             .load(img)

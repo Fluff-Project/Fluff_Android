@@ -10,12 +10,12 @@ import kr.market.fluff.R
 import kr.market.fluff.data.mypage.TransferData
 
 class TransferViewHolder(private val context:Context, view : View) : RecyclerView.ViewHolder(view){
-    val img_transfer_item = view.findViewById<ImageView>(R.id.img_transfer_item)
-    val tv_transfer_date = view.findViewById<TextView>(R.id.tv_transfer_date)
+    val img_transfer_item = view.findViewById<ImageView>(R.id.img_cart_item)
+    val tv_transfer_date = view.findViewById<TextView>(R.id.tv_cart_date)
     val tv_transfer_status = view.findViewById<TextView>(R.id.tv_transfer_status)
-    val tv_buy_price = view.findViewById<TextView>(R.id.tv_buy_price)
-    val tv_transfer_seller_name = view.findViewById<TextView>(R.id.tv_transfer_seller_name)
-    val tv_transfer_item_name = view.findViewById<TextView>(R.id.tv_transfer_item_name)
+    val tv_buy_price = view.findViewById<TextView>(R.id.tv_cart_goods_price)
+    val tv_transfer_seller_name = view.findViewById<TextView>(R.id.tv_cart_seller_name)
+    val tv_transfer_item_name = view.findViewById<TextView>(R.id.tv_cart_item_name)
     fun bind(transfer_data : TransferData){
         Glide.with(context).load(transfer_data.img_transfer_item).into(img_transfer_item)
         tv_transfer_date.text = transfer_data.purchase_date

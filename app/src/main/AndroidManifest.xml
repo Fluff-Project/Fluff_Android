@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".ui.App"
+        android:name=".data.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,8 +17,8 @@
         <activity android:name=".ui.fragment.mypage.applySeller.keyword.KeywordActivity" />
         <activity android:name=".ui.fragment.magazine.DetailMagazineActivity" />
         <activity android:name=".ui.review.ReviewActivity" />
-        <activity android:name=".ui.CompletingPurchaseActivity" />
-        <activity android:name=".ui.WelcomeActivity" />
+        <activity android:name=".ui.purchase.CompletingPurchaseActivity" />
+        <activity android:name=".ui.intro.WelcomeActivity" />
         <activity android:name=".ui.ProductRegisterActivity" />
         <activity android:name=".ui.fragment.mypage.applySeller.SellerEditActivity" />
         <activity android:name=".ui.fragment.mypage.applySeller.ApplySellerActivity" />
@@ -57,17 +57,16 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.PurchaseCompleteActivity" />
+        <activity android:name=".ui.purchase.PurchaseCompleteActivity" />
         <activity android:name=".ui.fragment.mypage.transfer.ConfirmTransferActivity" />
         <activity android:name=".ui.fragment.mypage.favorite.FavoriteActivity" />
         <activity android:name=".ui.recommendStyle.RecommendStyleActivity" />
         <activity android:name=".ui.myStyle.MyStyleActivity" />
-        <activity android:name=".ui.PurchaseActivity" />
+        <activity android:name=".ui.purchase.PurchaseActivity" />
         <activity android:name=".ui.intro.RegisterActivity" />
         <activity android:name=".ui.detail.ProductDetailActivity" />
         <activity android:name=".ui.fragment.mypage.cart.CartActivity" />
         <activity android:name=".ui.MainActivity">
-
         </activity>
         <activity android:name=".ui.fragment.home.home_banner_detail.HomeBannerDetailActivity" />
     </application>

@@ -1,4 +1,4 @@
-package kr.market.fluff.ui
+package kr.market.fluff.data
 
 import android.content.Context
 import android.content.SharedPreferences

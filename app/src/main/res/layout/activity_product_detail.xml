@@ -4,16 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/rl_detail_layout"
     tools:context=".ui.detail.ProductDetailActivity">
 
-    <ImageView
-        android:id="@+id/img_detail_my_cart"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="24dp"
-        android:layout_marginTop="62dp"
-        android:src="@drawable/shoppingbag_ic" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,6 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -33,18 +29,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="428dp"/>
 
-            <ImageView
-                android:id="@+id/img_product_detail_back"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="62dp"
-                android:adjustViewBounds="true"
-                android:layout_marginLeft="16dp"
-                android:scaleType="centerCrop"
-                android:scaleX="1.2"
-                android:scaleY="1.2"
-                android:layout_alignParentLeft="true"
-                android:src="@drawable/ic_left"/>
 
             <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
                 android:id="@+id/detail_dots_indicator"
@@ -189,7 +173,7 @@
             android:textColor="#434343"
             android:letterSpacing="-0.03"
             android:lineSpacingExtra="9sp"
-            android:layout_marginRight="60dp"
+            android:layout_marginRight="18dp"
             android:layout_marginLeft="18dp"
             android:layout_marginBottom="16dp"
             android:text = "기본 진한 브라운 색이며 코듀로이 재질로 되어있어요. 두께감이 얇은데 코듀로이 재질이라서 다른 셔츠들에 비해 따뜻한 편이며 이너로 입기에 좋습니다."/>
@@ -358,6 +342,32 @@
     </LinearLayout>
     </ScrollView>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/img_product_detail_back"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:adjustViewBounds="true"
+        android:layout_marginLeft="16dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/back_icon"/>
+
+
+        <ImageView
+            android:id="@+id/img_detail_my_cart"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/shoppingbag_ic" />
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/rl_detail_bottom"
@@ -394,5 +404,4 @@
         </RelativeLayout>
 
     </RelativeLayout><!--하단바-->
-
 </RelativeLayout>
