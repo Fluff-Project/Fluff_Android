@@ -10,7 +10,7 @@ import kr.market.fluff.data.myStyle.RecommendStyleImgData
 class RecommendStyleImgViewHolder (view: View) :RecyclerView.ViewHolder(view){
     val img_url: ImageView = view.findViewById(R.id.img_recommend_style_img)
 
-    fun bind(data: RecommendStyleImgData){
-        Glide.with(itemView).load(data.img_url).into(img_url)
+    fun bind(data: String){
+        Glide.with(itemView).load(data).into(img_url)
     }
 }
