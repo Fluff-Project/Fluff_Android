@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.market.fluff.R
 import kr.market.fluff.data.home.BannerRecyclerData
+import kr.market.fluff.data.home.HomeRecommendData
+import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.ui.util.drawCustomToast
 
 class BannerRecyclerViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView) {
@@ -19,13 +21,13 @@ class BannerRecyclerViewHolder (itemView : View) : RecyclerView.ViewHolder(itemV
     val banner_img_btn : ImageView = itemView.findViewById(R.id.img_banner_rv_heartbtn)
     var banner_heart_bool : Boolean = true
 
-    fun bind(data : BannerRecyclerData,context: Context)
+    fun bind(data : RequestInterface.HomeDetailData,context: Context)
     {
         Glide.with(itemView)
             .load(data.img)
             .into(banner_recycler_img)
         banner_recycler_closet.text = data.closet
-        banner_recycler_price.text = data.price
+        banner_recycler_price.text = data.price.toString()+"원"
         banner_recycler_seller.text = data.seller
 
 

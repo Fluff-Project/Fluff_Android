@@ -1,7 +1,7 @@
 # Fluff_Android
 
 
-# 1. 프로젝트 사용 라이브러리! (2019.12.30 수정)
+# 1. 프로젝트 사용 라이브러리! (2020.01.02 수정)
 
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.android.support:design:29.0.0'
@@ -79,7 +79,7 @@ kotlin extension을 이용하여 작성된 enqueue메소드와 sendToast라는 �
 이메일 중복체크 결과를 띄우는 토스트 또한 Toast의 함수를 확장시켜 sendToast를 이용하였다.
 (기존 코드의 반복되는 요소들을 줄일 수 있었다.)
 
-ex) 토스트를 만들어 사용하는 경우
+ex 1) 토스트를 만들어 사용하는 경우
 val toast = Toast.makeText(this,"멘트",Toast.LENTH_SHORT)
 toast.show()
 
@@ -87,6 +87,21 @@ toast.show()
 sendToast("멘트") 를 작성해주기만 하면 된다.
 
 ![s](https://user-images.githubusercontent.com/54485132/71463993-816e8580-27fb-11ea-8b67-1a6dd3516188.png)
+
+ex 2) enqueue 메소드
+
+ex 3) textview
+가격을 1000원 -> 1,000원 으로 바꾸어주었다.
+
+![image](https://user-images.githubusercontent.com/37995236/71648441-ad33c300-2d47-11ea-9707-542272650377.png)
+
+ex 4) editText
+가격 입력시 자동으로 ,(콤마) 넣어주었다.
+![image](https://user-images.githubusercontent.com/37995236/71648529-bcffd700-2d48-11ea-994f-ac0e8eb865e9.png)
+
+![edittext](https://user-images.githubusercontent.com/37995236/71648539-ed477580-2d48-11ea-92c9-70a735696213.gif)
+
+
 ## 2. lambda 식 이용하기.
 
 
@@ -145,8 +160,9 @@ https://re-build.tistory.com/11
 이 과정에서 RadioGroup은 기본으로 제공되는 상태로는 두 줄로 나열 할 수 없었기에 
 implementation 'com.yuxingxin.multiradiogroup:library:1.0.0'
 을 통해 이를 가능하게 해 주었다.
+Bottom sheet Behavior 속성 중 hideable="true"를 통해 드래그해서 필터 뷰를 내릴 수 있도록 구현해주었다.
 
-![filter](https://user-images.githubusercontent.com/54485132/71578002-a20b4800-2b39-11ea-962a-2f33c14e8753.gif)
+![bottomsheet](https://user-images.githubusercontent.com/37995236/71648361-9f317280-2d46-11ea-99b9-193261e98ad2.gif)
 
 
 

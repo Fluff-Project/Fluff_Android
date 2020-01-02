@@ -37,16 +37,13 @@
 
                 <ImageView
                     android:id="@+id/img_banner_back"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_marginTop="62dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:layout_marginTop="32dp"
                     android:adjustViewBounds="true"
                     android:layout_marginLeft="16dp"
-                    android:scaleType="centerCrop"
-                    android:scaleX="1.2"
-                    android:scaleY="1.2"
                     android:layout_alignParentLeft="true"
-                    android:src="@drawable/ic_left_white"/>
+                    android:src="@drawable/imageback_ic_white"/>
 
 
                 <TextView

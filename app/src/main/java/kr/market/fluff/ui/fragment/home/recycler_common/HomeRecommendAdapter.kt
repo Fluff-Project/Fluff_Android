@@ -6,8 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kr.market.fluff.R
 import kr.market.fluff.data.home.HomeRecommendData
+import kr.market.fluff.network.RequestInterface
 
-class HomeRecommendAdapter (var datas:List<HomeRecommendData>): RecyclerView.Adapter<HomeRecommendViewHolder>(){
+class HomeRecommendAdapter (var datas:List<RequestInterface.HomeDetailData>): RecyclerView.Adapter<HomeRecommendViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeRecommendViewHolder {
         val view: View = LayoutInflater
             .from(parent.context)

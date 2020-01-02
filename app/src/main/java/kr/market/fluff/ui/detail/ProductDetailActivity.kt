@@ -3,6 +3,7 @@ package kr.market.fluff.ui.detail
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
@@ -28,8 +29,9 @@ class ProductDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_product_detail)
-
+        img_detail_my_cart.setOnClickListener {startActivity(Intent(this,CartActivity::class.java))}
         img_detail_heart.setOnClickListener {
             var toast = Toast(this )
 

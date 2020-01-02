@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_keyword.*
 import kotlinx.android.synthetic.main.item_rv_keyword.*
 import kr.market.fluff.R
 import kr.market.fluff.data.mypage.KeywordData
+import kr.market.fluff.ui.App
 import kr.market.fluff.ui.util.sendToast
 
 class KeywordActivity : AppCompatActivity() {

@@ -16,6 +16,7 @@ import kr.market.fluff.data.mypage.MyPageRecentSawGoods
 import kr.market.fluff.ui.MainActivity
 import kr.market.fluff.ui.fragment.mypage.applySeller.ApplySellerActivity
 import kr.market.fluff.ui.fragment.mypage.applySeller.SellerEditActivity
+import kr.market.fluff.ui.fragment.mypage.cart.CartActivity
 import kr.market.fluff.ui.fragment.mypage.favorite.FavoriteActivity
 import kr.market.fluff.ui.fragment.mypage.transfer.ConfirmTransferActivity
 import kr.market.fluff.ui.fragment.mypage.update.MyInfoUpdateActivity
@@ -47,12 +48,9 @@ class MyPageFragment(private val activity : Activity) : Fragment() {
             adapter = recentSawAdapter
             addItemDecoration(HorizontalItemDecorator(24))
         }
-//        val snapHelper = LinearSnapHelper()
-//        snapHelper.attachToRecyclerView(rv_mypage_recent_goods)
-
-
     }
     private fun init(){
+        ll_my_cart.setOnClickListener{startActivity(Intent(this.context,CartActivity::class.java))}
         ll_my_favorite.setOnClickListener{
             val intent = Intent(this.context,
                 FavoriteActivity::class.java)
@@ -72,7 +70,6 @@ class MyPageFragment(private val activity : Activity) : Fragment() {
             intent.putExtra("myInfo_email",tv_mypage_user_email.text.toString())
             startActivityForResult(intent,REQ_CODE)
         }
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
