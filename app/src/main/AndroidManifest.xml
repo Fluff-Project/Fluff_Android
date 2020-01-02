@@ -28,6 +28,7 @@
         <activity android:name=".ui.fragment.mypage.update.MyInfoUpdateActivity" />
         <activity android:name=".ui.fragment.mypage.flub.FlubRegularCustomer" />
         <activity android:name=".ui.fragment.auction.DetailAuctionActivity" />
+
         <activity android:name=".ui.intro.LoginActivity"></activity>
 
         <meta-data

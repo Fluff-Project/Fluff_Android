@@ -5,6 +5,7 @@ import android.animation.ObjectAnimator
 import android.content.Context
 import android.graphics.Color
 import android.graphics.PorterDuff
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
@@ -18,7 +19,7 @@ class MyStyleViewHolder (view: View) : RecyclerView.ViewHolder(view){
     val img_my_style_checked: ImageView = view.findViewById(R.id.img_my_style_checked)
     private val limit_count: Int = 3
 
-    fun bind(data: MyStyleData, context: Context){
+    fun bind(data: MyStyleData, context: Context,position : Int){
         Glide.with(itemView).load(data.img).into(img_my_style)
         var ctx = context as MyStyleActivity
         img_my_style.setOnClickListener {

@@ -32,21 +32,21 @@ class CartSellerListViewHolder(view : View) : RecyclerView.ViewHolder(view){
             CartSellersGoods(
                 img_cart_item = "https://cdn.pixabay.com/photo/2014/02/27/16/10/medieval-276019__340.jpg",
                 txt_item_name = "목늘어난 반팔티",
-                txt_item_price = 19800
+                txt_item_price = 38000
             )
         )
         goods_adapter.data.add(
             CartSellersGoods(
-                img_cart_item = "https://cdn.pixabay.com/photo/2014/02/27/16/10/medieval-276019__340.jpg",
-                txt_item_name = "목늘어난 반팔티",
-                txt_item_price = 19800
+                img_cart_item = "https://cdn.pixabay.com/photo/2019/11/21/08/13/woman-4642003__340.jpg",
+                txt_item_name = "울 니트",
+                txt_item_price = 32500
             )
         )
         goods_adapter.data.add(
             CartSellersGoods(
-                img_cart_item = "https://cdn.pixabay.com/photo/2014/02/27/16/10/medieval-276019__340.jpg",
-                txt_item_name = "목늘어난 반팔티",
-                txt_item_price = 19800
+                img_cart_item = "https://cdn.pixabay.com/photo/2016/01/19/14/45/person-1148941__340.jpg",
+                txt_item_name = "반찢어진 청바지",
+                txt_item_price = 28000
             )
         )
     }
