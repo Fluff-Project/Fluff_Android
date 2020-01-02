@@ -6,13 +6,11 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_home_recent.*
-import kotlinx.android.synthetic.main.activity_home_recommend.*
 import kr.market.fluff.R
-import kr.market.fluff.data.home.BannerRecyclerData
+import kr.market.fluff.data.App
 import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.safeEnqueue
-import kr.market.fluff.ui.App
 import kr.market.fluff.ui.fragment.home.home_banner_detail.BannerRecyclerAdapter
 import kr.market.fluff.ui.fragment.mypage.cart.CartActivity
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator

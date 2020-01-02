@@ -6,23 +6,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
-import kotlinx.android.synthetic.main.activity_home_recent.*
-import kotlinx.android.synthetic.main.activity_home_recommend.*
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_home.tv_home_recommendsubtitle
 import kr.market.fluff.R
+import kr.market.fluff.data.App
 import kr.market.fluff.data.home.*
 import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.safeEnqueue
-import kr.market.fluff.ui.App
 import kr.market.fluff.ui.MainActivity
-import kr.market.fluff.ui.fragment.home.home_banner_detail.BannerRecyclerAdapter
 import kr.market.fluff.ui.fragment.home.home_detail.HomeNewActivity
 import kr.market.fluff.ui.fragment.home.home_detail.HomeRecentActivity
 import kr.market.fluff.ui.fragment.home.home_detail.HomeRecommendActivity
@@ -30,12 +25,10 @@ import kr.market.fluff.ui.fragment.home.recycler_auction.HomeAuctionAdapter
 import kr.market.fluff.ui.fragment.home.recycler_common.HomeNewAdapter
 import kr.market.fluff.ui.fragment.home.recycler_common.HomeRecentAdapter
 import kr.market.fluff.ui.fragment.home.recycler_common.HomeRecommendAdapter
-import kr.market.fluff.ui.fragment.home.recycler_keyword.HomeKeywordAdapter
 import kr.market.fluff.ui.fragment.home.recycler_plub.HomePlubAdapter
 import kr.market.fluff.ui.fragment.home.viewpager.ViewPagerAdapter
 import kr.market.fluff.ui.recommendStyle.RecommendStyleActivity
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
-import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 import kr.market.fluff.ui.util.sendToast
 import java.time.LocalDate
 

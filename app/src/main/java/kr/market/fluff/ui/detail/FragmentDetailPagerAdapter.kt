@@ -7,18 +7,16 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import kr.market.fluff.R
 
 
-class FragmentDetailPagerAdapter(fm: FragmentManager?, val num_fragment : Int) : FragmentStatePagerAdapter(fm!!) {
+class FragmentDetailPagerAdapter(fm: FragmentManager?, val num_fragment : Int,private val img_datas:ArrayList<String>) : FragmentStatePagerAdapter(fm!!) {
     override fun getItem(p0: Int): Fragment {
 
-        var fragment : SliderDetailFragment =
+        var fragment =
             SliderDetailFragment()
-        var bundle : Bundle = Bundle(3)
+        val capacity = img_datas.size+1
 
-        when(p0){
-            0->  bundle.putInt("background_img", R.drawable.product_detail_main)
-            1->  bundle.putInt("background_img", R.drawable.product_detail_main)
-            2->  bundle.putInt("background_img", R.drawable.product_detail_main)
-        }
+
+        var bundle = Bundle(capacity)
+        bundle.putString("background_img",img_datas.get(p0))
         fragment.arguments  = bundle
         return fragment
     }

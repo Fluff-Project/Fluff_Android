@@ -6,14 +6,13 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.core.app.ActivityCompat.finishAffinity
-import androidx.core.content.IntentCompat
 import com.facebook.AccessToken
 import com.facebook.GraphRequest
 import com.facebook.HttpMethod
 import com.facebook.login.LoginManager
 import kotlinx.android.synthetic.main.dialog_mypage_logout.*
 import kr.market.fluff.R
-import kr.market.fluff.ui.App
+import kr.market.fluff.data.App
 import kr.market.fluff.ui.intro.LoginActivity
 
 

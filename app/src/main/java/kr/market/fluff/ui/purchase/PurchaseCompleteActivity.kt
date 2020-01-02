@@ -1,4 +1,4 @@
-package kr.market.fluff.ui
+package kr.market.fluff.ui.purchase
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -6,7 +6,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.animation.BounceInterpolator
 import androidx.core.animation.doOnEnd
 import kotlinx.android.synthetic.main.activity_purchase_complete.*
 import kr.market.fluff.R

@@ -3,15 +3,12 @@ package kr.market.fluff.ui.myStyle
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_my_style.*
 import kr.market.fluff.R
-import kr.market.fluff.data.myStyle.MyStyleData
-import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.safeEnqueue
-import kr.market.fluff.ui.App
+import kr.market.fluff.data.App
 import kr.market.fluff.ui.recommendStyle.RecommendStyleActivity
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator

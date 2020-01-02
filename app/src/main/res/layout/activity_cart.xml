@@ -144,10 +144,10 @@
                     android:text="삭제"/>
             </RelativeLayout>
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_cart_seller_list"
+                android:id="@+id/rv_cart_goods_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#ffffff"
+                android:background="#f8f8f8"
                 android:paddingTop="12dp"/>
         </LinearLayout>
 

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/rl_detail_layout"
     tools:context=".ui.detail.ProductDetailActivity">
 
 
@@ -172,7 +173,7 @@
             android:textColor="#434343"
             android:letterSpacing="-0.03"
             android:lineSpacingExtra="9sp"
-            android:layout_marginRight="60dp"
+            android:layout_marginRight="18dp"
             android:layout_marginLeft="18dp"
             android:layout_marginBottom="16dp"
             android:text = "기본 진한 브라운 색이며 코듀로이 재질로 되어있어요. 두께감이 얇은데 코듀로이 재질이라서 다른 셔츠들에 비해 따뜻한 편이며 이너로 입기에 좋습니다."/>
@@ -403,5 +404,4 @@
         </RelativeLayout>
 
     </RelativeLayout><!--하단바-->
-
 </RelativeLayout>

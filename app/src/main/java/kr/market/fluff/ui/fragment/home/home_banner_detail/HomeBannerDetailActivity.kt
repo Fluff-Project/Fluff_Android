@@ -4,16 +4,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearSnapHelper
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_home_banner_detail.*
-import kotlinx.android.synthetic.main.activity_home_recommend.*
 import kr.market.fluff.R
-import kr.market.fluff.data.home.BannerRecyclerData
+import kr.market.fluff.data.App
 import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.safeEnqueue
-import kr.market.fluff.ui.App
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 import kr.market.fluff.ui.util.sendToast

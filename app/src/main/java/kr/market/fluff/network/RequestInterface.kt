@@ -3,6 +3,7 @@ package kr.market.fluff.network
 
 
 import com.facebook.login.Login
+import kr.market.fluff.data.detail.DetailProductData
 import com.google.gson.annotations.SerializedName
 import kr.market.fluff.data.intro.ResponseLogin
 import kr.market.fluff.data.intro.ResponseValidateAndRegisterAndLogin
@@ -42,13 +43,6 @@ interface RequestInterface {
     // @Serialized -> Respones 단계시
 
 
-    @GET("/survey")
-    fun requestSurvey(
-        @Header("Content-Type") content_type: String,
-        @Header("x-access-token") token: String
-    ): Call<BaseResponse<MyStyleResponse>>
-
-
     data class LoginRequest(
         val email: String,
         val pwd: String
@@ -58,6 +52,12 @@ interface RequestInterface {
         val token: String,
         val refresh: String
     )
+
+    @GET("/survey")
+    fun requestSurvey(
+        @Header("Content-Type") content_type: String,
+        @Header("x-access-token") token: String
+    ): Call<BaseResponse<MyStyleResponse>>
 
     //로그인 중복확인 부분
     @POST("/auth/checkEmail")
@@ -72,8 +72,25 @@ interface RequestInterface {
         val duplication : Boolean
     )
 
+    @GET("/goods/{goodsId}")
+    fun requestProductDetail(
+        @Path("goodsId")goodsId: String,
+        @Header("Content-Type") content_type: String,
+        @Header("x-access-token") token: String
+    ): Call<BaseResponse<DetailProductResponse>>
+    data class DetailProductResponse(
+        val mainImg: String,
+        val img : ArrayList<String>,
+        val size : String,
+        val condition : Int,
+        val comment : String,
+        val grade : Int,
+        val _id : String
+    )
 
-    //TODO 구현 확인 필요
+
+
+
     @POST("/auth/directSignUp")
     fun requestRegister(@Body body: RegisterRequest) : Call<BaseResponse<RegisterResponse>> //validate해서 받는 데이터의 형식.
 
@@ -90,23 +107,21 @@ interface RequestInterface {
         val gender : String
     )
 
-    //TODO 구현 필요
-    @GET("magazine/")
+
+    @GET("/magazine")
     fun request_magazine(
         @Header("Content-Type") content_type: String,
         @Header("x-access-token") token: String
-    ) : Call<BaseResponseJson<MagazineResponse>>
+    ) : Call<BaseResponse<List<MagazineResponse>>>
+
     data class MagazineResponse(
-        val magazine_data : ArrayList<MagazineThumbnail>
-    )
-    data class MagazineThumbnail(
         val imgUrl : String,
         val _id : String
     )
 
     //TODO 구현 필요
     @GET("/follow/followList")
-    fun request_follow_list() : Call<BaseResponseJson<FollowResponse>>
+    fun request_follow_list() : Call<BaseResponse<FollowResponse>>
     data class FollowResponse(
         val _id : String
     )
@@ -116,8 +131,8 @@ interface RequestInterface {
     fun request_cart_list(
         @Header("Content-Type") content_type : String,
         @Header("x-access-token") token :String
-    ) : Call<BaseResponseJson<ArrayList<CartListObject>>>
-    data class CartListObject(
+    ) : Call<BaseResponse<ArrayList<CartListResponse>>>
+    data class CartListResponse(
         val userName : String,
         val Img : String,
         val goodsId : String,
@@ -125,17 +140,20 @@ interface RequestInterface {
         val price : Long
     )
 
-    //TODO 구현 필요 - 장바구니에 상품 담기 - ProductDetailActivity
-    @FormUrlEncoded
+    //구현완료 - 장바구니 추가 버튼
     @POST("/cart")
     fun request_cart_add(
         @Header("Content-Type") content_type : String,
         @Header("x-access-token") token :String,
-        @Field("goodsIdList")goodsIdList : ArrayList<GoodsAddRequest>
-    ) : Call<BaseResponseJson<ArrayList<String>>>
-    data class GoodsAddRequest(
+        @Body body: RequestCartAdd
+    ) : Call<BaseResponse<ArrayList<ResponseCartAdd>>>
+    data class RequestCartAdd(
+        val cartId : String
+    )
+    data class ResponseCartAdd(
         val _id : String
     )
+
 
     //TODO 구현 필요 - 장바구니 상품 삭제 - CartActivity
     @DELETE("/cart")
@@ -143,7 +161,7 @@ interface RequestInterface {
         @Header("Content-Type") content_type : String,
         @Header("x-access-token") token :String,
         @Body body: CartDeleteRequest
-    ) : Call<BaseResponseJson<CartDeleteResponse>>
+    ) : Call<BaseResponse<CartDeleteResponse>>
 //    request_cart_delete("application/json",token,body)
     data class CartDeleteRequest(
         val deleteId : ArrayList<String>
@@ -156,10 +174,21 @@ interface RequestInterface {
     @POST("order/goodsList")
     fun request_order_add(
         @Header("Content-Type") content_type : String,
-        @Header("x-access-token") token :String
-    ) : Call<BaseResponseJson<AddOrderListResponse>>
+        @Header("x-access-token") token :String,
+        @Body body: RequestOrderedGoodsList
+    ) : Call<AddOrderListResponse>
+
+    //"orderList": ["5e0874e31259cf46a8978624","5e0874f77740580910a8b849"]
+    data class RequestOrderedGoodsList(
+        val orderList:ArrayList<String>
+    )
     data class AddOrderListResponse(
-        val data : String
+        val code : Int,
+        val json : ResponseData
+    )
+    data class ResponseData(
+        val success : Boolean,
+        val data : Int
     )
 
     //TODO 구현 필요 - 최종 주문결과 확인(조회) - PurchaseCompleteActivity
@@ -167,7 +196,7 @@ interface RequestInterface {
     fun request_order_confirm(
         @Header("Content-Type") content_type : String,
         @Header("x-access-token") token :String
-    ) : Call<BaseResponseJson<ConfirmOrderResponse>>
+    ) : Call<BaseResponse<ConfirmOrderResponse>>
     data class ConfirmOrderResponse(
         val data : String
     )

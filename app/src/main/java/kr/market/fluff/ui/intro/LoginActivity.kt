@@ -18,7 +18,7 @@ import kr.market.fluff.R
 import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.safeEnqueue
-import kr.market.fluff.ui.App
+import kr.market.fluff.data.App
 import kr.market.fluff.ui.myStyle.MyStyleActivity
 import kr.market.fluff.ui.util.sendToast
 import org.json.JSONException

@@ -7,6 +7,8 @@
     android:layout_marginTop="16dp"
     android:orientation="vertical">
 
+
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
@@ -30,32 +32,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cart_image_example" />
 
-    <TextView
-        android:id="@+id/tv_cart_date"
+    <CheckBox
+        android:id="@+id/cb_cart_goods"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="2019.10.12"
-        android:fontFamily="@font/ko_pub"
-        android:textFontWeight="400"
-        android:textSize="11sp"
-        android:textColor="#888888"
-        android:lineSpacingExtra="6sp"
-        app:layout_constraintStart_toEndOf="@+id/img_cart_item"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_transfer_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/ko_pub"
-        android:lineSpacingExtra="6sp"
-        android:text="배송중"
-        android:textColor="#888888"
-        android:textFontWeight="400"
-        android:textSize="11sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="@+id/img_cart_item" />
 
     <TextView
         android:id="@+id/tv_cart_goods_price"
@@ -68,8 +50,8 @@
         android:textColor="#000000"
         android:textFontWeight="900"
         android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView12"
-        app:layout_constraintEnd_toStartOf="@+id/textView12" />
+        app:layout_constraintBottom_toBottomOf="@+id/img_cart_item"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2" />
 
     <TextView
         android:id="@+id/textView13"
@@ -77,59 +59,47 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
         android:fontFamily="@font/ko_pub"
-        android:textSize="11sp"
-        android:textColor="#989898"
         android:letterSpacing="-0.04"
         android:lineSpacingExtra="6sp"
-        android:text="결제 금액"
+        android:text="금액"
+        android:textColor="#989898"
         android:textFontWeight="900"
-        app:layout_constraintBottom_toBottomOf="@+id/textView12"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_cart_goods_price"
         app:layout_constraintEnd_toStartOf="@+id/tv_cart_goods_price"
-        app:layout_constraintTop_toTopOf="@+id/textView12" />
+        app:layout_constraintTop_toTopOf="@+id/tv_cart_goods_price" />
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/ko_pub"
-        android:letterSpacing="0.01"
-        android:lineSpacingExtra="7sp"
-        android:text="원"
-        android:textColor="#000000"
-        android:textFontWeight="900"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="@+id/img_cart_item"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2" />
     <TextView
         android:id="@+id/tv_cart_seller_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:text="셀러 이름"
-        android:textSize="11sp"
+        android:layout_marginStart="10dp"
         android:fontFamily="@font/ko_pub"
-        android:textFontWeight="400"
-        android:textColor="#989898"
         android:letterSpacing="-0.04"
         android:lineSpacingExtra="6sp"
-        app:layout_constraintStart_toStartOf="@+id/tv_cart_date"
-        app:layout_constraintTop_toBottomOf="@+id/tv_cart_date" />
+        android:text="셀러 이름"
+        android:textColor="#989898"
+        android:textFontWeight="400"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/img_cart_item"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_cart_item_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:text="상품명 들어감"
-        android:textSize="14sp"
+        android:layout_marginTop="6dp"
         android:fontFamily="@font/ko_pub"
-        android:textFontWeight="500"
-        android:textColor="#000000"
         android:lineSpacingExtra="8sp"
-        app:layout_constraintStart_toStartOf="@+id/tv_cart_date"
+        android:text="상품명 들어감"
+        android:textColor="#000000"
+        android:textFontWeight="600"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_cart_seller_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_cart_seller_name" />
 
     <View
+        android:id="@+id/view3"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="16dp"
