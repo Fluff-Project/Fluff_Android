@@ -8,9 +8,10 @@
 
     <ImageView
         android:id="@+id/img_detail_rv_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="220dp"
+        android:layout_width="141dp"
+        android:layout_height="161dp"
         android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

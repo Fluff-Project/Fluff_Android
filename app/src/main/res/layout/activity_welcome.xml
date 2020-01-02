@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/welcome_img"
-    tools:context=".ui.WelcomeActivity">
+    tools:context=".ui.intro.WelcomeActivity">
     <View
         android:background="@drawable/welcome_view_gradient"
         android:layout_width="match_parent"
