@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.market.fluff.R
-import kr.market.fluff.data.myStyle.RecommendStyleData
+import kr.market.fluff.data.myStyle.RecommendSellerResponse
 import kr.market.fluff.data.myStyle.RecommendStyleImgData
 
 class RecommendStyleViewHolder(view: View): RecyclerView.ViewHolder(view){
@@ -17,17 +17,17 @@ class RecommendStyleViewHolder(view: View): RecyclerView.ViewHolder(view){
     val txt_keyword: TextView = view.findViewById(R.id.txt_recommend_style_keyword)
     val recycler_img: RecyclerView = view.findViewById(R.id.recycler_recommend_style_img)
 
-    fun bind(data: RecommendStyleData){
-        Glide.with(itemView).load(data.img_profile).into(img_profile)
-        txt_name.text = data.seller_name
-        txt_keyword.text = data.keywords
-        settingImgRecycler(data.img_url)
+    fun bind(data: RecommendSellerResponse){
+        Glide.with(itemView).load(data.sellerImg).into(img_profile)
+        txt_name.text = data.sellerName
+        txt_keyword.text = "아메카지"
+        settingImgRecycler(data.img)
     }
-    fun settingImgRecycler(data: List<RecommendStyleImgData>){
+    fun settingImgRecycler(imgData: List<String>){
         recommendStyleImgAdapter =
             RecommendStyleImgAdapter(
                 itemView.context,
-                data
+                imgData
             )
         recycler_img.apply {
             layoutManager = LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL,false)

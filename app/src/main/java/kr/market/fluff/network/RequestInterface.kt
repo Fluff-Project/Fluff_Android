@@ -7,9 +7,10 @@ import kr.market.fluff.data.detail.DetailProductData
 import com.google.gson.annotations.SerializedName
 import kr.market.fluff.data.intro.ResponseLogin
 import kr.market.fluff.data.intro.ResponseValidateAndRegisterAndLogin
-import kr.market.fluff.data.myStyle.MyStyleResponse
-import kr.market.fluff.data.myStyle.RecommendStyleData
-import kr.market.fluff.data.myStyle.RequestRecommendStyle
+import kr.market.fluff.data.myStyle.*
+import kr.market.fluff.data.mypage.ToSellerRequest
+import kr.market.fluff.data.mypage.ToSellerResponse
+import okhttp3.MultipartBody
 import org.json.JSONArray
 import retrofit2.Call
 import retrofit2.http.*
@@ -43,6 +44,34 @@ interface RequestInterface {
     // @Serialized -> Respones 단계시
 
 
+    @GET("/survey")
+    fun requestSurvey(
+        @Header("Content-Type") content_type: String,
+        @Header("x-access-token") token: String
+    ): Call<BaseResponse<MyStyleResponse>>
+
+
+    @POST("/shopper/toSeller")
+    fun requestToSeller(
+        @Header("x-access-token") token: String,
+        @Part image : ToSellerRequest
+    ): Call<BaseResponse<List<ToSellerResponse>>>
+
+    @PUT("/recommend/keyDB")
+    fun requestRecommendStyle(
+        @Header("Content-Type") content_type: String,
+        @Header("x-access-token") token: String,
+        @Body body: RecommendStyleRequest
+    ):Call<RecommendStyleResponse>
+
+    @GET("/recommend/seller")
+    fun requestRecommendSeller(
+        @Header("Content-Type") content_type: String,
+        @Header("x-access-token") token: String,
+        @Query("page") page: Int
+    ):Call<BaseResponse<ArrayList<RecommendSellerResponse>>>
+
+
     data class LoginRequest(
         val email: String,
         val pwd: String
@@ -52,12 +81,6 @@ interface RequestInterface {
         val token: String,
         val refresh: String
     )
-
-    @GET("/survey")
-    fun requestSurvey(
-        @Header("Content-Type") content_type: String,
-        @Header("x-access-token") token: String
-    ): Call<BaseResponse<MyStyleResponse>>
 
     //로그인 중복확인 부분
     @POST("/auth/checkEmail")
