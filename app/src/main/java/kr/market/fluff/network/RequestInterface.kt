@@ -134,7 +134,7 @@ interface RequestInterface {
     ) : Call<BaseResponse<ArrayList<CartListResponse>>>
     data class CartListResponse(
         val userName : String,
-        val Img : String,
+        val Img : ArrayList<String>,
         val goodsId : String,
         val goodsName : String,
         val price : Long
