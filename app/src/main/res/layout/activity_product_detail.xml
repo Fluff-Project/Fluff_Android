@@ -6,14 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.detail.ProductDetailActivity">
 
-    <ImageView
-        android:id="@+id/img_detail_my_cart"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="24dp"
-        android:layout_marginTop="62dp"
-        android:src="@drawable/shoppingbag_ic" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,6 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -33,18 +28,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="428dp"/>
 
-            <ImageView
-                android:id="@+id/img_product_detail_back"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="62dp"
-                android:adjustViewBounds="true"
-                android:layout_marginLeft="16dp"
-                android:scaleType="centerCrop"
-                android:scaleX="1.2"
-                android:scaleY="1.2"
-                android:layout_alignParentLeft="true"
-                android:src="@drawable/ic_left"/>
 
             <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
                 android:id="@+id/detail_dots_indicator"
@@ -358,6 +341,32 @@
     </LinearLayout>
     </ScrollView>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/img_product_detail_back"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:adjustViewBounds="true"
+        android:layout_marginLeft="16dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/back_icon"/>
+
+
+        <ImageView
+            android:id="@+id/img_detail_my_cart"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/shoppingbag_ic" />
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/rl_detail_bottom"
