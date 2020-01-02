@@ -1,5 +1,6 @@
 package kr.market.fluff.ui.purchase
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -20,6 +21,8 @@ class CompletingPurchaseActivity : AppCompatActivity() {
     var user_name : String = ""
     var address : String = ""
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_completing_purchase)
@@ -32,20 +35,14 @@ class CompletingPurchaseActivity : AppCompatActivity() {
         address = intent.getStringExtra("address")
 
 
+
         btn_completing_purchase_buy.setOnClickListener {
             if(!rb_completing_purchase.isChecked||spinner_completing.equals("입금할 은행을 선택해주세요.")||et_completing_name.text.isBlank()){
                 sendToast("결제 사항을 확인해주세요")
                 return@setOnClickListener
             }
             purchaseCompleting()
-//            val intent = Intent(this,
-//                PurchaseCompleteActivity::class.java)
-//            intent.putExtra("total_price",total_price)
-//            intent.putExtra("total_real_price",total_real_price)
-//            intent.putExtra("user_name",user_name)
-//            intent.putExtra("address",address)
-//            startActivity(intent)
-//            finish()
+
         }
         rb_completing_purchase.setOnClickListener{
             fl_completing_layout.visibility = View.VISIBLE
@@ -58,10 +55,17 @@ class CompletingPurchaseActivity : AppCompatActivity() {
         RequestToServer.service.request_order_add("application/json", App.prefs.local_login_token!!,
             RequestInterface.RequestOrderedGoodsList(datas)).enqueue (
             onResponse = {
-                sendToast("성공")
+                val intent = Intent(this,
+                    PurchaseCompleteActivity::class.java)
+                intent.putExtra("total_price",total_price)
+                intent.putExtra("total_real_price",total_real_price)
+                intent.putExtra("user_name",user_name)
+                intent.putExtra("address",address)
+                startActivity(intent)
+                finish()
             },
             onFailure = {
-                sendToast("실패")
+                sendToast("결제 요청에 실패하였습니다.")
             }
         )
     }
