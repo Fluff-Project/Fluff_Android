@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.fragment.mypage.applySeller.keyword.KeywordActivity"></activity>
+        <activity android:name=".ui.fragment.mypage.applySeller.keyword.KeywordActivity" />
         <activity android:name=".ui.fragment.magazine.DetailMagazineActivity" />
         <activity android:name=".ui.review.ReviewActivity" />
         <activity android:name=".ui.CompletingPurchaseActivity" />
@@ -28,9 +28,7 @@
         <activity android:name=".ui.fragment.mypage.update.MyInfoUpdateActivity" />
         <activity android:name=".ui.fragment.mypage.flub.FlubRegularCustomer" />
         <activity android:name=".ui.fragment.auction.DetailAuctionActivity" />
-        <activity android:name=".ui.intro.LoginActivity">
-
-        </activity>
+        <activity android:name=".ui.intro.LoginActivity"></activity>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -64,6 +62,7 @@
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
