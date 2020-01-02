@@ -4,6 +4,7 @@ package kr.market.fluff.network
 
 import com.facebook.login.Login
 import kr.market.fluff.data.detail.DetailProductData
+import com.google.gson.annotations.SerializedName
 import kr.market.fluff.data.intro.ResponseLogin
 import kr.market.fluff.data.intro.ResponseValidateAndRegisterAndLogin
 import kr.market.fluff.data.myStyle.MyStyleResponse
@@ -199,6 +200,35 @@ interface RequestInterface {
     data class ConfirmOrderResponse(
         val data : String
     )
+
+    //홈 배너 디테일, 홈 디테일 데이터
+    @GET("/recommend/style")
+    fun request_recommend_home(
+        @Header("Content-Type") content_type : String,
+        @Header("x-access-token") token :String
+    ) : Call<BaseResponse<ArrayList<HomeDetailData>>>
+    data class HomeDetailData(
+        @SerializedName("goodsName")
+        val closet : String,
+        @SerializedName("mainImg")
+        val img : String,
+        @SerializedName("sellerName")
+        val seller : String,
+        @SerializedName("price")
+        val price : Int,
+        @SerializedName("_id")
+        val closetId : String
+    )
+
+    //홈화면 리사이클러뷰 7개 데이터
+    @GET("/recommend/style")
+    fun request_home_Thumbnail(
+        @Header("Content-Type") content_type : String,
+        @Header("x-access-token") token :String,
+        @Query("page")  page : Int
+    ) : Call<BaseResponse<ArrayList<HomeDetailData>>>
+
+
 
 
 

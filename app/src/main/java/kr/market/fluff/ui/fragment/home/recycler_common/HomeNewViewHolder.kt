@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.market.fluff.R
 import kr.market.fluff.data.home.HomeNewData
+import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.ui.detail.ProductDetailActivity
 
 class HomeNewViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView) {
@@ -17,20 +18,21 @@ class HomeNewViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView) {
     val home_recycler_title : TextView = itemView.findViewById(R.id.tv_rc_title)
     val home_recycler_price : TextView = itemView.findViewById(R.id.tv_rc_price)
 
-    fun bind(data : HomeNewData)
+    fun bind(data : RequestInterface.HomeDetailData)
     {
         Glide.with(itemView)
             .load(data.img)
             .into(home_recycler_img)
-        home_recycler_title.text = data.title
-        home_recycler_price.text = data.price
+        home_recycler_title.text = data.closet
+        home_recycler_price.text = data.price.toString()+"원"
 
         home_recycler_img.setOnClickListener {
 
             val intent = Intent(itemView.context, ProductDetailActivity::class.java)
             intent.putExtra("product_name",home_recycler_title.text.toString())
             intent.putExtra("product_price",home_recycler_price.text.toString())
-            intent.putExtra("product_img_url",data.img)
+            intent.putExtra("product_item_id",data.closetId)
+
             startActivity(itemView.context,intent,null)
         }
     }

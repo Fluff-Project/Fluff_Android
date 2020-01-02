@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.fragment.mypage.applySeller.keyword.KeywordActivity"></activity>
+        <activity android:name=".ui.fragment.mypage.applySeller.keyword.KeywordActivity" />
         <activity android:name=".ui.fragment.magazine.DetailMagazineActivity" />
         <activity android:name=".ui.review.ReviewActivity" />
         <activity android:name=".ui.purchase.CompletingPurchaseActivity" />

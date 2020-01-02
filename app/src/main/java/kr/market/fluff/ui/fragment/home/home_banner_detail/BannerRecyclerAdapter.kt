@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kr.market.fluff.R
 import kr.market.fluff.data.home.BannerRecyclerData
+import kr.market.fluff.network.RequestInterface
 
-class BannerRecyclerAdapter (val context: Context, var data:List<BannerRecyclerData>): RecyclerView.Adapter<BannerRecyclerViewHolder>(){
+class BannerRecyclerAdapter (val context: Context, var data:ArrayList<RequestInterface.HomeDetailData>): RecyclerView.Adapter<BannerRecyclerViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerRecyclerViewHolder {
         val view: View = LayoutInflater
             .from(context)

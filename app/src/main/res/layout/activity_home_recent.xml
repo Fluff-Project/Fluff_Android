@@ -90,7 +90,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:text="최근에 " />
+                        android:text="당신을 위한 " />
 
                     <TextView
                         android:id="@+id/tv_recent_detail_keyword"
@@ -107,19 +107,42 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@id/tv_recent_detail_keyword"
-                        android:text="을 많이 보셨군요!" />
+                        android:text=" 추천" />
 
                 </RelativeLayout>
 
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="28dp"
+                    android:gravity="center_horizontal"
+
+                    >
                 <TextView
-                    android:id="@+id/tv_home_recentsubtitle"
+                    android:id="@+id/text1"
                     style="@style/HomeSubTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="28dp"
-                    android:text="회원님이 좋아할 만한 빈티지에요" />
+                    android:text="최근에 " />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/HomeSubTitleText"
+                        android:id="@+id/txt_recent_detail_subkeyword"
+                        android:layout_toRightOf="@id/text1"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/HomeSubTitleText"
+                        android:text="을 많이 보셨군요? 이런건 어때요?"
+                        android:layout_toRightOf="@id/txt_recent_detail_subkeyword"
+                        />
+
+
+                </RelativeLayout>
 
 
             </LinearLayout>
