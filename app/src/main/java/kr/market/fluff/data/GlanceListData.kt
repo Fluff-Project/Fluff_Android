@@ -1,8 +1,17 @@
 package kr.market.fluff.data
 
-data class GlanceListData (
-    var img_url: String,
-    var seller_name: String,
-    var cloth_name: String,
-    var price: Int
+import com.google.gson.annotations.SerializedName
+
+data class FilterResponse(
+    var img: ArrayList<String>,
+    var price: Int,
+    @SerializedName("_id")
+    var _id: String,
+    var goodsName: String
+)
+
+data class FilterRequest(
+    var color: String,
+    var category: ArrayList<String>,
+    var size: ArrayList<String>
 )

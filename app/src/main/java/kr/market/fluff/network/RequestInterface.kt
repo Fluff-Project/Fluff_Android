@@ -6,6 +6,8 @@ import android.os.Parcelable
 import com.facebook.login.Login
 import kr.market.fluff.data.detail.DetailProductData
 import com.google.gson.annotations.SerializedName
+import kr.market.fluff.data.FilterRequest
+import kr.market.fluff.data.FilterResponse
 import kotlinx.android.parcel.Parcelize
 import kr.market.fluff.data.intro.ResponseLogin
 import kr.market.fluff.data.intro.ResponseValidateAndRegisterAndLogin
@@ -72,6 +74,13 @@ interface RequestInterface {
 //        @Header("x-access-token") token: String,
 //        @Query("page") page: Int
 //    ):Call<BaseResponse<ArrayList<RecommendSellerResponse>>>
+
+    @POST("/goods/filter")
+    fun requestFilter(
+        @Header("Content-Type") content_type: String,
+        @Header("x-access-token") token: String,
+        @Body body: FilterRequest
+    ): Call<BaseResponse<List<FilterResponse>>>
 
 
     data class LoginRequest(
