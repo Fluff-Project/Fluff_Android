@@ -141,7 +141,19 @@ class GlanceFragment : Fragment() {
             addItemDecoration(HorizontalItemDecorator(24))
         }
 //        val token = App.prefs.local_login_token
-//        requestToServer.service.request_recommend_home("application/json",token!!)
+//        requestToServer.service.request_home_Thumbnail("application/json",token!!,10)
+//            .safeEnqueue(
+//                onSuccess = {
+//                    glanceListAdapter.data= it
+//                    glanceListAdapter.notifyDataSetChanged()
+//                },
+//                onFail = { _, _ ->
+//                    sendToast("로그인 실패")
+//                },
+//                onError = {
+//                    sendToast("통신 실패")
+//                }
+//            )
 /*
 //통신
             val token = App.prefs.local_login_token

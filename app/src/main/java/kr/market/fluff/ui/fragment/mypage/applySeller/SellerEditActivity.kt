@@ -56,27 +56,27 @@ class SellerEditActivity : AppCompatActivity() {
         txt_seller_edit_complete.setOnClickListener {
             //통신
             //이미지 파일 내보내기
-            val options = BitmapFactory.Options()
-            val inputStream: InputStream = contentResolver.openInputStream(selectedPicUri)!!
-            val bitmap = BitmapFactory.decodeStream(inputStream,null,options)
-            val byteArrayOutputStream = ByteArrayOutputStream()
-            bitmap!!.compress(Bitmap.CompressFormat.JPEG,20,byteArrayOutputStream)
-            val photoBody = RequestBody.create(MediaType.parse("image/jpg"),byteArrayOutputStream.toByteArray())
-            val picture_rb = MultipartBody.Part.createFormData("cmtImg", File(selectedPicUri.toString()).name,photoBody)
+//            val options = BitmapFactory.Options()
+//            val inputStream: InputStream = contentResolver.openInputStream(selectedPicUri)!!
+//            val bitmap = BitmapFactory.decodeStream(inputStream,null,options)
+//            val byteArrayOutputStream = ByteArrayOutputStream()
+//            bitmap!!.compress(Bitmap.CompressFormat.JPEG,20,byteArrayOutputStream)
+//            val photoBody = RequestBody.create(MediaType.parse("image/jpg"),byteArrayOutputStream.toByteArray())
+//            val picture_rb = MultipartBody.Part.createFormData("cmtImg", File(selectedPicUri.toString()).name,photoBody)
 
-            toSellerRequest = ToSellerRequest(picture_rb)
-            val token = App.prefs.local_login_token
-            requestToServer.service.requestToSeller(token!!,toSellerRequest)
-                .safeEnqueue(
-                    onSuccess = {
-                        sendToast("$it")
-                        val intent = Intent(this,ApplySellerActivity::class.java)
-                        startActivity(intent)
-                    },
-                    onFail = { _, _ ->
-                        sendToast("실패")
-                    }
-                )
+//            toSellerRequest = ToSellerRequest(picture_rb)
+//            val token = App.prefs.local_login_token
+//            requestToServer.service.requestToSeller(token!!,toSellerRequest)
+//                .safeEnqueue(
+//                    onSuccess = {
+//                        sendToast("$it")
+//                        val intent = Intent(this,ApplySellerActivity::class.java)
+//                        startActivity(intent)
+//                    },
+//                    onFail = { _, _ ->
+//                        sendToast("실패")
+//                    }
+//                )
 
             val intent = Intent(this,ApplySellerActivity::class.java)
             startActivity(intent)
