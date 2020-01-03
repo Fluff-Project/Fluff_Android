@@ -1,7 +1,7 @@
 # Fluff_Android
 
 
-# 1. 프로젝트 사용 라이브러리! (2020.01.02 수정)
+# 1. 프로젝트 사용 라이브러리! (2020.01.03 수정)
 
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.android.support:design:29.0.0'
@@ -36,12 +36,17 @@
     //페이스북 연동
     implementation 'com.facebook.android:facebook-login:[5,6)'
 
-
+    //socket.io 라이브러리
+    implementation('io.socket:socket.io-client:1.0.0') {
+        exclude group: 'org.json', module: 'json'
+    }
+    
+    
 # 2. 프로그램 구조
 
 ![d](https://user-images.githubusercontent.com/54485132/71461583-a4953700-27f3-11ea-9547-2ed74f5e90ff.png)
 
-프로그램 구조는 크게 data, network, ui로 패키징하여 작업을 진행중이다.
+프로그램 구조는 크게 data, network, ui로 패키징하여 진행하였다.
 
 
 
@@ -186,22 +191,109 @@ Bottom sheet Behavior 속성 중 hideable="true"를 통해 드래그해서 필�
 해당 기능에 대해 kotlin에 존재하는 CountDownTimer 객체를 이용하여 1초마다 시간이 줄어가는 것을 표시했다.
 이에 대한 코드는 다음과 같다.
 
+```kotlin
+fun countDownTimer(long: Long)
+    {
+        var countDownTimer = object :  CountDownTimer(long*1000, 1000)
+        {
+            override fun onFinish() {
+                tv_auction_detail_extra_time.text = "경매가 마감되었습니다."
+                tv_auction_detail_extra_text.text = ""
+//                sendToast("경매가 마감되었습니다.")
+            }
+            override fun onTick(p0: Long) {
+                val hours = p0.div(3600000)
+                var temp = p0/1000 - hours*3600
+                val min = p0.div(60000).toInt() - p0.div(3600000)*60
+                val seconds = temp - min*60
+                if ( hours < 10)
+                {
+                    tv_auction_detail_extra_time.text  = "0" + hours.toString()+ " : "+ min.toString() + " : " + seconds.toString()
+                    if( min < 10)
+                    {
+                        tv_auction_detail_extra_time.text  = "0" + hours.toString()+ " : "+ "0" + min.toString() + " : " + seconds.toString()
+                    }
+                }
+                else
+                {
+                    if(min < 10)
+                    {
+                        tv_auction_detail_extra_time.text  =  hours.toString()+ " : "+ "0" + min.toString() + " : " + seconds.toString()
+                    }
+                    tv_auction_detail_extra_time.text  = hours.toString()+ " : "+ min.toString() + " : " + seconds.toString()
+                }
+            }
+        }
+        countDownTimer.start()
+    }
+```
+
+
+
 # 11 장바구니 기능 
 상품을 장바구니에 담으면 상품이 장바구니에 담기게 되고, 장바구니 뷰에서 상품을 삭제하면 장바구니에서 상품이 삭제되는 기능을 구현했다. 또한 장바구니에서 전체선택 체크박스를 통해 상품들을 모두 다 선택 하기를 원할 시 전체 선택이 되고, 
 만약 하나라도 상품의 체크박스가 체크가 풀릴 시 전체선택이 풀리게 구현하였다.
+
+```kotlin
+//액티비티 내의 코드
+cb_cart_check_all.setOnClickListener{
+            if(cb_cart_check_all.isChecked){
+                cartGoodsAdapter.isAllSelected = true
+                cartGoodsAdapter.notifyDataSetChanged()
+            }else{
+                cartGoodsAdapter.isAllSelected = false
+                cartGoodsAdapter.notifyDataSetChanged()
+            }
+        }
+```
+
+```kotlin
+//체크박스 들어있는 RecyclerView의 뷰홀더에 해당하는 부분
+ if(isAllCheck){
+            cb_cart_goods.isChecked = true
+        }else{
+            cb_cart_goods.isChecked = false
+        }
+        cb_cart_goods.setOnCheckedChangeListener{
+            buttonView, isChecked ->
+            if(isChecked){
+                ctx.count++
+                ctx.checkItem()
+                ctx.selected_cart_list!!.add(goodsData)
+            }else{
+                ctx.count--
+                ctx.checkItem()
+                ctx.selected_cart_list!!.remove(goodsData)
+                ctx.cb_cart_check_all.isChecked = false
+            }
+        }
+```
 
 # 12 스타일 추천 
 회원가입 성공 후, 각각의 유저에 취향에 따른 상품을 추천해주기 위해, 유저가 마음에 드는 사진을 3개 이상 선택하게 한다.
 유저의 취향이 서버를 통해 분석이 되어지면, 그에 맞는 키워드를 가진 셀러(플럽)을 추천해주고, 
 취향에 맞는 스타일의 옷들이 홈화면에 나오게 된다.
 
+![GIF](https://user-images.githubusercontent.com/54485132/71726504-a8236080-2e7a-11ea-95b7-ab5df4406fe4.gif)
+
 # 13 상품 둘러보기 탭
 유저 취향에 따른 옷들이 최신순으로 둘러보기 화면에 나오게 되고, 필터 아이콘을 선택하여 옷의 종류, 색깔, 스타일, 사이즈,등 을
 선택하게 되면 상품 DB에 존재하는 모든 옷들 중 유저가 고른 필터에 따른 옷들만 화면에 존재하게 된다.
+
+![필터링](https://user-images.githubusercontent.com/54485132/71726795-8b3b5d00-2e7b-11ea-9a4a-4b4b8f37dc95.gif)
+
 
 # 14 custom Toast 사용
 유저가 마음에 드는 사진을 클릭시 customToast를 통해 하트 이미지가 화면 중앙에 뜨게 되고 해당 상품의 하단 하트 버튼이 
 채워지게 된다.
 
-# 15 
+![heart](https://user-images.githubusercontent.com/54485132/71726892-d48bac80-2e7b-11ea-9c0e-e6442bd386e5.gif)
+
+
+# 15 SharedPreferences를 이용한 자동 로그인 및 환경설정 저장.
+## 1_ 자동 로그인
+
+## 2_ 처음 로그인 한 유저인지 확인하여 취향 조사 실시하도록 진행.
+
+## 3_ 마이페이지에서 저장하거나 주문시 유저의 정보가 저장된다.
 
