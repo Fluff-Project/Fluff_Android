@@ -24,6 +24,7 @@ class RecommendStyleActivity : AppCompatActivity() {
     private fun init(){
         initRecommendStyleList()
         btn_recommend_style_signup.setOnClickListener {
+            App.prefs.isFirst = false
             val intent = Intent(this, WelcomeActivity::class.java)
             startActivity(intent)
             finish()

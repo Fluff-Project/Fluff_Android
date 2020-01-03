@@ -12,11 +12,13 @@ class MySharedPreferences(context: Context) {
     val PREF_KEY_MY_LOCAL_LOGIN_PWD = "local_login_pwd"
     val PREF_KEY_MY_LOCAL_NICK_NAME = "local_login_nick"
     val PREF_KEY_MY_LOCAL_GENDER = "local_login_gender"
+    val PERF_KEY_IS_FIRST_LOGIN = "local_is_first"
 
     //MyPage 내정보 수정 부분
     val PREF_KEY_MY_ADRESS = "user_adress"
     val PREF_KEY_MY_SPECIFIC_ADRESS = "user_specific_address"
     val PREF_KEY_MY_PHONE = "user_phone"
+
 
 
 
@@ -60,4 +62,8 @@ class MySharedPreferences(context: Context) {
     var local_gender : String?
         get() = prefs.getString(PREF_KEY_MY_LOCAL_GENDER,null)
         set(value) = editor.putString(PREF_KEY_MY_LOCAL_GENDER,value).apply()
+
+    var isFirst : Boolean?
+        get() = prefs.getBoolean(PERF_KEY_IS_FIRST_LOGIN,true)
+        set(value) = editor.putBoolean(PERF_KEY_IS_FIRST_LOGIN,value!!).apply()
 }
