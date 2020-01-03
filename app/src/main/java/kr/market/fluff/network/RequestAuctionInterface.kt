@@ -7,11 +7,11 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface RequestAuctionInterface {
-    @POST("/auction/{id}/bid")
+    @POST("/auction/{auctionId}/bid")
     fun requestAuctionBid(
         @Header("Content-Type") content_type: String,
         @Header("x-access-token") token: String,
-        @Path("id") id: Int,
+        @Path("auctionId") id: String,
         @Body() body: RequestAuctionBid
     ): Call<BaseResponse<ResponseAuctionBid>>
 
