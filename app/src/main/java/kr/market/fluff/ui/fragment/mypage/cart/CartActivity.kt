@@ -25,7 +25,8 @@ class CartActivity : AppCompatActivity() {
     lateinit var cb_cart_check_all : CheckBox
 
 
-    var loaded_cart_list_server : ArrayList<RequestInterface.CartListResponse> = ArrayList()//TODO 서버 열리면 이놈 이름을 loaded_cart_list로 바꿔줄 것.
+//    var loaded_cart_list : ArrayList<RequestInterface.CartListResponse> = ArrayList()//TODO 서버 열리면 이놈 이름을 loaded_cart_list로 바꿔줄 것.
+//    var selected_cart_list : ArrayList<RequestInterface.CartListResponse>? = ArrayList()
     var loaded_cart_list : ArrayList<CartGoodsData> = ArrayList()
     var selected_cart_list : ArrayList<CartGoodsData>? = ArrayList()
     lateinit var btn_cart_delete : Button
@@ -65,18 +66,17 @@ class CartActivity : AppCompatActivity() {
         btn_cart_delete.setOnClickListener {
 
             // TODO 선택된 목록만 삭제요청(서버에 해당 상품 id값 전달.)
-            // 해당 데이터값들 selected리스트, loaded리스트에서 지우기.
-            // 서버에 장바구니 조회 한번 더 요청하기
+            // 해당 데이터값들 selected리스트
+//            load_cart_datas()
+//            cartGoodsAdapter.notifyDataSetChanged()
 
         }
         cb_cart_check_all.setOnClickListener{
             if(cb_cart_check_all.isChecked){
                 cartGoodsAdapter.isAllSelected = true
-                btn_cart_delete.isEnabled = true
                 cartGoodsAdapter.notifyDataSetChanged()
             }else{
                 cartGoodsAdapter.isAllSelected = false
-                btn_cart_delete.isEnabled = false
                 cartGoodsAdapter.notifyDataSetChanged()
             }
         }
@@ -84,6 +84,11 @@ class CartActivity : AppCompatActivity() {
     fun checkItem(){
         if(count == loaded_cart_list.size){
             cb_cart_check_all.isChecked = true
+        }
+        if (count==0){
+            btn_cart_delete.isEnabled = false
+        }else{
+            btn_cart_delete.isEnabled = true
         }
     }
 
@@ -107,11 +112,11 @@ class CartActivity : AppCompatActivity() {
     }
     private fun load_cart_datas(){
 
-        RequestToServer.service.request_cart_list("application/json", App.prefs.local_login_token!!).safeEnqueue(
-            onSuccess = {
-                loaded_cart_list_server = it
-            }
-        )
+//        RequestToServer.service.request_cart_list("application/json", App.prefs.local_login_token!!).safeEnqueue(
+//            onSuccess = {
+//                loaded_cart_list = it
+//            }
+//        )
 
 
         loaded_cart_list.add(

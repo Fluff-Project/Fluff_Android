@@ -13,3 +13,15 @@ data class MyStyleData(
     @SerializedName("img")
     var img: String
 )
+data class RecommendStyleRequest(
+    var style: List<String>
+)
+
+data class RecommendStyleResponse(
+    val code: Int,
+    val json: RecommendStyleJson
+)
+data class RecommendStyleJson(
+    val success: Boolean,
+    val message: String
+)

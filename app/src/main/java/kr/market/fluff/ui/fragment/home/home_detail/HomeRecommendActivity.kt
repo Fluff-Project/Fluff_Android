@@ -64,29 +64,4 @@ class HomeRecommendActivity : AppCompatActivity() {
 
     }
 
-   /* fun makeRecommendRecycler()
-    {
-        requestToServer.service.request_recommend_home("application/json", App.prefs.local_login_token!!)
-            .safeEnqueue(
-               onSuccess = {
-                    sendToast("성공")
-                    homeRecommendAdapter = BannerRecyclerAdapter(this, it)
-                    rv_home_detail_recommend.layoutManager = GridLayoutManager(this@HomeRecommendActivity,2)
-                    homeRecommendAdapter.notifyDataSetChanged()
-                    rv_home_detail_recommend.adapter = homeRecommendAdapter
-                    rv_home_detail_recommend.addItemDecoration(HorizontalItemDecorator(24))
-                    rv_home_detail_recommend.addItemDecoration(VerticalItemDecorator(28))
-
-
-               },
-                onFail = { _, _ ->
-                    sendToast("실패")
-                }
-            )
-
-       // homeRecommendAdapter = BannerRecyclerAdapter(this,datas)
-
-
-
-    }*/
 }

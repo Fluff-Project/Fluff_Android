@@ -45,7 +45,6 @@ class CartGoodsViewHolder(view : View) : RecyclerView.ViewHolder(view){
                 ctx.count++
                 ctx.checkItem()
                 ctx.selected_cart_list!!.add(goodsData)
-                ctx.btn_cart_delete.isEnabled = true
             }else{
                 ctx.count--
                 ctx.checkItem()
