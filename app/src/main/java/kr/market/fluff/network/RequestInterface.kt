@@ -57,9 +57,14 @@ interface RequestInterface {
         @Header("x-access-token") token: String
     ): Call<BaseResponse<MyStyleResponse>>
 
+    @FormUrlEncoded
     @POST("/checkUsername")
     fun requestNickNameValidate(
+        @Field("userNickname")userNickname : String
+    ):Call<BaseResponse<CheckNickResponse>>
 
+    data class CheckNickResponse(
+        val username : String
     )
 
 
