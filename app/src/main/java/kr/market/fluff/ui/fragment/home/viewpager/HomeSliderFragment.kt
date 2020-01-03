@@ -3,6 +3,7 @@ package kr.market.fluff.ui.fragment.home.viewpager
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -35,6 +36,8 @@ class HomeSliderFragment : Fragment() {
         val img: String? = arguments!!.getString("background_img")
         val sub_text : String? = arguments!!.getString("subtitle")
         val main_text : String? = arguments!!.getString("main")
+        val category : String? = arguments!!.getString("category")
+
 
         mainTitle.text= main_text
         subTitle.text = sub_text
@@ -50,6 +53,7 @@ class HomeSliderFragment : Fragment() {
             intent.putExtra("vp_sub_title",tv_vp_sub_title.text.toString())
             intent.putExtra("vp_main_title",tv_vp_main_title.text.toString())
             intent.putExtra("img_url",img)
+           intent.putExtra("category",category)
             startActivity(intent)
 
         }
