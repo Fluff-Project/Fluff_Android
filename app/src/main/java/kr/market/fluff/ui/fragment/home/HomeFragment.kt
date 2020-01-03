@@ -105,7 +105,7 @@ class HomeFragment : Fragment() {
             intent.putExtra("new_keyword", tv_home_new_keyword.text.toString())
             startActivity(intent)
         }
-        img_home_auctionicon.setOnClickListener { (activity as MainActivity).replaceFragment(4) }
+        img_home_auctionicon.setOnClickListener { (activity as MainActivity).replaceFragment(2) }
 
         img_home_plubicon.setOnClickListener {
             val intent = Intent(context, HomePlubActivity::class.java)
@@ -218,7 +218,7 @@ class HomeFragment : Fragment() {
         requestToServer.service.requestRecommendSeller(
             "application/json",
             App.prefs.local_login_token!!,
-            1
+            5
         )
             .safeEnqueue(
                 onSuccess = {
@@ -240,16 +240,16 @@ class HomeFragment : Fragment() {
     fun makeOctionRecycler(view: View) {
         auction_data = listOf(
             HomeAuctionData(
-                "https://previews.123rf.com/images/margolana/margolana1511/margolana151100248/48654416-%EA%B0%9C%EC%B2%B4-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9D%98-%EA%B2%A8%EC%9A%B8-%EC%98%B7-%EA%B7%B8%EB%A3%B9%EC%9D%80-%ED%8C%A8%EC%85%98-%EC%9A%94%EC%86%8C-%EB%82%A8%EC%9E%90-%EC%9D%98%EB%A5%98-%EC%84%B8%ED%8A%B8.jpg",
-                "곧 경매 종료", "원피스"
+                R.drawable.auction_1,
+                "곧 경매 종료", "Yves Saint Laurent 원피스"
             ),
             HomeAuctionData(
-                "https://previews.123rf.com/images/margolana/margolana1511/margolana151100248/48654416-%EA%B0%9C%EC%B2%B4-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9D%98-%EA%B2%A8%EC%9A%B8-%EC%98%B7-%EA%B7%B8%EB%A3%B9%EC%9D%80-%ED%8C%A8%EC%85%98-%EC%9A%94%EC%86%8C-%EB%82%A8%EC%9E%90-%EC%9D%98%EB%A5%98-%EC%84%B8%ED%8A%B8.jpg",
-                "종료까지 2시간", "코트"
+                R.drawable.auction_2,
+                "종료까지 2시간", "MaxMara 만다린 자켓"
             ),
             HomeAuctionData(
-                "https://previews.123rf.com/images/margolana/margolana1511/margolana151100248/48654416-%EA%B0%9C%EC%B2%B4-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9D%98-%EA%B2%A8%EC%9A%B8-%EC%98%B7-%EA%B7%B8%EB%A3%B9%EC%9D%80-%ED%8C%A8%EC%85%98-%EC%9A%94%EC%86%8C-%EB%82%A8%EC%9E%90-%EC%9D%98%EB%A5%98-%EC%84%B8%ED%8A%B8.jpg",
-                "종료까지 4시간 ", "자켓"
+                R.drawable.auction_3,
+                "종료까지 4시간 ", "샤네루 1990’s 트위드 재킷"
             )
         )
         rv_home_auction = view.findViewById(R.id.rv_home_auction)

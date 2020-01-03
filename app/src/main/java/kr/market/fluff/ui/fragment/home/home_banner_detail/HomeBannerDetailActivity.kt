@@ -62,7 +62,7 @@ class HomeBannerDetailActivity : AppCompatActivity() {
         txt_banner_subtitle  = findViewById(R.id.txt_banner_subtitle)
         txt_banner_title  = findViewById(R.id.txt_banner_title)
 
-        requestToServer.service.request_home_Category("application/json", App.prefs.local_login_token!!,intent.getStringExtra("category"),7)
+        requestToServer.service.request_home_Category("application/json", App.prefs.local_login_token!!,intent.getStringExtra("category"),20)
             .safeEnqueue(
                 onSuccess = {
                     bannerAdapter = BannerRecyclerAdapter(this@HomeBannerDetailActivity, it)
