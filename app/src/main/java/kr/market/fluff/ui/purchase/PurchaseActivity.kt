@@ -71,6 +71,13 @@ class PurchaseActivity : AppCompatActivity(){
             finish()
         }
         btn_purchase_buy.setOnClickListener {
+            if(cb_purchase_setting.isChecked){
+                App.prefs.my_address = et_user_address.text.toString()
+                App.prefs.my_specific_address = et_user_address2.text.toString()
+                App.prefs.my_phone = et_purchase_phone.text.toString()
+            }
+
+
             user_name = et_purcahase_name.text.toString()
             address = "${et_user_address1.text} \n ${et_user_address2.text}"
             val intent = Intent(this,

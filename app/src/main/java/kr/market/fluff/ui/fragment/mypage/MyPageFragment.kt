@@ -32,7 +32,6 @@ class MyPageFragment(private val activity : Activity) : Fragment() {
     lateinit var recentSawAdapter: RecentSawAdapter
     lateinit var rv_mypage_recent_goods : RecyclerView
     lateinit var recent_goods_datas : ArrayList<MyPageRecentSawGoods>
-    var REQ_CODE = 1
     val pf = App.prefs
 
     override fun onCreateView(
@@ -84,8 +83,7 @@ class MyPageFragment(private val activity : Activity) : Fragment() {
         }
         rl_myInfo_update.setOnClickListener {
             val intent = Intent(this.context, MyInfoUpdateActivity::class.java)
-            intent.putExtra("myInfo_email",tv_mypage_user_email.text.toString())
-            startActivityForResult(intent,REQ_CODE)
+            startActivity(intent)
         }
     }
 

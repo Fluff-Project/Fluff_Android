@@ -329,6 +329,7 @@
                 </TableLayout>
 
                 <CheckBox
+                    android:id="@+id/cb_purchase_setting"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/ko_pub"
