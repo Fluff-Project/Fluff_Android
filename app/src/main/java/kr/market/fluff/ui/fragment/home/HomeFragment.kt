@@ -80,7 +80,7 @@ class HomeFragment : Fragment() {
     }
 
     fun init() {
-        tv_home_recent_keyword.text = "가디건"
+        tv_home_recent_keyword.text = "니트"
         tv_home_recentsubtitle_keyword.text = tv_home_recent_keyword.text
 
         val date: LocalDate = LocalDate.now()
@@ -165,7 +165,7 @@ class HomeFragment : Fragment() {
         requestToServer.service.request_home_Category(
             "application/json",
             App.prefs.local_login_token!!,
-            "cardigan",
+            "knit",
             7
         )
             .safeEnqueue(
@@ -178,8 +178,6 @@ class HomeFragment : Fragment() {
                         adapter = recentAdapter
                         addItemDecoration(HorizontalItemDecorator(24))
                     }
-
-
                 },
                 onFail = { _, _ ->
                     sendToast("서버 응답이 없습니다")
