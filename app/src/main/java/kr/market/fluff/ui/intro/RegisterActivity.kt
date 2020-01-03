@@ -243,6 +243,8 @@ class RegisterActivity : AppCompatActivity() {
                     App.prefs.local_login_pwd = string_register_pwd
                     App.prefs.local_login_id = string_register_email
                     App.prefs.local_nick_name = string_register_nick
+                    App.prefs.local_gender = string_register_gender
+                    App.prefs.isFirst = true
                     finish()
                 },
                 onFail = {_,_->sendToast("회원가입에 실패하였습니다.")},

@@ -9,6 +9,7 @@ import android.view.View
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_purchase.*
 import kr.market.fluff.R
+import kr.market.fluff.data.App
 import kr.market.fluff.data.cart.CartGoodsData
 import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.ui.util.priceFormTextView
@@ -29,6 +30,12 @@ class PurchaseActivity : AppCompatActivity(){
         init()
     }
     private fun init(){
+        val pf = App.prefs
+
+        et_purchase_phone.setText(pf.my_phone)
+        et_user_address.setText(pf.my_address)
+        et_user_address1.setText(pf.my_address)
+        et_user_address2.setText(pf.my_specific_address)
 
         setListener()
         buy_items = intent.getSerializableExtra("buy_items") as ArrayList<RequestInterface.CartListResponse>
@@ -64,6 +71,13 @@ class PurchaseActivity : AppCompatActivity(){
             finish()
         }
         btn_purchase_buy.setOnClickListener {
+            if(cb_purchase_setting.isChecked){
+                App.prefs.my_address = et_user_address.text.toString()
+                App.prefs.my_specific_address = et_user_address2.text.toString()
+                App.prefs.my_phone = et_purchase_phone.text.toString()
+            }
+
+
             user_name = et_purcahase_name.text.toString()
             address = "${et_user_address1.text} \n ${et_user_address2.text}"
             val intent = Intent(this,
