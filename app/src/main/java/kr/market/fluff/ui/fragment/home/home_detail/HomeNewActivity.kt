@@ -39,7 +39,7 @@ class HomeNewActivity : AppCompatActivity() {
     }
     fun init()
     {
-        requestToServer.service.request_recommend_home("application/json", App.prefs.local_login_token!!)
+        requestToServer.service.request_home_Newest("application/json", App.prefs.local_login_token!!,"newest",7)
             .safeEnqueue(
                 onSuccess = {
                     sendToast("성공")

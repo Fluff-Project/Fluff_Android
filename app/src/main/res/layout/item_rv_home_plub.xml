@@ -31,6 +31,7 @@
         android:id="@+id/tv_rv_hashtag1"
         android:text="#해쉬테그"
         android:layout_marginLeft="14dp"
+        android:layout_marginTop="8dp"
         style="@style/HomeRcFollowhashtag"
         android:layout_below="@id/tv_rv_name"
         android:layout_toRightOf="@id/img_rv_profile"
@@ -40,6 +41,7 @@
     <TextView
         android:id="@+id/tv_rv_hashtag2"
         android:text="#해쉬테그"
+        android:layout_marginTop="8dp"
         style="@style/HomeRcFollowhashtag"
         android:layout_marginLeft="8dp"
         android:layout_toRightOf="@id/tv_rv_hashtag1"
@@ -51,34 +53,36 @@
         android:id="@+id/rl_home_plub_star"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="11dp"
-        android:layout_marginBottom="4dp"
         android:layout_below="@id/tv_rv_hashtag1"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="8dp"
         android:layout_toRightOf="@id/img_rv_profile">
 
 
+        <RatingBar
+            android:id="@+id/rb_favorite_market_seller"
+            style="@style/RatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:rating="4" />
 
-    <RatingBar
-        android:id="@+id/rb_favorite_market_seller"
-        style="@style/RatingBar"
-        android:layout_centerVertical="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:rating="4"/>
 
-
-    <Button
-        android:id="@+id/btn_rv_follow"
-        style="@style/RoundFollowBtn"
-        android:text="팔로우"
-        android:layout_width="88dp"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="14dp"
-        android:layout_height="28dp"
-        />
+        <Button
+            android:id="@+id/btn_rv_follow"
+            android:layout_width="76dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/selector_register_style"
+            android:fontFamily="@font/ko_pub_dotum_bold"
+            android:gravity="center"
+            android:letterSpacing="-0.04"
+            android:lineSpacingExtra="8sp"
+            android:text="팔로우"
+            android:textAlignment="center"
+            android:textSize="15sp" />
 
     </RelativeLayout>
 

@@ -2,7 +2,7 @@ package kr.market.fluff.data
 
 import android.content.Context
 import android.content.SharedPreferences
-
+//
 class MySharedPreferences(context: Context) {
 
     val PREFS_FILENAME = "prefs"

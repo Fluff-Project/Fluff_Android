@@ -38,7 +38,7 @@ class HomeBannerDetailActivity : AppCompatActivity() {
     }
     fun init()
     {
-        requestToServer.service.request_recommend_home("application/json", App.prefs.local_login_token!!)
+        requestToServer.service.request_home_Category("application/json", App.prefs.local_login_token!!,intent.getStringExtra("category"),7)
             .safeEnqueue(
                 onSuccess = {
                     sendToast("성공")
