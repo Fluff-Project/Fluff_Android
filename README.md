@@ -230,6 +230,7 @@ fun countDownTimer(long: Long)
 만약 하나라도 상품의 체크박스가 체크가 풀릴 시 전체선택이 풀리게 구현하였다.
 
 ```kotlin
+//액티비티 내의 코드
 cb_cart_check_all.setOnClickListener{
             if(cb_cart_check_all.isChecked){
                 cartGoodsAdapter.isAllSelected = true
@@ -241,6 +242,27 @@ cb_cart_check_all.setOnClickListener{
         }
 ```
 
+```kotlin
+//체크박스 들어있는 RecyclerView의 뷰홀더에 해당하는 부분
+ if(isAllCheck){
+            cb_cart_goods.isChecked = true
+        }else{
+            cb_cart_goods.isChecked = false
+        }
+        cb_cart_goods.setOnCheckedChangeListener{
+            buttonView, isChecked ->
+            if(isChecked){
+                ctx.count++
+                ctx.checkItem()
+                ctx.selected_cart_list!!.add(goodsData)
+            }else{
+                ctx.count--
+                ctx.checkItem()
+                ctx.selected_cart_list!!.remove(goodsData)
+                ctx.cb_cart_check_all.isChecked = false
+            }
+        }
+```
 
 # 12 스타일 추천 
 회원가입 성공 후, 각각의 유저에 취향에 따른 상품을 추천해주기 위해, 유저가 마음에 드는 사진을 3개 이상 선택하게 한다.
