@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+import kotlinx.android.synthetic.main.activity_detail_auction.*
 import kotlinx.android.synthetic.main.activity_product_detail.*
+import kotlinx.android.synthetic.main.fragment_home.*
 import kr.market.fluff.R
 import kr.market.fluff.data.App
 import kr.market.fluff.data.detail.DetailProductData
@@ -19,6 +21,7 @@ import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.safeEnqueue
 import kr.market.fluff.ui.detail.product_detail_recycler.DetailRecyclerAdapter
+import kr.market.fluff.ui.fragment.home.recycler_common.HomeNewAdapter
 import kr.market.fluff.ui.fragment.mypage.cart.CartActivity
 import kr.market.fluff.ui.util.drawCustomToast
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
@@ -27,12 +30,13 @@ import kr.market.fluff.ui.util.sendToast
 class ProductDetailActivity : AppCompatActivity() {
 
     lateinit var detailAdapter: DetailRecyclerAdapter
-    lateinit var datas : List<DetailProductData>
+    lateinit var datas : ArrayList<RequestInterface.HomeDetailData>
      var heart_bool: Boolean = true
 
     var product_item_id : String? = "0"
     var img_datas : ArrayList<String> = ArrayList()
 
+    val requestToServer = RequestToServer
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -102,38 +106,60 @@ class ProductDetailActivity : AppCompatActivity() {
     }
 
     fun makeRecycler(){
+
+
+
+        requestToServer.service.request_home_Thumbnail("application/json", App.prefs.local_login_token!!,7)
+            .safeEnqueue(
+                onSuccess = {
+                    sendToast("성공")
+                    detailAdapter= DetailRecyclerAdapter(it)
+                    detailAdapter.notifyDataSetChanged()
+                    rv_detail_other.apply {
+                        layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+                        adapter = detailAdapter
+                        addItemDecoration(HorizontalItemDecorator(24))
+                    }
+
+
+                },
+                onFail = { _, _ ->
+                    sendToast("실패")
+                })
+
+
         //더미데이터로 처리함
-        datas = listOf(
-            DetailProductData(
-                "https://cdn.pixabay.com/photo/2017/08/06/08/01/people-2590092__340.jpg",
-                "32,000원",
-                "레이스 스커트"
-            ),
-            DetailProductData(
-                "https://cdn.pixabay.com/photo/2016/03/27/19/31/fashion-1283863__340.jpg",
-                "42,000원",
-                "고급 울 니트"
-            ),
-            DetailProductData(
-                "https://cdn.pixabay.com/photo/2017/04/16/01/53/girl-2233820__340.jpg",
-                "38,000원",
-                "봄꽃 무늬 가디건"
-            )
-        )
-        detailAdapter =
-            DetailRecyclerAdapter(
-                datas
-            )
-        rv_detail_other.apply {
-            layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-            adapter = detailAdapter
-            addItemDecoration(HorizontalItemDecorator(24))
-        }
+//        datas = listOf(
+//            DetailProductData(
+//                "https://cdn.pixabay.com/photo/2017/08/06/08/01/people-2590092__340.jpg",
+//                "32,000원",
+//                "레이스 스커트"
+//            ),
+//            DetailProductData(
+//                "https://cdn.pixabay.com/photo/2016/03/27/19/31/fashion-1283863__340.jpg",
+//                "42,000원",
+//                "고급 울 니트"
+//            ),
+//            DetailProductData(
+//                "https://cdn.pixabay.com/photo/2017/04/16/01/53/girl-2233820__340.jpg",
+//                "38,000원",
+//                "봄꽃 무늬 가디건"
+//            )
+//        )
+//        detailAdapter =
+//            DetailRecyclerAdapter(
+//                datas
+//            )
+//        rv_detail_other.apply {
+//            layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+//            adapter = detailAdapter
+//            addItemDecoration(HorizontalItemDecorator(24))
+//        }
     }
 
     fun makeDetailViewPager(){
         val dotsIndicator= findViewById<DotsIndicator>(R.id.detail_dots_indicator)
-        val adapter = FragmentDetailPagerAdapter(supportFragmentManager,3,img_datas)
+        val adapter = FragmentDetailPagerAdapter(supportFragmentManager,img_datas.size,img_datas)
         val vp_detail_viewpager = findViewById<ViewPager>(R.id.vp_detail_viewpager)
         vp_detail_viewpager.adapter = adapter
         dotsIndicator.setViewPager(vp_detail_viewpager)

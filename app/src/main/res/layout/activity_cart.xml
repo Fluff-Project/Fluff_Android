@@ -91,18 +91,7 @@
                         style="@style/TextView_For_Cart"
                         android:textSize="14sp"
                         android:textFontWeight="400"
-                        android:text="개의 상품 (총 "/>
-                    <TextView
-                        android:id="@+id/tv_cart_seller_num"
-                        style="@style/TextView_For_Cart"
-                        android:textSize="14sp"
-                        android:textFontWeight="900"
-                        android:text="2"/>
-                    <TextView
-                        style="@style/TextView_For_Cart"
-                        android:textSize="14sp"
-                        android:textFontWeight="400"
-                        android:text="명의 셀러)"/>
+                        android:text="개의 상품"/>
                 </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"

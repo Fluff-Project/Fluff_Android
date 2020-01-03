@@ -1,5 +1,6 @@
 package kr.market.fluff.ui.purchase
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,6 +20,8 @@ class CompletingPurchaseActivity : AppCompatActivity() {
     var total_real_price : Long = 0
     var user_name : String = ""
     var address : String = ""
+    var buy_items : ArrayList<RequestInterface.CartListResponse> = ArrayList()
+    var id_datas = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +33,12 @@ class CompletingPurchaseActivity : AppCompatActivity() {
         total_real_price = intent.getLongExtra("total_real_price",0)
         user_name = intent.getStringExtra("user_name")
         address = intent.getStringExtra("address")
+        buy_items = intent.getParcelableArrayListExtra("buy_items")
 
+
+        for(i in 0..buy_items.size-1){
+            id_datas.add(buy_items.get(i).goodsId)
+        }
 
         btn_completing_purchase_buy.setOnClickListener {
             if(!rb_completing_purchase.isChecked||spinner_completing.equals("입금할 은행을 선택해주세요.")||et_completing_name.text.isBlank()){
@@ -38,31 +46,37 @@ class CompletingPurchaseActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             purchaseCompleting()
-//            val intent = Intent(this,
-//                PurchaseCompleteActivity::class.java)
-//            intent.putExtra("total_price",total_price)
-//            intent.putExtra("total_real_price",total_real_price)
-//            intent.putExtra("user_name",user_name)
-//            intent.putExtra("address",address)
-//            startActivity(intent)
-//            finish()
+
         }
         rb_completing_purchase.setOnClickListener{
             fl_completing_layout.visibility = View.VISIBLE
         }
     }
     private fun purchaseCompleting(){
-        var datas = ArrayList<String>()
-        datas.add("5e0ce583e055d50011a1d64f")
-        datas.add("5e0ce3f0e055d50011a1d64e")
         RequestToServer.service.request_order_add("application/json", App.prefs.local_login_token!!,
-            RequestInterface.RequestOrderedGoodsList(datas)).enqueue (
-            onResponse = {
-                sendToast("성공")
+            RequestInterface.RequestOrderedGoodsList(id_datas)).safeEnqueue(
+            onSuccess = {
+                deleteCartItems()
             },
-            onFailure = {
-                sendToast("실패")
+            onFail = {_,_->sendToast("결제 요청이 실패하였습니다.")}
+        )
+    }
+    private fun deleteCartItems(){
+        RequestToServer.service.request_cart_delete("application/json", App.prefs.local_login_token!!,
+            RequestInterface.CartDeleteRequest(id_datas)).safeEnqueue(
+            onSuccess = {
+                complete_purchase()
             }
         )
+    }
+    private fun complete_purchase(){
+        val intent = Intent(this,
+            PurchaseCompleteActivity::class.java)
+        intent.putExtra("total_price",total_price)
+        intent.putExtra("total_real_price",total_real_price)
+        intent.putExtra("user_name",user_name)
+        intent.putExtra("address",address)
+        startActivity(intent)
+        finish()
     }
 }

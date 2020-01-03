@@ -2,16 +2,18 @@ package kr.market.fluff.network
 
 
 
+import android.os.Parcelable
 import com.facebook.login.Login
 import kr.market.fluff.data.detail.DetailProductData
 import com.google.gson.annotations.SerializedName
 import kr.market.fluff.data.FilterRequest
 import kr.market.fluff.data.FilterResponse
+import kotlinx.android.parcel.Parcelize
 import kr.market.fluff.data.intro.ResponseLogin
 import kr.market.fluff.data.intro.ResponseValidateAndRegisterAndLogin
 import kr.market.fluff.data.myStyle.*
-import kr.market.fluff.data.mypage.ToSellerRequest
-import kr.market.fluff.data.mypage.ToSellerResponse
+//import kr.market.fluff.data.mypage.ToSellerRequest
+//import kr.market.fluff.data.mypage.ToSellerResponse
 import okhttp3.MultipartBody
 import org.json.JSONArray
 import retrofit2.Call
@@ -52,26 +54,36 @@ interface RequestInterface {
         @Header("x-access-token") token: String
     ): Call<BaseResponse<MyStyleResponse>>
 
+    @FormUrlEncoded
+    @POST("/checkUsername")
+    fun requestNickNameValidate(
+        @Field("userNickname")userNickname : String
+    ):Call<BaseResponse<CheckNickResponse>>
 
-    @POST("/shopper/toSeller")
-    fun requestToSeller(
-        @Header("x-access-token") token: String,
-        @Part image : ToSellerRequest
-    ): Call<BaseResponse<List<ToSellerResponse>>>
+    data class CheckNickResponse(
+        val username : String
+    )
 
-    @PUT("/recommend/keyDB")
-    fun requestRecommendStyle(
-        @Header("Content-Type") content_type: String,
-        @Header("x-access-token") token: String,
-        @Body body: RecommendStyleRequest
-    ):Call<RecommendStyleResponse>
 
-    @GET("/recommend/seller")
-    fun requestRecommendSeller(
-        @Header("Content-Type") content_type: String,
-        @Header("x-access-token") token: String,
-        @Query("page") page: Int
-    ):Call<BaseResponse<ArrayList<RecommendSellerResponse>>>
+//    @POST("/shopper/toSeller")
+//    fun requestToSeller(
+//        @Header("x-access-token") token: String,
+//        @Part image : ToSellerRequest
+//    ): Call<BaseResponse<List<ToSellerResponse>>>
+//
+//    @PUT("/recommend/keyDB")
+//    fun requestRecommendStyle(
+//        @Header("Content-Type") content_type: String,
+//        @Header("x-access-token") token: String,
+//        @Body body: RecommendStyleRequest
+//    ):Call<RecommendStyleResponse>
+//
+//    @GET("/recommend/seller")
+//    fun requestRecommendSeller(
+//        @Header("Content-Type") content_type: String,
+//        @Header("x-access-token") token: String,
+//        @Query("page") page: Int
+//    ):Call<BaseResponse<ArrayList<RecommendSellerResponse>>>
 
     @POST("/goods/filter")
     fun requestFilter(
@@ -164,13 +176,15 @@ interface RequestInterface {
         @Header("Content-Type") content_type : String,
         @Header("x-access-token") token :String
     ) : Call<BaseResponse<ArrayList<CartListResponse>>>
-    data class CartListResponse(
+
+    @Parcelize
+    data class  CartListResponse(
         val userName : String,
-        val Img : String,
+        val Img : ArrayList<String>,
         val goodsId : String,
         val goodsName : String,
         val price : Long
-    )
+    ):Parcelable
 
     //구현완료 - 장바구니 추가 버튼
     @POST("/cart")
@@ -188,18 +202,17 @@ interface RequestInterface {
 
 
     //TODO 구현 필요 - 장바구니 상품 삭제 - CartActivity
-    @DELETE("/cart")
+    @HTTP(method = "DELETE",hasBody = true,path = "/cart")
     fun request_cart_delete(
         @Header("Content-Type") content_type : String,
         @Header("x-access-token") token :String,
         @Body body: CartDeleteRequest
-    ) : Call<BaseResponse<CartDeleteResponse>>
-//    request_cart_delete("application/json",token,body)
+    ) : Call<BaseResponse<ArrayList<CartDeleteResponse>>>
     data class CartDeleteRequest(
         val deleteId : ArrayList<String>
     )
     data class CartDeleteResponse(
-        val data : String
+        val _id : String
     )
 
     //TODO 구현 필요 - 최종 주문 리스트 넘겨줌(결제 완료) -- CompletingPurchaseActivity
@@ -208,19 +221,14 @@ interface RequestInterface {
         @Header("Content-Type") content_type : String,
         @Header("x-access-token") token :String,
         @Body body: RequestOrderedGoodsList
-    ) : Call<AddOrderListResponse>
+    ) : Call<BaseResponse<ArrayList<AddOrderListResponse>>>
 
     //"orderList": ["5e0874e31259cf46a8978624","5e0874f77740580910a8b849"]
     data class RequestOrderedGoodsList(
         val orderList:ArrayList<String>
     )
     data class AddOrderListResponse(
-        val code : Int,
-        val json : ResponseData
-    )
-    data class ResponseData(
-        val success : Boolean,
-        val data : Int
+        val _id: String
     )
 
     //TODO 구현 필요 - 최종 주문결과 확인(조회) - PurchaseCompleteActivity
@@ -239,6 +247,8 @@ interface RequestInterface {
         @Header("Content-Type") content_type : String,
         @Header("x-access-token") token :String
     ) : Call<BaseResponse<ArrayList<HomeDetailData>>>
+
+
     data class HomeDetailData(
         @SerializedName("goodsName")
         val closet : String,
@@ -247,9 +257,12 @@ interface RequestInterface {
         @SerializedName("sellerName")
         val seller : String,
         @SerializedName("price")
-        val price : Int,
+        val price : Long,
         @SerializedName("_id")
-        val closetId : String
+        val closetId : String,
+        @SerializedName("like")
+        val like : Boolean
+
     )
 
     //홈화면 리사이클러뷰 7개 데이터
@@ -261,7 +274,23 @@ interface RequestInterface {
     ) : Call<BaseResponse<ArrayList<HomeDetailData>>>
 
 
+    //sort , page
+    @GET("/goods")
+    fun request_home_Newest(
+        @Header("Content-Type") content_type : String,
+        @Header("x-access-token") token :String,
+        @Query("sort") sort : String,
+        @Query("page")  page : Int
+    ) : Call<BaseResponse<ArrayList<HomeDetailData>>>
 
+    //coat , page
+    @GET("/goods")
+    fun request_home_Category(
+        @Header("Content-Type") content_type : String,
+        @Header("x-access-token") token :String,
+        @Query("category") category : String,
+        @Query("page")  page : Int
+    ) : Call<BaseResponse<ArrayList<HomeDetailData>>>
 
 
 

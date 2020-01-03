@@ -1,18 +1,21 @@
 package kr.market.fluff.ui.purchase
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_purchase.*
 import kr.market.fluff.R
 import kr.market.fluff.data.cart.CartGoodsData
+import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.ui.util.priceFormTextView
 
-class PurchaseActivity : AppCompatActivity() {
+class PurchaseActivity : AppCompatActivity(){
 
-    var buy_items : ArrayList<CartGoodsData> = ArrayList()
+    var buy_items : ArrayList<RequestInterface.CartListResponse> = ArrayList()
 
     var total_price : Long = 0
     var total_real_price : Long = 0
@@ -28,13 +31,13 @@ class PurchaseActivity : AppCompatActivity() {
     private fun init(){
 
         setListener()
-        buy_items = intent.getSerializableExtra("buy_items") as ArrayList<CartGoodsData>
+        buy_items = intent.getSerializableExtra("buy_items") as ArrayList<RequestInterface.CartListResponse>
         updateGoodsData()
 
     }
     private fun updateGoodsData(){
 
-        val goods_img = buy_items.get(0).img//이미지
+        val goods_img = buy_items.get(0).Img.get(0)//이미지
         val goods_name = buy_items.get(0).goodsName//아이템 이름
         val goods_total_num = buy_items.size -1
 
@@ -65,14 +68,11 @@ class PurchaseActivity : AppCompatActivity() {
             address = "${et_user_address1.text} \n ${et_user_address2.text}"
             val intent = Intent(this,
                 CompletingPurchaseActivity::class.java)
-            //var total_price : Long = 0
-            //        var total_real_price : Long = 0
-            //        var user_name : String = ""
-            //        var address : String = ""
             intent.putExtra("total_price",total_price)
             intent.putExtra("total_real_price",total_real_price)
             intent.putExtra("user_name",user_name)
             intent.putExtra("address",address)
+            intent.putExtra("buy_items",buy_items)
             startActivity(intent)
         }
     }

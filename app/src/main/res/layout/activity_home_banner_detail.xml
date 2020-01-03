@@ -22,13 +22,17 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/img_banner_view"
+                <kr.market.fluff.ui.fragment.auction.SquareFrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="286dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/signin_bg_img" />
+                    android:layout_height="286dp">
+                    <ImageView
+                        android:id="@+id/img_banner_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="286dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/signin_bg_img" />
+                </kr.market.fluff.ui.fragment.auction.SquareFrameLayout>
+
 
                 <View
                     android:layout_width="match_parent"

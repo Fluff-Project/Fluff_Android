@@ -6,9 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kr.market.fluff.R
 import kr.market.fluff.data.detail.DetailProductData
+import kr.market.fluff.network.RequestInterface
 
 
-class DetailRecyclerAdapter (var datas:List<DetailProductData>): RecyclerView.Adapter<DetailRecyclerViewHolder>(){
+class DetailRecyclerAdapter (var datas:ArrayList<RequestInterface.HomeDetailData>): RecyclerView.Adapter<DetailRecyclerViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailRecyclerViewHolder {
         val view: View = LayoutInflater
             .from(parent.context)

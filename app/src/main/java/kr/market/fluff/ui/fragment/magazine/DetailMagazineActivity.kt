@@ -7,7 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.transition.addListener
 import androidx.core.view.ViewCompat
+import com.bumptech.glide.Glide
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_detail_magazine.*
 import kr.market.fluff.R
 import kr.market.fluff.data.MagazineData
 import kr.market.fluff.ui.fragment.auction.DetailAuctionActivity
@@ -65,7 +67,13 @@ class DetailMagazineActivity : AppCompatActivity() {
         loadItem()
     }
     private fun loadItem(){
-        tv_detail_magazine_title .text = mItem!!.txt_magazine_title
+        tv_detail_magazine_title.text = mItem!!.txt_magazine_title
+        tv_detail_magazine_contents_title.text = mItem!!.txt_detail_magazine_contents_title
+        tv_detail_magazine_contents.text = mItem!!.txt_detail_magazine_contents
+        Glide.with(this).load(mItem!!.img_detail_magazine_contents).into(img_detail_magazine_contents)
+        tv_detail_magazine_contents_product_title.text = mItem!!.txt_detail_magazine_contents_product_title
+        tv_detail_magazine_product_contents.text = mItem!!.txt_detail_magazine_product_contents
+        tv_detail_magazine_date.text = mItem!!.txt_magazine_date
         if (addTransitionListener()) {
             loadThumbnail()
         } else { // If all other cases we should just load the full-size image now
