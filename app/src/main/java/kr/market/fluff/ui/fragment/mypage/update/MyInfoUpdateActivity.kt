@@ -16,35 +16,18 @@ class MyInfoUpdateActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.activity_my_info_update)
-
        init()
-
     }
     fun init()
     {
         edit_myInfo_id.isEnabled = false
         edit_myInfo_id.setText(intent.getStringExtra("myInfo_email"))
-
-
-        img_myInfo_back.setOnClickListener {
-
-            finish()
-        }
-
+        img_myInfo_back.setOnClickListener {finish()}
         btn_myinfo_update.setOnClickListener {
-
-
             intent.putExtra("result_nickname",edit_myInfo_nickname.text.toString())
             setResult(Activity.RESULT_OK,intent)
-
             finish()
         }
-    }
-
-    fun onActivityResult ()
-    {
-
     }
 }

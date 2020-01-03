@@ -10,7 +10,7 @@ class MySharedPreferences(context: Context) {
     val PREF_KEY_MY_LOCAL_LOGIN_TOKEN = "local_login"
     val PREF_KEY_MY_LOCAL_LOGIN_ID = "local_login_id"
     val PREF_KEY_MY_LOCAL_LOGIN_PWD = "local_login_pwd"
-    val PREF_KEY_MY_LOCAL_NICK_NAME = "local_nickname"
+    val PREF_KEY_MY_LOCAL_NICK_NAME = "local_login_nick"
 
     val prefs: SharedPreferences = context.getSharedPreferences(PREFS_FILENAME,0)
     val editor = prefs.edit()
@@ -35,6 +35,6 @@ class MySharedPreferences(context: Context) {
         set(value) = editor.putString(PREF_KEY_MY_LOCAL_LOGIN_PWD,value).apply()
 
     var local_nick_name : String?
-    get() = prefs.getString(PREF_KEY_MY_LOCAL_NICK_NAME,null)
-    set(value) = editor.putString(PREF_KEY_MY_LOCAL_NICK_NAME,value).apply()
+        get() = prefs.getString(PREF_KEY_MY_LOCAL_NICK_NAME,null)
+        set(value) = editor.putString(PREF_KEY_MY_LOCAL_NICK_NAME,value).apply()
 }

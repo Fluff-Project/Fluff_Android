@@ -22,7 +22,6 @@ class WelcomeActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-        val toast = Toast(this)
         sendToast("환영합니다!")
     }
 }

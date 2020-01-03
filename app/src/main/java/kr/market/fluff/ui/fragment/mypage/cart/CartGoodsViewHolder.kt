@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_cart.*
 import kr.market.fluff.R
 import kr.market.fluff.data.cart.CartGoodsData
 import kr.market.fluff.data.mypage.FavoriteMarketData
+import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.ui.util.priceFormTextView
 
 class CartGoodsViewHolder(view : View) : RecyclerView.ViewHolder(view){
@@ -23,10 +24,10 @@ class CartGoodsViewHolder(view : View) : RecyclerView.ViewHolder(view){
 
 
 
-    fun bind(goodsData : CartGoodsData,context:Context,isAllCheck : Boolean,size : Int){
+    fun bind(goodsData : RequestInterface.CartListResponse, context:Context, isAllCheck : Boolean, size : Int){
 
 
-        Glide.with(itemView).load(goodsData.img).into(img_cart_item)
+        Glide.with(itemView).load(goodsData.Img.get(0)).into(img_cart_item)
         tv_cart_seller_name.text = goodsData.userName
         tv_cart_item_name.text = goodsData.goodsName
         tv_cart_goods_price.priceFormTextView(tv_cart_goods_price,goodsData.price)

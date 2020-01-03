@@ -159,7 +159,7 @@ class ProductDetailActivity : AppCompatActivity() {
 
     fun makeDetailViewPager(){
         val dotsIndicator= findViewById<DotsIndicator>(R.id.detail_dots_indicator)
-        val adapter = FragmentDetailPagerAdapter(supportFragmentManager,3,img_datas)
+        val adapter = FragmentDetailPagerAdapter(supportFragmentManager,img_datas.size,img_datas)
         val vp_detail_viewpager = findViewById<ViewPager>(R.id.vp_detail_viewpager)
         vp_detail_viewpager.adapter = adapter
         dotsIndicator.setViewPager(vp_detail_viewpager)

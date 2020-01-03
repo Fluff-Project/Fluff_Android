@@ -125,10 +125,11 @@ class HomeFragment : Fragment() {
     }
 
 
-    fun makeHomeViewPager(view: View) {
-        val dotsIndicator = view.findViewById<DotsIndicator>(kr.market.fluff.R.id.dots_indicator)
-        val viewPager = view.findViewById<ViewPager>(kr.market.fluff.R.id.vp_home_viewpager)
-        val adapter = ViewPagerAdapter(childFragmentManager, 4)
+    fun makeHomeViewPager(view : View)
+    {
+        val dotsIndicator= view.findViewById<DotsIndicator>(R.id.dots_indicator)
+        val viewPager = view.findViewById<ViewPager>(R.id.vp_home_viewpager)
+        val adapter = ViewPagerAdapter(childFragmentManager,4)
         viewPager.adapter = adapter
         dotsIndicator.setViewPager(viewPager)
         vp_home_viewpager.adapter = adapter
@@ -140,19 +141,13 @@ class HomeFragment : Fragment() {
     fun makeNewRecycler(view: View) {
         rv_home_new = view.findViewById(kr.market.fluff.R.id.rv_home_new)
 
-        requestToServer.service.request_home_Newest(
-            "application/json",
-            App.prefs.local_login_token!!,
-            "newest",
-            7
-        )
+        requestToServer.service.request_home_Newest("application/json", App.prefs.local_login_token!!,"newest",7)
             .safeEnqueue(
                 onSuccess = {
                     newAdapter = HomeNewAdapter(it)
                     newAdapter.notifyDataSetChanged()
                     rv_home_new.apply {
-                        layoutManager =
-                            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                        layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
                         adapter = newAdapter
                         addItemDecoration(HorizontalItemDecorator(24))
                     }

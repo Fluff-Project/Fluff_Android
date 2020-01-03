@@ -12,10 +12,10 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_detail_auction.*
 import kotlinx.android.synthetic.main.activity_seller_edit.*
 import kr.market.fluff.R
-import kr.market.fluff.data.App
-import kr.market.fluff.data.mypage.ToSellerRequest
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.safeEnqueue
+import kr.market.fluff.data.App
+import kr.market.fluff.data.mypage.ToSellerRequest
 import kr.market.fluff.ui.fragment.mypage.applySeller.keyword.KeywordActivity
 import kr.market.fluff.ui.util.sendToast
 import okhttp3.MediaType
@@ -29,14 +29,13 @@ class SellerEditActivity : AppCompatActivity() {
     val REQUEST_CODE_SELECT_IMAGE: Int = 1004
     lateinit var selectedPicUri: Uri
     lateinit var editDialog: EditDialog
+
     private lateinit var toSellerRequest : ToSellerRequest
     val requestToServer = RequestToServer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seller_edit)
         init()
-
-
     }
     private fun init(){
         editDialog = EditDialog(this).apply {
@@ -80,6 +79,8 @@ class SellerEditActivity : AppCompatActivity() {
                     }
                 )
 
+            val intent = Intent(this,ApplySellerActivity::class.java)
+            startActivity(intent)
         }
     }
 

@@ -13,6 +13,7 @@ data class MyStyleData(
     @SerializedName("img")
     var img: String
 )
+
 data class RecommendStyleRequest(
     var style: List<String>
 )
