@@ -52,7 +52,7 @@ class CartActivity : AppCompatActivity() {
     }
     private fun deleteCartItems(){
         var delete_id_list = ArrayList<String>()
-        for(i in 0..selected_cart_list!!.size-1){
+        for(i in 0..selected_cart_list!!.size+1){
             delete_id_list.add(selected_cart_list!!.get(i).goodsId)
         }
         RequestToServer.service.request_cart_delete(

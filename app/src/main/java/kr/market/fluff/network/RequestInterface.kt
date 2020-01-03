@@ -54,6 +54,11 @@ interface RequestInterface {
         @Header("x-access-token") token: String
     ): Call<BaseResponse<MyStyleResponse>>
 
+    @POST("/checkUsername")
+    fun requestNickNameValidate(
+
+    )
+
 
 //    @POST("/shopper/toSeller")
 //    fun requestToSeller(
