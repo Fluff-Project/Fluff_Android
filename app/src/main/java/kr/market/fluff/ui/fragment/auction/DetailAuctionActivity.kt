@@ -245,7 +245,7 @@ class DetailAuctionActivity : AppCompatActivity() {
 
     private val onJoinReceived = Emitter.Listener {
         val msg = it[0] as Int
-
+        Log.d("hj","${msg} 값 받아왔습니다")
         val tt = object : TimerTask() {
             override fun run() {
                 runOnUiThread {
