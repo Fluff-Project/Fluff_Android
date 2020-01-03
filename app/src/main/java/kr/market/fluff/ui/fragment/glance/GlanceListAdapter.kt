@@ -17,6 +17,6 @@ class GlanceListAdapter (private var context: Context): RecyclerView.Adapter<Gla
     override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: GlanceListViewHolder, position: Int) {
-        holder.bind(data[position])
+        holder.bind(context, data[position])
     }
 }

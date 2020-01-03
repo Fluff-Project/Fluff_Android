@@ -11,6 +11,15 @@ class MySharedPreferences(context: Context) {
     val PREF_KEY_MY_LOCAL_LOGIN_ID = "local_login_id"
     val PREF_KEY_MY_LOCAL_LOGIN_PWD = "local_login_pwd"
     val PREF_KEY_MY_LOCAL_NICK_NAME = "local_login_nick"
+    val PREF_KEY_MY_LOCAL_GENDER = "local_login_gender"
+
+    //MyPage 내정보 수정 부분
+    val PREF_KEY_MY_ADRESS = "user_adress"
+    val PREF_KEY_MY_SPECIFIC_ADRESS = "user_specific_address"
+    val PREF_KEY_MY_PHONE = "user_phone"
+
+
+
 
     val prefs: SharedPreferences = context.getSharedPreferences(PREFS_FILENAME,0)
     val editor = prefs.edit()
@@ -37,4 +46,18 @@ class MySharedPreferences(context: Context) {
     var local_nick_name : String?
         get() = prefs.getString(PREF_KEY_MY_LOCAL_NICK_NAME,null)
         set(value) = editor.putString(PREF_KEY_MY_LOCAL_NICK_NAME,value).apply()
+
+    var my_address : String?
+        get() = prefs.getString(PREF_KEY_MY_ADRESS,null)
+        set(value) = editor.putString(PREF_KEY_MY_ADRESS,value).apply()
+    var my_specific_address : String?
+        get() = prefs.getString(PREF_KEY_MY_SPECIFIC_ADRESS,null)
+        set(value) = editor.putString(PREF_KEY_MY_SPECIFIC_ADRESS,value).apply()
+    var my_phone : String?
+        get() = prefs.getString(PREF_KEY_MY_PHONE,null)
+        set(value) = editor.putString(PREF_KEY_MY_PHONE,value).apply()
+
+    var local_gender : String?
+        get() = prefs.getString(PREF_KEY_MY_LOCAL_GENDER,null)
+        set(value) = editor.putString(PREF_KEY_MY_LOCAL_GENDER,value).apply()
 }

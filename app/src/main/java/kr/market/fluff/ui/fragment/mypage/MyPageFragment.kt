@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_my_info_update.*
 import kotlinx.android.synthetic.main.fragment_my_page.*
 import kr.market.fluff.R
 import kr.market.fluff.data.App
@@ -30,6 +31,8 @@ class MyPageFragment(private val activity : Activity) : Fragment() {
     lateinit var rv_mypage_recent_goods : RecyclerView
     lateinit var recent_goods_datas : ArrayList<MyPageRecentSawGoods>
     var REQ_CODE = 1
+    val pf = App.prefs
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -53,6 +56,8 @@ class MyPageFragment(private val activity : Activity) : Fragment() {
         }
     }
     private fun init(){
+
+        tv_mypage_user_name.text = pf.local_nick_name!!
         ll_my_cart.setOnClickListener{startActivity(Intent(this.context,CartActivity::class.java))}
         ll_my_favorite.setOnClickListener{
             val intent = Intent(this.context,
@@ -73,14 +78,6 @@ class MyPageFragment(private val activity : Activity) : Fragment() {
             intent.putExtra("myInfo_email",tv_mypage_user_email.text.toString())
             startActivityForResult(intent,REQ_CODE)
         }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-
-        tv_mypage_user_name.text = data?.getStringExtra("result_nickname")
-
     }
 
     private fun setCreateStore(){

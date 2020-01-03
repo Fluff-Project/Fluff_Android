@@ -264,8 +264,9 @@ interface RequestInterface {
         @SerializedName("_id")
         val closetId : String,
         @SerializedName("like")
-        val like : Boolean
-
+        val like : Boolean,
+        @SerializedName("sellerId")
+        val sellerId : String
     )
 
     //홈화면 리사이클러뷰 7개 데이터
