@@ -86,10 +86,10 @@ class LoginActivity : AppCompatActivity() {
                     finish()
                 },
                 onFail = { _, _ ->
-                    sendToast("로그인 실패")
+                    sendToast("서버에 응답이 없습니다")
                 },
                 onError = {
-                    sendToast("통신 실패")
+                    sendToast("아이디/비밀번호를 확인하세요")
                 }
             )
     }

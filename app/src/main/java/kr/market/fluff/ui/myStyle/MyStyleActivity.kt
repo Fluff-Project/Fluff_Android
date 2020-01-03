@@ -84,11 +84,10 @@ class MyStyleActivity : AppCompatActivity() {
         requestToServer.service.requestSurvey("application/json",token)
             .safeEnqueue(
                 onSuccess = {
-                    sendToast("성공")
                     myStyleAdapter.data=it.surveyList
                     myStyleAdapter.notifyDataSetChanged()
                 },
-                onFail = { _, _ -> sendToast("실패")}
+                onFail = { _, _ -> sendToast("서버 연결 오류")}
             )
 
     }
