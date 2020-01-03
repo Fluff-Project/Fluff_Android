@@ -149,7 +149,6 @@ interface RequestInterface {
         val style :ArrayList<String>,
         val saleList : ArrayList<String>,
         val sellerImg : String
-
     )
 
 
@@ -253,7 +252,7 @@ interface RequestInterface {
     fun request_order_confirm(
         @Header("Content-Type") content_type : String,
         @Header("x-access-token") token :String
-    ) : Call<BaseResponse<ConfirmOrderResponse>>
+    ) : Call<BaseResponse<ArrayList<ConfirmOrderResponse>>>
     data class ConfirmOrderResponse(
         val data : String
     )
@@ -338,6 +337,5 @@ interface RequestInterface {
         val mainImg: String,
         val price : Long
     )
-
 
 }
