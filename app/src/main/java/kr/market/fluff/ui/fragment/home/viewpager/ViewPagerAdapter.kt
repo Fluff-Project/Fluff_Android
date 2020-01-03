@@ -21,25 +21,29 @@ class ViewPagerAdapter(fm: FragmentManager?, val num_fragment : Int) :FragmentSt
                 0,
                 R.drawable.home_banner_img_1,
                 "빈티지 가디건",
-                "러블리함을 원한다면?"
+                "러블리함을 원한다면?",
+                "cardigan"
             ),
             HomeSliderData(
                 1,
                 R.drawable.home_banner_img_2,
                 "겨울 빈티지 코트",
-                "지금이 딱!"
+                "지금이 딱!",
+                "coat"
             ),
             HomeSliderData(
                 2,
                 R.drawable.home_banner_img_3,
                 "겨울 스커트",
-                "따뜻하고 포인트가 되는"
+                "따뜻하고 포인트가 되는",
+                "skirt"
             ),
             HomeSliderData(
                 3,
                 R.drawable.home_banner_img_4,
                 "빈티지 원피스",
-                "영화 한 장면처럼,"
+                "영화 한 장면처럼,",
+                "longOnepiece"
             )
 //            HomeSliderData(
 //                4,
@@ -53,6 +57,7 @@ class ViewPagerAdapter(fm: FragmentManager?, val num_fragment : Int) :FragmentSt
             bundle.putInt("background_img",datas.get(p0).imgurl)
             bundle.putString("main",datas.get(p0).title)
             bundle.putString("subtitle",datas.get(p0).subtitle)
+            bundle.putString("category",datas.get(p0).category)
 
 
 //       when(p0){

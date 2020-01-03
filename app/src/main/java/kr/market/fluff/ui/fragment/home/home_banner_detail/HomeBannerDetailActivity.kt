@@ -11,14 +11,12 @@ import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_detail_magazine.*
 import kotlinx.android.synthetic.main.activity_home_banner_detail.*
 import kr.market.fluff.R
 import kr.market.fluff.data.App
 import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.safeEnqueue
-import kr.market.fluff.ui.fragment.magazine.DetailMagazineActivity
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 import kr.market.fluff.ui.util.sendToast
@@ -64,7 +62,7 @@ class HomeBannerDetailActivity : AppCompatActivity() {
         txt_banner_subtitle  = findViewById(R.id.txt_banner_subtitle)
         txt_banner_title  = findViewById(R.id.txt_banner_title)
 
-        requestToServer.service.request_recommend_home("application/json", App.prefs.local_login_token!!)
+        requestToServer.service.request_home_Category("application/json", App.prefs.local_login_token!!,intent.getStringExtra("category"),7)
             .safeEnqueue(
                 onSuccess = {
                     bannerAdapter = BannerRecyclerAdapter(this@HomeBannerDetailActivity, it)

@@ -15,7 +15,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import kotlinx.android.synthetic.main.activity_register.*
 import kr.market.fluff.R
-import kr.market.fluff.data.App
 import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.safeEnqueue
@@ -258,9 +257,8 @@ class RegisterActivity : AppCompatActivity() {
                 onSuccess ={
                     sendToast("회원가입에 성공하였습니다.")
                     val intent = Intent(this,LoginActivity::class.java)
-                    App.prefs.local_login_id = string_register_email
-                    App.prefs.local_login_pwd = string_register_pwd
-                    App.prefs.local_nick_name = string_register_nick
+                    intent.putExtra("email",string_register_email)
+                    intent.putExtra("pwd",string_register_pwd)
                     startActivity(intent)
                     finish()
                 },

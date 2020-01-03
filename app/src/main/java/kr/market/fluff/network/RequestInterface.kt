@@ -10,8 +10,8 @@ import kotlinx.android.parcel.Parcelize
 import kr.market.fluff.data.intro.ResponseLogin
 import kr.market.fluff.data.intro.ResponseValidateAndRegisterAndLogin
 import kr.market.fluff.data.myStyle.*
-import kr.market.fluff.data.mypage.ToSellerRequest
-import kr.market.fluff.data.mypage.ToSellerResponse
+//import kr.market.fluff.data.mypage.ToSellerRequest
+//import kr.market.fluff.data.mypage.ToSellerResponse
 import okhttp3.MultipartBody
 import org.json.JSONArray
 import retrofit2.Call
@@ -53,25 +53,25 @@ interface RequestInterface {
     ): Call<BaseResponse<MyStyleResponse>>
 
 
-    @POST("/shopper/toSeller")
-    fun requestToSeller(
-        @Header("x-access-token") token: String,
-        @Part image : ToSellerRequest
-    ): Call<BaseResponse<List<ToSellerResponse>>>
-
-    @PUT("/recommend/keyDB")
-    fun requestRecommendStyle(
-        @Header("Content-Type") content_type: String,
-        @Header("x-access-token") token: String,
-        @Body body: RecommendStyleRequest
-    ):Call<RecommendStyleResponse>
-
-    @GET("/recommend/seller")
-    fun requestRecommendSeller(
-        @Header("Content-Type") content_type: String,
-        @Header("x-access-token") token: String,
-        @Query("page") page: Int
-    ):Call<BaseResponse<ArrayList<RecommendSellerResponse>>>
+//    @POST("/shopper/toSeller")
+//    fun requestToSeller(
+//        @Header("x-access-token") token: String,
+//        @Part image : ToSellerRequest
+//    ): Call<BaseResponse<List<ToSellerResponse>>>
+//
+//    @PUT("/recommend/keyDB")
+//    fun requestRecommendStyle(
+//        @Header("Content-Type") content_type: String,
+//        @Header("x-access-token") token: String,
+//        @Body body: RecommendStyleRequest
+//    ):Call<RecommendStyleResponse>
+//
+//    @GET("/recommend/seller")
+//    fun requestRecommendSeller(
+//        @Header("Content-Type") content_type: String,
+//        @Header("x-access-token") token: String,
+//        @Query("page") page: Int
+//    ):Call<BaseResponse<ArrayList<RecommendSellerResponse>>>
 
 
     data class LoginRequest(
@@ -228,6 +228,8 @@ interface RequestInterface {
         @Header("Content-Type") content_type : String,
         @Header("x-access-token") token :String
     ) : Call<BaseResponse<ArrayList<HomeDetailData>>>
+
+
     data class HomeDetailData(
         @SerializedName("goodsName")
         val closet : String,
@@ -238,7 +240,10 @@ interface RequestInterface {
         @SerializedName("price")
         val price : Long,
         @SerializedName("_id")
-        val closetId : String
+        val closetId : String,
+        @SerializedName("like")
+        val like : Boolean
+
     )
 
     //홈화면 리사이클러뷰 7개 데이터
@@ -250,7 +255,23 @@ interface RequestInterface {
     ) : Call<BaseResponse<ArrayList<HomeDetailData>>>
 
 
+    //sort , page
+    @GET("/goods")
+    fun request_home_Newest(
+        @Header("Content-Type") content_type : String,
+        @Header("x-access-token") token :String,
+        @Query("sort") sort : String,
+        @Query("page")  page : Int
+    ) : Call<BaseResponse<ArrayList<HomeDetailData>>>
 
+    //coat , page
+    @GET("/goods")
+    fun request_home_Category(
+        @Header("Content-Type") content_type : String,
+        @Header("x-access-token") token :String,
+        @Query("category") category : String,
+        @Query("page")  page : Int
+    ) : Call<BaseResponse<ArrayList<HomeDetailData>>>
 
 
 
