@@ -251,7 +251,7 @@ interface RequestInterface {
     fun request_order_confirm(
         @Header("Content-Type") content_type : String,
         @Header("x-access-token") token :String
-    ) : Call<BaseResponse<ConfirmOrderResponse>>
+    ) : Call<BaseResponse<ArrayList<ConfirmOrderResponse>>>
     data class ConfirmOrderResponse(
         val data : String
     )
@@ -322,6 +322,4 @@ interface RequestInterface {
     data class RequestLikeData(
         val like : Boolean
     )
-
-
 }
