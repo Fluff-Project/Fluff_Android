@@ -147,7 +147,6 @@ interface RequestInterface {
         val style :ArrayList<String>,
         val saleList : ArrayList<String>,
         val sellerImg : String
-
     )
 
 
