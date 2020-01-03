@@ -5,9 +5,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.item_rv_glance.view.*
 import kr.market.fluff.R
-import kr.market.fluff.data.GlanceListData
+import kr.market.fluff.data.FilterResponse
 
 class GlanceListViewHolder(view: View) :RecyclerView.ViewHolder(view){
     val img_glance_cloth: ImageView = view.findViewById(R.id.img_glance_cloth)
@@ -15,10 +14,10 @@ class GlanceListViewHolder(view: View) :RecyclerView.ViewHolder(view){
     val txt_cloth_name: TextView = view.findViewById(R.id.txt_glance_cloth_name)
     val txt_price: TextView = view.findViewById(R.id.txt_glance_price)
 
-    fun bind(data: GlanceListData){
-        Glide.with(itemView).load(data.img_url).into(img_glance_cloth)
-        txt_seller_name.text = data.seller_name
-        txt_cloth_name.text = data.cloth_name
+    fun bind(data: FilterResponse){
+        Glide.with(itemView).load(data.img[0]).into(img_glance_cloth)
+        txt_seller_name.text = "셀러 이름"
+        txt_cloth_name.text = data.goodsName
         txt_price.text = data.price.toString()
     }
 }

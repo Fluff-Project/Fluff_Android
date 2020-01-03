@@ -4,6 +4,7 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,10 +15,15 @@ import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.fragment_glance.*
 import kotlinx.android.synthetic.main.glance_filter.*
 import kr.market.fluff.R
-import kr.market.fluff.data.GlanceListData
+import kr.market.fluff.data.App
+import kr.market.fluff.data.FilterRequest
+import kr.market.fluff.network.RequestInterface
+import kr.market.fluff.network.RequestToServer
+import kr.market.fluff.network.safeEnqueue
 import kr.market.fluff.ui.fragment.mypage.cart.CartActivity
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
+import kr.market.fluff.ui.util.sendToast
 
 
 class GlanceFragment : Fragment() {
@@ -25,6 +31,8 @@ class GlanceFragment : Fragment() {
     private lateinit var bottomSheet: BottomSheetBehavior<View>
     private var count: Int = 0
     private var detail_count: Int = 0
+    val requestToServer = RequestToServer
+    private lateinit var filterRequest: FilterRequest
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -134,56 +142,8 @@ class GlanceFragment : Fragment() {
             addItemDecoration(VerticalItemDecorator(24))
             addItemDecoration(HorizontalItemDecorator(24))
         }
-        glanceListAdapter.data = listOf(
-            GlanceListData(
-                "https://cdn.pixabay.com/photo/2017/08/01/08/29/people-2563491__340.jpg",
-                "꾸뽁꾸뽁",
-                "큐티뽀짝니트",
-                30000),
-            GlanceListData(
-                "https://cdn.pixabay.com/photo/2017/08/01/08/29/people-2563491__340.jpg",
-                "수연체동물",
-                "시크한바지",
-                30000), GlanceListData(
-                "https://cdn.pixabay.com/photo/2017/08/01/08/29/people-2563491__340.jpg",
-                "꾸뽁꾸뽁",
-                "큐티뽀짝니트",
-                30000),
-            GlanceListData(
-                "https://cdn.pixabay.com/photo/2017/08/01/08/29/people-2563491__340.jpg",
-                "수연체동물",
-                "시크한바지",
-                30000), GlanceListData(
-                "https://cdn.pixabay.com/photo/2017/08/01/08/29/people-2563491__340.jpg",
-                "꾸뽁꾸뽁",
-                "큐티뽀짝니트",
-                30000),
-            GlanceListData(
-                "https://cdn.pixabay.com/photo/2017/08/01/08/29/people-2563491__340.jpg",
-                "수연체동물",
-                "시크한바지",
-                30000), GlanceListData(
-                "https://cdn.pixabay.com/photo/2017/08/01/08/29/people-2563491__340.jpg",
-                "꾸뽁꾸뽁",
-                "큐티뽀짝니트",
-                30000),
-            GlanceListData(
-                "https://cdn.pixabay.com/photo/2017/08/01/08/29/people-2563491__340.jpg",
-                "수연체동물",
-                "시크한바지",
-                30000),
-            GlanceListData(
-                "https://cdn.pixabay.com/photo/2017/08/01/08/29/people-2563491__340.jpg",
-                "꾸뽁꾸뽁",
-                "큐티뽀짝니트",
-                30000),
-            GlanceListData(
-                "https://cdn.pixabay.com/photo/2017/08/01/08/29/people-2563491__340.jpg",
-                "수연체동물",
-                "시크한바지",
-                30000)
-        )
-        glanceListAdapter.notifyDataSetChanged()
+
+
     }
     fun settingFilter(){
         bottomSheet = BottomSheetBehavior.from(glance_filter)
@@ -213,14 +173,38 @@ class GlanceFragment : Fragment() {
             val anims = AnimatorSet()
             val ty1 = ObjectAnimator.ofFloat(glance_filter, View.TRANSLATION_Y, 1500f, 0f)
             anims.playTogether(ty1)
-            anims.setDuration(1000)
+            anims.duration = 1000
             anims.start()
+
+
         }
         glance_filter_blur.setOnClickListener {
             bottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
         }
         btn_glance_filter_apply.setOnClickListener {
             bottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
+
+            //필터링
+            filter()
+
+            //통신
+            val token = App.prefs.local_login_token
+            requestToServer.service.requestFilter(
+                "application/json",token!!,filterRequest
+            )
+                .safeEnqueue(
+                    onSuccess = {
+                        glanceListAdapter.data = it
+                        glanceListAdapter.notifyDataSetChanged()
+                    },
+                    onFail = { _, _ ->
+                        sendToast("로그인 실패")
+                    },
+                    onError = {
+                        sendToast("통신 실패")
+                    }
+                )
+
             if(count<=0) {
                 btn_glance_filter_set.text = "필터"
             }else{
@@ -882,5 +866,157 @@ class GlanceFragment : Fragment() {
                 detail_count--
             }
         }
+    }
+
+    private fun filter(){
+        var selectColor: String = ""
+        //컬러 검사
+        if(cb_glance_filter_color_black.isChecked) selectColor="black"
+        else if(cb_glance_filter_color_white.isChecked){
+            selectColor="white"
+        }
+        else if(cb_glance_filter_color_grey.isChecked){
+            selectColor="grey"
+        }
+        else if(cb_glance_filter_color_beige.isChecked){
+            selectColor="beige"
+        }
+        else if(cb_glance_filter_color_brown.isChecked ){
+            selectColor="brown"
+        }
+        else if(cb_glance_filter_color_chorale.isChecked ){
+            selectColor="red"
+        }
+        else if(cb_glance_filter_color_orange.isChecked ){
+            selectColor="orange"
+        }
+        else if(cb_glance_filter_color_darkgreen.isChecked){
+            selectColor="green"
+        }
+        else if(cb_glance_filter_color_lightblue.isChecked){
+            selectColor="blue"
+        }
+        else if(cb_glance_filter_color_darkblue.isChecked){
+            selectColor="navy"
+        }
+        else if(cb_glance_filter_color_check.isChecked){
+            selectColor="check"
+        }
+        else if(cb_glance_filter_color_dot.isChecked){
+            selectColor="dot"
+        }
+        else if(cb_glance_filter_color_purple.isChecked ){
+            selectColor="purple"
+        }
+        else if(cb_glance_filter_color_pink.isChecked ){
+            selectColor="pink"
+        }
+
+        var selectSize= ArrayList<String>()
+        //카테고리
+        if(cb_glance_filter_size_s.isChecked){
+            selectSize.add("s")
+        }
+        if(cb_glance_filter_size_m.isChecked){
+            selectSize.add("md")
+        }
+        if(cb_glance_filter_size_l.isChecked){
+            selectSize.add("lg")
+        }
+        if(cb_glance_filter_size_xl.isChecked){
+            selectSize.add("xlg")
+        }
+        if(cb_glance_filter_size_xxl.isChecked ){
+            selectSize.add("xxlg")
+        }
+
+        var selectCategory= ArrayList<String>()
+        //세부 카테고리 검사
+        if(cb_glance_filter_detail_jacket.isChecked){
+            selectCategory.add("jacket")
+        }
+        if(cb_glance_filter_detail_cardigan.isChecked){
+            selectCategory.add("cardigan")
+        }
+        if(cb_glance_filter_detail_jumper.isChecked){
+            selectCategory.add("jumper")
+        }
+        if(cb_glance_filter_detail_military_jumper.isChecked){
+            selectCategory.add("militaryJacket")
+        }
+        if(cb_glance_filter_detail_vest.isChecked){
+            selectCategory.add("vest")
+        }
+        if( cb_glance_filter_detail_coat.isChecked){
+            selectCategory.add("coat")
+        }
+        if(cb_glance_filter_detail_padding.isChecked){
+            selectCategory.add("padding")
+        }
+        if(cb_glance_filter_detail_tshirt.isChecked){
+            selectCategory.add("tShirt")
+        }
+        if(cb_glance_filter_detail_knit.isChecked){
+            selectCategory.add("knit")
+        }
+        if(cb_glance_filter_detail_shirt.isChecked){
+            selectCategory.add("shirt")
+        }
+        if(cb_glance_filter_detail_sweater.isChecked){
+            selectCategory.add("manToMan")
+        }
+        if(cb_glance_filter_detail_hood.isChecked){
+            selectCategory.add("hood")
+        }
+        if(cb_glance_filter_detail_blouse.isChecked){
+            selectCategory.add("blouse")
+        }
+        if(cb_glance_filter_detail_half_pants.isChecked){
+            selectCategory.add("shortPants")
+        }
+        if(cb_glance_filter_detail_straight_pants.isChecked){
+            selectCategory.add("straightLegPants")
+        }
+        if(cb_glance_filter_detail_wide_pants.isChecked){
+            selectCategory.add("widePants")
+        }
+        if(cb_glance_filter_detail_skinny.isChecked){
+            selectCategory.add("skinny")
+        }
+        if(cb_glance_filter_detail_suspenders.isChecked){
+            selectCategory.add("overalls")
+        }
+        if(cb_glance_filter_detail_mini_skirt.isChecked){
+            selectCategory.add("miniSkirt")
+        }
+        if(cb_glance_filter_detail_middle_skirt.isChecked){
+            selectCategory.add("midiSkirt")
+        }
+        if(cb_glance_filter_detail_long_skirt.isChecked ){
+            selectCategory.add("longSkirt")
+        }
+        if(cb_glance_filter_detail_mini_dress.isChecked ){
+            selectCategory.add("miniOnepiece")
+        }
+        if(cb_glance_filter_detail_long_dress.isChecked ){
+            selectCategory.add("longOnepiece")
+        }
+        if(cb_glance_filter_detail_two_pieces.isChecked ){
+            selectCategory.add("twopiece")
+        }
+        if(cb_glance_filter_detail_bag.isChecked){
+            selectCategory.add("bag")
+        }
+        if(cb_glance_filter_detail_globes.isChecked ){
+            selectCategory.add("warmer")
+        }
+        if(cb_glance_filter_detail_scarf.isChecked ){
+            selectCategory.add("muffler")
+        }
+        if(cb_glance_filter_detail_shawl.isChecked){
+            selectCategory.add("shawl")
+        }
+
+        filterRequest = FilterRequest(selectColor,selectCategory,selectSize)
     }
 }
