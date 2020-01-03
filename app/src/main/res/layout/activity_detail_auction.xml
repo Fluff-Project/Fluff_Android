@@ -93,7 +93,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_auction_detail_recent_highst" />
 
                 <TextView
-                    android:id="@+id/textView19"
+                    android:id="@+id/tv_auction_detail_item_name2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="56dp"
@@ -108,7 +108,7 @@
                     android:text="샤네루 1990’s 트위드 재킷" />
 
                 <TextView
-                    android:id="@+id/textView24"
+                    android:id="@+id/tv_auction_detail_comment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
@@ -123,7 +123,7 @@
                     android:textSize="13sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView19" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_auction_detail_item_name2" />
 
                 <TextView
                     android:id="@+id/textView25"
@@ -201,7 +201,7 @@
                     android:background="#eaeaea"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView24" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_auction_detail_comment" />
 
                 <TextView
                     android:id="@+id/textView20"
@@ -280,7 +280,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_auction_detail_item_price" />
 
                 <TextView
-                    android:id="@+id/textView17"
+                    android:id="@+id/tv_auction_detail_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
@@ -295,7 +295,7 @@
                     app:layout_constraintTop_toTopOf="@+id/textView15" />
 
                 <TextView
-                    android:id="@+id/textView18"
+                    android:id="@+id/tv_auction_detail_condition"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/ko_pub"
@@ -305,7 +305,7 @@
                     android:textColor="#7c7c7c"
                     android:textFontWeight="550"
                     android:textSize="13sp"
-                    app:layout_constraintStart_toStartOf="@+id/textView17"
+                    app:layout_constraintStart_toStartOf="@+id/tv_auction_detail_size"
                     app:layout_constraintTop_toTopOf="@+id/textView16" />
 
                 <TextView
