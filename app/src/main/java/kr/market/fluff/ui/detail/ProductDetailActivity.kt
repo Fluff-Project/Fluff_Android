@@ -60,14 +60,13 @@ class ProductDetailActivity : AppCompatActivity() {
                     sendToast("장바구니에 담겼습니다")
                 },
                 onError = {sendToast("서버 연결이 원활하지 않습니다.")},
-                onFail = {_,_->sendToast("장바구니 담는데 실패했습니다.")}
+                onFail = {_,_->sendToast("이미 담은 상품입니다.")}
             )
         }
         tv_detail_closet_title.text = intent.getStringExtra("product_name")
         tv_detail_closet_price.text = intent.getStringExtra("product_price")
         img_product_detail_back.setOnClickListener {finish()}
         makeRecycler()
-
         loadDetailProductData()
     }
     private fun setHeartEvent(){
@@ -98,7 +97,7 @@ class ProductDetailActivity : AppCompatActivity() {
                 tv_detail_closet_size_content.text = it.size
                 tv_detail_closet_state_content.text = it.condition.toString()
                 tv_detail_closet_sub_content.text = it.comment
-                rb_favorite_market_seller.rating = it.grade.toFloat()
+                rb_favorite_market_seller.rating = it.sellerId.grade.toFloat()
                 tv_detail_seller_name.text = it.sellerName
                 sellerId = it.sellerId.sellerId
                 Glide.with(this@ProductDetailActivity).load(it.sellerId.sellerImg).into(img_detail_profile)
@@ -127,7 +126,7 @@ class ProductDetailActivity : AppCompatActivity() {
                 onFail = { _, _ ->
                 })
 
-        //더미데이터로 처리함
+
 //        datas = listOf(
 //            DetailProductData(
 //                "https://cdn.pixabay.com/photo/2017/08/06/08/01/people-2590092__340.jpg",
