@@ -42,7 +42,6 @@ class RecommendStyleActivity : AppCompatActivity() {
         requestToServer.service.requestRecommendSeller("application/json",token!!,1)
             .safeEnqueue(
                 onSuccess = {
-                    sendToast("성공")
                     recommendStyleAdapter.data= it
                     recommendStyleAdapter.notifyDataSetChanged()
                 },
