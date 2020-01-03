@@ -190,7 +190,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="8"
                             android:background="@drawable/et_purchase"
-                            android:text="최호준"
+                            android:hint="예) 홍길동"
                             android:padding="8dp" />
                     </TableRow>
 
@@ -207,6 +207,7 @@
                             android:text="연락처" />
 
                         <EditText
+                            android:id="@+id/et_purchase_phone"
                             style="@style/EditTExt_For_Purchase_request"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -234,6 +235,7 @@
                             android:orientation="horizontal">
 
                             <EditText
+                                android:id="@+id/et_user_address"
                                 style="@style/EditTExt_For_Purchase_request"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
