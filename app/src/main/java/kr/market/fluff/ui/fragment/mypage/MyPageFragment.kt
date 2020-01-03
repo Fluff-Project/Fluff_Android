@@ -39,6 +39,7 @@ class MyPageFragment(private val activity : Activity) : Fragment() {
     }
     private fun setRecycler(view : View){
         tv_mypage_user_name.text = App.prefs.local_nick_name
+        tv_mypage_user_email.text = App.prefs.local_login_id
         recent_goods_datas = ArrayList()
         rv_mypage_recent_goods = view.findViewById(R.id.rv_mypage_recent_goods)
         recentSawAdapter = RecentSawAdapter(view.context)

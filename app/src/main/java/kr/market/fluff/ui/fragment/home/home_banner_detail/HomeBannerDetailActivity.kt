@@ -41,7 +41,6 @@ class HomeBannerDetailActivity : AppCompatActivity() {
         requestToServer.service.request_recommend_home("application/json", App.prefs.local_login_token!!)
             .safeEnqueue(
                 onSuccess = {
-                    sendToast("성공")
                     bannerAdapter = BannerRecyclerAdapter(this@HomeBannerDetailActivity, it)
                     rv_banner_closet.layoutManager = GridLayoutManager(this@HomeBannerDetailActivity,2)
                     bannerAdapter.notifyDataSetChanged()
@@ -63,7 +62,7 @@ class HomeBannerDetailActivity : AppCompatActivity() {
         txt_banner_subtitle.text = intent.getStringExtra("vp_sub_title")
         txt_banner_title.text = intent.getStringExtra("vp_main_title")
         Glide.with(this)
-            .load(intent.getStringExtra("img_url"))
+            .load(intent.getIntExtra("img_url",0))
             .into(img_banner_view)
 
 

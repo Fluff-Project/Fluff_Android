@@ -113,7 +113,7 @@
             app:layout_constraintTop_toBottomOf="@+id/sfl_detail_magazine" />
 
         <TextView
-            android:id="@+id/tv_detail_magazine_contents_title2"
+            android:id="@+id/tv_detail_magazine_contents_product_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
@@ -130,10 +130,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.625"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+            app:layout_constraintTop_toBottomOf="@+id/img_detail_magazine_contents" />
 
         <TextView
-            android:id="@+id/tv_detail_magazine_contents_title3"
+            android:id="@+id/tv_detail_magazine_product_contents"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
@@ -154,7 +154,7 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_detail_magazine_contents_title2" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_detail_magazine_contents_product_title" />
 
         <TextView
             android:id="@+id/tv_detail_magazine_contents"
@@ -177,7 +177,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_detail_magazine_contents_title" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/img_detail_magazine_contents"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="71dp"

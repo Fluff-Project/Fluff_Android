@@ -12,7 +12,7 @@ class FragmentDetailPagerAdapter(fm: FragmentManager?, val num_fragment : Int,pr
 
         var fragment =
             SliderDetailFragment()
-        val capacity = img_datas.size+1
+        val capacity = img_datas.size+2
 
 
         var bundle = Bundle(capacity)

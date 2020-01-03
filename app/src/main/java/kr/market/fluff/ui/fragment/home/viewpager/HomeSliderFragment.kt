@@ -32,7 +32,7 @@ class HomeSliderFragment : Fragment() {
 
         val subTitle : TextView = view!!.findViewById(R.id.tv_vp_sub_title)
         val mainTitle : TextView = view!!.findViewById(R.id.tv_vp_main_title)
-        val img: String? = arguments!!.getString("background_img")
+        val img: Int? = arguments!!.getInt("background_img")
         val sub_text : String? = arguments!!.getString("subtitle")
         val main_text : String? = arguments!!.getString("main")
 

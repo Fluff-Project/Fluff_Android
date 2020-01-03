@@ -3,6 +3,7 @@ package kr.market.fluff.ui.fragment.mypage.cart
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,10 +26,8 @@ class CartActivity : AppCompatActivity() {
     lateinit var cb_cart_check_all : CheckBox
 
 
-//    var loaded_cart_list : ArrayList<RequestInterface.CartListResponse> = ArrayList()//TODO 서버 열리면 이놈 이름을 loaded_cart_list로 바꿔줄 것.
-//    var selected_cart_list : ArrayList<RequestInterface.CartListResponse>? = ArrayList()
-    var loaded_cart_list : ArrayList<CartGoodsData> = ArrayList()
-    var selected_cart_list : ArrayList<CartGoodsData>? = ArrayList()
+    var loaded_cart_list : ArrayList<RequestInterface.CartListResponse> = ArrayList()//TODO 서버 열리면 이놈 이름을 loaded_cart_list로 바꿔줄 것.
+    var selected_cart_list : ArrayList<RequestInterface.CartListResponse>? = ArrayList()
     lateinit var btn_cart_delete : Button
 
     var count = 0
@@ -51,7 +50,24 @@ class CartActivity : AppCompatActivity() {
         setAdapter()
         setListener()
     }
-
+    private fun deleteCartItems(){
+        var delete_id_list = ArrayList<String>()
+        for(i in 0..selected_cart_list!!.size-1){
+            delete_id_list.add(selected_cart_list!!.get(i).goodsId)
+        }
+        RequestToServer.service.request_cart_delete(
+            "application/json",
+            App.prefs.local_login_token!!,
+            RequestInterface.CartDeleteRequest(delete_id_list)
+        ).safeEnqueue(
+            onSuccess = {
+                sendToast("선택된 상품들이 삭제되었습니다.")
+                selected_cart_list!!.clear()
+                delete_id_list.clear()
+                load_cart_datas()
+            }
+        )
+    }
     private fun setListener(){
         btn_cart_buy.setOnClickListener{
             if(selected_cart_list!!.size==0){
@@ -64,12 +80,7 @@ class CartActivity : AppCompatActivity() {
         }
         img_cart_back.setOnClickListener{finish()}
         btn_cart_delete.setOnClickListener {
-
-            // TODO 선택된 목록만 삭제요청(서버에 해당 상품 id값 전달.)
-            // 해당 데이터값들 selected리스트
-//            load_cart_datas()
-//            cartGoodsAdapter.notifyDataSetChanged()
-
+            deleteCartItems()
         }
         cb_cart_check_all.setOnClickListener{
             if(cb_cart_check_all.isChecked){
@@ -82,78 +93,68 @@ class CartActivity : AppCompatActivity() {
         }
     }
     fun checkItem(){
-        if(count == loaded_cart_list.size){
-            cb_cart_check_all.isChecked = true
-        }
-        if (count==0){
-            btn_cart_delete.isEnabled = false
-        }else{
-            btn_cart_delete.isEnabled = true
-        }
+        if(count == loaded_cart_list.size){cb_cart_check_all.isChecked = true}
+        if (count==0){btn_cart_delete.isEnabled = false}
+        else{btn_cart_delete.isEnabled = true}
     }
 
 
     private fun setAdapter(){
-        cartGoodsAdapter =
-            CartGoodsAdapter(
-                this
-            )
+        cartGoodsAdapter = CartGoodsAdapter(this)
         rv_cart_goods_list = findViewById(R.id.rv_cart_goods_list)
-        rv_cart_goods_list.addItemDecoration(
-            VerticalItemDecorator(
-                24
-            )
-        )
+        rv_cart_goods_list.addItemDecoration(VerticalItemDecorator(24))
         cartGoodsAdapter.datas = loaded_cart_list
         rv_cart_goods_list.layoutManager = LinearLayoutManager(this,
             LinearLayoutManager.VERTICAL,false)
         rv_cart_goods_list.adapter = cartGoodsAdapter
-        //데이터 저장된거 불러와서 어댑터에 추가작업 필요
     }
     private fun load_cart_datas(){
+        RequestToServer.service.request_cart_list("application/json", App.prefs.local_login_token!!).safeEnqueue(
+            onSuccess = {
+                loaded_cart_list = it
+                cartGoodsAdapter.datas.clear()
+                cartGoodsAdapter.datas = loaded_cart_list
+                cartGoodsAdapter.notifyDataSetChanged()
+                tv_cart_rv_goods_num.text=loaded_cart_list.size.toString()
+            }
+        )
 
-//        RequestToServer.service.request_cart_list("application/json", App.prefs.local_login_token!!).safeEnqueue(
-//            onSuccess = {
-//                loaded_cart_list = it
-//            }
+
+//        loaded_cart_list.add(
+//            CartGoodsData(
+//                userName = "수연공방",
+//                img = "https://cdn.pixabay.com/photo/2015/03/26/10/38/girl-691712__340.jpg",
+//                goodsId = "ㄴㄹㅇ",
+//                goodsName = "플라워 핸디 가디건",
+//                price = 7800
+//            )
 //        )
-
-
-        loaded_cart_list.add(
-            CartGoodsData(
-                userName = "수연공방",
-                img = "https://cdn.pixabay.com/photo/2015/03/26/10/38/girl-691712__340.jpg",
-                goodsId = "ㄴㄹㅇ",
-                goodsName = "플라워 핸디 가디건",
-                price = 7800
-            )
-        )
-        loaded_cart_list.add(
-            CartGoodsData(
-                userName = "수연공방",
-                img = "https://cdn.pixabay.com/photo/2015/03/26/10/38/girl-691712__340.jpg",
-                goodsId = "ㄴㄹㅇ",
-                goodsName = "동민이 칼하트 후드",
-                price = 7800
-            )
-        )
-        loaded_cart_list.add(
-            CartGoodsData(
-                userName = "수연공방",
-                img = "https://cdn.pixabay.com/photo/2015/03/26/10/38/girl-691712__340.jpg",
-                goodsId = "ㄴㄹㅇ",
-                goodsName = "윤자이 코스 맨투맨",
-                price = 7800
-            )
-        )
-        loaded_cart_list.add(
-            CartGoodsData(
-                userName = "수연공방",
-                img = "https://cdn.pixabay.com/photo/2015/03/26/10/38/girl-691712__340.jpg",
-                goodsId = "ㄴㄹㅇ",
-                goodsName = "한나 아디다스 트레이닝복",
-                price = 7800
-            )
-        )
+//        loaded_cart_list.add(
+//            CartGoodsData(
+//                userName = "수연공방",
+//                img = "https://cdn.pixabay.com/photo/2015/03/26/10/38/girl-691712__340.jpg",
+//                goodsId = "ㄴㄹㅇ",
+//                goodsName = "동민이 칼하트 후드",
+//                price = 7800
+//            )
+//        )
+//        loaded_cart_list.add(
+//            CartGoodsData(
+//                userName = "수연공방",
+//                img = "https://cdn.pixabay.com/photo/2015/03/26/10/38/girl-691712__340.jpg",
+//                goodsId = "ㄴㄹㅇ",
+//                goodsName = "윤자이 코스 맨투맨",
+//                price = 7800
+//            )
+//        )
+//        loaded_cart_list.add(
+//            CartGoodsData(
+//                userName = "수연공방",
+//                img = "https://cdn.pixabay.com/photo/2015/03/26/10/38/girl-691712__340.jpg",
+//                goodsId = "ㄴㄹㅇ",
+//                goodsName = "한나 아디다스 트레이닝복",
+//                price = 7800
+//            )
+//        )
     }
 }

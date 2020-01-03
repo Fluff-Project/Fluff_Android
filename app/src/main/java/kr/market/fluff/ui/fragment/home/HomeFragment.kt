@@ -134,9 +134,9 @@ class HomeFragment : Fragment() {
 
     fun makeHomeViewPager(view : View)
     {
-        val dotsIndicator= view.findViewById<DotsIndicator>(kr.market.fluff.R.id.dots_indicator)
-        val viewPager = view.findViewById<ViewPager>(kr.market.fluff.R.id.vp_home_viewpager)
-        val adapter = ViewPagerAdapter(childFragmentManager,5)
+        val dotsIndicator= view.findViewById<DotsIndicator>(R.id.dots_indicator)
+        val viewPager = view.findViewById<ViewPager>(R.id.vp_home_viewpager)
+        val adapter = ViewPagerAdapter(childFragmentManager,4)
         viewPager.adapter = adapter
         dotsIndicator.setViewPager(viewPager)
         vp_home_viewpager.adapter = adapter

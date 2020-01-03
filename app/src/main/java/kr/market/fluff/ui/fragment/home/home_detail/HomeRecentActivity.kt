@@ -39,7 +39,6 @@ class HomeRecentActivity : AppCompatActivity() {
         requestToServer.service.request_recommend_home("application/json", App.prefs.local_login_token!!)
             .safeEnqueue(
                 onSuccess = {
-                    sendToast("성공")
                     homeRecentAdapter = BannerRecyclerAdapter(this@HomeRecentActivity, it)
                     rv_home_detail_recent.layoutManager = GridLayoutManager(this@HomeRecentActivity,2)
                     homeRecentAdapter.notifyDataSetChanged()

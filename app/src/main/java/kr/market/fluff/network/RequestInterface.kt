@@ -2,9 +2,11 @@ package kr.market.fluff.network
 
 
 
+import android.os.Parcelable
 import com.facebook.login.Login
 import kr.market.fluff.data.detail.DetailProductData
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 import kr.market.fluff.data.intro.ResponseLogin
 import kr.market.fluff.data.intro.ResponseValidateAndRegisterAndLogin
 import kr.market.fluff.data.myStyle.*
@@ -155,13 +157,15 @@ interface RequestInterface {
         @Header("Content-Type") content_type : String,
         @Header("x-access-token") token :String
     ) : Call<BaseResponse<ArrayList<CartListResponse>>>
-    data class CartListResponse(
+
+    @Parcelize
+    data class  CartListResponse(
         val userName : String,
         val Img : ArrayList<String>,
         val goodsId : String,
         val goodsName : String,
         val price : Long
-    )
+    ):Parcelable
 
     //구현완료 - 장바구니 추가 버튼
     @POST("/cart")
@@ -179,18 +183,17 @@ interface RequestInterface {
 
 
     //TODO 구현 필요 - 장바구니 상품 삭제 - CartActivity
-    @DELETE("/cart")
+    @HTTP(method = "DELETE",hasBody = true,path = "/cart")
     fun request_cart_delete(
         @Header("Content-Type") content_type : String,
         @Header("x-access-token") token :String,
         @Body body: CartDeleteRequest
-    ) : Call<BaseResponse<CartDeleteResponse>>
-//    request_cart_delete("application/json",token,body)
+    ) : Call<BaseResponse<ArrayList<CartDeleteResponse>>>
     data class CartDeleteRequest(
         val deleteId : ArrayList<String>
     )
     data class CartDeleteResponse(
-        val data : String
+        val _id : String
     )
 
     //TODO 구현 필요 - 최종 주문 리스트 넘겨줌(결제 완료) -- CompletingPurchaseActivity
@@ -199,19 +202,14 @@ interface RequestInterface {
         @Header("Content-Type") content_type : String,
         @Header("x-access-token") token :String,
         @Body body: RequestOrderedGoodsList
-    ) : Call<AddOrderListResponse>
+    ) : Call<BaseResponse<ArrayList<AddOrderListResponse>>>
 
     //"orderList": ["5e0874e31259cf46a8978624","5e0874f77740580910a8b849"]
     data class RequestOrderedGoodsList(
         val orderList:ArrayList<String>
     )
     data class AddOrderListResponse(
-        val code : Int,
-        val json : ResponseData
-    )
-    data class ResponseData(
-        val success : Boolean,
-        val data : Int
+        val _id: String
     )
 
     //TODO 구현 필요 - 최종 주문결과 확인(조회) - PurchaseCompleteActivity
@@ -238,7 +236,7 @@ interface RequestInterface {
         @SerializedName("sellerName")
         val seller : String,
         @SerializedName("price")
-        val price : Int,
+        val price : Long,
         @SerializedName("_id")
         val closetId : String
     )

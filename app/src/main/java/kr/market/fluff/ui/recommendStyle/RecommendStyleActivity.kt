@@ -46,12 +46,11 @@ class RecommendStyleActivity : AppCompatActivity() {
         requestToServer.service.requestRecommendSeller("application/json",token!!,1)
             .safeEnqueue(
                 onSuccess = {
-                    sendToast("성공")
                     recommendStyleAdapter.data= it
                     recommendStyleAdapter.notifyDataSetChanged()
                 },
                 onFail = { _, _ ->
-                    sendToast("실패")
+                    sendToast("서버 통신 오류입니다.")
                 }
             )
     }

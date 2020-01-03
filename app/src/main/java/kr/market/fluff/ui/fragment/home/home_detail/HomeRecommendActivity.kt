@@ -42,7 +42,6 @@ class HomeRecommendActivity : AppCompatActivity() {
             requestToServer.service.request_recommend_home("application/json", App.prefs.local_login_token!!)
                 .safeEnqueue(
                     onSuccess = {
-                        sendToast("성공")
                         homeRecommendAdapter = BannerRecyclerAdapter(this@HomeRecommendActivity, it)
                         rv_home_detail_recommend.layoutManager = GridLayoutManager(this@HomeRecommendActivity,2)
                         homeRecommendAdapter.notifyDataSetChanged()
@@ -53,7 +52,7 @@ class HomeRecommendActivity : AppCompatActivity() {
 
                     },
                     onFail = { _, _ ->
-                        sendToast("실패")
+                        sendToast("통신 오류입니다.")
                     })
 
     }
