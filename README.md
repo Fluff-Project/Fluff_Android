@@ -186,9 +186,56 @@ Bottom sheet Behavior 속성 중 hideable="true"를 통해 드래그해서 필�
 해당 기능에 대해 kotlin에 존재하는 CountDownTimer 객체를 이용하여 1초마다 시간이 줄어가는 것을 표시했다.
 이에 대한 코드는 다음과 같다.
 
+
+
+
 # 11 장바구니 기능 
 상품을 장바구니에 담으면 상품이 장바구니에 담기게 되고, 장바구니 뷰에서 상품을 삭제하면 장바구니에서 상품이 삭제되는 기능을 구현했다. 또한 장바구니에서 전체선택 체크박스를 통해 상품들을 모두 다 선택 하기를 원할 시 전체 선택이 되고, 
 만약 하나라도 상품의 체크박스가 체크가 풀릴 시 전체선택이 풀리게 구현하였다.
+
+```kotlin
+fun countDownTimer(long: Long)
+    {
+        var countDownTimer = object :  CountDownTimer(long*1000, 1000)
+        {
+            override fun onFinish() {
+                tv_auction_detail_extra_time.text = "경매가 마감되었습니다."
+                tv_auction_detail_extra_text.text = ""
+//                sendToast("경매가 마감되었습니다.")
+            }
+
+            override fun onTick(p0: Long) {
+
+                val hours = p0.div(3600000)
+                var temp = p0/1000 - hours*3600
+                val min = p0.div(60000).toInt() - p0.div(3600000)*60
+                val seconds = temp - min*60
+
+                if ( hours < 10)
+                {
+                    tv_auction_detail_extra_time.text  = "0" + hours.toString()+ " : "+ min.toString() + " : " + seconds.toString()
+                    if( min < 10)
+                    {
+                        tv_auction_detail_extra_time.text  = "0" + hours.toString()+ " : "+ "0" + min.toString() + " : " + seconds.toString()
+                    }
+                }
+                else
+                {
+                    if(min < 10)
+                    {
+                        tv_auction_detail_extra_time.text  =  hours.toString()+ " : "+ "0" + min.toString() + " : " + seconds.toString()
+
+                    }
+                    tv_auction_detail_extra_time.text  = hours.toString()+ " : "+ min.toString() + " : " + seconds.toString()
+
+                }
+            }
+
+        }
+
+        countDownTimer.start()
+    }
+    ```
 
 # 12 스타일 추천 
 회원가입 성공 후, 각각의 유저에 취향에 따른 상품을 추천해주기 위해, 유저가 마음에 드는 사진을 3개 이상 선택하게 한다.
