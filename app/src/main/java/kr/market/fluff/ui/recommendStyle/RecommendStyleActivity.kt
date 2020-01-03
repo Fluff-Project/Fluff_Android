@@ -23,15 +23,13 @@ class RecommendStyleActivity : AppCompatActivity() {
     }
     private fun init(){
         initRecommendStyleList()
-
-
         btn_recommend_style_signup.setOnClickListener {
+            App.prefs.isFirst = false
             val intent = Intent(this, WelcomeActivity::class.java)
             startActivity(intent)
             finish()
         }
     }
-
     private fun initRecommendStyleList(){
         recommendStyleAdapter =
             RecommendStyleAdapter(this)
@@ -45,7 +43,6 @@ class RecommendStyleActivity : AppCompatActivity() {
         requestToServer.service.requestRecommendSeller("application/json",token!!,1)
             .safeEnqueue(
                 onSuccess = {
-                    sendToast("성공")
                     recommendStyleAdapter.data= it
                     recommendStyleAdapter.notifyDataSetChanged()
                 },

@@ -4,9 +4,7 @@ package kr.market.fluff.ui
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.WindowManager
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kr.market.fluff.ui.fragment.HomeFragment
@@ -14,13 +12,13 @@ import kr.market.fluff.ui.fragment.auction.AuctionFragment
 import kr.market.fluff.ui.fragment.glance.GlanceFragment
 import kr.market.fluff.ui.fragment.magazine.MagazineFragment
 import kr.market.fluff.ui.fragment.mypage.MyPageFragment
-
-
-
-
+import kr.market.fluff.ui.util.sendToast
 
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
+
+    var lastTimeBackPressed : Long = 0
+
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
         when(p0.itemId){
             kr.market.fluff.R.id.nav_home ->{
@@ -52,7 +50,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         fragmentTransaction.add(kr.market.fluff.R.id.fragment_container, HomeFragment()).commit()
 
         init()
-
     }
 
     // fragment 변환 메소드
@@ -61,15 +58,12 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         val auction_select = bottom_navigation_view.menu.getItem(fragment_num)
         onNavigationItemSelected(auction_select)
         auction_select.setChecked(true)
-
     }
     private fun init(){
-
         bottom_navigation_view.setOnNavigationItemSelectedListener(this)
         val home_select = bottom_navigation_view.menu.getItem(0)
         onNavigationItemSelected(home_select)
         home_select.setChecked(true)
-
     }
 
     private fun setThisPage(menuItem: MenuItem,position:Int){
@@ -96,6 +90,16 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 MyPageFragment(this)
             ).commit()}
         }
+
+    }
+
+    override fun onBackPressed() {
+        if(System.currentTimeMillis() - lastTimeBackPressed < 1500){
+            finishAffinity()
+            finish()
+        }
+        sendToast("'뒤로'버튼을 한번 더 누르면 \n종료됩니다.")
+        lastTimeBackPressed = System.currentTimeMillis()
 
     }
 

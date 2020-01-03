@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_cart.*
 import kr.market.fluff.R
 import kr.market.fluff.data.App
-import kr.market.fluff.data.cart.CartGoodsData
 import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.safeEnqueue
@@ -26,7 +25,7 @@ class CartActivity : AppCompatActivity() {
     lateinit var cb_cart_check_all : CheckBox
 
 
-    var loaded_cart_list : ArrayList<RequestInterface.CartListResponse> = ArrayList()//TODO 서버 열리면 이놈 이름을 loaded_cart_list로 바꿔줄 것.
+    var loaded_cart_list : ArrayList<RequestInterface.CartListResponse> = ArrayList()
     var selected_cart_list : ArrayList<RequestInterface.CartListResponse>? = ArrayList()
     lateinit var btn_cart_delete : Button
 
@@ -52,9 +51,11 @@ class CartActivity : AppCompatActivity() {
     }
     private fun deleteCartItems(){
         var delete_id_list = ArrayList<String>()
-        for(i in 0..selected_cart_list!!.size+1){
+        for(i in 0..selected_cart_list!!.size-1){
             delete_id_list.add(selected_cart_list!!.get(i).goodsId)
         }
+        Log.d("delete_id_list","delete_id_list.size : ${delete_id_list.size }")
+        Log.d("selected_cart_list","selected_cart_list.size : ${selected_cart_list!!.size }")
         RequestToServer.service.request_cart_delete(
             "application/json",
             App.prefs.local_login_token!!,
@@ -65,6 +66,7 @@ class CartActivity : AppCompatActivity() {
                 selected_cart_list!!.clear()
                 delete_id_list.clear()
                 load_cart_datas()
+                cb_cart_check_all.isChecked=false
             }
         )
     }

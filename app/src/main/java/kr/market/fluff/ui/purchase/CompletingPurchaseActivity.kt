@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_completing_purchase.*
 import kr.market.fluff.R
@@ -39,6 +40,7 @@ class CompletingPurchaseActivity : AppCompatActivity() {
         for(i in 0..buy_items.size-1){
             id_datas.add(buy_items.get(i).goodsId)
         }
+        Log.d("id_datas","id_datas.size : ${id_datas.size }")
 
         btn_completing_purchase_buy.setOnClickListener {
             if(!rb_completing_purchase.isChecked||spinner_completing.equals("입금할 은행을 선택해주세요.")||et_completing_name.text.isBlank()){

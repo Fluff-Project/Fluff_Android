@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_my_info_update.*
 import kotlinx.android.synthetic.main.fragment_my_page.*
 import kr.market.fluff.R
 import kr.market.fluff.data.App
@@ -21,25 +22,26 @@ import kr.market.fluff.ui.fragment.mypage.cart.CartActivity
 import kr.market.fluff.ui.fragment.mypage.favorite.FavoriteActivity
 import kr.market.fluff.ui.fragment.mypage.transfer.ConfirmTransferActivity
 import kr.market.fluff.ui.fragment.mypage.update.MyInfoUpdateActivity
+import kr.market.fluff.ui.myStyle.MyStyleActivity
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
+import kr.market.fluff.ui.util.sendToast
 
 
 class MyPageFragment(private val activity : Activity) : Fragment() {
     lateinit var recentSawAdapter: RecentSawAdapter
     lateinit var rv_mypage_recent_goods : RecyclerView
     lateinit var recent_goods_datas : ArrayList<MyPageRecentSawGoods>
-    var REQ_CODE = 1
+    val pf = App.prefs
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_my_page, container, false)
     }
     private fun setRecycler(view : View){
-        tv_mypage_user_name.text = App.prefs.local_nick_name
-        tv_mypage_user_email.text = App.prefs.local_login_id
+
         recent_goods_datas = ArrayList()
         rv_mypage_recent_goods = view.findViewById(R.id.rv_mypage_recent_goods)
         recentSawAdapter = RecentSawAdapter(view.context)
@@ -53,6 +55,17 @@ class MyPageFragment(private val activity : Activity) : Fragment() {
         }
     }
     private fun init(){
+        tv_mypage_user_name.text = App.prefs.local_nick_name
+        tv_mypage_user_email.text = App.prefs.local_login_id
+
+        rl_my_more_survey.setOnClickListener{
+            sendToast("취향을 다시 조사합니다")
+            pf.isFirst = true
+            view!!.context.startActivity(Intent(view!!.context,MyStyleActivity::class.java))
+            val at = view!!.context as Activity
+            at.finish()
+        }
+
         ll_my_cart.setOnClickListener{startActivity(Intent(this.context,CartActivity::class.java))}
         ll_my_favorite.setOnClickListener{
             val intent = Intent(this.context,
@@ -70,17 +83,8 @@ class MyPageFragment(private val activity : Activity) : Fragment() {
         }
         rl_myInfo_update.setOnClickListener {
             val intent = Intent(this.context, MyInfoUpdateActivity::class.java)
-            intent.putExtra("myInfo_email",tv_mypage_user_email.text.toString())
-            startActivityForResult(intent,REQ_CODE)
+            startActivity(intent)
         }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-
-        tv_mypage_user_name.text = data?.getStringExtra("result_nickname")
-
     }
 
     private fun setCreateStore(){

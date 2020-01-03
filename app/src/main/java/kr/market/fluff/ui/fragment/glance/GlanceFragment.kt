@@ -58,10 +58,12 @@ class GlanceFragment : Fragment() {
 
     }
     private fun initSettings(){
+        initRecyclerview()
+        load_init_data()
         settingColorSelect()
         settingCategorySelect()
         settingSizeSelect()
-        initRecyclerview()
+
         settingCategoryDetailSelect()
 
         settingFilter()
@@ -131,48 +133,32 @@ class GlanceFragment : Fragment() {
         ll_glance_filter_detail_dress.visibility = View.GONE
         ll_glance_filter_detail_items.visibility = View.GONE
     }
+    private fun load_init_data(){
+        val initAdapter = GlanceInitAdapter(view!!.context)
+        recycler_glance_list.adapter= initAdapter
+        val token = App.prefs.local_login_token
+        requestToServer.service.request_recommend_home(
+            "application/json",token!!
+        )
+            .safeEnqueue(
+                onSuccess = {
+                    initAdapter.data = it
+                    initAdapter.notifyDataSetChanged()
+                },
+                onFail = { _, _ ->
+                    sendToast("로그인 실패")
+                },
+                onError = {
+                    sendToast("통신 실패")
+                }
+            )
+    }
     fun initRecyclerview(){
-        glanceListAdapter =
-            GlanceListAdapter(context!!)
         recycler_glance_list.apply {
             layoutManager = GridLayoutManager(context!!,2)
-            adapter = glanceListAdapter
             addItemDecoration(VerticalItemDecorator(24))
             addItemDecoration(HorizontalItemDecorator(24))
         }
-//        val token = App.prefs.local_login_token
-//        requestToServer.service.request_home_Thumbnail("application/json",token!!,10)
-//            .safeEnqueue(
-//                onSuccess = {
-//                    glanceListAdapter.data= it
-//                    glanceListAdapter.notifyDataSetChanged()
-//                },
-//                onFail = { _, _ ->
-//                    sendToast("로그인 실패")
-//                },
-//                onError = {
-//                    sendToast("통신 실패")
-//                }
-//            )
-/*
-//통신
-            val token = App.prefs.local_login_token
-            requestToServer.service.requestFilter(
-                "application/json",token!!,filterRequest
-            )
-                .safeEnqueue(
-                    onSuccess = {
-                        glanceListAdapter.data = it
-                        glanceListAdapter.notifyDataSetChanged()
-                    },
-                    onFail = { _, _ ->
-                        sendToast("로그인 실패")
-                    },
-                    onError = {
-                        sendToast("통신 실패")
-                    }
-                )
- */
     }
     fun settingFilter(){
         bottomSheet = BottomSheetBehavior.from(glance_filter)
@@ -212,7 +198,7 @@ class GlanceFragment : Fragment() {
         }
         btn_glance_filter_apply.setOnClickListener {
             bottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
-
+            val glanceListAdapter = GlanceListAdapter(view!!.context)
             //필터링
             filter()
 
@@ -223,11 +209,12 @@ class GlanceFragment : Fragment() {
             )
                 .safeEnqueue(
                     onSuccess = {
+                        recycler_glance_list.adapter = glanceListAdapter
                         glanceListAdapter.data = it
                         glanceListAdapter.notifyDataSetChanged()
                     },
                     onFail = { _, _ ->
-                        sendToast("로그인 실패")
+                        sendToast("조회 실패")
                     },
                     onError = {
                         sendToast("통신 실패")

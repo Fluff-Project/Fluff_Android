@@ -15,6 +15,9 @@ import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 import kr.market.fluff.ui.util.sendToast
 import kr.market.fluff.network.enqueue
+import kr.market.fluff.ui.MainActivity
+import kr.market.fluff.ui.intro.WelcomeActivity
+import java.lang.StringBuilder
 
 class MyStyleActivity : AppCompatActivity() {
     private lateinit var myStyleAdapter : MyStyleAdapter
@@ -44,12 +47,17 @@ class MyStyleActivity : AppCompatActivity() {
 
     private lateinit var requestData: RecommendStyleRequest
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_style)
-        init()
+        checkIsFirstUser()
+    }
+    private fun checkIsFirstUser(){
+        val isFirst = App.prefs.isFirst
+        if(!isFirst!!) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }else{init()}
     }
     private fun init(){
         initMyStyleList()
@@ -61,7 +69,6 @@ class MyStyleActivity : AppCompatActivity() {
             finish()
         }
         btn_my_style_default.isEnabled = false
-
     }
     private fun initMyStyleList(){
         myStyleAdapter = MyStyleAdapter(this)
@@ -77,13 +84,10 @@ class MyStyleActivity : AppCompatActivity() {
         requestToServer.service.requestSurvey("application/json",token)
             .safeEnqueue(
                 onSuccess = {
-                    sendToast("성공")
                     myStyleAdapter.data=it.surveyList
                     myStyleAdapter.notifyDataSetChanged()
                 },
-                onFail = { _, _ ->
-                    sendToast("실패")
-                }
+                onFail = { _, _ -> sendToast("서버 연결 오류")}
             )
 
     }

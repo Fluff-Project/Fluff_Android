@@ -57,13 +57,14 @@ interface RequestInterface {
     ): Call<BaseResponse<MyStyleResponse>>
 
     @FormUrlEncoded
-    @POST("/checkUsername")
+    @POST("/auth/checkUsername")
     fun requestNickNameValidate(
-        @Field("userNickname")userNickname : String
+        @Field("username")username : String
     ):Call<BaseResponse<CheckNickResponse>>
 
     data class CheckNickResponse(
-        val username : String
+        val username : String,
+        val duplication: Boolean
     )
 
 
@@ -165,14 +166,14 @@ interface RequestInterface {
         val _id : String
     )
 
-    //TODO 구현 필요
+    // 구현 필요
     @GET("/follow/followList")
     fun request_follow_list() : Call<BaseResponse<FollowResponse>>
     data class FollowResponse(
         val _id : String
     )
 
-    //TODO 구현 필요 - 장바구니 목록 불러오기 - CartActivity
+    // 구현 필요 - 장바구니 목록 불러오기 - CartActivity
     @GET("/cart")
     fun request_cart_list(
         @Header("Content-Type") content_type : String,
@@ -188,7 +189,6 @@ interface RequestInterface {
         val price : Long
     ):Parcelable
 
-    //구현완료 - 장바구니 추가 버튼
     @POST("/cart")
     fun request_cart_add(
         @Header("Content-Type") content_type : String,
@@ -203,7 +203,6 @@ interface RequestInterface {
     )
 
 
-    //TODO 구현 필요 - 장바구니 상품 삭제 - CartActivity
     @HTTP(method = "DELETE",hasBody = true,path = "/cart")
     fun request_cart_delete(
         @Header("Content-Type") content_type : String,
@@ -217,7 +216,6 @@ interface RequestInterface {
         val _id : String
     )
 
-    //TODO 구현 필요 - 최종 주문 리스트 넘겨줌(결제 완료) -- CompletingPurchaseActivity
     @POST("order/goodsList")
     fun request_order_add(
         @Header("Content-Type") content_type : String,
@@ -225,7 +223,7 @@ interface RequestInterface {
         @Body body: RequestOrderedGoodsList
     ) : Call<BaseResponse<ArrayList<AddOrderListResponse>>>
 
-    //"orderList": ["5e0874e31259cf46a8978624","5e0874f77740580910a8b849"]
+
     data class RequestOrderedGoodsList(
         val orderList:ArrayList<String>
     )
@@ -233,7 +231,7 @@ interface RequestInterface {
         val _id: String
     )
 
-    //TODO 구현 필요 - 최종 주문결과 확인(조회) - PurchaseCompleteActivity
+    // 구현 필요 - 최종 주문결과 확인(조회) - PurchaseCompleteActivity
     @GET("order/goodsList")
     fun request_order_confirm(
         @Header("Content-Type") content_type : String,
@@ -243,7 +241,6 @@ interface RequestInterface {
         val data : String
     )
 
-    //홈 배너 디테일, 홈 디테일 데이터
     @GET("/recommend/style")
     fun request_recommend_home(
         @Header("Content-Type") content_type : String,
@@ -263,8 +260,9 @@ interface RequestInterface {
         @SerializedName("_id")
         val closetId : String,
         @SerializedName("like")
-        val like : Boolean
-
+        val like : Boolean,
+        @SerializedName("sellerId")
+        val sellerId : String
     )
 
     //홈화면 리사이클러뷰 7개 데이터
@@ -276,7 +274,7 @@ interface RequestInterface {
     ) : Call<BaseResponse<ArrayList<HomeDetailData>>>
 
 
-    //sort , page
+    //최신순 goods데이터
     @GET("/goods")
     fun request_home_Newest(
         @Header("Content-Type") content_type : String,
@@ -285,7 +283,7 @@ interface RequestInterface {
         @Query("page")  page : Int
     ) : Call<BaseResponse<ArrayList<HomeDetailData>>>
 
-    //coat , page
+    //카테고리별 goods데이터
     @GET("/goods")
     fun request_home_Category(
         @Header("Content-Type") content_type : String,
@@ -294,32 +292,21 @@ interface RequestInterface {
         @Query("page")  page : Int
     ) : Call<BaseResponse<ArrayList<HomeDetailData>>>
 
+    //좋아요 누르기/ 취소
+    @POST("/goods/{goodId}/like")
+    fun request_product_like(
+        @Header("Content-Type") content_type : String,
+        @Header("x-access-token") token :String,
+        @Path("goodId") goodId: String,
+        @Body body: RequestLikeData
+    ) : Call<BaseResponse<ResponseLikeData>>
+    data class ResponseLikeData(
+        val goodsId : String,
+        val state : Boolean
+    )
+    data class RequestLikeData(
+        val like : Boolean
+    )
 
 
-    /*
-    //회원가입시 이메일 중복체크
-    @FormUrlEncoded
-    @POST("auth/validate")
-    fun requestRegister_appjam(
-        @Field("email") userID : String,
-    ) : Call<ResponseValidation>
-
-
-    //회원가입시 데이터 제출
-    @FormUrlEncoded
-    @POST("auth/signUp")
-    fun requestRegister_appjam(
-        @Field("email") userID : String,
-        @Field("pwd") pwd : String,
-        @Field("nickname") nickname : String,
-        @Field("gender") gender : String
-    ) : Call<ResponseRegister>
-
-
-    //
-
-
-
-     *
-     */
 }
