@@ -1,10 +1,12 @@
 package kr.market.fluff.ui.fragment.auction
 
 
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.transition.Transition
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.transition.addListener
@@ -13,11 +15,17 @@ import com.squareup.picasso.Picasso
 import io.socket.client.Socket
 import io.socket.emitter.Emitter
 import kotlinx.android.synthetic.main.activity_detail_auction.*
+import kr.market.fluff.data.App
 import kr.market.fluff.data.AuctionListData
+import kr.market.fluff.network.RequestAuctionInterface
+import kr.market.fluff.network.RequestInterface
+import kr.market.fluff.network.RequestToAuctionServer
 import kr.market.fluff.network.SocketApplication.get
 import org.json.JSONObject
 import java.util.*
 import kr.market.fluff.ui.util.sendToast
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.time.Duration
 import java.time.LocalDateTime
 import java.time.LocalDateTime.now
@@ -35,7 +43,12 @@ class DetailAuctionActivity : AppCompatActivity() {
         val VIEW_NAME_PRICE_TEXT = "detail:item:price_text"
         val VIEW_NAME_EXTRA_TIME = "detail:item:extra_time"
         val VIEW_NAME_EXTRA_TEXT = "detail:item:extra:text"
+
+
     }
+
+    var bid: Int = 0
+    lateinit var bidDialog: BidDialog
 
     lateinit var img_auction_detail_thumbnail : ImageView
     lateinit var tv_auction_detail_item_name : TextView
@@ -47,6 +60,7 @@ class DetailAuctionActivity : AppCompatActivity() {
 
     lateinit var socket: Socket
 
+
     private var mItem: AuctionListData? = null
 
     var itemYear : Int = 0
@@ -56,8 +70,6 @@ class DetailAuctionActivity : AppCompatActivity() {
     var itemMin : Int = 0
     var itemSec : Int = 0
 
-
-    private var auctionId: Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,7 +95,9 @@ class DetailAuctionActivity : AppCompatActivity() {
         ViewCompat.setTransitionName(tv_auction_detail_extra_text , VIEW_NAME_EXTRA_TEXT)
         setClickLIstener()
         loadItem()
-        settingSocket()
+        socket = get("5e0e260d3c493169d01b9bfb", App.prefs.local_login_token!!)
+        socket.connect()
+       //socket.emit("bid",70000).on("bid",onJoinReceived)
 
         itemYear = intent.getIntExtra("item_time_year",0)
         itemMon = intent.getIntExtra("item_time_month",0)
@@ -104,7 +118,6 @@ class DetailAuctionActivity : AppCompatActivity() {
 
          countDownTimer(duration.seconds)
     }
-
 
     fun countDownTimer(long: Long)
     {
@@ -152,18 +165,19 @@ class DetailAuctionActivity : AppCompatActivity() {
             onBackPressed()
         }
         btn_detail_auction_deal.setOnClickListener {
-            val bidDialog = BidDialog(this,view!!.context)
+            bidDialog = BidDialog(this,view!!.context)
             bidDialog.show()
+
         }
     }
     private fun loadItem(){
         tv_auction_detail_item_name .text = mItem!!.txt_item_name
         tv_auction_detail_recent_highst .text = "현재 최고가"
 
-       //tv_auction_detail_item_price .text = mItem!!.txt_item_price
+       tv_auction_detail_item_price .text = mItem!!.txt_item_price
 
         tv_auction_detail_price_text .text = "원"
-      //  tv_auction_detail_extra_time .text = mItem!!.txt_extra_time.toString()
+        tv_auction_detail_extra_time .text = mItem!!.txt_extra_time.toString()
         tv_auction_detail_extra_text .text = "남음"
         if (addTransitionListener()) {
             loadThumbnail()
@@ -222,37 +236,20 @@ class DetailAuctionActivity : AppCompatActivity() {
         }
         return false
     }
-    private fun settingSocket(){
-        socket = get()
-        socket.connect()
 
-//        socket.emit("joinAuction","하하").on("bid",onJoinReceived)
 
-        //socket.on("joinAution",onJoinReceived)
-        //socket.on("bid",onPriceReceived)
-
+    fun settingSocket(price: Int){
+        socket.emit("bid", price).on("bid",onJoinReceived)
     }
+
+
     private val onJoinReceived = Emitter.Listener {
-        val msg = it[0] as JSONObject
+        val msg = it[0] as Int
 
         val tt = object : TimerTask() {
             override fun run() {
                 runOnUiThread {
-                    sendToast(msg.toString())
-                }
-            }
-        }
-
-        tt.run()
-    }
-    private val onPriceReceived = Emitter.Listener {
-
-        val receivePrice = it[0] as JSONObject
-
-        val tt = object : TimerTask() {
-            override fun run() {
-                runOnUiThread {
-                    tv_auction_detail_extra_time.text=receivePrice.getString("bid")
+                    tv_auction_detail_item_price.text=msg.toString()
                 }
             }
         }
