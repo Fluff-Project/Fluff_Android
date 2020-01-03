@@ -55,7 +55,7 @@ class AuctionFragment : Fragment() {
                 img_thumnail = "https://cdn.pixabay.com/photo/2017/08/05/00/12/people-2581913__340.jpg",
                 txt_item_name = "샤넬 1990’s 트위드 재킷",
                 txt_item_price = "0",
-                txt_extra_time= LocalDateTime.of(2020,1,1,22,0,0)
+                txt_extra_time= LocalDateTime.of(2020,1,4,22,0,0)
 
             )
         )
@@ -64,7 +64,7 @@ class AuctionFragment : Fragment() {
                 img_thumnail = "https://cdn.pixabay.com/photo/2017/07/02/21/34/shoes-2465907__340.jpg",
                 txt_item_name = "샤네루 1990’s 트위드 재킷",
                 txt_item_price = "3,000",
-                txt_extra_time= LocalDateTime.of(2020,1,1,23,0,0)
+                txt_extra_time= LocalDateTime.of(2020,1,4,9,0,0)
             )
         )
         datas.add(
@@ -72,7 +72,7 @@ class AuctionFragment : Fragment() {
                 img_thumnail = "https://cdn.pixabay.com/photo/2019/08/01/04/32/girl-4376612__340.jpg",
                 txt_item_name = "샤네루 1990’s 트위드 재킷",
                 txt_item_price = "0",
-                txt_extra_time= LocalDateTime.of(2020,1,2,0,0,0)
+                txt_extra_time= LocalDateTime.of(2020,1,4,12,50,0)
             )
         )
         datas.add(
@@ -80,7 +80,7 @@ class AuctionFragment : Fragment() {
                 img_thumnail = "https://cdn.pixabay.com/photo/2018/10/10/21/31/shopping-3738413__340.jpg",
                 txt_item_name = "샤네루 1990’s 트위드 재킷",
                 txt_item_price = "0",
-                txt_extra_time= LocalDateTime.of(2020,1,2,1,0,0)
+                txt_extra_time= LocalDateTime.of(2020,1,4,13,45,0)
             )
         )
         datas.add(
@@ -88,7 +88,7 @@ class AuctionFragment : Fragment() {
                 img_thumnail = "https://cdn.pixabay.com/photo/2016/11/08/05/41/asia-1807558__340.jpg",
                 txt_item_name = "샤네루 1990’s 트위드 재킷",
                 txt_item_price = "0",
-                txt_extra_time= LocalDateTime.of(2020,1,2,2,0,0)
+                txt_extra_time= LocalDateTime.of(2020,1,4,16,35,0)
             )
         )
 

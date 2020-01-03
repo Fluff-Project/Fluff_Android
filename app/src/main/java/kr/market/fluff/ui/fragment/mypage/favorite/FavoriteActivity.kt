@@ -15,6 +15,7 @@ class FavoriteActivity : AppCompatActivity() {
         init()
     }
     private fun init() {
+        img_favorite_back.setOnClickListener {finish()}
         // 뷰페이저 어댑터 연결
         adapter = FavoriteAdapter(
             supportFragmentManager

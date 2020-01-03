@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
+import com.squareup.picasso.Downloader
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 import kotlinx.android.synthetic.main.activity_detail_auction.*
 import kotlinx.android.synthetic.main.activity_product_detail.*
@@ -29,14 +30,15 @@ import kr.market.fluff.ui.util.sendToast
 
 class ProductDetailActivity : AppCompatActivity() {
 
-    lateinit var detailAdapter: DetailRecyclerAdapter
-    lateinit var datas : ArrayList<RequestInterface.HomeDetailData>
-     var heart_bool: Boolean = true
+    lateinit var detailAdapter: SellerProductAdapter
+    lateinit var datas : ArrayList<RequestInterface.ResponseSellerData>
+    var heart_bool: Boolean = true
 
     var product_item_id : String? = "0"
     var img_datas : ArrayList<String> = ArrayList()
 
     val requestToServer = RequestToServer
+     var sellerId : String = "5e0a3d33217f2200119b6036"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -97,6 +99,9 @@ class ProductDetailActivity : AppCompatActivity() {
                 tv_detail_closet_state_content.text = it.condition.toString()
                 tv_detail_closet_sub_content.text = it.comment
                 rb_favorite_market_seller.rating = it.grade.toFloat()
+                tv_detail_seller_name.text = it.sellerName
+                sellerId = it.sellerId.sellerId
+                Glide.with(this@ProductDetailActivity).load(it.sellerId.sellerImg).into(img_detail_profile)
                 img_datas = it.img
                 makeDetailViewPager()
             },
@@ -107,12 +112,10 @@ class ProductDetailActivity : AppCompatActivity() {
 
     fun makeRecycler(){
 
-
-
-        requestToServer.service.request_home_Thumbnail("application/json", App.prefs.local_login_token!!,7)
+        requestToServer.service.request_seller_product("application/json", App.prefs.local_login_token!!,sellerId)
             .safeEnqueue(
                 onSuccess = {
-                    detailAdapter= DetailRecyclerAdapter(it)
+                    detailAdapter= SellerProductAdapter(it)
                     detailAdapter.notifyDataSetChanged()
                     rv_detail_other.apply {
                         layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
@@ -120,11 +123,9 @@ class ProductDetailActivity : AppCompatActivity() {
                         addItemDecoration(HorizontalItemDecorator(24))
                     }
 
-
                 },
                 onFail = { _, _ ->
                 })
-
 
         //더미데이터로 처리함
 //        datas = listOf(

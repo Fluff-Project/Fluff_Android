@@ -132,7 +132,23 @@ interface RequestInterface {
         val condition : Int,
         val comment : String,
         val grade : Int,
-        val _id : String
+        val _id : String,
+        val sellerName : String,
+        val sellerId : DetailSellerResponse
+    )
+
+    data class DetailSellerResponse(
+        val email : String,
+        val pwd : String,
+        val username : String,
+        val gender : String,
+        val address : String,
+        val phone : String,
+        @SerializedName("_id")
+        val sellerId: String,
+        val style :ArrayList<String>,
+        val saleList : ArrayList<String>,
+        val sellerImg : String
     )
 
 
@@ -170,7 +186,7 @@ interface RequestInterface {
     @GET("/follow/followList")
     fun request_follow_list() : Call<BaseResponse<FollowResponse>>
     data class FollowResponse(
-        val _id : String
+        val sellerId : String
     )
 
     // 구현 필요 - 장바구니 목록 불러오기 - CartActivity
@@ -236,7 +252,7 @@ interface RequestInterface {
     fun request_order_confirm(
         @Header("Content-Type") content_type : String,
         @Header("x-access-token") token :String
-    ) : Call<BaseResponse<ConfirmOrderResponse>>
+    ) : Call<BaseResponse<ArrayList<ConfirmOrderResponse>>>
     data class ConfirmOrderResponse(
         val data : String
     )
@@ -308,5 +324,18 @@ interface RequestInterface {
         val like : Boolean
     )
 
+    @GET("/goods/seller/{sellerId}")
+    fun request_seller_product(
+        @Header("Content-Type") content_type : String,
+        @Header("x-access-token") token :String,
+        @Path("sellerId") sellerId: String
+    ): Call<BaseResponse<ArrayList<ResponseSellerData>>>
+    data class ResponseSellerData(
+        @SerializedName("_id")
+        val goodsId : String,
+        val goodsName: String,
+        val mainImg: String,
+        val price : Long
+    )
 
 }

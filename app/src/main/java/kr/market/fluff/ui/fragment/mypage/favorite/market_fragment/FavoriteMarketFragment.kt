@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 import kr.market.fluff.R
 import kr.market.fluff.data.mypage.FavoriteMarketData
+import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 
 
@@ -41,6 +42,7 @@ class FavoriteMarketFragment : Fragment() {
         datas = ArrayList()
         rv_favorite = view.findViewById(R.id.rv_favorite_market)
         fav_adapter = FavoriteMarketAdapter(view.context)
+        loadDatas()
         addDatas()
         fav_adapter.data = datas
         rv_favorite.apply {
@@ -51,7 +53,10 @@ class FavoriteMarketFragment : Fragment() {
 
 //        val snapHelper = LinearSnapHelper()
 //        snapHelper.attachToRecyclerView(rv_favorite)
+    }
 
+    private fun loadDatas(){
+        RequestToServer.service.request_follow_list()
     }
     private fun addDatas(){
         datas.add(
