@@ -282,6 +282,7 @@ cb_cart_check_all.setOnClickListener{
 유저가 마음에 드는 사진을 클릭시 customToast를 통해 하트 이미지가 화면 중앙에 뜨게 되고 해당 상품의 하단 하트 버튼이 
 채워지게 된다.
 
+![heart](https://user-images.githubusercontent.com/54485132/71726892-d48bac80-2e7b-11ea-9c0e-e6442bd386e5.gif)
 
 
 # 15 
