@@ -46,6 +46,7 @@ class BidDialog(val activity : Activity, context: Context) :  Dialog(context) {
             val bid_raw_price = builder.toString().replace(",","")
             //activity.sendToast("${bid_price}원 입찰되었습니다. ")
             price = bid_raw_price
+            Log.d("price","${bid_raw_price}")
             (activity as DetailAuctionActivity).settingSocket(price.toInt())
             dismiss()
         }
