@@ -9,8 +9,6 @@ import android.view.View
 import androidx.core.animation.doOnEnd
 import kotlinx.android.synthetic.main.activity_purchase_complete.*
 import kr.market.fluff.R
-import kr.market.fluff.ui.MainActivity
-import kr.market.fluff.ui.fragment.mypage.cart.CartActivity
 import kr.market.fluff.ui.fragment.mypage.transfer.ConfirmTransferActivity
 import kr.market.fluff.ui.util.priceFormTextView
 
@@ -36,8 +34,7 @@ class PurchaseCompleteActivity : AppCompatActivity() {
 
         initAnim()
         btn_purchase_complete.setOnClickListener {
-            finishAffinity()
-            val intent =Intent(this,MainActivity::class.java)
+            val intent = Intent(this,ConfirmTransferActivity::class.java)
             startActivity(intent)
             finish()
         }

@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_my_page.*
 import kr.market.fluff.R
-import kr.market.fluff.data.App
 import kr.market.fluff.data.mypage.MyPageRecentSawGoods
 import kr.market.fluff.ui.MainActivity
 import kr.market.fluff.ui.fragment.mypage.applySeller.ApplySellerActivity
@@ -38,7 +37,6 @@ class MyPageFragment(private val activity : Activity) : Fragment() {
         return inflater.inflate(R.layout.fragment_my_page, container, false)
     }
     private fun setRecycler(view : View){
-        tv_mypage_user_name.text = App.prefs.local_nick_name
         recent_goods_datas = ArrayList()
         rv_mypage_recent_goods = view.findViewById(R.id.rv_mypage_recent_goods)
         recentSawAdapter = RecentSawAdapter(view.context)

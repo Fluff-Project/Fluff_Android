@@ -21,11 +21,7 @@ import kr.market.fluff.ui.util.sendToast
 import java.time.Duration
 import java.time.LocalDateTime
 import java.time.LocalDateTime.now
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import android.util.Log
-import kr.market.fluff.network.SocketApplication
+
 
 
 class DetailAuctionActivity : AppCompatActivity() {
@@ -227,29 +223,11 @@ class DetailAuctionActivity : AppCompatActivity() {
         return false
     }
     private fun settingSocket(){
-        //socket = get(auctionId.toString())
-        socket = get()
-
+        socket = get(auctionId.toString())
         socket.connect()
 
-        //socket.on("joinAution",onJoinReceived)
-        //socket.on("bid",onPriceReceived)
-
+        socket.on("bid",onPriceReceived)
     }
-    private val onJoinReceived = Emitter.Listener {
-        val msg = it[0] as JSONObject
-
-        val tt = object : TimerTask() {
-            override fun run() {
-                runOnUiThread {
-//                    sendToast(msg.toString())
-                }
-            }
-        }
-
-        tt.run()
-    }
-
     private val onPriceReceived = Emitter.Listener {
 
         val receivePrice = it[0] as JSONObject

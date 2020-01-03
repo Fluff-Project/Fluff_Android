@@ -230,6 +230,8 @@ interface RequestInterface {
         @Header("Content-Type") content_type : String,
         @Header("x-access-token") token :String
     ) : Call<BaseResponse<ArrayList<HomeDetailData>>>
+
+
     data class HomeDetailData(
         @SerializedName("goodsName")
         val closet : String,
@@ -238,9 +240,12 @@ interface RequestInterface {
         @SerializedName("sellerName")
         val seller : String,
         @SerializedName("price")
-        val price : Int,
+        val price : Long,
         @SerializedName("_id")
-        val closetId : String
+        val closetId : String,
+        @SerializedName("like")
+        val like : Boolean
+
     )
 
     //홈화면 리사이클러뷰 7개 데이터
@@ -252,7 +257,23 @@ interface RequestInterface {
     ) : Call<BaseResponse<ArrayList<HomeDetailData>>>
 
 
+    //sort , page
+    @GET("/goods")
+    fun request_home_Newest(
+        @Header("Content-Type") content_type : String,
+        @Header("x-access-token") token :String,
+        @Query("sort") sort : String,
+        @Query("page")  page : Int
+    ) : Call<BaseResponse<ArrayList<HomeDetailData>>>
 
+    //coat , page
+    @GET("/goods")
+    fun request_home_Category(
+        @Header("Content-Type") content_type : String,
+        @Header("x-access-token") token :String,
+        @Query("category") category : String,
+        @Query("page")  page : Int
+    ) : Call<BaseResponse<ArrayList<HomeDetailData>>>
 
 
 

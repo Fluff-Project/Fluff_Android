@@ -1,22 +1,15 @@
 package kr.market.fluff.ui.fragment.mypage.applySeller
 
-import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager.widget.ViewPager
-import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_apply_seller.*
-import kotlinx.android.synthetic.main.fragment_my_product_list.*
 import kr.market.fluff.R
-import kr.market.fluff.data.MyProductListData
 import kr.market.fluff.ui.ProductRegisterActivity
 import kr.market.fluff.ui.review.ReviewActivity
-import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
-import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
+
 
 class ApplySellerActivity : AppCompatActivity() {
     private lateinit var applySellerPagerAdapter: ApplySellerPagerAdapter

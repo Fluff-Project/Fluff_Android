@@ -86,6 +86,7 @@ class HomeFragment : Fragment() {
     }
     fun init()
     {
+        tv_home_recent_keyword.text = "가디건"
         tv_home_recentsubtitle_keyword.text = tv_home_recent_keyword.text
 
         val date : LocalDate = LocalDate.now()
@@ -144,11 +145,12 @@ class HomeFragment : Fragment() {
 
     }
 
+    //오늘 입고되었어요!
     fun makeNewRecycler(view : View)
     {
         rv_home_new = view.findViewById(kr.market.fluff.R.id.rv_home_new)
 
-        requestToServer.service.request_home_Thumbnail("application/json", App.prefs.local_login_token!!,7)
+        requestToServer.service.request_home_Newest("application/json", App.prefs.local_login_token!!,"newest",7)
             .safeEnqueue(
                 onSuccess = {
                     newAdapter = HomeNewAdapter(it)
@@ -178,12 +180,13 @@ class HomeFragment : Fragment() {
 //        newAdapter.notifyDataSetChanged()
     }
 
+    //당신을 위한 무스탕 추천
     fun makeRecentRecycler(view : View)
     {
 
         rv_home_recent = view.findViewById(kr.market.fluff.R.id.rv_home_recent)
 
-        requestToServer.service.request_home_Thumbnail("application/json", App.prefs.local_login_token!!,7)
+        requestToServer.service.request_home_Category("application/json", App.prefs.local_login_token!!,"cardigan",7)
             .safeEnqueue(
                 onSuccess = {
                     recentAdapter = HomeRecentAdapter(it)
@@ -213,6 +216,7 @@ class HomeFragment : Fragment() {
 ////        snapHelper.attachToRecyclerView(rv_home_recent)
     }
 
+    //요일별 추천
     fun makeRecommendRecycler(view : View)
     {
 

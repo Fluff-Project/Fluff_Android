@@ -1,10 +1,8 @@
 package kr.market.fluff.ui.purchase
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_purchase.*
@@ -12,7 +10,7 @@ import kr.market.fluff.R
 import kr.market.fluff.data.cart.CartGoodsData
 import kr.market.fluff.ui.util.priceFormTextView
 
-class PurchaseActivity : AppCompatActivity(){
+class PurchaseActivity : AppCompatActivity() {
 
     var buy_items : ArrayList<CartGoodsData> = ArrayList()
 
@@ -75,15 +73,7 @@ class PurchaseActivity : AppCompatActivity(){
             intent.putExtra("total_real_price",total_real_price)
             intent.putExtra("user_name",user_name)
             intent.putExtra("address",address)
-            startActivityForResult(intent,150)
+            startActivity(intent)
         }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if(requestCode==150&&resultCode== Activity.RESULT_OK){
-            Log.d("hj","실행은 됬습니다")
-            finish()
-        }
-        super.onActivityResult(requestCode, resultCode, data)
     }
 }

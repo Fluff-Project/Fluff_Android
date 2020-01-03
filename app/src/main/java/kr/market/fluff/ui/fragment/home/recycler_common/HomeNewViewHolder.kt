@@ -12,6 +12,7 @@ import kr.market.fluff.R
 import kr.market.fluff.data.home.HomeNewData
 import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.ui.detail.ProductDetailActivity
+import kr.market.fluff.ui.util.priceFormTextView
 
 class HomeNewViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView) {
     val home_recycler_img : ImageView = itemView.findViewById(R.id.img_rc_dress)
@@ -24,7 +25,7 @@ class HomeNewViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView) {
             .load(data.img)
             .into(home_recycler_img)
         home_recycler_title.text = data.closet
-        home_recycler_price.text = data.price.toString()+"원"
+        home_recycler_price.priceFormTextView(home_recycler_price,data.price)
 
         home_recycler_img.setOnClickListener {
 

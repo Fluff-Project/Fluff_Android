@@ -19,39 +19,39 @@ class ViewPagerAdapter(fm: FragmentManager?, val num_fragment : Int) :FragmentSt
             HomeSliderData(
                 0,
                 "https://image.made-in-china.com/202f0j00djUEvKrsLicq/Open-Style-Solid-L-Type-Walk-in-Closet-Wardrobe.jpg",
-                "타이틀1",
-                "서브타이틀1"
+                "가디건",
+                "sub",
+                "cardigan"
             ),
             HomeSliderData(
                 1,
                 "https://image.made-in-china.com/202f0j00djUEvKrsLicq/Open-Style-Solid-L-Type-Walk-in-Closet-Wardrobe.jpg",
-                "타이틀2",
-                "서브타이틀2"
+                " 코트",
+                "러블리함을 원한다면?",
+                "coat"
             ),
             HomeSliderData(
                 2,
                 "https://image.made-in-china.com/202f0j00djUEvKrsLicq/Open-Style-Solid-L-Type-Walk-in-Closet-Wardrobe.jpg",
-                "타이틀3",
-                "서브타이틀3"
+                "스커트",
+                "영화 한 장면처럼,",
+                "skirt"
             ),
             HomeSliderData(
                 3,
                 "https://image.made-in-china.com/202f0j00djUEvKrsLicq/Open-Style-Solid-L-Type-Walk-in-Closet-Wardrobe.jpg",
-                "타이틀4",
-                "서브타이틀4"
-            ),
-            HomeSliderData(
-                4,
-                "https://image.made-in-china.com/202f0j00djUEvKrsLicq/Open-Style-Solid-L-Type-Walk-in-Closet-Wardrobe.jpg",
-                "타이틀5",
-                "서브타이틀5"
+                "원피스",
+                "포인트 하나로 완전히 다른 룩,",
+                "longOnepiece"
             )
+
         )
 
 
             bundle.putString("background_img",datas.get(p0).imgurl)
             bundle.putString("main",datas.get(p0).title)
             bundle.putString("subtitle",datas.get(p0).subtitle)
+            bundle.putString("category",datas.get(p0).category)
 
 
       /*  when(p0){
