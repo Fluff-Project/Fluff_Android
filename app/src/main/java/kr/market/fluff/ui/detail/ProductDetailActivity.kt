@@ -112,7 +112,6 @@ class ProductDetailActivity : AppCompatActivity() {
         requestToServer.service.request_home_Thumbnail("application/json", App.prefs.local_login_token!!,7)
             .safeEnqueue(
                 onSuccess = {
-                    sendToast("성공")
                     detailAdapter= DetailRecyclerAdapter(it)
                     detailAdapter.notifyDataSetChanged()
                     rv_detail_other.apply {
@@ -124,7 +123,6 @@ class ProductDetailActivity : AppCompatActivity() {
 
                 },
                 onFail = { _, _ ->
-                    sendToast("실패")
                 })
 
 
