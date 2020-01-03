@@ -132,7 +132,22 @@ interface RequestInterface {
         val condition : Int,
         val comment : String,
         val grade : Int,
-        val _id : String
+        val _id : String,
+        val sellerName : String,
+        val sellerId : DetailSellerResponse
+    )
+
+    data class DetailSellerResponse(
+        val email : String,
+        val pwd : String,
+        val username : String,
+        val gender : String,
+        val address : String,
+        val phone : String,
+        val style :ArrayList<String>,
+        val saleList : ArrayList<String>,
+        val sellerImg : String
+
     )
 
 

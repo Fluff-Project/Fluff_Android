@@ -97,6 +97,8 @@ class ProductDetailActivity : AppCompatActivity() {
                 tv_detail_closet_state_content.text = it.condition.toString()
                 tv_detail_closet_sub_content.text = it.comment
                 rb_favorite_market_seller.rating = it.grade.toFloat()
+                tv_detail_seller_name.text = it.sellerName
+                Glide.with(this@ProductDetailActivity).load(it.sellerId.sellerImg).into(img_detail_profile)
                 img_datas = it.img
                 makeDetailViewPager()
             },
