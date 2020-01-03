@@ -185,7 +185,7 @@ interface RequestInterface {
     @GET("/follow/followList")
     fun request_follow_list() : Call<BaseResponse<FollowResponse>>
     data class FollowResponse(
-        val _id : String
+        val sellerId : String
     )
 
     // 구현 필요 - 장바구니 목록 불러오기 - CartActivity
