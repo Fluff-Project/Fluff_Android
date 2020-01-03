@@ -67,6 +67,7 @@ class CartActivity : AppCompatActivity() {
                 selected_cart_list!!.clear()
                 delete_id_list.clear()
                 load_cart_datas()
+                cb_cart_check_all.isChecked=false
             }
         )
     }

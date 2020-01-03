@@ -10,10 +10,10 @@
         android:id="@+id/img_glance_cloth"
         android:layout_width="wrap_content"
         android:adjustViewBounds="true"
-        android:layout_height="220dp"
+        android:layout_height="200dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
         android:src="@drawable/style_img" />
 
     <TextView
@@ -45,13 +45,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_glance_cloth_name" />
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:text="원"
-        android:textColor="@color/colorBlack"
-        app:layout_constraintStart_toEndOf="@+id/txt_glance_price"
-        app:layout_constraintTop_toBottomOf="@+id/txt_glance_cloth_name" />
+<!--    <TextView-->
+<!--        android:id="@+id/textView10"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="3dp"-->
+<!--        android:text="원"-->
+<!--        android:textColor="@color/colorBlack"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/txt_glance_price"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/txt_glance_cloth_name" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

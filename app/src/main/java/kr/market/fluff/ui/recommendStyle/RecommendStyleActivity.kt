@@ -23,15 +23,12 @@ class RecommendStyleActivity : AppCompatActivity() {
     }
     private fun init(){
         initRecommendStyleList()
-
-
         btn_recommend_style_signup.setOnClickListener {
             val intent = Intent(this, WelcomeActivity::class.java)
             startActivity(intent)
             finish()
         }
     }
-
     private fun initRecommendStyleList(){
         recommendStyleAdapter =
             RecommendStyleAdapter(this)
