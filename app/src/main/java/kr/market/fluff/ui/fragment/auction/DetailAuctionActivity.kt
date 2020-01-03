@@ -43,8 +43,6 @@ class DetailAuctionActivity : AppCompatActivity() {
         val VIEW_NAME_PRICE_TEXT = "detail:item:price_text"
         val VIEW_NAME_EXTRA_TIME = "detail:item:extra_time"
         val VIEW_NAME_EXTRA_TEXT = "detail:item:extra:text"
-
-
     }
 
     var bid: Int = 0
@@ -95,9 +93,9 @@ class DetailAuctionActivity : AppCompatActivity() {
         ViewCompat.setTransitionName(tv_auction_detail_extra_text , VIEW_NAME_EXTRA_TEXT)
         setClickLIstener()
         loadItem()
-        socket = get("5e0e260d3c493169d01b9bfb", App.prefs.local_login_token!!)
+        socket = get("5e0e260d3c493169d01b9bfb")
         socket.connect()
-       //socket.emit("bid",70000).on("bid",onJoinReceived)
+        socket.on("bid",onJoinReceived)
 
         itemYear = intent.getIntExtra("item_time_year",0)
         itemMon = intent.getIntExtra("item_time_month",0)
@@ -249,6 +247,7 @@ class DetailAuctionActivity : AppCompatActivity() {
         val tt = object : TimerTask() {
             override fun run() {
                 runOnUiThread {
+                    sendToast("입찰 성공")
                     tv_auction_detail_item_price.text=msg.toString()
                 }
             }

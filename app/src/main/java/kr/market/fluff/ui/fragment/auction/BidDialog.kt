@@ -23,10 +23,10 @@ class BidDialog(val activity : Activity, context: Context) :  Dialog(context) {
     var price : String = "0"
 
 
-//    var requestToAuctionServer= RequestToAuctionServer
-//
-//    //request
-//    lateinit var requestAuction: RequestAuctionInterface.RequestAuctionBid
+    var requestToAuctionServer= RequestToAuctionServer
+
+    //request
+    lateinit var requestAuction: RequestAuctionInterface.RequestAuctionBid
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,10 +46,23 @@ class BidDialog(val activity : Activity, context: Context) :  Dialog(context) {
             val bid_raw_price = builder.toString().replace(",","")
             //activity.sendToast("${bid_price}원 입찰되었습니다. ")
             price = bid_raw_price
-            (activity as DetailAuctionActivity).settingSocket(price.toInt())
-            dismiss()
+            request()
+//            (activity as DetailAuctionActivity).settingSocket(price.toInt())
+
         }
 
         et_bid_price.priceForm(et_bid_price)
+    }
+    private fun request(){
+        requestAuction = RequestAuctionInterface.RequestAuctionBid(price.toInt())
+        requestToAuctionServer.service.requestAuctionBid("application/json",App.prefs.local_login_token!!,"5e0e260d3c493169d01b9bfb",requestAuction)
+            .safeEnqueue(
+                onSuccess = {
+                    dismiss()
+                },
+                onFail = {_,_ ->
+
+                }
+            )
     }
 }

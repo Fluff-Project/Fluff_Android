@@ -64,13 +64,13 @@ class SellerEditActivity : AppCompatActivity() {
 //            bitmap!!.compress(Bitmap.CompressFormat.JPEG,20,byteArrayOutputStream)
 //            val photoBody = RequestBody.create(MediaType.parse("image/jpg"),byteArrayOutputStream.toByteArray())
 //            val picture_rb = MultipartBody.Part.createFormData("cmtImg", File(selectedPicUri.toString()).name,photoBody)
-
+//
 //            toSellerRequest = ToSellerRequest(picture_rb)
 //            val token = App.prefs.local_login_token
 //            requestToServer.service.requestToSeller(token!!,toSellerRequest)
 //                .safeEnqueue(
 //                    onSuccess = {
-//                        sendToast("$it")
+//                        sendToast("성공")
 //                        val intent = Intent(this,ApplySellerActivity::class.java)
 //                        startActivity(intent)
 //                    },
