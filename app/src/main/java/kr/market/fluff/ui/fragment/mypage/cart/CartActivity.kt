@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_cart.*
 import kr.market.fluff.R
 import kr.market.fluff.data.App
-import kr.market.fluff.data.cart.CartGoodsData
 import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.safeEnqueue
