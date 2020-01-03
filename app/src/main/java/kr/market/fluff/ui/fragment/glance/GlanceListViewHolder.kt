@@ -18,7 +18,7 @@ class GlanceListViewHolder(view: View) :RecyclerView.ViewHolder(view){
     val txt_price: TextView = view.findViewById(R.id.txt_glance_price)
 
     fun bind(context : Context,data: FilterResponse){
-        Glide.with(itemView).load(data.img).into(img_glance_cloth)
+        Glide.with(itemView).load(data.img.get(0)).into(img_glance_cloth)
         txt_seller_name.text = "셀러 이름"
         txt_cloth_name.text = data.goodsName
         txt_price.text = data.price.toString()
