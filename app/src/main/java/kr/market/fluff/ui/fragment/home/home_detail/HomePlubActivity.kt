@@ -46,7 +46,7 @@ class HomePlubActivity : AppCompatActivity() {
             adapter = recommendStyleAdapter
         }
 
-        requestToServer.service.requestRecommendSeller("application/json", App.prefs.local_login_token!!,1)
+        requestToServer.service.requestRecommendSeller("application/json", App.prefs.local_login_token!!,5)
             .safeEnqueue(
             onSuccess = {
                 recommendStyleAdapter.data= it
