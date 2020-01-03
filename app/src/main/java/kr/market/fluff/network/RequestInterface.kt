@@ -12,7 +12,6 @@ import kotlinx.android.parcel.Parcelize
 import kr.market.fluff.data.intro.ResponseLogin
 import kr.market.fluff.data.intro.ResponseValidateAndRegisterAndLogin
 import kr.market.fluff.data.myStyle.*
-import kr.market.fluff.data.mypage.ToSellerRequest
 import kr.market.fluff.data.mypage.ToSellerResponse
 //import kr.market.fluff.data.mypage.ToSellerRequest
 //import kr.market.fluff.data.mypage.ToSellerResponse
@@ -67,11 +66,11 @@ interface RequestInterface {
         val duplication: Boolean
     )
 
-
+    @Multipart
     @POST("/shopper/toSeller")
     fun requestToSeller(
         @Header("x-access-token") token: String,
-        @Part image : ToSellerRequest
+        @Part image : MultipartBody.Part
     ): Call<BaseResponse<List<ToSellerResponse>>>
 
     @PUT("/recommend/keyDB")
