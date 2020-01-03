@@ -232,6 +232,8 @@ class DetailAuctionActivity : AppCompatActivity() {
 
         socket.connect()
 
+        //socket.emit("")
+
         //socket.on("joinAution",onJoinReceived)
         //socket.on("bid",onPriceReceived)
 
