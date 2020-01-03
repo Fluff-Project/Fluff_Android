@@ -58,8 +58,6 @@ class GlanceFragment : Fragment() {
 
     }
     private fun initSettings(){
-
-
         settingColorSelect()
         settingCategorySelect()
         settingSizeSelect()
@@ -142,8 +140,27 @@ class GlanceFragment : Fragment() {
             addItemDecoration(VerticalItemDecorator(24))
             addItemDecoration(HorizontalItemDecorator(24))
         }
-
-
+//        val token = App.prefs.local_login_token
+//        requestToServer.service.request_recommend_home("application/json",token!!)
+/*
+//통신
+            val token = App.prefs.local_login_token
+            requestToServer.service.requestFilter(
+                "application/json",token!!,filterRequest
+            )
+                .safeEnqueue(
+                    onSuccess = {
+                        glanceListAdapter.data = it
+                        glanceListAdapter.notifyDataSetChanged()
+                    },
+                    onFail = { _, _ ->
+                        sendToast("로그인 실패")
+                    },
+                    onError = {
+                        sendToast("통신 실패")
+                    }
+                )
+ */
     }
     fun settingFilter(){
         bottomSheet = BottomSheetBehavior.from(glance_filter)

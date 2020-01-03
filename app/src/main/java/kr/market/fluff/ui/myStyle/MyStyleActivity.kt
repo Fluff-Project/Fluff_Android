@@ -6,15 +6,15 @@ import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_my_style.*
 import kr.market.fluff.R
-import kr.market.fluff.data.myStyle.RecommendStyleRequest
 import kr.market.fluff.network.RequestToServer
-import kr.market.fluff.network.enqueue
-import kr.market.fluff.data.App
 import kr.market.fluff.network.safeEnqueue
+import kr.market.fluff.data.App
+import kr.market.fluff.data.myStyle.RecommendStyleRequest
 import kr.market.fluff.ui.recommendStyle.RecommendStyleActivity
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 import kr.market.fluff.ui.util.sendToast
+import kr.market.fluff.network.enqueue
 
 class MyStyleActivity : AppCompatActivity() {
     private lateinit var myStyleAdapter : MyStyleAdapter
@@ -43,6 +43,7 @@ class MyStyleActivity : AppCompatActivity() {
     private lateinit var token: String
 
     private lateinit var requestData: RecommendStyleRequest
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -76,6 +77,7 @@ class MyStyleActivity : AppCompatActivity() {
         requestToServer.service.requestSurvey("application/json",token)
             .safeEnqueue(
                 onSuccess = {
+                    sendToast("성공")
                     myStyleAdapter.data=it.surveyList
                     myStyleAdapter.notifyDataSetChanged()
                 },
@@ -85,6 +87,7 @@ class MyStyleActivity : AppCompatActivity() {
             )
 
     }
+
     private fun rangeStyle(){
         val styles = hashMapOf<String,Int>()
         styles.put("simple",simple)

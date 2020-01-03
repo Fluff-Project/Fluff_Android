@@ -12,6 +12,7 @@ import kr.market.fluff.data.home.BannerRecyclerData
 import kr.market.fluff.data.home.HomeRecommendData
 import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.ui.util.drawCustomToast
+import kr.market.fluff.ui.util.priceFormTextView
 
 class BannerRecyclerViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView) {
     val banner_recycler_img : ImageView = itemView.findViewById(R.id.img_banner_rv_profile)
@@ -27,7 +28,7 @@ class BannerRecyclerViewHolder (itemView : View) : RecyclerView.ViewHolder(itemV
             .load(data.img)
             .into(banner_recycler_img)
         banner_recycler_closet.text = data.closet
-        banner_recycler_price.text = data.price.toString()+"원"
+        banner_recycler_price.priceFormTextView(banner_recycler_price,data.price)
         banner_recycler_seller.text = data.seller
 
 

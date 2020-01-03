@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_recommend_style.*
 import kr.market.fluff.R
 import kr.market.fluff.data.App
+import kr.market.fluff.data.myStyle.RecommendStyleRequest
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.safeEnqueue
 import kr.market.fluff.ui.intro.WelcomeActivity
@@ -18,9 +19,7 @@ class RecommendStyleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recommend_style)
-
         init()
-
     }
     private fun init(){
         initRecommendStyleList()

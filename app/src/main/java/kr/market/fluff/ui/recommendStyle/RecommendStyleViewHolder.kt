@@ -23,12 +23,12 @@ class RecommendStyleViewHolder(view: View): RecyclerView.ViewHolder(view){
         txt_keyword.text = "아메카지"
         settingImgRecycler(data.img)
     }
-    fun settingImgRecycler(imgData: List<String>){
-        recommendStyleImgAdapter =
-            RecommendStyleImgAdapter(
-                itemView.context,
-                imgData
-            )
+        fun settingImgRecycler(imgData: List<String>){
+            recommendStyleImgAdapter =
+                RecommendStyleImgAdapter(
+                    itemView.context,
+                    imgData
+                )
         recycler_img.apply {
             layoutManager = LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL,false)
             adapter = recommendStyleImgAdapter

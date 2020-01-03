@@ -5,33 +5,69 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragment.home.viewpager.HomeSliderFragment">
 
-    <ImageView
-        android:id="@+id/img_fragment_slider_home"
-        android:scaleType="centerCrop"
+    <kr.market.fluff.ui.fragment.auction.SquareFrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/img_fragment_slider_home"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </kr.market.fluff.ui.fragment.auction.SquareFrameLayout>
+
+
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#73000000"/>
+        android:background="#73000000" />
+
     <TextView
         android:id="@+id/tv_vp_sub_title"
         style="@style/HomeVpSubTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_vp_main_title"
+        android:layout_alignStart="@+id/tv_vp_main_title"
         android:layout_marginTop="218dp"
-        android:layout_centerHorizontal="true"
-        android:text="TextView" />
+        android:layout_marginBottom="8dp"
+        android:textSize="15sp"
+        android:textColor="@color/colorWhite"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="14sp"
+        android:gravity="center_horizontal"
+        android:fontFamily="@font/sc_dream"
+        android:textFontWeight="300"
+        android:text="러블리함을 원한다면?" />
 
     <TextView
         android:id="@+id/tv_vp_main_title"
         style="@style/HomeVpTitle"
-        android:layout_marginTop="8dp"
-        android:layout_below="@id/tv_vp_sub_title"
-        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_above="@+id/btn_vp_main"
+        android:layout_alignStart="@+id/btn_vp_main"
+        android:fontFamily="@font/sc_dream"
+        android:textFontWeight="400"
+        android:layout_marginBottom="16dp"
+        android:text="빈티지 가디건" />
+
+    <Button
+        android:id="@+id/btn_vp_main"
+        android:layout_width="108dp"
+        android:layout_height="24dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/sc_dream"
+        android:textFontWeight="300"
+        android:textSize="15sp"
+        android:textColor="@color/colorBlack"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="4sp"
+        android:gravity="center"
+        android:background="@drawable/btn_filter_white_background"
+        android:layout_marginBottom="52dp"
+        android:text="자세히 보기 >" />
 
 
 </RelativeLayout>
