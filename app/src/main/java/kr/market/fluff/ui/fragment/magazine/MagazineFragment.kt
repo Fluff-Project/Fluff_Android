@@ -63,7 +63,7 @@ class MagazineFragment : Fragment() {
                     ,
 
 
-                    img_detail_magazine_contents = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FRZZXj%2FbtqAQlJqztz%2FTe1Zd0IwyRvnSXP6Wk9KC1%2Fimg.png",
+                    img_detail_magazine_contents = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2F1Y7e3%2FbtqARi6MqEh%2Fq4NIyK1SUGgI8W27hyaM81%2Fimg.png",
                     txt_detail_magazine_contents_product_title = "옷이 아니지만 빈티지",
                     txt_detail_magazine_product_contents = "한 해를 마무리하는 12월. 이번 달의 빈티지 코디룩 중에서 베스트에 오른 룩들을 함께 살펴보자.\n"))
 
@@ -137,7 +137,7 @@ class MagazineFragment : Fragment() {
                             "03 그 후로 많은 시간이 지났다. 3여 년 전과 비교를 했을 때 느끼기에 어떤지? \n" +
                             "임 솔직히 말해 더 못한 것 같다. 빈티지 없이는 내 삶을 말할 수 없게 되었다.\n" +
                             " \n" ,
-                    img_detail_magazine_contents = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FRZZXj%2FbtqAQlJqztz%2FTe1Zd0IwyRvnSXP6Wk9KC1%2Fimg.png",
+                    img_detail_magazine_contents = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FoHbXI%2FbtqATgfPxaG%2FPniWzNCHCYS9D3Sbor42p1%2Fimg.png",
                     txt_detail_magazine_contents_product_title = "flapper만의 차별성이 있다면? ",
                     txt_detail_magazine_product_contents = "임 다른 빈티지샵들과의 차별화라면 8년이란 시간 동안 누드본즈를 만들어 오면서 별로 변하지 않은 것 같다. 어떻게 말하면 발전이 없다는 말일 수도 있는데 좋게 말하면 누드본즈만의 고집이 있는 거다. 한 길을 추구하는 거고. 이게 장단점이 있는 것 같다.\n"))
 
@@ -171,7 +171,7 @@ class MagazineFragment : Fragment() {
                             "                “얼마 전에 플러프에서 빈티지 조끼를 샀어요. 가볍게 입기 좋은 것 같아요.”",
 
 
-                img_detail_magazine_contents = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FRZZXj%2FbtqAQlJqztz%2FTe1Zd0IwyRvnSXP6Wk9KC1%2Fimg.png",
+                img_detail_magazine_contents = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FNISJJ%2FbtqAQkEgOO1%2Fuh3E7B9BkioTvixBBrTkR0%2Fimg.png",
                     txt_detail_magazine_contents_product_title = "가을에 어울리는 빈티지 룩을 득템할 수 있는 매장",
                     txt_detail_magazine_product_contents = "광장시장 구제상가에는 평소 빈티지, 레트로 스타일을 좋아하는 사람이라면 눈에 쏙쏙 들어올 만한 상품들이 제법 있다. 패턴 있는 원피스나 복고풍 블라우스, 다양한 디자인과 재질의 스커트를 비롯해 청재킷, 야상, 코트 등의 가을·겨울 아우터도 저렴한 가격에 득템할 수 있다. "))
 
