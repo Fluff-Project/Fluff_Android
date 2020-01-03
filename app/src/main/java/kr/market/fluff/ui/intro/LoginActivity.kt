@@ -41,6 +41,11 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         init()
     }
+
+    override fun onResume() {
+        checkAutoLogin()
+        super.onResume()
+    }
     private fun setListener(){
         btn_intro_login.setOnClickListener{
             startAnim()
@@ -48,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
         }
         tv_intro_register.setOnClickListener{
             val intent = Intent(this, RegisterActivity::class.java)
-            startActivityForResult(intent,100)
+            startActivity(intent)
         }
         btn_login_login.setOnClickListener{
             local_id_string = et_login_email.text.toString()
@@ -193,30 +198,29 @@ class LoginActivity : AppCompatActivity() {
             object : FacebookCallback<LoginResult> {
                 override fun onSuccess(loginResult: LoginResult) {
                     Log.d("Success", loginResult.accessToken.toString())
-                    Log.d(
-                        "Success",
-                        java.lang.String.valueOf(Profile.getCurrentProfile().getId())
-                    )
-                    Log.d(
-                        "Success",
-                        java.lang.String.valueOf(Profile.getCurrentProfile().getName())
-                    )
-                    Log.d(
-                        "Success",
-                        java.lang.String.valueOf(
-                            Profile.getCurrentProfile().getProfilePictureUri(
-                                200,
-                                200
-                            )
-                        )
-                    )
+//                    Log.d(
+//                        "Success",
+//                        java.lang.String.valueOf(Profile.getCurrentProfile().getId())
+//                    )
+//                    Log.d(
+//                        "Success",
+//                        java.lang.String.valueOf(Profile.getCurrentProfile().getName())
+//                    )
+//                    Log.d(
+//                        "Success",
+//                        java.lang.String.valueOf(
+//                            Profile.getCurrentProfile().getProfilePictureUri(
+//                                200,
+//                                200
+//                            )
+//                        )
+//                    )
                     requestUserProfile(loginResult)
                 }
 
                 override fun onCancel() {
                     sendToast("페이스북 로그인을 취소하셨습니다")
                 }
-
                 override fun onError(exception: FacebookException) {
                     sendToast(exception.toString())
                 }
@@ -230,9 +234,6 @@ class LoginActivity : AppCompatActivity() {
                 Log.d("jsonObject"," : + ${response.jsonObject}")
                 App.prefs.facebook_token = response.jsonObject.getLong("id")
                 Log.d("hj :","facebook_token은 ${App.prefs.facebook_token} 입니다")
-//                val email : String =
-//                   response.jsonObject.getString("email").toString()
-//                Log.d("Result", email)
             } catch (e: JSONException) {
                 e.printStackTrace()
             }
@@ -252,12 +253,7 @@ class LoginActivity : AppCompatActivity() {
             callbackManager.onActivityResult(requestCode, resultCode, data)
             val intent = Intent(this,MyStyleActivity::class.java)
             startActivity(intent)
-            finish()
-        }else if(requestCode==100 && resultCode== Activity.RESULT_OK){
-            login_btn_anim()
-            et_login_email.setText(data!!.getStringExtra("email"))
-            et_login_pw.setText(data!!.getStringExtra("pwd"))
-            btn_login_login.callOnClick()
+            sendToast("SNS 연동은 준비중인 기능입니다. Local 회원가입을 통해 로그인해 주세요!")
         }
         super.onActivityResult(requestCode, resultCode, data)
     }

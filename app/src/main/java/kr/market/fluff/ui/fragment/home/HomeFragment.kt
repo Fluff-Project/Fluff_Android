@@ -19,6 +19,7 @@ import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.safeEnqueue
 import kr.market.fluff.ui.MainActivity
 import kr.market.fluff.ui.fragment.home.home_detail.HomeNewActivity
+import kr.market.fluff.ui.fragment.home.home_detail.HomePlubActivity
 import kr.market.fluff.ui.fragment.home.home_detail.HomeRecentActivity
 import kr.market.fluff.ui.fragment.home.home_detail.HomeRecommendActivity
 import kr.market.fluff.ui.fragment.home.recycler_auction.HomeAuctionAdapter
@@ -33,28 +34,21 @@ import kr.market.fluff.ui.util.sendToast
 import java.time.LocalDate
 
 class HomeFragment : Fragment() {
-    lateinit var rv_home_new : RecyclerView
+    lateinit var rv_home_new: RecyclerView
     lateinit var newAdapter: HomeNewAdapter
-    lateinit var new_datas : ArrayList<RequestInterface.HomeDetailData>
 
-    lateinit var rv_home_recent : RecyclerView
+    lateinit var rv_home_recent: RecyclerView
     lateinit var recentAdapter: HomeRecentAdapter
-    lateinit var recent_datas : ArrayList<RequestInterface.HomeDetailData>
 
-    lateinit var rv_home_recommend : RecyclerView
+    lateinit var rv_home_recommend: RecyclerView
     lateinit var recommendAdapter: HomeRecommendAdapter
-    lateinit var recommend_datas : ArrayList<RequestInterface.HomeDetailData>
 
-    lateinit var rv_home_plub : RecyclerView
+    lateinit var rv_home_plub: RecyclerView
     lateinit var plubAdapter: HomePlubAdapter
-    lateinit var plub_datas : List<HomePlubData>
 
-    /*lateinit var rv_home_keyword : RecyclerView
-    lateinit var keywordAdapter: HomeKeywordAdapter
-    lateinit var keyword_datas : List<HomeKeywordData>*/
-    lateinit var rv_home_auction : RecyclerView
+    lateinit var rv_home_auction: RecyclerView
     lateinit var auctionAdapter: HomeAuctionAdapter
-    lateinit var auction_data : List<HomeAuctionData>
+    lateinit var auction_data: List<HomeAuctionData>
 
     val requestToServer = RequestToServer
 
@@ -84,50 +78,48 @@ class HomeFragment : Fragment() {
 
 
     }
-    fun init()
-    {
+
+    fun init() {
         tv_home_recent_keyword.text = "가디건"
         tv_home_recentsubtitle_keyword.text = tv_home_recent_keyword.text
 
-        val date : LocalDate = LocalDate.now()
-        var date_value : Int = date.dayOfWeek.value
+        val date: LocalDate = LocalDate.now()
+        var date_value: Int = date.dayOfWeek.value
 
-        when(date_value)
-        {
-            1-> tv_home_recommend_keyword.text = "월요일"
-            2-> tv_home_recommend_keyword.text = "화요일"
-            3-> tv_home_recommend_keyword.text = "수요일"
-            4-> tv_home_recommend_keyword.text = "목요일"
-            5-> tv_home_recommend_keyword.text = "금요일"
-            6-> tv_home_recommend_keyword.text = "토요일"
-            7-> tv_home_recommend_keyword.text = "일요일"
+        when (date_value) {
+            1 -> tv_home_recommend_keyword.text = "월요일"
+            2 -> tv_home_recommend_keyword.text = "화요일"
+            3 -> tv_home_recommend_keyword.text = "수요일"
+            4 -> tv_home_recommend_keyword.text = "목요일"
+            5 -> tv_home_recommend_keyword.text = "금요일"
+            6 -> tv_home_recommend_keyword.text = "토요일"
+            7 -> tv_home_recommend_keyword.text = "일요일"
         }
 
-       // makeHomeRecycler()
+        // makeHomeRecycler()
     }
 
-    fun changeView()
-    {
+    fun changeView() {
         img_home_newicon.setOnClickListener {
             val intent = Intent(context, HomeNewActivity::class.java)
-            intent.putExtra("new_keyword",tv_home_new_keyword.text.toString())
+            intent.putExtra("new_keyword", tv_home_new_keyword.text.toString())
             startActivity(intent)
         }
-        img_home_auctionicon.setOnClickListener {(activity as MainActivity).replaceFragment(2)}
+        img_home_auctionicon.setOnClickListener { (activity as MainActivity).replaceFragment(4) }
 
         img_home_plubicon.setOnClickListener {
-            val intent = Intent(context, RecommendStyleActivity::class.java)
+            val intent = Intent(context, HomePlubActivity::class.java)
             startActivity(intent)
         }
 
         img_home_recenticon.setOnClickListener {
             val intent = Intent(context, HomeRecentActivity::class.java)
-            intent.putExtra("recent_keyword",tv_home_recent_keyword.text.toString())
+            intent.putExtra("recent_keyword", tv_home_recent_keyword.text.toString())
             startActivity(intent)
         }
         img_home_recommendicon.setOnClickListener {
             val intent = Intent(context, HomeRecommendActivity::class.java)
-            intent.putExtra("recommend_keyword",tv_home_recommend_keyword.text.toString())
+            intent.putExtra("recommend_keyword", tv_home_recommend_keyword.text.toString())
             startActivity(intent)
         }
     }
@@ -141,13 +133,12 @@ class HomeFragment : Fragment() {
         viewPager.adapter = adapter
         dotsIndicator.setViewPager(viewPager)
         vp_home_viewpager.adapter = adapter
-        vp_home_viewpager.offscreenPageLimit=2
+        vp_home_viewpager.offscreenPageLimit = 2
 
     }
 
     //오늘 입고되었어요!
-    fun makeNewRecycler(view : View)
-    {
+    fun makeNewRecycler(view: View) {
         rv_home_new = view.findViewById(kr.market.fluff.R.id.rv_home_new)
 
         requestToServer.service.request_home_Newest("application/json", App.prefs.local_login_token!!,"newest",7)
@@ -160,39 +151,30 @@ class HomeFragment : Fragment() {
                         adapter = newAdapter
                         addItemDecoration(HorizontalItemDecorator(24))
                     }
-
-
                 },
                 onFail = { _, _ ->
                     sendToast("서버 응답이 없습니다.")
                 })
 
-//
-//        newAdapter =
-//            HomeNewAdapter(new_datas)
-//        rv_home_new.apply {
-//            layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-//            adapter = newAdapter
-//            addItemDecoration(HorizontalItemDecorator(24))
-//        }
-////        val snapHelper = LinearSnapHelper()
-////        snapHelper.attachToRecyclerView(rv_home_new)
-//        newAdapter.notifyDataSetChanged()
     }
 
     //당신을 위한 무스탕 추천
-    fun makeRecentRecycler(view : View)
-    {
-
+    fun makeRecentRecycler(view: View) {
         rv_home_recent = view.findViewById(kr.market.fluff.R.id.rv_home_recent)
 
-        requestToServer.service.request_home_Category("application/json", App.prefs.local_login_token!!,"cardigan",7)
+        requestToServer.service.request_home_Category(
+            "application/json",
+            App.prefs.local_login_token!!,
+            "cardigan",
+            7
+        )
             .safeEnqueue(
                 onSuccess = {
                     recentAdapter = HomeRecentAdapter(it)
                     recentAdapter.notifyDataSetChanged()
                     rv_home_recent.apply {
-                        layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+                        layoutManager =
+                            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                         adapter = recentAdapter
                         addItemDecoration(HorizontalItemDecorator(24))
                     }
@@ -202,74 +184,87 @@ class HomeFragment : Fragment() {
                 onFail = { _, _ ->
                     sendToast("서버 응답이 없습니다")
                 })
-//
-//        recentAdapter =
-//            HomeRecentAdapter(
-//                recent_datas
-//            )
-//        rv_home_recent.apply {
-//            layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-//            adapter = recentAdapter
-//            addItemDecoration(HorizontalItemDecorator(24))
-//        }
-////        val snapHelper = LinearSnapHelper()
-////        snapHelper.attachToRecyclerView(rv_home_recent)
     }
 
     //요일별 추천
-    fun makeRecommendRecycler(view : View)
-    {
-
+    fun makeRecommendRecycler(view: View) {
         rv_home_recommend = view.findViewById(kr.market.fluff.R.id.rv_home_recommend)
 
-        requestToServer.service.request_home_Thumbnail("application/json", App.prefs.local_login_token!!,7)
+        requestToServer.service.request_home_Thumbnail(
+            "application/json",
+            App.prefs.local_login_token!!,
+            7
+        )
             .safeEnqueue(
                 onSuccess = {
                     recommendAdapter = HomeRecommendAdapter(it)
                     recommendAdapter.notifyDataSetChanged()
                     rv_home_recommend.apply {
-                        layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+                        layoutManager =
+                            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                         adapter = recommendAdapter
                         addItemDecoration(HorizontalItemDecorator(24))
                     }
-
-
                 },
                 onFail = { _, _ ->
                     sendToast("서버 응답이 없습니다")
                 })
-
-//        rv_home_recommend = view.findViewById(R.id.rv_home_recommend)
-//        recommendAdapter = HomeRecommendAdapter(recommend_datas)
-//        rv_home_recommend.apply {
-//            layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-//            adapter = recommendAdapter
-//            addItemDecoration(HorizontalItemDecorator(24))
-//        }
-//        val snapHelper = LinearSnapHelper()
-//        snapHelper.attachToRecyclerView(rv_home_recommend)
     }
 
-    fun makePlubRecycler(view : View)
-    {
-        plub_datas = listOf(
-            HomePlubData("https://previews.123rf.com/images/margolana/margolana1511/margolana151100248/48654416-%EA%B0%9C%EC%B2%B4-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9D%98-%EA%B2%A8%EC%9A%B8-%EC%98%B7-%EA%B7%B8%EB%A3%B9%EC%9D%80-%ED%8C%A8%EC%85%98-%EC%9A%94%EC%86%8C-%EB%82%A8%EC%9E%90-%EC%9D%98%EB%A5%98-%EC%84%B8%ED%8A%B8.jpg",
-                "셀러1","해쉬테그1","해쉬테그2","팔로우"),
-            HomePlubData("https://previews.123rf.com/images/margolana/margolana1511/margolana151100248/48654416-%EA%B0%9C%EC%B2%B4-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9D%98-%EA%B2%A8%EC%9A%B8-%EC%98%B7-%EA%B7%B8%EB%A3%B9%EC%9D%80-%ED%8C%A8%EC%85%98-%EC%9A%94%EC%86%8C-%EB%82%A8%EC%9E%90-%EC%9D%98%EB%A5%98-%EC%84%B8%ED%8A%B8.jpg",
-                "셀러2","해쉬테그1","해쉬테그2","팔로우"),
-            HomePlubData("https://previews.123rf.com/images/margolana/margolana1511/margolana151100248/48654416-%EA%B0%9C%EC%B2%B4-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9D%98-%EA%B2%A8%EC%9A%B8-%EC%98%B7-%EA%B7%B8%EB%A3%B9%EC%9D%80-%ED%8C%A8%EC%85%98-%EC%9A%94%EC%86%8C-%EB%82%A8%EC%9E%90-%EC%9D%98%EB%A5%98-%EC%84%B8%ED%8A%B8.jpg",
-                "셀러3","해쉬테그1","해쉬테그2","팔로우")
-        )
+    //Plub 추천
+    fun makePlubRecycler(view: View) {
         rv_home_plub = view.findViewById(kr.market.fluff.R.id.rv_home_plub)
-        plubAdapter = HomePlubAdapter(plub_datas)
-        rv_home_plub.apply {
-            layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-            adapter = plubAdapter
+
+        requestToServer.service.requestRecommendSeller(
+            "application/json",
+            App.prefs.local_login_token!!,
+            1
+        )
+            .safeEnqueue(
+                onSuccess = {
+                    sendToast("성공")
+                    plubAdapter = HomePlubAdapter(it)
+                    plubAdapter.notifyDataSetChanged()
+                    rv_home_plub.apply {
+                        layoutManager =
+                            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                        adapter = plubAdapter
+                        addItemDecoration(HorizontalItemDecorator(24))
+                    }
+
+                },
+                onFail = { _, _ ->
+                    sendToast("실패")
+                }
+            )
+    }
+
+    fun makeOctionRecycler(view: View) {
+        auction_data = listOf(
+            HomeAuctionData(
+                "https://previews.123rf.com/images/margolana/margolana1511/margolana151100248/48654416-%EA%B0%9C%EC%B2%B4-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9D%98-%EA%B2%A8%EC%9A%B8-%EC%98%B7-%EA%B7%B8%EB%A3%B9%EC%9D%80-%ED%8C%A8%EC%85%98-%EC%9A%94%EC%86%8C-%EB%82%A8%EC%9E%90-%EC%9D%98%EB%A5%98-%EC%84%B8%ED%8A%B8.jpg",
+                "곧 경매 종료", "원피스"
+            ),
+            HomeAuctionData(
+                "https://previews.123rf.com/images/margolana/margolana1511/margolana151100248/48654416-%EA%B0%9C%EC%B2%B4-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9D%98-%EA%B2%A8%EC%9A%B8-%EC%98%B7-%EA%B7%B8%EB%A3%B9%EC%9D%80-%ED%8C%A8%EC%85%98-%EC%9A%94%EC%86%8C-%EB%82%A8%EC%9E%90-%EC%9D%98%EB%A5%98-%EC%84%B8%ED%8A%B8.jpg",
+                "종료까지 2시간", "코트"
+            ),
+            HomeAuctionData(
+                "https://previews.123rf.com/images/margolana/margolana1511/margolana151100248/48654416-%EA%B0%9C%EC%B2%B4-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9D%98-%EA%B2%A8%EC%9A%B8-%EC%98%B7-%EA%B7%B8%EB%A3%B9%EC%9D%80-%ED%8C%A8%EC%85%98-%EC%9A%94%EC%86%8C-%EB%82%A8%EC%9E%90-%EC%9D%98%EB%A5%98-%EC%84%B8%ED%8A%B8.jpg",
+                "종료까지 4시간 ", "자켓"
+            )
+        )
+        rv_home_auction = view.findViewById(R.id.rv_home_auction)
+        auctionAdapter = HomeAuctionAdapter(auction_data)
+        rv_home_auction.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            adapter = auctionAdapter
             addItemDecoration(HorizontalItemDecorator(24))
         }
-//        val snapHelper = LinearSnapHelper()
-//        snapHelper.attachToRecyclerView(rv_home_plub)
     }
+}
+
+
 /*
     fun makeKeywordRecycler(view : View)
     {
@@ -292,25 +287,6 @@ class HomeFragment : Fragment() {
     */
 
 
-    fun makeOctionRecycler(view: View)
-    {
-        auction_data = listOf(
-            HomeAuctionData("https://previews.123rf.com/images/margolana/margolana1511/margolana151100248/48654416-%EA%B0%9C%EC%B2%B4-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9D%98-%EA%B2%A8%EC%9A%B8-%EC%98%B7-%EA%B7%B8%EB%A3%B9%EC%9D%80-%ED%8C%A8%EC%85%98-%EC%9A%94%EC%86%8C-%EB%82%A8%EC%9E%90-%EC%9D%98%EB%A5%98-%EC%84%B8%ED%8A%B8.jpg",
-                "곧 경매 종료","원피스"),
-            HomeAuctionData("https://previews.123rf.com/images/margolana/margolana1511/margolana151100248/48654416-%EA%B0%9C%EC%B2%B4-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9D%98-%EA%B2%A8%EC%9A%B8-%EC%98%B7-%EA%B7%B8%EB%A3%B9%EC%9D%80-%ED%8C%A8%EC%85%98-%EC%9A%94%EC%86%8C-%EB%82%A8%EC%9E%90-%EC%9D%98%EB%A5%98-%EC%84%B8%ED%8A%B8.jpg",
-                "종료까지 2시간","코트"),
-            HomeAuctionData("https://previews.123rf.com/images/margolana/margolana1511/margolana151100248/48654416-%EA%B0%9C%EC%B2%B4-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9D%98-%EA%B2%A8%EC%9A%B8-%EC%98%B7-%EA%B7%B8%EB%A3%B9%EC%9D%80-%ED%8C%A8%EC%85%98-%EC%9A%94%EC%86%8C-%EB%82%A8%EC%9E%90-%EC%9D%98%EB%A5%98-%EC%84%B8%ED%8A%B8.jpg",
-                "종료까지 4시간 ","자켓")
-        )
-        rv_home_auction = view.findViewById(R.id.rv_home_auction)
-        auctionAdapter = HomeAuctionAdapter(auction_data)
-        rv_home_auction.apply {
-            layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-            adapter = auctionAdapter
-            addItemDecoration(HorizontalItemDecorator(24))
-        }
-//        val snapHelper = LinearSnapHelper()
-//        snapHelper.attachToRecyclerView(rv_home_auction)
-    }
 
-}
+
+

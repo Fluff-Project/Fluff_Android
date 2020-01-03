@@ -57,13 +57,14 @@ interface RequestInterface {
     ): Call<BaseResponse<MyStyleResponse>>
 
     @FormUrlEncoded
-    @POST("/checkUsername")
+    @POST("/auth/checkUsername")
     fun requestNickNameValidate(
-        @Field("userNickname")userNickname : String
+        @Field("username")username : String
     ):Call<BaseResponse<CheckNickResponse>>
 
     data class CheckNickResponse(
-        val username : String
+        val username : String,
+        val duplication: Boolean
     )
 
 
@@ -243,7 +244,7 @@ interface RequestInterface {
         val data : String
     )
 
-    //홈 배너 디테일, 홈 디테일 데이터
+    //구현완료 - 홈 배너 상세, 홈 추천 디테일 데이터
     @GET("/recommend/style")
     fun request_recommend_home(
         @Header("Content-Type") content_type : String,
@@ -276,7 +277,7 @@ interface RequestInterface {
     ) : Call<BaseResponse<ArrayList<HomeDetailData>>>
 
 
-    //sort , page
+    //최신순 goods데이터
     @GET("/goods")
     fun request_home_Newest(
         @Header("Content-Type") content_type : String,
@@ -285,7 +286,7 @@ interface RequestInterface {
         @Query("page")  page : Int
     ) : Call<BaseResponse<ArrayList<HomeDetailData>>>
 
-    //coat , page
+    //카테고리별 goods데이터
     @GET("/goods")
     fun request_home_Category(
         @Header("Content-Type") content_type : String,
@@ -294,6 +295,21 @@ interface RequestInterface {
         @Query("page")  page : Int
     ) : Call<BaseResponse<ArrayList<HomeDetailData>>>
 
+    //좋아요 누르기/ 취소
+    @POST("/goods/{goodId}/like")
+    fun request_product_like(
+        @Header("Content-Type") content_type : String,
+        @Header("x-access-token") token :String,
+        @Path("goodId") goodId: String,
+        @Body body: RequestLikeData
+    ) : Call<BaseResponse<ResponseLikeData>>
+    data class ResponseLikeData(
+        val goodsId : String,
+        val state : Boolean
+    )
+    data class RequestLikeData(
+        val like : Boolean
+    )
 
 
     /*

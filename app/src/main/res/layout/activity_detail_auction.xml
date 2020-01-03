@@ -26,8 +26,7 @@
                         android:id="@+id/img_auction_detail_thumbnail"
                         android:layout_width="match_parent"
                         android:layout_height="480dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/seller_example" />
+                        android:scaleType="centerCrop" />
                 </kr.market.fluff.ui.fragment.auction.SquareFrameLayout>
 
                 <ImageView

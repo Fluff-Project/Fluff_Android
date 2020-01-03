@@ -24,12 +24,12 @@
 
 
     <LinearLayout
+        android:visibility="gone"
         android:id="@+id/ll_register_nickname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:orientation="vertical"
-        android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="16dp">
 
@@ -58,6 +58,14 @@
                 android:inputType="text"
                 android:paddingLeft="16dp"
                 android:textFontWeight="900" />
+            <ImageView
+                android:id="@+id/img_nick_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="24dp"
+                android:src="@drawable/ic_check" />
         </RelativeLayout>
     </LinearLayout>
 

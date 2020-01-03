@@ -38,20 +38,15 @@ class AuctionItemViewHolder(view : View) : RecyclerView.ViewHolder(view){
     var itemMin : Int = 0
     var itemSec : Int = 0
 
-
     fun bind(auctionListData : AuctionListData,activity: Activity){
         Glide.with(itemView).load(auctionListData.img_thumnail).into(img_auction_thumbnail)
         tv_auction_item_name.text = auctionListData.txt_item_name
         tv_auction_item_price.text = auctionListData.txt_item_price
-        //tv_auction_extra_time.text = auctionListData.txt_extra_time
-
         var time = auctionListData.txt_extra_time
-
         sliceEndTime(time)
         setTimer(time)
 
         cl_auction_view.setOnClickListener {
-
             val intent = Intent(itemView.context,DetailAuctionActivity::class.java)
             intent.putExtra("item",auctionListData)
             intent.putExtra("item_time_year" , itemYear)
@@ -60,7 +55,6 @@ class AuctionItemViewHolder(view : View) : RecyclerView.ViewHolder(view){
             intent.putExtra("item_time_hours", itemHours)
             intent.putExtra("item_time_min", itemMin)
             intent.putExtra("item_time_sec", itemSec)
-
             val activityOptions : ActivityOptionsCompat? = ActivityOptionsCompat.makeSceneTransitionAnimation(
                 activity,
                 Pair<View?, String?>(
@@ -105,16 +99,11 @@ class AuctionItemViewHolder(view : View) : RecyclerView.ViewHolder(view){
         itemMin = time.minute
         itemSec = time.second
     }
-
-
     fun setTimer(time : LocalDateTime)
     {
         val start_date_time: LocalDateTime = LocalDateTime.now()
         var duration: Duration = Duration.between(start_date_time, time)
-
-
         countDownTimer(duration.seconds)
-
     }
 
     fun countDownTimer(long: Long)
@@ -127,12 +116,10 @@ class AuctionItemViewHolder(view : View) : RecyclerView.ViewHolder(view){
             }
 
             override fun onTick(p0: Long) {
-
                 val hours = p0.div(3600000)
                 var temp = p0/1000 - hours*3600
                 val min = p0.div(60000).toInt() - p0.div(3600000)*60
                 val seconds = temp - min*60
-
                 if ( hours < 10)
                 {
                     tv_auction_extra_time.text  = "0" + hours.toString()+ " : "+ min.toString() + " : " + seconds.toString()
@@ -149,7 +136,6 @@ class AuctionItemViewHolder(view : View) : RecyclerView.ViewHolder(view){
 
                     }
                     tv_auction_extra_time.text  = hours.toString()+ " : "+ min.toString() + " : " + seconds.toString()
-
                 }
             }
 
