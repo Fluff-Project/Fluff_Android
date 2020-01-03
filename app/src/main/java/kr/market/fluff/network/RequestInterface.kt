@@ -17,6 +17,9 @@ import org.json.JSONArray
 import retrofit2.Call
 import retrofit2.http.*
 
+
+
+
 interface RequestInterface {
     //회원가입 화면의 중복확인 부분
 //    @FormUrlEncoded
