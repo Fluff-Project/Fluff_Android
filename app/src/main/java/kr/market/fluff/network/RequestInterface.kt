@@ -12,6 +12,8 @@ import kotlinx.android.parcel.Parcelize
 import kr.market.fluff.data.intro.ResponseLogin
 import kr.market.fluff.data.intro.ResponseValidateAndRegisterAndLogin
 import kr.market.fluff.data.myStyle.*
+import kr.market.fluff.data.mypage.ToSellerRequest
+import kr.market.fluff.data.mypage.ToSellerResponse
 //import kr.market.fluff.data.mypage.ToSellerRequest
 //import kr.market.fluff.data.mypage.ToSellerResponse
 import okhttp3.MultipartBody
@@ -66,7 +68,25 @@ interface RequestInterface {
     )
 
 
+    @POST("/shopper/toSeller")
+    fun requestToSeller(
+        @Header("x-access-token") token: String,
+        @Part image : ToSellerRequest
+    ): Call<BaseResponse<List<ToSellerResponse>>>
 
+    @PUT("/recommend/keyDB")
+    fun requestRecommendStyle(
+        @Header("Content-Type") content_type: String,
+        @Header("x-access-token") token: String,
+        @Body body: RecommendStyleRequest
+    ):Call<RecommendStyleResponse>
+
+    @GET("/recommend/seller")
+    fun requestRecommendSeller(
+        @Header("Content-Type") content_type: String,
+        @Header("x-access-token") token: String,
+        @Query("page") page: Int
+    ):Call<BaseResponse<ArrayList<RecommendSellerResponse>>>
 
     @POST("/goods/filter")
     fun requestFilter(
@@ -161,7 +181,7 @@ interface RequestInterface {
     ) : Call<BaseResponse<ArrayList<CartListResponse>>>
 
     @Parcelize
-    data class  CartListResponse(
+    data class CartListResponse(
         val userName : String,
         val Img : ArrayList<String>,
         val goodsId : String,

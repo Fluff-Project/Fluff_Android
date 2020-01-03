@@ -113,7 +113,7 @@ class DetailAuctionActivity : AppCompatActivity() {
             override fun onFinish() {
                 tv_auction_detail_extra_time.text = "경매가 마감되었습니다."
                 tv_auction_detail_extra_text.text = ""
-                sendToast("경매가 마감되었습니다.")
+//                sendToast("경매가 마감되었습니다.")
             }
 
             override fun onTick(p0: Long) {
@@ -223,10 +223,27 @@ class DetailAuctionActivity : AppCompatActivity() {
         return false
     }
     private fun settingSocket(){
-        socket = get(auctionId.toString())
+        socket = get()
         socket.connect()
 
-        socket.on("bid",onPriceReceived)
+//        socket.emit("joinAuction","하하").on("bid",onJoinReceived)
+
+        //socket.on("joinAution",onJoinReceived)
+        //socket.on("bid",onPriceReceived)
+
+    }
+    private val onJoinReceived = Emitter.Listener {
+        val msg = it[0] as JSONObject
+
+        val tt = object : TimerTask() {
+            override fun run() {
+                runOnUiThread {
+                    sendToast(msg.toString())
+                }
+            }
+        }
+
+        tt.run()
     }
     private val onPriceReceived = Emitter.Listener {
 
