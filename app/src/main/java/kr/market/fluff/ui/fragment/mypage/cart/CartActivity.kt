@@ -52,9 +52,11 @@ class CartActivity : AppCompatActivity() {
     }
     private fun deleteCartItems(){
         var delete_id_list = ArrayList<String>()
-        for(i in 0..selected_cart_list!!.size+1){
+        for(i in 0..selected_cart_list!!.size-1){
             delete_id_list.add(selected_cart_list!!.get(i).goodsId)
         }
+        Log.d("delete_id_list","delete_id_list.size : ${delete_id_list.size }")
+        Log.d("selected_cart_list","selected_cart_list.size : ${selected_cart_list!!.size }")
         RequestToServer.service.request_cart_delete(
             "application/json",
             App.prefs.local_login_token!!,

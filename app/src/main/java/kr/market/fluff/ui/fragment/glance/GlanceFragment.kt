@@ -198,7 +198,7 @@ class GlanceFragment : Fragment() {
                         glanceListAdapter.notifyDataSetChanged()
                     },
                     onFail = { _, _ ->
-                        sendToast("로그인 실패")
+                        sendToast("조회 실패")
                     },
                     onError = {
                         sendToast("통신 실패")

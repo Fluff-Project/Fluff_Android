@@ -55,35 +55,18 @@ interface RequestInterface {
     ): Call<BaseResponse<MyStyleResponse>>
 
     @FormUrlEncoded
-    @POST("/checkUsername")
+    @POST("/auth/checkUsername")
     fun requestNickNameValidate(
-        @Field("userNickname")userNickname : String
+        @Field("username")username : String
     ):Call<BaseResponse<CheckNickResponse>>
 
     data class CheckNickResponse(
-        val username : String
+        val username : String,
+        val duplication: Boolean
     )
 
 
-//    @POST("/shopper/toSeller")
-//    fun requestToSeller(
-//        @Header("x-access-token") token: String,
-//        @Part image : ToSellerRequest
-//    ): Call<BaseResponse<List<ToSellerResponse>>>
-//
-//    @PUT("/recommend/keyDB")
-//    fun requestRecommendStyle(
-//        @Header("Content-Type") content_type: String,
-//        @Header("x-access-token") token: String,
-//        @Body body: RecommendStyleRequest
-//    ):Call<RecommendStyleResponse>
-//
-//    @GET("/recommend/seller")
-//    fun requestRecommendSeller(
-//        @Header("Content-Type") content_type: String,
-//        @Header("x-access-token") token: String,
-//        @Query("page") page: Int
-//    ):Call<BaseResponse<ArrayList<RecommendSellerResponse>>>
+
 
     @POST("/goods/filter")
     fun requestFilter(
