@@ -26,7 +26,7 @@ class CartActivity : AppCompatActivity() {
     lateinit var cb_cart_check_all : CheckBox
 
 
-    var loaded_cart_list : ArrayList<RequestInterface.CartListResponse> = ArrayList()//TODO 서버 열리면 이놈 이름을 loaded_cart_list로 바꿔줄 것.
+    var loaded_cart_list : ArrayList<RequestInterface.CartListResponse> = ArrayList()
     var selected_cart_list : ArrayList<RequestInterface.CartListResponse>? = ArrayList()
     lateinit var btn_cart_delete : Button
 
