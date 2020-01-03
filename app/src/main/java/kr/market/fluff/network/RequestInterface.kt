@@ -144,6 +144,8 @@ interface RequestInterface {
         val gender : String,
         val address : String,
         val phone : String,
+        @SerializedName("_id")
+        val sellerId: String,
         val style :ArrayList<String>,
         val saleList : ArrayList<String>,
         val sellerImg : String
@@ -321,4 +323,19 @@ interface RequestInterface {
     data class RequestLikeData(
         val like : Boolean
     )
+
+    @GET("/goods/seller/{sellerId}")
+    fun request_seller_product(
+        @Header("Content-Type") content_type : String,
+        @Header("x-access-token") token :String,
+        @Path("sellerId") sellerId: String
+    ): Call<BaseResponse<ArrayList<ResponseSellerData>>>
+    data class ResponseSellerData(
+        @SerializedName("_id")
+        val goodsId : String,
+        val goodsName: String,
+        val mainImg: String,
+        val price : Long
+    )
+
 }
