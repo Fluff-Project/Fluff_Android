@@ -55,7 +55,7 @@ class MyStyleActivity : AppCompatActivity() {
     private fun checkIsFirstUser(){
         val isFirst = App.prefs.isFirst
         if(!isFirst!!) {
-            startActivity(Intent(this, MyStyleActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }else{init()}
     }
