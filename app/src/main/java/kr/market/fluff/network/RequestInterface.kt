@@ -131,25 +131,53 @@ interface RequestInterface {
         val size : String,
         val condition : Int,
         val comment : String,
-        val grade : Int,
         val _id : String,
         val sellerName : String,
         val sellerId : DetailSellerResponse
     )
 
     data class DetailSellerResponse(
-        val email : String,
-        val pwd : String,
-        val username : String,
-        val gender : String,
-        val address : String,
-        val phone : String,
         @SerializedName("_id")
         val sellerId: String,
-        val style :ArrayList<String>,
-        val saleList : ArrayList<String>,
+//        val style :ArrayList<String>,
+//        val saleList : ArrayList<String>,
+        val grade : Int,
         val sellerImg : String
     )
+
+
+    @GET("/auction/auctionList")
+    fun requestAuctionLIst(
+        @Header("Content-Type") content_type: String,
+        @Header("x-access-token") token: String
+    ):Call<BaseResponse<ArrayList<AuctionItemData>>>
+
+    @Parcelize
+    data class AuctionItemData(
+        val mainImg : String,
+        val auctionName : String,
+        val size : String,
+        val comment : String,
+        val condition : Int,
+        val bid : Long,
+        val _id : String
+    ):Parcelable
+
+
+    //배포되면 이놈으로 바꾸기
+//    data class DetailSellerResponse(
+//        val email : String,
+//        val pwd : String,
+//        val username : String,
+//        val gender : String,
+//        val address : String,
+//        val phone : String,
+//        @SerializedName("_id")
+//        val sellerId: String,
+//        val style :ArrayList<String>,
+//        val saleList : ArrayList<String>,
+//        val sellerImg : String
+//    )
 
 
 

@@ -15,6 +15,14 @@ fun TextView.priceFormTextView(textView: TextView,price_data : Long){
     tv.setText("${price}원")
 }
 
+fun TextView.prceFormTV(textView: TextView,price_data : Long){
+    val decimalFormat = DecimalFormat("#,###")
+    val tv = textView
+    var price = "${price_data}"
+    price = decimalFormat.format(price.replace(",".toRegex(), "").toDouble())
+    tv.setText("${price}")
+}
+
 fun EditText.priceForm(editText: EditText) {
     val decimalFormat = DecimalFormat("#,###")
     val et = editText

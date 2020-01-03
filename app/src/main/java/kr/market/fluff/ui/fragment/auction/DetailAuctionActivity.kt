@@ -21,6 +21,8 @@ import kr.market.fluff.network.RequestAuctionInterface
 import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.network.RequestToAuctionServer
 import kr.market.fluff.network.SocketApplication.get
+import kr.market.fluff.ui.util.prceFormTV
+import kr.market.fluff.ui.util.priceFormTextView
 import org.json.JSONObject
 import java.util.*
 import kr.market.fluff.ui.util.sendToast
@@ -59,7 +61,7 @@ class DetailAuctionActivity : AppCompatActivity() {
     lateinit var socket: Socket
 
 
-    private var mItem: AuctionListData? = null
+    private var mItem: RequestInterface.AuctionItemData? = null
 
     var itemYear : Int = 0
     var itemMon : Int = 0
@@ -169,14 +171,21 @@ class DetailAuctionActivity : AppCompatActivity() {
         }
     }
     private fun loadItem(){
-        tv_auction_detail_item_name .text = mItem!!.txt_item_name
+        tv_auction_detail_item_name .text = mItem!!.auctionName
         tv_auction_detail_recent_highst .text = "현재 최고가"
+        tv_auction_detail_item_name2.text = mItem!!.auctionName
+        tv_auction_detail_comment.text = mItem!!.comment
+        tv_auction_detail_size.text = mItem!!.size
+        tv_auction_detail_condition.text = mItem!!.condition.toString() + "/10"
 
-       tv_auction_detail_item_price .text = mItem!!.txt_item_price
+        tv_auction_detail_item_price.prceFormTV(tv_auction_detail_item_price,mItem!!.bid)
 
         tv_auction_detail_price_text .text = "원"
-        tv_auction_detail_extra_time .text = mItem!!.txt_extra_time.toString()
+        tv_auction_detail_extra_time .text = intent.getStringExtra("time")
         tv_auction_detail_extra_text .text = "남음"
+
+
+
         if (addTransitionListener()) {
             loadThumbnail()
         } else { // If all other cases we should just load the full-size image now
@@ -185,7 +194,7 @@ class DetailAuctionActivity : AppCompatActivity() {
     }
     private fun loadThumbnail() {
         Picasso.with(img_auction_detail_thumbnail .context)
-            .load(mItem!!.img_thumnail)
+            .load(mItem!!.mainImg)
             .noFade()
             .noPlaceholder()
             .into(img_auction_detail_thumbnail )
@@ -196,7 +205,7 @@ class DetailAuctionActivity : AppCompatActivity() {
      */
     private fun loadFullSizeImage() {
         Picasso.with(img_auction_detail_thumbnail .context)
-            .load(mItem!!.img_thumnail)
+            .load(mItem!!.mainImg)
             .noFade()
             .noPlaceholder()
             .into(img_auction_detail_thumbnail)
@@ -248,7 +257,7 @@ class DetailAuctionActivity : AppCompatActivity() {
             override fun run() {
                 runOnUiThread {
                     sendToast("입찰 성공")
-                    tv_auction_detail_item_price.text=msg.toString()
+                    tv_auction_detail_item_price.prceFormTV(tv_auction_detail_item_price,msg.toLong())
                 }
             }
         }

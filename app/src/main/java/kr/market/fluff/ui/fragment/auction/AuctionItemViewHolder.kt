@@ -15,7 +15,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.market.fluff.R
 import kr.market.fluff.data.AuctionListData
+import kr.market.fluff.network.RequestInterface
+import kr.market.fluff.ui.util.prceFormTV
+import kr.market.fluff.ui.util.priceFormTextView
 import kr.market.fluff.ui.util.sendToast
+import java.lang.StringBuilder
 import java.time.Duration
 import java.time.LocalDateTime
 import java.time.LocalTime
@@ -38,17 +42,27 @@ class AuctionItemViewHolder(view : View) : RecyclerView.ViewHolder(view){
     var itemMin : Int = 0
     var itemSec : Int = 0
 
-    fun bind(auctionListData : AuctionListData,activity: Activity){
-        Glide.with(itemView).load(auctionListData.img_thumnail).into(img_auction_thumbnail)
-        tv_auction_item_name.text = auctionListData.txt_item_name
-        tv_auction_item_price.text = auctionListData.txt_item_price
-        var time = auctionListData.txt_extra_time
+    fun bind(auctionListData : RequestInterface.AuctionItemData,activity: Activity){
+        Glide.with(itemView).load(auctionListData.mainImg).into(img_auction_thumbnail)
+        tv_auction_item_name.text = auctionListData.auctionName
+        tv_auction_item_price.prceFormTV(tv_auction_item_price,auctionListData.bid)
+
+
+        var hour =0
+        var minute = 0
+        var second = 0
+        hour = (Math.random()*24).toInt()
+        minute = (Math.random()*60).toInt()
+        second = (Math.random()*60).toInt()
+
+        var time = LocalDateTime.of(2020,1,4,hour,minute,second)
         sliceEndTime(time)
         setTimer(time)
 
         cl_auction_view.setOnClickListener {
             val intent = Intent(itemView.context,DetailAuctionActivity::class.java)
             intent.putExtra("item",auctionListData)
+            intent.putExtra("tiem",time.toString())
             intent.putExtra("item_time_year" , itemYear)
             intent.putExtra("item_time_month", itemMon)
             intent.putExtra("item_time_day", itemDay)
@@ -138,9 +152,7 @@ class AuctionItemViewHolder(view : View) : RecyclerView.ViewHolder(view){
                     tv_auction_extra_time.text  = hours.toString()+ " : "+ min.toString() + " : " + seconds.toString()
                 }
             }
-
         }
-
         countDownTimer.start()
     }
 }
