@@ -9,10 +9,12 @@ import kr.market.fluff.R
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.safeEnqueue
 import kr.market.fluff.data.App
+import kr.market.fluff.data.myStyle.RecommendStyleRequest
 import kr.market.fluff.ui.recommendStyle.RecommendStyleActivity
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 import kr.market.fluff.ui.util.sendToast
+import kr.market.fluff.network.enqueue
 
 class MyStyleActivity : AppCompatActivity() {
     private lateinit var myStyleAdapter : MyStyleAdapter
@@ -32,6 +34,17 @@ class MyStyleActivity : AppCompatActivity() {
     var hiphop: Int = 0
     var amekaji: Int = 0
 
+    //상위 3개
+    private lateinit var first: String
+    private lateinit var second: String
+    private lateinit var third: String
+
+    //토큰
+    private lateinit var token: String
+
+    private lateinit var requestData: RecommendStyleRequest
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,18 +54,9 @@ class MyStyleActivity : AppCompatActivity() {
     private fun init(){
         initMyStyleList()
         btn_my_style_default.setOnClickListener {
+            rangeStyle()
+
             val intent = Intent(this,RecommendStyleActivity::class.java)
-            intent.putExtra("simple",simple.toString())
-            intent.putExtra("street",street.toString())
-            intent.putExtra("lovely",lovely.toString())
-            intent.putExtra("modernchic",modernchic.toString())
-            intent.putExtra("unique",unique.toString())
-            intent.putExtra("formal",formal.toString())
-            intent.putExtra("ethnic",ethnic.toString())
-            intent.putExtra("sporty",sporty.toString())
-            intent.putExtra("oldschool",oldschool.toString())
-            intent.putExtra("hiphop",hiphop.toString())
-            intent.putExtra("amekaji",amekaji.toString())
             startActivity(intent)
             finish()
         }
@@ -69,8 +73,8 @@ class MyStyleActivity : AppCompatActivity() {
             addItemDecoration(VerticalItemDecorator(10))
             setItemViewCacheSize(40)
         }
-        val token = App.prefs.local_login_token
-        requestToServer.service.requestSurvey("application/json",token!!)
+        token = App.prefs.local_login_token!!
+        requestToServer.service.requestSurvey("application/json",token)
             .safeEnqueue(
                 onSuccess = {
                     sendToast("성공")
@@ -83,6 +87,45 @@ class MyStyleActivity : AppCompatActivity() {
             )
 
     }
+
+    private fun rangeStyle(){
+        val styles = hashMapOf<String,Int>()
+        styles.put("simple",simple)
+        styles.put("street",street)
+        styles.put("lovely",lovely)
+        styles.put("modernchic",modernchic)
+        styles.put("unique",unique)
+        styles.put("formal",formal)
+        styles.put("ethnic",ethnic)
+        styles.put("sporty",sporty)
+        styles.put("oldschool",oldschool)
+        styles.put("hiphop",hiphop)
+        styles.put("amekaji",amekaji)
+
+        val result = styles.toList().sortedBy { (_, value) -> value }
+        first = result.get(result.size-1).first
+        second = result.get(result.size-2).first
+        third = result.get(result.size-3).first
+
+        requestData = RecommendStyleRequest(
+            listOf(
+                first,
+                second,
+                third
+            )
+        )
+        requestToServer.service.requestRecommendStyle("application/json",token,requestData).enqueue(
+            onFailure = {
+                sendToast("실패")
+            },
+            onResponse = {
+                if(it.isSuccessful){
+
+                }
+            }
+        )
+    }
+
     fun changeBtn(checked: Boolean){
         if(checked){
             btn_my_style_default.apply {
