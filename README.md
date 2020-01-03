@@ -275,9 +275,14 @@ cb_cart_check_all.setOnClickListener{
 유저 취향에 따른 옷들이 최신순으로 둘러보기 화면에 나오게 되고, 필터 아이콘을 선택하여 옷의 종류, 색깔, 스타일, 사이즈,등 을
 선택하게 되면 상품 DB에 존재하는 모든 옷들 중 유저가 고른 필터에 따른 옷들만 화면에 존재하게 된다.
 
+![필터링](https://user-images.githubusercontent.com/54485132/71726795-8b3b5d00-2e7b-11ea-9a4a-4b4b8f37dc95.gif)
+
+
 # 14 custom Toast 사용
 유저가 마음에 드는 사진을 클릭시 customToast를 통해 하트 이미지가 화면 중앙에 뜨게 되고 해당 상품의 하단 하트 버튼이 
 채워지게 된다.
+
+
 
 # 15 
 
