@@ -1,7 +1,7 @@
 # Fluff_Android
 
 
-# 1. 프로젝트 사용 라이브러리! (2020.01.02 수정)
+# 1. 프로젝트 사용 라이브러리! (2020.01.03 수정)
 
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.android.support:design:29.0.0'
@@ -268,6 +268,8 @@ cb_cart_check_all.setOnClickListener{
 회원가입 성공 후, 각각의 유저에 취향에 따른 상품을 추천해주기 위해, 유저가 마음에 드는 사진을 3개 이상 선택하게 한다.
 유저의 취향이 서버를 통해 분석이 되어지면, 그에 맞는 키워드를 가진 셀러(플럽)을 추천해주고, 
 취향에 맞는 스타일의 옷들이 홈화면에 나오게 된다.
+
+![GIF](https://user-images.githubusercontent.com/54485132/71726504-a8236080-2e7a-11ea-95b7-ab5df4406fe4.gif)
 
 # 13 상품 둘러보기 탭
 유저 취향에 따른 옷들이 최신순으로 둘러보기 화면에 나오게 되고, 필터 아이콘을 선택하여 옷의 종류, 색깔, 스타일, 사이즈,등 을
