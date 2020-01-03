@@ -299,6 +299,8 @@ cb_cart_check_all.setOnClickListener{
 
 # 16 Socket.io 라이브러리 사용 _ 실시간 경매
 ![image](https://user-images.githubusercontent.com/37995236/71739722-9b643400-2e9d-11ea-9df9-5d55b064be97.png)
+<br/>
 IO.Option에서 query옵션: url에 직접 쿼리 매개 변수를 제공한다.
 ![image](https://user-images.githubusercontent.com/37995236/71740625-0d3d7d00-2ea0-11ea-98cc-38eb651b460f.png)
+<br/>
 bid 이벤트를 통해 서버와 통신한다.
