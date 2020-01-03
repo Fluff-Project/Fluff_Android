@@ -36,12 +36,17 @@
     //페이스북 연동
     implementation 'com.facebook.android:facebook-login:[5,6)'
 
-
+    //socket.io 라이브러리
+    implementation('io.socket:socket.io-client:1.0.0') {
+        exclude group: 'org.json', module: 'json'
+    }
+    
+    
 # 2. 프로그램 구조
 
 ![d](https://user-images.githubusercontent.com/54485132/71461583-a4953700-27f3-11ea-9547-2ed74f5e90ff.png)
 
-프로그램 구조는 크게 data, network, ui로 패키징하여 작업을 진행중이다.
+프로그램 구조는 크게 data, network, ui로 패키징하여 진행하였다.
 
 
 
@@ -285,5 +290,10 @@ cb_cart_check_all.setOnClickListener{
 ![heart](https://user-images.githubusercontent.com/54485132/71726892-d48bac80-2e7b-11ea-9c0e-e6442bd386e5.gif)
 
 
-# 15 
+# 15 SharedPreferences를 이용한 자동 로그인 및 환경설정 저장.
+## 1_ 자동 로그인
+
+## 2_ 처음 로그인 한 유저인지 확인하여 취향 조사 실시하도록 진행.
+
+## 3_ 마이페이지에서 저장하거나 주문시 유저의 정보가 저장된다.
 
