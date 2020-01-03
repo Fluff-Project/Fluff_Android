@@ -222,7 +222,6 @@ class HomeFragment : Fragment() {
         )
             .safeEnqueue(
                 onSuccess = {
-                    sendToast("성공")
                     plubAdapter = HomePlubAdapter(it)
                     plubAdapter.notifyDataSetChanged()
                     rv_home_plub.apply {
@@ -234,7 +233,6 @@ class HomeFragment : Fragment() {
 
                 },
                 onFail = { _, _ ->
-                    sendToast("실패")
                 }
             )
     }

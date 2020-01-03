@@ -49,7 +49,6 @@ class HomePlubActivity : AppCompatActivity() {
         requestToServer.service.requestRecommendSeller("application/json", App.prefs.local_login_token!!,1)
             .safeEnqueue(
             onSuccess = {
-                sendToast("성공")
                 recommendStyleAdapter.data= it
                 recommendStyleAdapter.notifyDataSetChanged()
             },
