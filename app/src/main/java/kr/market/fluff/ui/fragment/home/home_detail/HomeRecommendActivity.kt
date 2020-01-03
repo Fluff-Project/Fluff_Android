@@ -29,7 +29,6 @@ class HomeRecommendActivity : AppCompatActivity() {
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.activity_home_recommend)
 
-        //makeRecommendRecycler()
 
         init()
         img_recommend_detail_back.setOnClickListener {finish()}
