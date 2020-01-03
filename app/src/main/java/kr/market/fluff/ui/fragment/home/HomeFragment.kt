@@ -153,7 +153,6 @@ class HomeFragment : Fragment() {
         requestToServer.service.request_home_Newest("application/json", App.prefs.local_login_token!!,"newest",7)
             .safeEnqueue(
                 onSuccess = {
-                    sendToast("성공")
                     newAdapter = HomeNewAdapter(it)
                     newAdapter.notifyDataSetChanged()
                     rv_home_new.apply {
@@ -165,7 +164,7 @@ class HomeFragment : Fragment() {
 
                 },
                 onFail = { _, _ ->
-                    sendToast("실패")
+                    sendToast("서버 응답이 없습니다.")
                 })
 
 //
@@ -190,7 +189,6 @@ class HomeFragment : Fragment() {
         requestToServer.service.request_home_Category("application/json", App.prefs.local_login_token!!,"cardigan",7)
             .safeEnqueue(
                 onSuccess = {
-                    sendToast("성공")
                     recentAdapter = HomeRecentAdapter(it)
                     recentAdapter.notifyDataSetChanged()
                     rv_home_recent.apply {
@@ -202,7 +200,7 @@ class HomeFragment : Fragment() {
 
                 },
                 onFail = { _, _ ->
-                    sendToast("실패")
+                    sendToast("서버 응답이 없습니다")
                 })
 //
 //        recentAdapter =
@@ -227,7 +225,6 @@ class HomeFragment : Fragment() {
         requestToServer.service.request_home_Thumbnail("application/json", App.prefs.local_login_token!!,7)
             .safeEnqueue(
                 onSuccess = {
-                    sendToast("성공")
                     recommendAdapter = HomeRecommendAdapter(it)
                     recommendAdapter.notifyDataSetChanged()
                     rv_home_recommend.apply {
@@ -239,7 +236,7 @@ class HomeFragment : Fragment() {
 
                 },
                 onFail = { _, _ ->
-                    sendToast("실패")
+                    sendToast("서버 응답이 없습니다")
                 })
 
 //        rv_home_recommend = view.findViewById(R.id.rv_home_recommend)
