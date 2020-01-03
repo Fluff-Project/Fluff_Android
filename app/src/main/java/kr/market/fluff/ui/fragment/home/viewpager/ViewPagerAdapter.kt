@@ -55,21 +55,20 @@ class ViewPagerAdapter(fm: FragmentManager?, val num_fragment : Int) :FragmentSt
             bundle.putString("subtitle",datas.get(p0).subtitle)
 
 
-      /*  when(p0){
-            0-> { bundle.putInt("background_img", R.drawable.main_viewpager)
-                bundle.putString("main","벨벳 Velvet")
-                  bundle.putString("subtitle","겨울 빈티지의 정수")
-                  }
-            1-> { bundle.putInt("background_img", R.drawable.main_viewpager)
-                  bundle.putString("subtitle","겨울 빈티지의 정수")
-                  bundle.putString("main","벨벳 Velvet") }
-            2-> { bundle.putInt("background_img", R.drawable.main_viewpager)
-                  bundle.putString("main","벨벳 Velvet")
-                  bundle.putString("subtitle","겨울 빈티지의 정수") }
-        }
+//       when(p0){
+//            0-> { bundle.putInt("background_img", R.drawable.main_viewpager)
+//                bundle.putString("main","벨벳 Velvet")
+//                  bundle.putString("subtitle","겨울 빈티지의 정수")
+//                  }
+//            1-> { bundle.putInt("background_img", R.drawable.main_viewpager)
+//                  bundle.putString("subtitle","겨울 빈티지의 정수")
+//                  bundle.putString("main","벨벳 Velvet") }
+//            2-> { bundle.putInt("background_img", R.drawable.main_viewpager)
+//                  bundle.putString("main","벨벳 Velvet")
+//                  bundle.putString("subtitle","겨울 빈티지의 정수") }
+//        }
 
-       */
-        fragment.arguments  = bundle
+        fragment.arguments = bundle
         return fragment
     }
 

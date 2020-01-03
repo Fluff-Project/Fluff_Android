@@ -2,25 +2,47 @@ package kr.market.fluff.ui.fragment.home.home_banner_detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.transition.Transition
 import android.view.WindowManager
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.core.transition.addListener
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_detail_magazine.*
 import kotlinx.android.synthetic.main.activity_home_banner_detail.*
 import kr.market.fluff.R
 import kr.market.fluff.data.App
 import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.safeEnqueue
+import kr.market.fluff.ui.fragment.magazine.DetailMagazineActivity
 import kr.market.fluff.ui.util.item_decorator.HorizontalItemDecorator
 import kr.market.fluff.ui.util.item_decorator.VerticalItemDecorator
 import kr.market.fluff.ui.util.sendToast
 
 class HomeBannerDetailActivity : AppCompatActivity() {
 
+
+    companion object{
+        val VIEW_NAME_HOME_BANNER_THUMBNAIL_IMAGE = "detail:home:banner:image"
+        val VIEW_NAME_HOME_BANNER_SUBTITLE = "detail:home:banner:subtitle"
+        val VIEW_NAME_HOME_BANNER_TITLE = "detail:home:banner:title"
+    }
+
+
+    lateinit var txt_banner_title : TextView
+    lateinit var txt_banner_subtitle : TextView
+    lateinit var img_banner_view : ImageView
+
+
     lateinit var bannerAdapter: BannerRecyclerAdapter
     lateinit var datas : ArrayList<RequestInterface.HomeDetailData>
     val requestToServer = RequestToServer
 
+    var img_id = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,12 +54,16 @@ class HomeBannerDetailActivity : AppCompatActivity() {
             finish()
         }
 
-        makeViewPager()
         init()
         //makeBannerRecycler()
     }
     fun init()
     {
+        img_id = intent.getIntExtra("img_url",0)
+        img_banner_view  = findViewById(R.id.img_banner_view)
+        txt_banner_subtitle  = findViewById(R.id.txt_banner_subtitle)
+        txt_banner_title  = findViewById(R.id.txt_banner_title)
+
         requestToServer.service.request_recommend_home("application/json", App.prefs.local_login_token!!)
             .safeEnqueue(
                 onSuccess = {
@@ -47,12 +73,25 @@ class HomeBannerDetailActivity : AppCompatActivity() {
                     rv_banner_closet.adapter = bannerAdapter
                     rv_banner_closet.addItemDecoration(HorizontalItemDecorator(24))
                     rv_banner_closet.addItemDecoration(VerticalItemDecorator(28))
-
-
                 },
                 onFail = { _, _ ->
                     sendToast("실패")
                 })
+        setLayout()
+    }
+    private fun setLayout(){
+
+
+        ViewCompat.setTransitionName(img_banner_view ,
+            VIEW_NAME_HOME_BANNER_THUMBNAIL_IMAGE
+        )
+        ViewCompat.setTransitionName(txt_banner_subtitle ,
+            VIEW_NAME_HOME_BANNER_SUBTITLE
+        )
+        ViewCompat.setTransitionName(txt_banner_title ,
+            VIEW_NAME_HOME_BANNER_TITLE
+        )
+        makeViewPager()
     }
 
 
@@ -61,12 +100,65 @@ class HomeBannerDetailActivity : AppCompatActivity() {
 
         txt_banner_subtitle.text = intent.getStringExtra("vp_sub_title")
         txt_banner_title.text = intent.getStringExtra("vp_main_title")
-        Glide.with(this)
+        Glide.with(img_banner_view.context)
             .load(intent.getIntExtra("img_url",0))
             .into(img_banner_view)
+        if (addTransitionListener()) {
+            loadThumbnail()
+        } else { // If all other cases we should just load the full-size image now
+            loadFullSizeImage()
+        }
+    }
+    private fun loadThumbnail() {
+        Picasso.with(img_banner_view .context)
+            .load(img_id)
+            .noFade()
+            .noPlaceholder()
+            .into(img_banner_view )
+    }
 
+    /**
+     * Load the item's full-size image into our [ImageView].
+     */
+    private fun loadFullSizeImage() {
+        Picasso.with(img_banner_view.context)
+            .load(img_id)
+            .noFade()
+            .noPlaceholder()
+            .into(img_banner_view )
+    }
+    private fun addTransitionListener() : Boolean{
+        var transition : Transition? = window.sharedElementEnterTransition
 
+        if (transition != null){
+            transition.addListener {
+                object : Transition.TransitionListener{
+                    override fun onTransitionEnd(transition: Transition?) {
+                        loadFullSizeImage()
+                        transition!!.removeListener(this)
+                    }
 
+                    override fun onTransitionResume(transition: Transition?) {
+
+                    }
+
+                    override fun onTransitionPause(transition: Transition?) {
+
+                    }
+
+                    override fun onTransitionCancel(transition: Transition?) {
+                        transition!!.removeListener(this)
+                    }
+
+                    override fun onTransitionStart(transition: Transition?) {
+
+                    }
+
+                }
+            }
+            return true
+        }
+        return false
     }
 
 //    fun makeBannerRecycler()

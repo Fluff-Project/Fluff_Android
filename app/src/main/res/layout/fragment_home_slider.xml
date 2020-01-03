@@ -5,11 +5,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragment.home.viewpager.HomeSliderFragment">
 
-    <ImageView
-        android:id="@+id/img_fragment_slider_home"
-        android:scaleType="centerCrop"
+    <kr.market.fluff.ui.fragment.auction.SquareFrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/img_fragment_slider_home"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </kr.market.fluff.ui.fragment.auction.SquareFrameLayout>
+
 
     <View
         android:layout_width="match_parent"
