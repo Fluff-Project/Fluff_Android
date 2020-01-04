@@ -68,8 +68,8 @@
         android:textColor="#000000"
         android:textFontWeight="900"
         android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView12"
-        app:layout_constraintEnd_toStartOf="@+id/textView12" />
+        app:layout_constraintBottom_toBottomOf="@+id/img_cart_item"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2" />
 
     <TextView
         android:id="@+id/textView13"
@@ -77,29 +77,16 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
         android:fontFamily="@font/ko_pub"
-        android:textSize="11sp"
-        android:textColor="#989898"
         android:letterSpacing="-0.04"
         android:lineSpacingExtra="6sp"
         android:text="결제 금액"
+        android:textColor="#989898"
         android:textFontWeight="900"
-        app:layout_constraintBottom_toBottomOf="@+id/textView12"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_cart_goods_price"
         app:layout_constraintEnd_toStartOf="@+id/tv_cart_goods_price"
-        app:layout_constraintTop_toTopOf="@+id/textView12" />
+        app:layout_constraintTop_toTopOf="@+id/tv_cart_goods_price" />
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/ko_pub"
-        android:letterSpacing="0.01"
-        android:lineSpacingExtra="7sp"
-        android:text="원"
-        android:textColor="#000000"
-        android:textFontWeight="900"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="@+id/img_cart_item"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2" />
     <TextView
         android:id="@+id/tv_cart_seller_name"
         android:layout_width="wrap_content"
@@ -130,6 +117,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_cart_seller_name" />
 
     <View
+        android:id="@+id/view4"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="16dp"

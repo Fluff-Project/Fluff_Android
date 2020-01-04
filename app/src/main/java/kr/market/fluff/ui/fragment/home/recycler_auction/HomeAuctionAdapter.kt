@@ -6,8 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kr.market.fluff.R
 import kr.market.fluff.data.home.HomeAuctionData
+import kr.market.fluff.network.RequestInterface
 
-class HomeAuctionAdapter (var data:List<HomeAuctionData>): RecyclerView.Adapter<HomeAuctionViewHolder>(){
+class HomeAuctionAdapter (var data:ArrayList<RequestInterface.AuctionItemData>): RecyclerView.Adapter<HomeAuctionViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeAuctionViewHolder {
         val view: View = LayoutInflater
             .from(parent.context)
