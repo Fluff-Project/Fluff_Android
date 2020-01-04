@@ -26,6 +26,7 @@ class ConfirmTransferActivity : AppCompatActivity() {
         init()
     }
     private fun init(){
+        loadData()
         datas = ArrayList()
 //        setData()
         transferAdapter = TransferAdapter(this)

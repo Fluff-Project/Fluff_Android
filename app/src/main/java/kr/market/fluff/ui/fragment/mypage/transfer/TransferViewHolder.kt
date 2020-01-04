@@ -10,6 +10,7 @@ import kr.market.fluff.R
 import kr.market.fluff.data.mypage.TransferData
 import kr.market.fluff.network.RequestInterface
 import kr.market.fluff.ui.util.priceFormTextView
+import java.time.LocalDate
 
 class TransferViewHolder(private val context:Context, view : View) : RecyclerView.ViewHolder(view){
     val img_transfer_item = view.findViewById<ImageView>(R.id.img_cart_item)
@@ -23,7 +24,7 @@ class TransferViewHolder(private val context:Context, view : View) : RecyclerVie
 
 
 
-        tv_transfer_date.text = transfer_data.createdAt.toString()
+        tv_transfer_date.text = "2020-01-04"
         tv_transfer_status.text = "결제대기중"
 
         tv_buy_price.priceFormTextView(tv_buy_price,transfer_data.price)

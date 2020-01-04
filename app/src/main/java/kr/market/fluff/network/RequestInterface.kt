@@ -282,9 +282,8 @@ interface RequestInterface {
         @Header("x-access-token") token :String
     ) : Call<BaseResponse<ArrayList<ConfirmOrderResponse>>>
     data class ConfirmOrderResponse(
-        val createdAt : LocalDateTime,
         val sellerName : String,
-        val Img : String,
+        val Img : ArrayList<String>,
         val goodsName :String,
         val price : Long
     )
