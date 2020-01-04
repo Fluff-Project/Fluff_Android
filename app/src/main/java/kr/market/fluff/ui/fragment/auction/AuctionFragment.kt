@@ -131,4 +131,17 @@ class AuctionFragment : Fragment() {
             }
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        RequestToServer.service.requestAuctionLIst("appliaction/json", App.prefs.local_login_token!!).safeEnqueue(
+            onSuccess = {
+                datas = it
+                auctionAdapter.data = datas
+                auctionAdapter.notifyDataSetChanged()
+            },
+            onFail = {_,_->sendToast("값 받아오기 실패")},
+            onError = {sendToast("서버 요청 실패")}
+        )
+    }
 }
