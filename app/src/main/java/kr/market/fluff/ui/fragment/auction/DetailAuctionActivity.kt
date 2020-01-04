@@ -69,6 +69,7 @@ class DetailAuctionActivity : AppCompatActivity() {
     var itemHours : Int = 0
     var itemMin : Int = 0
     var itemSec : Int = 0
+    var auction_id: String = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -95,9 +96,7 @@ class DetailAuctionActivity : AppCompatActivity() {
         ViewCompat.setTransitionName(tv_auction_detail_extra_text , VIEW_NAME_EXTRA_TEXT)
         setClickLIstener()
         loadItem()
-        socket = get("5e0e260d3c493169d01b9bfb")
-        socket.connect()
-        socket.on("bid",onJoinReceived)
+
 
         itemYear = intent.getIntExtra("item_time_year",0)
         itemMon = intent.getIntExtra("item_time_month",0)
@@ -105,7 +104,12 @@ class DetailAuctionActivity : AppCompatActivity() {
         itemHours = intent.getIntExtra("item_time_hours",0)
         itemMin = intent.getIntExtra("item_time_min",0)
         itemSec = intent.getIntExtra("item_time_sec",0)
+        auction_id = intent.getStringExtra("auction_id")
 
+        socket = get(auction_id)
+
+        socket.connect()
+        socket.on("bid",onJoinReceived)
 
         setTimer()
     }
@@ -165,7 +169,7 @@ class DetailAuctionActivity : AppCompatActivity() {
             onBackPressed()
         }
         btn_detail_auction_deal.setOnClickListener {
-            bidDialog = BidDialog(this,view!!.context)
+            bidDialog = BidDialog(this,view!!.context,auction_id)
             bidDialog.show()
 
         }
@@ -245,14 +249,13 @@ class DetailAuctionActivity : AppCompatActivity() {
     }
 
 
-    fun settingSocket(price: Int){
-        socket.emit("bid", price).on("bid",onJoinReceived)
+    fun settingSocket(){
+        socket.on("bid",onJoinReceived)
     }
 
 
     private val onJoinReceived = Emitter.Listener {
         val msg = it[0] as Int
-        Log.d("hj","${msg} 값 받아왔습니다")
         val tt = object : TimerTask() {
             override fun run() {
                 runOnUiThread {
