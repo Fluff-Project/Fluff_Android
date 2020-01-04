@@ -27,7 +27,9 @@ class MyInfoUpdateActivity : AppCompatActivity() {
         edit_myInfo_id.isEnabled = false
         edit_myInfo_nickname.isEnabled = false
         edit_myInfo_id.setText(pf.local_login_id!!)
-        edit_myInfo_nickname.setText(pf.local_nick_name!!)
+        if(!pf.local_nick_name.isNullOrBlank()){
+            edit_myInfo_nickname.setText(pf.local_nick_name!!)
+        }
         if(!pf.my_address.isNullOrBlank())
         {
             et_my_info_adress.setText(pf.my_address!!)
