@@ -70,6 +70,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="22dp"
+        android:clipToPadding="false"
         app:layout_constraintTop_toBottomOf="@+id/txt_recommend_style_keyword"
         tools:layout_editor_absoluteX="0dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
