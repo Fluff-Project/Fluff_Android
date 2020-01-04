@@ -47,7 +47,7 @@ import kr.market.fluff.ui.util.priceFormTextView
          val toast = Toast(context)
          banner_recycler_img.setOnClickListener {
 
-             //true일때
+
              if (bool) {
 
                  Log.d("bool현재 상태", bool.toString())
