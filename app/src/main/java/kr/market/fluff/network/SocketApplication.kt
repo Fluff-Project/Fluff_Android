@@ -7,7 +7,7 @@ import java.net.URISyntaxException
 
 object SocketApplication{
     // 서버의 주소와 포트 번호를 초기화 합니다.
-    private val BASE_URL = "http://f3c61e12.ngrok.io"
+    private val BASE_URL = "http://2a71fa50.ngrok.io"
     // 소켓도 미리 생성 해 둡니다. *lateinit 키워드는 말 그대로 late init 초기화를 늦게 한다는 것을 의미합니다.
     private lateinit var socket : Socket
     private lateinit var option: IO.Options

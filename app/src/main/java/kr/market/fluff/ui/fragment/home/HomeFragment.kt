@@ -48,7 +48,8 @@ class HomeFragment : Fragment() {
 
     lateinit var rv_home_auction: RecyclerView
     lateinit var auctionAdapter: HomeAuctionAdapter
-    lateinit var auction_data: List<HomeAuctionData>
+
+    var auction_datas = ArrayList<RequestInterface.AuctionItemData>()
 
     val requestToServer = RequestToServer
 
@@ -235,23 +236,33 @@ class HomeFragment : Fragment() {
             )
     }
 
-    fun makeOctionRecycler(view: View) {
-        auction_data = listOf(
-            HomeAuctionData(
-                R.drawable.auction_1,
-                "곧 경매 종료", "Yves Saint Laurent 원피스"
-            ),
-            HomeAuctionData(
-                R.drawable.auction_2,
-                "종료까지 2시간", "MaxMara 만다린 자켓"
-            ),
-            HomeAuctionData(
-                R.drawable.auction_3,
-                "종료까지 4시간 ", "샤네루 1990’s 트위드 재킷"
-            )
+    fun loadAuctionData(){
+        RequestToServer.service.requestAuctionLIst("application/json",App.prefs.local_login_token!!).safeEnqueue(
+            onSuccess = {
+                auction_datas = it
+                auctionAdapter.data = auction_datas
+                auctionAdapter.notifyDataSetChanged()
+            }
         )
+    }
+    fun makeOctionRecycler(view: View) {
+        loadAuctionData()
+//        auction_data = listOf(
+//            HomeAuctionData(
+//                R.drawable.auction_1,
+//                "곧 경매 종료", "Yves Saint Laurent 원피스"
+//            ),
+//            HomeAuctionData(
+//                R.drawable.auction_2,
+//                "종료까지 2시간", "MaxMara 만다린 자켓"
+//            ),
+//            HomeAuctionData(
+//                R.drawable.auction_3,
+//                "종료까지 4시간 ", "샤네루 1990’s 트위드 재킷"
+//            )
+//        )
         rv_home_auction = view.findViewById(R.id.rv_home_auction)
-        auctionAdapter = HomeAuctionAdapter(auction_data)
+        auctionAdapter = HomeAuctionAdapter(auction_datas)
         rv_home_auction.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = auctionAdapter
