@@ -19,7 +19,7 @@ import kr.market.fluff.ui.util.sendToast
 import java.lang.StringBuilder
 import java.text.DecimalFormat
 
-class BidDialog(val activity : Activity, context: Context) :  Dialog(context) {
+class BidDialog(val activity : Activity, context: Context, var auction_id: String) :  Dialog(context) {
     var price : String = "0"
 
 
@@ -55,7 +55,7 @@ class BidDialog(val activity : Activity, context: Context) :  Dialog(context) {
     }
     private fun request(){
         requestAuction = RequestAuctionInterface.RequestAuctionBid(price.toInt())
-        requestToAuctionServer.service.requestAuctionBid("application/json",App.prefs.local_login_token!!,"5e0e260d3c493169d01b9bfb",requestAuction)
+        requestToAuctionServer.service.requestAuctionBid("application/json",App.prefs.local_login_token!!,auction_id,requestAuction)
             .safeEnqueue(
                 onSuccess = {
                     dismiss()

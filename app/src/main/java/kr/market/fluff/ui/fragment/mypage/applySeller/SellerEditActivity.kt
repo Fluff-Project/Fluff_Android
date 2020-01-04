@@ -9,13 +9,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.activity_apply_seller.*
 import kotlinx.android.synthetic.main.activity_detail_auction.*
 import kotlinx.android.synthetic.main.activity_seller_edit.*
 import kr.market.fluff.R
 import kr.market.fluff.network.RequestToServer
 import kr.market.fluff.network.safeEnqueue
 import kr.market.fluff.data.App
-import kr.market.fluff.data.mypage.ToSellerRequest
 import kr.market.fluff.ui.fragment.mypage.applySeller.keyword.KeywordActivity
 import kr.market.fluff.ui.util.sendToast
 import okhttp3.MediaType
@@ -30,7 +30,6 @@ class SellerEditActivity : AppCompatActivity() {
     lateinit var selectedPicUri: Uri
     lateinit var editDialog: EditDialog
 
-    private lateinit var toSellerRequest : ToSellerRequest
     val requestToServer = RequestToServer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,30 +56,28 @@ class SellerEditActivity : AppCompatActivity() {
         txt_seller_edit_complete.setOnClickListener {
             //통신
             //이미지 파일 내보내기
-//            val options = BitmapFactory.Options()
-//            val inputStream: InputStream = contentResolver.openInputStream(selectedPicUri)!!
-//            val bitmap = BitmapFactory.decodeStream(inputStream,null,options)
-//            val byteArrayOutputStream = ByteArrayOutputStream()
-//            bitmap!!.compress(Bitmap.CompressFormat.JPEG,20,byteArrayOutputStream)
-//            val photoBody = RequestBody.create(MediaType.parse("image/jpg"),byteArrayOutputStream.toByteArray())
-//            val picture_rb = MultipartBody.Part.createFormData("cmtImg", File(selectedPicUri.toString()).name,photoBody)
-//
-//            toSellerRequest = ToSellerRequest(picture_rb)
-//            val token = App.prefs.local_login_token
-//            requestToServer.service.requestToSeller(token!!,toSellerRequest)
-//                .safeEnqueue(
-//                    onSuccess = {
-//                        sendToast("성공")
-//                        val intent = Intent(this,ApplySellerActivity::class.java)
-//                        startActivity(intent)
-//                    },
-//                    onFail = { _, _ ->
-//                        sendToast("실패")
-//                    }
-//                )
+            val options = BitmapFactory.Options()
+            val inputStream: InputStream = contentResolver.openInputStream(selectedPicUri)!!
+            val bitmap = BitmapFactory.decodeStream(inputStream,null,options)
+            val byteArrayOutputStream = ByteArrayOutputStream()
+            bitmap!!.compress(Bitmap.CompressFormat.JPEG,20,byteArrayOutputStream)
+            val photoBody = RequestBody.create(MediaType.parse("image/jpg"),byteArrayOutputStream.toByteArray())
+            val picture_rb = MultipartBody.Part.createFormData("image", File(selectedPicUri.toString()).name,photoBody)
 
-            val intent = Intent(this,ApplySellerActivity::class.java)
-            startActivity(intent)
+            val token = App.prefs.local_login_token
+            requestToServer.service.requestToSeller(token!!,picture_rb)
+                .safeEnqueue(
+                    onSuccess = {
+                        val intent = Intent(this,ApplySellerActivity::class.java)
+                        intent.putExtra("seller_img",it[0].sellerImg)
+                        intent.putExtra("store_name",edt_seller_edit_store_name.text.toString())
+                        intent.putExtra("store_content",edt_seller_edit_information.text.toString())
+                        startActivity(intent)
+                    },
+                    onFail = { _, _ ->
+                        sendToast("실패")
+                    }
+                )
         }
     }
 

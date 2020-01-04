@@ -69,6 +69,7 @@ class AuctionItemViewHolder(view : View) : RecyclerView.ViewHolder(view){
             intent.putExtra("item_time_hours", itemHours)
             intent.putExtra("item_time_min", itemMin)
             intent.putExtra("item_time_sec", itemSec)
+            intent.putExtra("auction_id",auctionListData._id)
             val activityOptions : ActivityOptionsCompat? = ActivityOptionsCompat.makeSceneTransitionAnimation(
                 activity,
                 Pair<View?, String?>(

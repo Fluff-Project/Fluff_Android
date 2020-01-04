@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.viewpager.widget.ViewPager
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_apply_seller.*
 import kr.market.fluff.R
 import kr.market.fluff.ui.ProductRegisterActivity
@@ -29,6 +30,10 @@ class ApplySellerActivity : AppCompatActivity() {
             val intent = Intent(this,ReviewActivity::class.java)
             startActivity(intent)
         }
+
+        Glide.with(this).load(intent.getStringExtra("seller_img")).into(img_apply_seller_profile)
+        txt_apply_seller_store_name.text = intent.getStringExtra("store_name")
+        edt_apply_seller_store_content.text = intent.getStringExtra("store_content")
     }
     private fun settingTab(){
         applySellerPagerAdapter = ApplySellerPagerAdapter(supportFragmentManager,2)
