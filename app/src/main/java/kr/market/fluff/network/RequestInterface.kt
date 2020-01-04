@@ -283,7 +283,7 @@ interface RequestInterface {
     ) : Call<BaseResponse<ArrayList<ConfirmOrderResponse>>>
     data class ConfirmOrderResponse(
         val sellerName : String,
-        val Img : ArrayList<String>,
+        val img : ArrayList<String>,
         val goodsName :String,
         val price : Long
     )
