@@ -36,7 +36,7 @@ class HomeRecentActivity : AppCompatActivity() {
     }
     fun init()
     {
-        requestToServer.service.request_home_Category("application/json", App.prefs.local_login_token!!,"cardigan",20)
+        requestToServer.service.request_home_Category("application/json", App.prefs.local_login_token!!,"knit",20)
             .safeEnqueue(
                 onSuccess = {
                     homeRecentAdapter = BannerRecyclerAdapter(this@HomeRecentActivity, it)
