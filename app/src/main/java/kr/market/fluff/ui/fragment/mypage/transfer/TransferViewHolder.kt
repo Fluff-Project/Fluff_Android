@@ -20,10 +20,7 @@ class TransferViewHolder(private val context:Context, view : View) : RecyclerVie
     val tv_transfer_seller_name = view.findViewById<TextView>(R.id.tv_cart_seller_name)
     val tv_transfer_item_name = view.findViewById<TextView>(R.id.tv_cart_item_name)
     fun bind(transfer_data : RequestInterface.ConfirmOrderResponse){
-        Glide.with(context).load(transfer_data.Img).into(img_transfer_item)
-
-
-
+        Glide.with(context).load(transfer_data.img.get(0)).into(img_transfer_item)
         tv_transfer_date.text = "2020-01-04"
         tv_transfer_status.text = "결제대기중"
 

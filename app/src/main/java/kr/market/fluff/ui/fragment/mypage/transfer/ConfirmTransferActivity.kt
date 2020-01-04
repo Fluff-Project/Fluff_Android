@@ -45,10 +45,12 @@ class ConfirmTransferActivity : AppCompatActivity() {
     private fun loadData(){
         RequestToServer.service.request_order_confirm("application/json", App.prefs.local_login_token!!).safeEnqueue(
             onSuccess = {
-                sendToast("성공")
                 datas = it
                 transferAdapter.data = datas
-            }
+                transferAdapter.notifyDataSetChanged()
+            },
+            onFail = {_,_->sendToast("주문 상품이 없습니다")},
+            onError = {sendToast("서버 응답이 없습니다.")}
         )
     }
 //    private fun setData(){
