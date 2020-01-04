@@ -33,6 +33,7 @@ import kr.market.fluff.ui.util.priceFormTextView
          banner_recycler_closet.text = data.closet
          banner_recycler_price.priceFormTextView(banner_recycler_price, data.price)
          banner_recycler_seller.text = data.seller
+         Log.d("data.like 배너화면 들어왔을시 ", data.like.toString())
 
 
          if (data.like) {
@@ -43,10 +44,10 @@ import kr.market.fluff.ui.util.priceFormTextView
          goodid = data.closetId
          bool = data.like
 
-         var toast = Toast(context)
+         val toast = Toast(context)
          banner_recycler_img.setOnClickListener {
 
-             //true일때
+
              if (bool) {
 
                  Log.d("bool현재 상태", bool.toString())
