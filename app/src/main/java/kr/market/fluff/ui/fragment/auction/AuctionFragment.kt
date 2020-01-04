@@ -33,7 +33,7 @@ class AuctionFragment : Fragment() {
 
     var datas : ArrayList<RequestInterface.AuctionItemData> = ArrayList()
 
-
+    lateinit var auction_id: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -62,7 +62,6 @@ class AuctionFragment : Fragment() {
                 datas = it
                 auctionAdapter.data = datas
                 auctionAdapter.notifyDataSetChanged()
-
             },
             onFail = {_,_->sendToast("값 받아오기 실패")},
             onError = {sendToast("서버 요청 실패")}
