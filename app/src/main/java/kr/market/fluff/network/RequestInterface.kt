@@ -20,6 +20,7 @@ import okhttp3.MultipartBody
 import org.json.JSONArray
 import retrofit2.Call
 import retrofit2.http.*
+import java.time.LocalDateTime
 
 interface RequestInterface {
     //회원가입 화면의 중복확인 부분
@@ -282,7 +283,11 @@ interface RequestInterface {
         @Header("x-access-token") token :String
     ) : Call<BaseResponse<ArrayList<ConfirmOrderResponse>>>
     data class ConfirmOrderResponse(
-        val data : String
+        val createdAt : LocalDateTime,
+        val sellerName : String,
+        val Img : String,
+        val goodsName :String,
+        val price : Long
     )
 
     @GET("/recommend/style")
