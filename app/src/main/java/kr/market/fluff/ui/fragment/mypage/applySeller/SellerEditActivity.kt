@@ -72,6 +72,10 @@ class SellerEditActivity : AppCompatActivity() {
                         intent.putExtra("seller_img",it[0].sellerImg)
                         intent.putExtra("store_name",edt_seller_edit_store_name.text.toString())
                         intent.putExtra("store_content",edt_seller_edit_information.text.toString())
+                        intent.putExtra("store_intro",edt_seller_edit_store_intro.text.toString())
+                        intent.putExtra("exchange_check",edt_seller_edit_exchange_check.text.toString())
+                        intent.putExtra("delivery",editText4.text.toString())
+                        intent.putExtra("update_day",edt_seller_edit_update_day.text.toString())
                         startActivity(intent)
                     },
                     onFail = { _, _ ->

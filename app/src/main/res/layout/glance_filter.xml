@@ -186,16 +186,6 @@
                             android:button="@null" />
 
                         <RadioButton
-                            android:id="@+id/cb_glance_filter_color_lightblue"
-                            android:layout_width="38dp"
-                            android:layout_height="38dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_marginVertical="4dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/selector_filter_color_lightblue"
-                            android:button="@null" />
-
-                        <RadioButton
                             android:id="@+id/cb_glance_filter_color_darkblue"
                             android:layout_width="38dp"
                             android:layout_height="38dp"
@@ -349,6 +339,16 @@
                         android:textColor="@color/colorWhite" />
 
                     <RadioButton
+                        android:id="@+id/cb_glance_filter_color_lightblue"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_marginVertical="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/selector_filter_color_lightblue"
+                        android:button="@null" />
+
+                    <RadioButton
                         android:id="@+id/rb_glance_filter_category_items"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -392,9 +392,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingHorizontal="20dp"
+                        android:gravity="center"
                         android:layout_marginTop="20dp"
-                        android:gravity="left"
                         android:orientation="horizontal">
 
                         <CheckBox
@@ -455,8 +454,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:paddingHorizontal="20dp"
-                        android:gravity="left"
+                        android:gravity="center"
                         android:orientation="horizontal">
 
                         <CheckBox
@@ -582,8 +580,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:gravity="left"
-                        android:paddingHorizontal="20dp"
+                        android:gravity="center"
                         android:orientation="horizontal">
 
                         <CheckBox
