@@ -31,8 +31,7 @@
             android:id="@+id/img_auction_thumbnail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/auction_example" />
+            android:scaleType="centerCrop"/>
 
     </kr.market.fluff.ui.fragment.auction.SquareFrameLayout>
 

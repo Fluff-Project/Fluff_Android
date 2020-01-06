@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_marginLeft="14dp"
         android:layout_marginRight="14dp"
-        android:src="@drawable/img_keyword"
         android:scaleType="centerCrop"
         android:layout_height="68dp" />
     <View

@@ -13,8 +13,7 @@
         android:layout_height="200dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/style_img" />
+        android:scaleType="fitXY" />
 
     <TextView
         android:id="@+id/txt_glance_seller_name"

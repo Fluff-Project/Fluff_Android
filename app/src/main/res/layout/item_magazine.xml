@@ -17,8 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/magazine_background" />
+            android:scaleType="centerCrop" />
     </kr.market.fluff.ui.fragment.auction.SquareFrameLayout>
 
 

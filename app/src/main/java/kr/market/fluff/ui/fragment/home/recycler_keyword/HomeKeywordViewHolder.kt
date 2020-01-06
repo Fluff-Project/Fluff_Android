@@ -14,9 +14,6 @@ class HomeKeywordViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView
 
     fun bind(data : HomeKeywordData)
     {
-        Glide.with(itemView)
-            .load(R.drawable.img_keyword)
-            .into(home_recycler_img)
         home_recycler_title.text = data.title
 
     }
