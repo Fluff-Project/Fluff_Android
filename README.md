@@ -296,6 +296,26 @@ cb_cart_check_all.setOnClickListener{
 ## 2_ 처음 로그인 한 유저인지 확인하여 취향 조사 실시하도록 진행.
 
 ## 3_ 마이페이지에서 저장하거나 주문시 유저의 정보가 저장된다.
+```kotlin
+class MySharedPreferences(context: Context) {
+
+    val PREFS_FILENAME = "prefs"
+    val PREF_KEY_MY_LOCAL_LOGIN_TOKEN = "local_login"
+    val PREF_KEY_MY_LOCAL_LOGIN_ID = "local_login_id"
+
+    val prefs: SharedPreferences = context.getSharedPreferences(PREFS_FILENAME,0)
+    val editor = prefs.edit()
+    /* 파일 이름과 EditText를 저장할 Key 값을 만들고 prefs 인스턴스 초기화 */
+
+    
+    /* get/set 함수 임의 설정. get 실행 시 저장된 값을 반환하며 default 값은 false
+     * set(value) 실행 시 value로 값을 대체한 후 저장 */
+
+    var local_login_token : String?
+    get() = prefs.getString(PREF_KEY_MY_LOCAL_LOGIN_TOKEN,null)
+    set(value) = editor.putString(PREF_KEY_MY_LOCAL_LOGIN_TOKEN,value).apply()
+}
+```
 
 # 16 Socket.io 라이브러리 사용 _ 실시간 경매
 ![image](https://user-images.githubusercontent.com/37995236/71739722-9b643400-2e9d-11ea-9df9-5d55b064be97.png)
