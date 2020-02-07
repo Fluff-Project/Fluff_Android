@@ -10,7 +10,7 @@ import kr.market.fluff.R
 
 fun Toast.drawCustomToast(context : Context){
     val inflater : LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-    val layout = inflater.inflate(R.layout.custom_toast_heart, (context as Activity).findViewById<ViewGroup>(R.id.cl_custom_toast_heart))
+    val layout = inflater.inflate(R.layout.custom_toast_heart, (context as Activity).findViewById(R.id.cl_custom_toast_heart))
 
     setGravity(Gravity.CENTER,0,0)
     duration = Toast.LENGTH_SHORT
