@@ -27,6 +27,7 @@ import java.util.*
 
 class LoginActivity : AppCompatActivity() {
 
+    val isIntro2 : Boolean = true
     private var isIntro : Boolean = true
     var local_id_string : String? = null
     var local_pwd_string : String? = null
@@ -34,6 +35,8 @@ class LoginActivity : AppCompatActivity() {
 
     lateinit var callbackManager : CallbackManager
     var check_auto_login_facebook_token : Long = 0
+
+    val myPref = App.prefs
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         FacebookSdk.sdkInitialize(applicationContext)
@@ -77,9 +80,12 @@ class LoginActivity : AppCompatActivity() {
                     val local_token = it.token
                     Log.d("hj","토큰값 : ${local_token}")
                     sendToast("로그인 되었습니다")
-                    App.prefs.local_login_token = local_token
-                    App.prefs.local_login_id = local_id_string
-                    App.prefs.local_login_pwd = local_pwd_string
+                    myPref.run {
+                        local_login_token = local_token
+                        local_login_id = local_id_string
+                        local_login_pwd = local_pwd_string
+                    }
+
                     val intent = Intent(this@LoginActivity,
                         MyStyleActivity::class.java)
                     startActivity(intent)
@@ -98,9 +104,11 @@ class LoginActivity : AppCompatActivity() {
         val ty1 = ObjectAnimator.ofFloat(img_intro_logo, View.TRANSLATION_Y, 0f, -300f)
         val sX = ObjectAnimator.ofFloat(img_intro_logo, View.SCALE_X, 1.0f, 0.6f)
         val sY = ObjectAnimator.ofFloat(img_intro_logo, View.SCALE_Y, 1.0f, 0.6f)
-        anims.playTogether(ty1,sX, sY)
-        anims.setDuration(1000)
-        anims.start()
+        anims.run {
+            playTogether(ty1,sX, sY)
+            setDuration(1000)
+            start()
+        }
     }
     private fun email_pwd_anim(){
         tv_login_email.visibility = View.VISIBLE
@@ -114,9 +122,11 @@ class LoginActivity : AppCompatActivity() {
         val fade4 = ObjectAnimator.ofFloat(et_login_pw, View.ALPHA, 0.0f, 1.0f)
         val ty1 = ObjectAnimator.ofFloat(et_login_email, View.TRANSLATION_Y, 500f, 0f)
         val ty2 = ObjectAnimator.ofFloat(et_login_pw, View.TRANSLATION_Y, 500f, 0f)
-        anims.playTogether(fade,fade2,fade3,fade4,ty1,ty2)
-        anims.setDuration(1000)
-        anims.start()
+        anims.run {
+            playTogether(fade,fade2,fade3,fade4,ty1,ty2)
+            setDuration(1000)
+            start()
+        }
     }
     private fun login_btn_anim(){
         btn_login_login.visibility = View.VISIBLE
@@ -129,9 +139,11 @@ class LoginActivity : AppCompatActivity() {
         val fade4 = ObjectAnimator.ofFloat(ll_login_find, View.ALPHA, 0.0f, 1.0f)
         val fade5 = ObjectAnimator.ofFloat(fl_login_facebook, View.ALPHA, 1.0f, 0.0f)
         val blur = ObjectAnimator.ofFloat(blur_layout,View.ALPHA,0.0f,1.0f)
-        anims.playTogether(fade,fade2,fade3,fade4,fade5,blur)
-        anims.setDuration(1000)
-        anims.start()
+        anims.run {
+            playTogether(fade,fade2,fade3,fade4,fade5,blur)
+            setDuration(1000)
+            start()
+        }
     }
     private fun backGroundAnim(){
         val fade = ObjectAnimator.ofFloat(img_intro_splash2, View.ALPHA, 1.0f, 0.0f)
@@ -161,9 +173,11 @@ class LoginActivity : AppCompatActivity() {
         val fade8 = ObjectAnimator.ofFloat(ll_login_find, View.ALPHA, 1.0f, 0.0f)
         val fade9 = ObjectAnimator.ofFloat(fl_login_facebook,View.ALPHA,0.0f,1.0f)
         val blur = ObjectAnimator.ofFloat(blur_layout,View.ALPHA,1.0f,0.0f)
-        anims.playTogether(ty1,ty2,ty3,sX,sY,fade,fade2,fade3,fade4,fade5,fade6,fade7,fade8,fade9,blur)
-        anims.duration = 1000
-        anims.start()
+        anims.run {
+            playTogether(ty1,ty2,ty3,sX,sY,fade,fade2,fade3,fade4,fade5,fade6,fade7,fade8,fade9,blur)
+            duration = 1000
+            start()
+        }
         anims.doOnEnd {
             btn_login_login.visibility = View.GONE
             ll_login_find.visibility - View.GONE
@@ -178,9 +192,9 @@ class LoginActivity : AppCompatActivity() {
         else super.onBackPressed()
     }
     private fun checkAutoLogin(){
-        check_auto_login_facebook_token = App.prefs.facebook_token
-        local_id_string = App.prefs.local_login_id
-        local_pwd_string = App.prefs.local_login_pwd
+        check_auto_login_facebook_token = myPref.facebook_token
+        local_id_string = myPref.local_login_id
+        local_pwd_string = myPref.local_login_pwd
         Log.d("hj","로그인 id값 : ${local_id_string}")
         Log.d("hj","페이스북 로그인 토큰 값 : ${check_auto_login_facebook_token}")
         local_id_string?.let {
@@ -198,23 +212,6 @@ class LoginActivity : AppCompatActivity() {
             object : FacebookCallback<LoginResult> {
                 override fun onSuccess(loginResult: LoginResult) {
                     Log.d("Success", loginResult.accessToken.toString())
-//                    Log.d(
-//                        "Success",
-//                        java.lang.String.valueOf(Profile.getCurrentProfile().getId())
-//                    )
-//                    Log.d(
-//                        "Success",
-//                        java.lang.String.valueOf(Profile.getCurrentProfile().getName())
-//                    )
-//                    Log.d(
-//                        "Success",
-//                        java.lang.String.valueOf(
-//                            Profile.getCurrentProfile().getProfilePictureUri(
-//                                200,
-//                                200
-//                            )
-//                        )
-//                    )
                     requestUserProfile(loginResult)
                 }
 

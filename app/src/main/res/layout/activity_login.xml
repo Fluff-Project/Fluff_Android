@@ -94,11 +94,11 @@
             <Button
                 android:id="@+id/btn_login_facebook_custom"
                 android:layout_width="match_parent"
-                android:background="@drawable/btn_filter_white_background"
                 android:text="페이스북으로 시작하기"
                 android:layout_height="46dp"
                 android:layout_marginBottom="12dp"
                 android:textFontWeight="900"
+                android:background="@drawable/btn_filter_white_background"
                 android:fontFamily="@font/ko_pub"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"/>
