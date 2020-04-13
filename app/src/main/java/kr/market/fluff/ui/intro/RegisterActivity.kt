@@ -32,6 +32,8 @@ class RegisterActivity : AppCompatActivity() {
 
     var page : Int = 1
 
+    val myPref = App.prefs
+
     //이메일, 비밀번호, 닉네임, 성별
     lateinit var string_register_email : String
     lateinit var string_register_pwd : String
@@ -57,25 +59,24 @@ class RegisterActivity : AppCompatActivity() {
         val mProgressBar: ProgressBar = findViewById(R.id.pb_register_loading) as ProgressBar
         val progressAnimator =
             ObjectAnimator.ofInt(mProgressBar, "progress", current_status,next_status)
-        progressAnimator.duration = 700
-        progressAnimator.interpolator = LinearInterpolator()
-        progressAnimator.start()
+        progressAnimator.run {
+            duration = 700
+            interpolator = LinearInterpolator()
+            start()
+        }
     }
     private fun setEvent(){
         et_register_email.addTextChangedListener{
-                text ->  if(!text!!.equals("")){
-            setBtnEnable()
+            text -> text?.let{setBtnEnable()}
         }
+        et_register_email.addTextChangedListener{
+            text -> text?.let{setBtnEnable()}
         }
         et_register_pwd.addTextChangedListener{
-                text ->  if(!text!!.equals("")){
-            setBtnEnable()
-        }
+            text -> text?.let{setBtnEnable()}
         }
         et_register_nick.addTextChangedListener{
-                text ->  if(!text!!.equals("")){
-            setBtnEnable()
-        }
+            text -> text?.let{setBtnEnable()}
         }
 
 
@@ -169,12 +170,15 @@ class RegisterActivity : AppCompatActivity() {
         val tx2 = ObjectAnimator.ofFloat(nextLayout, View.TRANSLATION_X, 500f, 0f)
         val fade1 = ObjectAnimator.ofFloat(prevLayout, View.ALPHA, 1.0f, 0.0f)
         val fade2 = ObjectAnimator.ofFloat(nextLayout, View.ALPHA, 0.0f, 1.0f)
-        anims.playTogether(tx1,tx2,fade1,fade2)
-        anims.setDuration(700)
-        anims.start()
-        anims.doOnEnd {
-            prevLayout.visibility = View.GONE
+        anims.run {
+            playTogether(tx1,tx2,fade1,fade2)
+            setDuration(700)
+            start()
+            doOnEnd {
+                prevLayout.visibility = View.GONE
+            }
         }
+
     }
     private fun next_to_pwd(){//et_register_email 안보이게, 다른 입력란 보이게, 체크이미지 없애기, 버튼 텍스트랑 프로그래스바 바꾸기, 변수에 값 저장
         //email 중복검사 실시 후 뷰를 바꿀지 말지 결정.
@@ -240,11 +244,13 @@ class RegisterActivity : AppCompatActivity() {
             )).safeEnqueue(
                 onSuccess ={
                     sendToast("회원가입에 성공하였습니다.")
-                    App.prefs.local_login_pwd = string_register_pwd
-                    App.prefs.local_login_id = string_register_email
-                    App.prefs.local_nick_name = string_register_nick
-                    App.prefs.local_gender = string_register_gender
-                    App.prefs.isFirst = true
+                    myPref.run {
+                        local_login_pwd = string_register_pwd
+                        local_login_id = string_register_email
+                        local_nick_name = string_register_nick
+                        local_gender = string_register_gender
+                        isFirst = true
+                    }
                     finish()
                 },
                 onFail = {_,_->sendToast("회원가입에 실패하였습니다.")},
@@ -267,11 +273,13 @@ class RegisterActivity : AppCompatActivity() {
         val tx2 = ObjectAnimator.ofFloat(prevLayout, View.TRANSLATION_X, -500f, 0f)
         val fade1 = ObjectAnimator.ofFloat(currentLayout, View.ALPHA, 1.0f, 0.0f)
         val fade2 = ObjectAnimator.ofFloat(prevLayout, View.ALPHA, 0.0f, 1.0f)
-        anims.playTogether(tx1,tx2,fade1,fade2)
-        anims.setDuration(700)
-        anims.start()
-        anims.doOnEnd {
-            currentLayout.visibility = View.GONE
+        anims.run {
+            playTogether(tx1,tx2,fade1,fade2)
+            setDuration(700)
+            start()
+            doOnEnd {
+                currentLayout.visibility = View.GONE
+            }
         }
     }
     override fun onBackPressed() {

@@ -54,3 +54,4 @@ data class BaseResponseJson<T>(
     val message: String,
     val data: T?
 )
+

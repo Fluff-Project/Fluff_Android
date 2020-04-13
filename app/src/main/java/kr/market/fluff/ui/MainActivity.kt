@@ -7,6 +7,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
+import kr.market.fluff.R
 import kr.market.fluff.ui.fragment.HomeFragment
 import kr.market.fluff.ui.fragment.auction.AuctionFragment
 import kr.market.fluff.ui.fragment.glance.GlanceFragment
@@ -21,19 +22,19 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
         when(p0.itemId){
-            kr.market.fluff.R.id.nav_home ->{
+            R.id.nav_home ->{
                 setThisPage(p0,0)
             }
-            kr.market.fluff.R.id.nav_auction -> {
+            R.id.nav_auction -> {
                 setThisPage(p0,1)
             }
-            kr.market.fluff.R.id.nav_glance -> {
+            R.id.nav_glance -> {
                 setThisPage(p0,2)
             }
-            kr.market.fluff.R.id.nav_magazine -> {
+            R.id.nav_magazine -> {
                 setThisPage(p0,3)
             }
-            kr.market.fluff.R.id.nav_my_page -> {
+            R.id.nav_my_page -> {
                 setThisPage(p0,4)
             }
         }
@@ -43,11 +44,11 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        setContentView(kr.market.fluff.R.layout.activity_main)
+        setContentView(R.layout.activity_main)
 
         //replace fragment를 위한 초기화면 설정
         val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.add(kr.market.fluff.R.id.fragment_container, HomeFragment()).commit()
+        fragmentTransaction.add(R.id.fragment_container, HomeFragment()).commit()
 
         init()
     }
@@ -70,23 +71,23 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         menuItem.setChecked(true)
         when(position){
             0 -> {supportFragmentManager.beginTransaction().replace(
-                kr.market.fluff.R.id.fragment_container,
+                R.id.fragment_container,
                 HomeFragment()
             ).commit()}
             1 -> {supportFragmentManager.beginTransaction().replace(
-                kr.market.fluff.R.id.fragment_container,
+                R.id.fragment_container,
                 AuctionFragment()
             ).commit()}
             2 -> {supportFragmentManager.beginTransaction().replace(
-                kr.market.fluff.R.id.fragment_container,
+                R.id.fragment_container,
                 GlanceFragment()
             ).commit()}
             3 -> {supportFragmentManager.beginTransaction().replace(
-                kr.market.fluff.R.id.fragment_container,
+                R.id.fragment_container,
                 MagazineFragment()
             ).commit()}
             4 -> {supportFragmentManager.beginTransaction().replace(
-                kr.market.fluff.R.id.fragment_container,
+                R.id.fragment_container,
                 MyPageFragment(this)
             ).commit()}
         }

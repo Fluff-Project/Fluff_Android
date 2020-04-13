@@ -55,7 +55,6 @@ class RegisterPhotoAdapter (
     companion object {
         private const val PHOTO = 0
         private const val ADD = 1
-
         const val MAX_PHOTO_COUNT = 7
     }
 }
